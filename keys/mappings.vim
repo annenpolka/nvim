@@ -41,8 +41,8 @@ else
   " Move selected line / block of text in visual mode
   " shift + k to move up
   " shift + j to move down
-  xnoremap K :move '<-2<CR>gv-gv
-  xnoremap J :move '>+1<CR>gv-gv
+"  xnoremap K :move '<-2<CR>gv-gv
+"  xnoremap J :move '>+1<CR>gv-gv
 
   " Alternate way to save
   nnoremap <silent> <C-s> :w<CR>
@@ -81,3 +81,11 @@ endif
 " Better nav for omnicomplete
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
+
+" 折返し
+set whichwrap=h,l,<,>,[,]
+" ノーマルモード改行
+nnoremap <CR> o<ESC>
+" xとsでヤンクしない
+nnoremap x "_x
+nnoremap s "_s

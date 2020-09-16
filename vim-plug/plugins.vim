@@ -8,6 +8,12 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    " Vim surrounding plugin
+    Plug 'machakann/vim-sandwich'
+    " better visual mode multi-cursor
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+    " vim-indent-object
+    Plug 'michaeljsmith/vim-indent-object'
     " Better Comments
     Plug 'tpope/vim-commentary'
     " Change dates fast
