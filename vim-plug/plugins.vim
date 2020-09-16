@@ -8,6 +8,10 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+
+    " テキストオブジェクトのやつ
+    Plug 'kana/vim-textobj-user'
+    Plug 'osyo-manga/vim-textobj-multiblock'
     " 選択範囲広げるやつ
     Plug 'terryma/vim-expand-region'
     " Vim surrounding plugin
