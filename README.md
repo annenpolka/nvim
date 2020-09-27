@@ -1,3 +1,5 @@
+My personal fork of NVCode(ChristianChiarulli/nvim)
+
 # NVCode
 
 ![NVCode pic](./utils/images/nvim.png)
