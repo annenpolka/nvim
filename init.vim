@@ -29,6 +29,7 @@ else
   source $HOME/.config/nvim/themes/airline.vim
 
   " Plugin Configuration
+source $HOME/.config/nvim/plug-config/vaffle.vim
   source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
   " source $HOME/.config/nvim/plug-config/rainbow.vim

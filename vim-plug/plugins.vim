@@ -8,6 +8,8 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    " filer
+    Plug 'cocopon/vaffle.vim'
     " float window
     Plug 'voldikss/vim-floaterm'
     " テキストオブジェクトのやつ
