@@ -89,3 +89,8 @@ nnoremap <CR> o<ESC>
 " xとsでヤンクしない
 nnoremap x "_x
 nnoremap s "_s
+" 10j, 10k
+nnoremap J 10j
+vnoremap J 10j
+nnoremap K 10k
+vnoremap K 10k

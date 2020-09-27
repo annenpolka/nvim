@@ -8,10 +8,13 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-
+    " float window
+    Plug 'voldikss/vim-floaterm'
     " テキストオブジェクトのやつ
     Plug 'kana/vim-textobj-user'
     Plug 'osyo-manga/vim-textobj-multiblock'
+    Plug 'Julian/vim-textobj-brace'
+    Plug 'Julian/vim-textobj-variable-segment'
     " 選択範囲広げるやつ
     Plug 'terryma/vim-expand-region'
     " Vim surrounding plugin
