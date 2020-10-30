@@ -8,20 +8,20 @@ My personal fork of NVCode(ChristianChiarulli/nvim)
   brew install neovim
 
   brew install --HEAD neovim # Latest
+
+  brew upgrade neovim --fetch-HEAD # Sometimes you need to update
   ```
 
 - Ubuntu
 
   ```
-  sudo apt install neovim
+  sudo apt install neovim # This may not provide the newest version
   ```
 
 - Arch
 
   ```
-  sudo pacman -S neovim
-
-  yay -S neovim-git # Latest
+  yay -S neovim-nightly-git # Latest
   ```
 
 ## Clone this repo into your config
