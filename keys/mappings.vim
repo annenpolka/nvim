@@ -94,3 +94,8 @@ nnoremap J 10j
 vnoremap J 10j
 nnoremap K 10k
 vnoremap K 10k
+
+omap ab <Plug>(textobj-multiblock-a)
+omap ib <Plug>(textobj-multiblock-i)
+xmap ab <Plug>(textobj-multiblock-a)
+xmap ib <Plug>(textobj-multiblock-i)
