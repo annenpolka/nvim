@@ -1,6 +1,19 @@
 set iskeyword+=-                      	" treat dash separated words as a word text object"
 set formatoptions-=cro                  " Stop newline continution of comments
 
+  let g:clipboard = {
+  \ 'name': 'win32yank',
+  \ 'copy': {
+  \    '+': 'win32yank.exe -i --crlf',
+  \    '*': 'win32yank.exe -i --crlf',
+  \  },
+  \ 'paste': {
+  \    '+': 'win32yank.exe -o --lf',
+  \    '*': 'win32yank.exe -o --lf',
+  \ },
+  \ 'cache_enabled': 0,
+  \ }
+
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set nowrap                              " Display long lines as just one line
