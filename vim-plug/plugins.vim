@@ -47,7 +47,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'machakann/vim-highlightedyank'
   else
 
-
     " Easymotion
     Plug 'easymotion/vim-easymotion'
     " Surround
@@ -74,10 +73,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Status Line
     Plug 'glepnir/galaxyline.nvim'
-    " Plug 'vim-airline/vim-airline'
     Plug 'kevinhwang91/rnvimr'
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
     Plug 'junegunn/fzf.vim'
     " Git
     Plug 'airblade/vim-gitgutter'
@@ -126,6 +125,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     " Intuitive buffer closing
     Plug 'moll/vim-bbye'
+    " Debugging
+    Plug 'puremourning/vimspector'
+    Plug 'szw/vim-maximizer'
     " Rainbow brackets
     " Plug 'luochen1990/rainbow'
     " Async Linting Engine
@@ -157,7 +159,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Multiple Cursors
     " Plug 'terryma/vim-multiple-cursors'
     " Plug 'kaicataldo/material.vim'
-    " Plug 'NLKNguyen/papercolor-theme'
     " Plug 'tomasiser/vim-code-dark'
     " Plug 'mg979/vim-xtabline'
     " Files
@@ -169,9 +170,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Echo doc
     " Plug 'Shougo/echodoc.vim'
     " Plug 'hardcoreplayers/spaceline.vim'
+    " Plug 'vim-airline/vim-airline'
     " Plug 'vim-airline/vim-airline-themes'
-    " Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-    " Plug 'arcticicestudio/nord-vim'
     " Ranger
     " Plug 'francoiscabrol/ranger.vim'
     " Plug 'rbgrouleff/bclose.vim'
@@ -184,7 +184,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'romgrk/lib.kom'
     " Plug 'brooth/far.vim'
     " Debugging
-    " Plug 'puremourning/vimspector'
   endif
 
 call plug#end()
