@@ -5,9 +5,7 @@ My personal fork of NVCode(ChristianChiarulli/nvim)
 - Mac
 
   ```
-  brew install neovim
-
-  brew install --HEAD neovim # Latest
+  brew install --HEAD neovim # Nightly version
 
   brew upgrade neovim --fetch-HEAD # Sometimes you need to update
   ```
@@ -15,13 +13,17 @@ My personal fork of NVCode(ChristianChiarulli/nvim)
 - Ubuntu
 
   ```
-  sudo apt install neovim # This may not provide the newest version
+  curl -l https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage > /tmp/nvim.appimage
+
+  sudo mv /tmp/nvim.appimage /usr/local/bin/nvim
+
+  chmod +x /usr/local/bin/nvim
   ```
 
 - Arch
 
   ```
-  yay -S neovim-nightly-git # Latest
+  yay -S neovim-git # Latest
   ```
 
 ## Clone this repo into your config
