@@ -99,7 +99,12 @@ xnoremap <silent> <Space> :<C-u>call <SID>openWhichKeyInVisualMode()<CR>
 
 xnoremap <silent> <C-P> :<C-u>call <SID>openVSCodeCommandsInVisualMode()<CR>
 
-xmap gc  <Plug>VSCodeCommentary
-nmap gc  <Plug>VSCodeCommentary
-omap gc  <Plug>VSCodeCommentary
-nmap gcc <Plug>VSCodeCommentaryLine
+"xmap gc  <Plug>VSCodeCommentary
+"nmap gc  <Plug>VSCodeCommentary
+"omap gc  <Plug>VSCodeCommentary
+"nmap gcc <Plug>VSCodeCommentaryLine
+
+" ez breadcrumb jump
+nnoremap q <Cmd>call VSCodeNotify('breadcrumbs.focusAndSelect')<CR>
+" ea recent
+nnoremap R <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>

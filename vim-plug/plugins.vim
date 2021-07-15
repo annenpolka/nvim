@@ -8,6 +8,12 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    " migemo でローマ字による日本語検索
+    Plug 'rhysd/migemo-search.vim'
+    " improved f
+    Plug 'rhysd/clever-f.vim'
+    " * improved
+    Plug 'haya14busa/vim-asterisk'
     " filer
     Plug 'cocopon/vaffle.vim'
     " float window
@@ -34,7 +40,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Repeat stuff
     Plug 'tpope/vim-repeat'
     " Text Navigation
-    Plug 'unblevable/quick-scope'
+    " Plug 'unblevable/quick-scope'
     " Useful for React Commenting
     Plug 'suy/vim-context-commentstring'
     " highlight all matches under cursor
@@ -43,14 +49,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   if exists('g:vscode')
     " Easy motion for VSCode
     " Plug 'asvetliakov/vim-easymotion'
-    Plug 'ChristianChiarulli/vscode-easymotion'
+    Plug 'asvetliakov/vim-easymotion'
     Plug 'machakann/vim-highlightedyank'
   else
 
     " Easymotion
     Plug 'easymotion/vim-easymotion'
     " Surround
-    Plug 'tpope/vim-surround'
+    " Plug 'tpope/vim-surround'
     " Have the file system follow you around
     Plug 'airblade/vim-rooter'
     " auto set indent settings
@@ -58,8 +64,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     " Treesitter
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'nvim-treesitter/playground'
+     Plug 'nvim-treesitter/nvim-treesitter' 
+     Plug 'nvim-treesitter/playground'
     " Cool Icons
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'

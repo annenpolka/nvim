@@ -13,7 +13,6 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/functions.vim
 source $HOME/.config/nvim/keys/mappings.vim
-
 if exists('g:vscode')
   " VS Code extension
   source $HOME/.config/nvim/vscode/settings.vim
@@ -27,9 +26,13 @@ else
   source $HOME/.config/nvim/themes/nvcode.vim
 
   " Plugin Configuration
+  source $HOME/.config/nvim/plug-config/migemo-search.vim
+  source $HOME/.config/nvim/plug-config/clever-f.vim
+  source $HOME/.config/nvim/plug-config/vim-asterisk.vim
   source $HOME/.config/nvim/plug-config/vaffle.vim
   source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
+  source $HOME/.config/nvim/plug-config/vim-sandwich.vim
   source $HOME/.config/nvim/plug-config/rnvimr.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
   source $HOME/.config/nvim/plug-config/fzf.vim
@@ -64,13 +67,18 @@ else
   " source $HOME/.config/nvim/plug-config/xtabline.vim
   " source $HOME/.config/nvim/plug-config/ale.vim
 endif
-source $HOME/.config/nvim/plug-config/quickscope.vim
+" source $HOME/.config/nvim/plug-config/quickscope.vim
 
 " Add paths to node and python here
 if !empty(glob("~/.config/nvim/paths.vim"))
   source $HOME/.config/nvim/paths.vim
 endif
 
+" ime off
+if executable('zenhan')
+autocmd InsertLeave * :call system('zenhan 0')
+autocmd CmdlineLeave * :call system('zenhan 0')
+endif
 " Better nav for omnicomplete TODO figure out why this is being overridden
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")

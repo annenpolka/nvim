@@ -108,7 +108,12 @@ nnoremap J 10j
 vnoremap J 10j
 nnoremap K 10k
 vnoremap K 10k
-
+" I like using H and L for beginning/end of line
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+" multi blocks
 omap ab <Plug>(textobj-multiblock-a)
 omap ib <Plug>(textobj-multiblock-i)
 xmap ab <Plug>(textobj-multiblock-a)
