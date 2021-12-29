@@ -49,6 +49,14 @@ require('packer').startup(function()
         }
   } 
   use 'sindrets/diffview.nvim' -- diff viewer
+  use 'ggandor/lightspeed.nvim' -- Faster f/F
+  -- surrounding plugin
+  use {
+  "blackCauldron7/surround.nvim",
+  config = function()
+    require"surround".setup {mappings_style = "sandwich"}
+  end
+  }
     end)
 
 -- Copy to system clipboard
@@ -313,3 +321,8 @@ neogit.setup {
     diffview = true -- set diffview.nvim integration
   },
 }
+
+-- lightspeed.nvim settings
+---- keymap
+vim.api.nvim_set_keymap("n", "<leader>f", "<Plug>Lightspeed_s", {noremap = false})
+vim.api.nvim_set_keymap("n", "<leader>F", "<Plug>Lightspeed_S", {noremap = false})
