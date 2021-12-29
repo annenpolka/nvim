@@ -65,6 +65,16 @@ require('packer').startup(function()
     cmd = 'CodeActionMenu',
   }
   use 'kevinhwang91/nvim-hlslens' -- Show matched information in search
+  use {
+    "folke/which-key.nvim", -- Show keybindings
+    config = function()
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
     end)
 
 -- Copy to system clipboard
