@@ -287,4 +287,6 @@ cmp.setup {
 
 -- Replace notify with nvim-notify
 vim.notify = require("notify")
-require("telescope").load_extension("notify")
+
+-- Neogit mappings
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Neogit<CR>", {noremap = true})
