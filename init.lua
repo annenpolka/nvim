@@ -56,7 +56,8 @@ require('packer').startup(function()
     require"surround".setup {mappings_style = "sandwich"}
   end
   }
-  use 'b3nj5m1n/kommentary'
+  use 'b3nj5m1n/kommentary' -- Commenting
+  use { 'p00f/nvim-ts-rainbow', requires = { 'nvim-treesitter/nvim-treesitter' } } -- Colorize brackets
     end)
 
 -- Copy to system clipboard
@@ -217,6 +218,14 @@ require('nvim-treesitter.configs').setup {
       },
     },
   },
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
 }
 
 -- LSP settings
@@ -337,3 +346,4 @@ vim.api.nvim_set_keymap("n", "<leader>cd", "<Plug>kommentary_motion_decrease", {
 vim.api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {})
 vim.api.nvim_set_keymap("n", "<C-_>", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default<C-c>", {})
+
