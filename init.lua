@@ -70,8 +70,8 @@ vim.o.mouse = 'a'
 vim.o.breakindent = true
 
 -- Tab indent settings
-vim.bo.tabstop = 4
-vim.bo.shiftwidth = 4
+vim.bo.tabstop = 2
+vim.bo.shiftwidth = 2
 vim.bo.expandtab = true -- replace TAB char to spaces
 vim.bo.autoindent = true
 vim.bo.smartindent = true
