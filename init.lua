@@ -64,6 +64,7 @@ require('packer').startup(function()
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu',
   }
+  use 'kevinhwang91/nvim-hlslens' -- Show matched information in search
     end)
 
 -- Copy to system clipboard
@@ -471,3 +472,13 @@ vim.g.symbols_outline = {
 
 -- nvim-lightbulb for all filetypes
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+
+-- nvim-hlslens
+-- -- keymaps
+vim.api.nvim_set_keymap("n", "n", [[n<Cmd>lua require('hlslens').start()<CR>]], {noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "N", [[N<Cmd>lua require('hlslens').start()<CR>]], {noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], {noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], {noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], {noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], {noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>l", ":nohl<CR>", {noremap = true, silent = true })
