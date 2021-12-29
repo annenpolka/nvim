@@ -423,7 +423,7 @@ vim.api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {
 vim.api.nvim_set_keymap("n", "<C-_>", "<Plug>kommentary_line_default", {})
 vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default<C-c>", {})
 
--- symbols-outlines.nvim
+-- symbols-outlines.nvim for outline view
 -- -- keymap
 vim.api.nvim_set_keymap("n", "<leader>o", "<cmd>SymbolsOutline<CR>", {noremap = true})
 -- -- options
