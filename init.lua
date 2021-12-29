@@ -59,6 +59,7 @@ require('packer').startup(function()
   use 'b3nj5m1n/kommentary' -- Commenting
   use { 'p00f/nvim-ts-rainbow', requires = { 'nvim-treesitter/nvim-treesitter' } } -- Colorize brackets
   use 'simrat39/symbols-outline.nvim' -- outline viewer
+  use 'kosayoda/nvim-lightbulb' -- Discover available code action like VSCode
     end)
 
 -- Copy to system clipboard
@@ -462,3 +463,6 @@ vim.g.symbols_outline = {
         TypeParameter = {icon = "𝙏", hl = "TSParameter"}
     }
 }
+
+-- nvim-lightbulb for all filetypes
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
