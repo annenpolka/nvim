@@ -41,8 +41,15 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'rcarriga/nvim-notify' -- Notification baloon
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' } -- Magit-like git plugin
-end)
+  -- Magit-like git plugin
+  use { 'TimUntersberger/neogit',
+        requires = {
+          'nvim-lua/plenary.nvim',
+          'sindrets/diffview.nvim'
+        }
+  } 
+  use 'sindrets/diffview.nvim' -- diff viewer
+    end)
 
 -- Copy to system clipboard
 vim.o.clipboard = "unnamedplus"
@@ -296,5 +303,13 @@ cmp.setup {
 -- Replace notify with nvim-notify
 vim.notify = require("notify")
 
--- Neogit mappings
+-- Neogit Settings
+---- keymap
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Neogit<CR>", {noremap = true})
+---- setup
+local neogit = require("neogit")
+neogit.setup {
+  integrations = {
+    diffview = true -- set diffview.nvim integration
+  },
+}
