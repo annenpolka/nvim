@@ -60,6 +60,10 @@ require('packer').startup(function()
   use { 'p00f/nvim-ts-rainbow', requires = { 'nvim-treesitter/nvim-treesitter' } } -- Colorize brackets
   use 'simrat39/symbols-outline.nvim' -- outline viewer
   use 'kosayoda/nvim-lightbulb' -- Discover available code action like VSCode
+  use {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+  }
     end)
 
 -- Copy to system clipboard
