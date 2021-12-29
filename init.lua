@@ -47,7 +47,7 @@ require('packer').startup(function()
           'sindrets/diffview.nvim'
         }
   } 
-  use 'sindrets/diffview.nvim' -- diff viewer
+  use { 'sindrets/diffview.nvim', requires = { 'kyazdani42/nvim-web-devicons' } } -- diff viewer
   use 'ggandor/lightspeed.nvim' -- Faster f/F
   -- Surrounding plugin
   use {
