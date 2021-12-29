@@ -18,7 +18,6 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -57,6 +56,7 @@ require('packer').startup(function()
     require"surround".setup {mappings_style = "sandwich"}
   end
   }
+  use 'b3nj5m1n/kommentary'
     end)
 
 -- Copy to system clipboard
@@ -312,9 +312,9 @@ cmp.setup {
 vim.notify = require("notify")
 
 -- Neogit Settings
----- keymap
+-- -- keymap
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Neogit<CR>", {noremap = true})
----- setup
+-- -- setup
 local neogit = require("neogit")
 neogit.setup {
   integrations = {
@@ -323,6 +323,17 @@ neogit.setup {
 }
 
 -- lightspeed.nvim settings
----- keymap
+-- -- keymap
 vim.api.nvim_set_keymap("n", "<leader>f", "<Plug>Lightspeed_s", {noremap = false})
 vim.api.nvim_set_keymap("n", "<leader>F", "<Plug>Lightspeed_S", {noremap = false})
+
+-- kommentary
+-- -- keymap
+vim.api.nvim_set_keymap("n", "<leader>cic", "<Plug>kommentary_line_increase", {})
+vim.api.nvim_set_keymap("n", "<leader>ci", "<Plug>kommentary_motion_increase", {})
+vim.api.nvim_set_keymap("x", "<leader>ci", "<Plug>kommentary_visual_increase", {})
+vim.api.nvim_set_keymap("n", "<leader>cdc", "<Plug>kommentary_line_decrease", {})
+vim.api.nvim_set_keymap("n", "<leader>cd", "<Plug>kommentary_motion_decrease", {})
+vim.api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {})
+vim.api.nvim_set_keymap("n", "<C-_>", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default<C-c>", {})
