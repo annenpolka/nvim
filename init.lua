@@ -50,13 +50,14 @@ require('packer').startup(function()
   } 
   use 'sindrets/diffview.nvim' -- diff viewer
   use 'ggandor/lightspeed.nvim' -- Faster f/F
-  -- surrounding plugin
+  -- Surrounding plugin
   use {
   "blackCauldron7/surround.nvim",
   config = function()
     require"surround".setup {mappings_style = "sandwich"}
   end
   }
+  use 'karb94/neoscroll.nvim' -- smooth scrolling
     end)
 
 -- Copy to system clipboard
