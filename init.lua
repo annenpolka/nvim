@@ -336,7 +336,7 @@ neogit.setup {
 vim.api.nvim_set_keymap("n", "<leader>f", "<Plug>Lightspeed_s", {noremap = false})
 vim.api.nvim_set_keymap("n", "<leader>F", "<Plug>Lightspeed_S", {noremap = false})
 vim.api.nvim_set_keymap("n", "s", "<Plug>Lightspeed_s", {noremap = false})
-vim.api.nvim_set_keymap("n", "s", "<Plug>Lightspeed_S", {noremap = false})
+vim.api.nvim_set_keymap("n", "S", "<Plug>Lightspeed_S", {noremap = false})
 
 -- kommentary
 -- -- keymap
