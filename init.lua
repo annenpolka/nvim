@@ -12,6 +12,7 @@ vim.cmd [[
   augroup end
 ]]
 
+
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
@@ -30,7 +31,7 @@ require('packer').startup(function()
   -- Highlight, edit, and navigate code using a fast incremental parsing library
   use 'nvim-treesitter/nvim-treesitter'
   -- Additional textobjects for treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use { 'nvim-treesitter/nvim-treesitter-textobjects', requires = { 'nvim-treesitter/nvim-treesitter' }}
   use {
     'neovim/nvim-lspconfig',  -- Collection of configurations for built-in LSP client
     'williamboman/nvim-lsp-installer', --  To Install LSP Automatically with LspInstall
@@ -58,6 +59,13 @@ vim.o.mouse = 'a'
 
 --Enable break indent
 vim.o.breakindent = true
+
+-- Tab indent settings
+vim.bo.tabstop = 4
+vim.bo.shiftwidth = 4
+vim.bo.expandtab = true -- replace TAB char to spaces
+vim.bo.autoindent = true
+vim.bo.smartindent = true
 
 --Save undo history
 vim.opt.undofile = true
