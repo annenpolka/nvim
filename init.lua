@@ -64,6 +64,7 @@ require('packer').startup(function()
     cmd = 'CodeActionMenu',
   }
   use 'kevinhwang91/nvim-hlslens' -- Show matched information in search
+  -- Show keybindings which-key
   use {
     "folke/which-key.nvim", -- Show keybindings
     config = function()
@@ -73,6 +74,7 @@ require('packer').startup(function()
     end
   }
   use 'sainnhe/sonokai' -- sonokai theme
+  use "projekt0n/github-nvim-theme" -- github theme
   -- Problem view
   use {
     "folke/trouble.nvim",
@@ -127,11 +129,11 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme (order is important here)
 vim.o.termguicolors = true
-vim.g.onedark_terminal_italics = 2
-vim.g.sonokai_style = 'andromeda'
-vim.g.sonokai_enable_italic = 1
-vim.g.sonokai_disable_italic_comment = 1
-vim.cmd [[colorscheme sonokai]]
+require("github-theme").setup({
+  theme_style = "dimmed",
+  -- other config
+})
+
 
 --Set statusbar
 vim.g.lightline = {
