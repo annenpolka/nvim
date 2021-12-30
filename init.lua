@@ -138,6 +138,19 @@ vim.g.lightline = {
   component_function = { gitbranch = 'fugitive#head' },
 }
 
+-- folding settings
+vim.wo.foldcolumn = '1' -- visualize folding by column
+vim.wo.foldenable = false -- no auto folding
+-- autosave mkview
+vim.cmd [[
+  autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
+  autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
+]]
+-- -- treesitter expr based folding
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+
+
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
