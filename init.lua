@@ -84,9 +84,8 @@ require('packer').startup(function()
     end
   }
   -- show signiture guides on type
-  use {
-    "ray-x/lsp_signature.nvim",
-  }
+  use 'ray-x/lsp_signature.nvim'
+  use 'kdheepak/lazygit.nvim'
 end)
 
 
@@ -443,6 +442,10 @@ neogit.setup {
     diffview = true -- set diffview.nvim integration
   },
 }
+
+-- lazygit keymaps
+vim.api.nvim_set_keymap("n", "<leader>G", "<cmd>LazyGit<CR>", {noremap = true})
+
 
 -- lightspeed.nvim settings
 -- -- keymap
