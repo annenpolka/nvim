@@ -46,7 +46,7 @@ require('packer').startup(function()
           'nvim-lua/plenary.nvim',
           'sindrets/diffview.nvim'
         }
-  } 
+  }
   use { 'sindrets/diffview.nvim', requires = { 'kyazdani42/nvim-web-devicons' } } -- diff viewer
   use 'ggandor/lightspeed.nvim' -- Faster f/F
   -- Surrounding plugin
@@ -70,8 +70,6 @@ require('packer').startup(function()
     config = function()
       require("which-key").setup {
         -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
       }
     end
   }
@@ -347,14 +345,14 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  opts.on_attach = on_attach
+  opts.capabilities = capabilities
+  server:setup(opts)
+end)
+
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
