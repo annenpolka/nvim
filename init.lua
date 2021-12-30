@@ -141,15 +141,13 @@ vim.g.lightline = {
 -- folding settings
 vim.wo.foldcolumn = '1' -- visualize folding by column
 vim.wo.foldenable = false -- no auto folding
--- autosave mkview
-vim.cmd [[
-  autocmd BufWritePost * if expand('%') != '' && &buftype !~ 'nofile' | mkview | endif
-  autocmd BufRead * if expand('%') != '' && &buftype !~ 'nofile' | silent loadview | endif
-]]
+vim.wo.foldlevel = 999 -- don't fold everything
 -- -- treesitter expr based folding
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-
+-- -- keymaps
+vim.api.nvim_set_keymap("n", "<c-j>", "zo", {noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<c-k>", "zc", {noremap = true, silent = true })
 
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
@@ -337,7 +335,7 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-S-K>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
