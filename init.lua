@@ -76,7 +76,6 @@ require('packer').startup(function()
   }
   use 'sainnhe/sonokai' -- sonokai theme
   use "projekt0n/github-nvim-theme" -- github theme
-  use "Pocco81/AutoSave.nvim"
   -- Problem view
   use {
     "folke/trouble.nvim",
@@ -93,6 +92,15 @@ require('packer').startup(function()
   use 'kdheepak/lazygit.nvim'
   -- autosave
   use 'Pocco81/AutoSave.nvim'
+  -- Autopair
+  use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {
+        check_ts = true
+      }
+    end
+  }
 end)
 
 -- autosave
@@ -457,6 +465,12 @@ cmp.setup {
     { name = 'cmp_tabnine' },
   },
 }
+
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+
 -- cmp-tabnine config
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
