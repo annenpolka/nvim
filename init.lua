@@ -31,9 +31,8 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
   -- Additional textobjects for treesitter
   use { 'nvim-treesitter/nvim-treesitter-textobjects', requires = { 'nvim-treesitter/nvim-treesitter' }}
-  use {
-    'neovim/nvim-lspconfig',  -- Collection of configurations for built-in LSP client
-    'williamboman/nvim-lsp-installer', --  To Install LSP Automatically with LspInstall
+  use { 'neovim/nvim-lspconfig',  -- Collection of configurations for built-in LSP client
+        'williamboman/nvim-lsp-installer', --  To Install LSP Automatically with LspInstall
   }
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
@@ -123,7 +122,7 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
---Set colorscheme (order is important here)
+-- Set colorscheme (order is important here)
 vim.o.termguicolors = true
 vim.g.onedark_terminal_italics = 2
 vim.g.sonokai_style = 'andromeda'
@@ -326,7 +325,7 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- LSP settings
-local lspconfig = require 'lspconfig'
+-- local lspconfig = require 'lspconfig'
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -538,3 +537,4 @@ vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
 vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
   {silent = true, noremap = true}
 )
+
