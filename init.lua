@@ -87,6 +87,7 @@ require('packer').startup(function()
   }
   -- show signiture guides on type
   use 'ray-x/lsp_signature.nvim'
+  -- Open lazygit in neovim
   use 'kdheepak/lazygit.nvim'
 end)
 
