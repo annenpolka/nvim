@@ -83,7 +83,11 @@ require('packer').startup(function()
       }
     end
   }
-    end)
+  -- show signiture guides on type
+  use {
+    "ray-x/lsp_signature.nvim",
+  }
+end)
 
 
 -- Copy to system clipboard
@@ -349,6 +353,8 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>so', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  -- lsp_signature initialize
+  require "lsp_signature".on_attach()
 end
 
 -- nvim-cmp supports additional completion capabilities
