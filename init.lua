@@ -361,6 +361,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- luasnip setup
 local luasnip = require 'luasnip'
+local snippets = require('my_snippets')
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
