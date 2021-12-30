@@ -329,7 +329,7 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- LSP settings
--- local lspconfig = require 'lspconfig'
+local lspconfig = require 'lspconfig'
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -368,6 +368,15 @@ lsp_installer.on_server_ready(function(server)
   opts.capabilities = capabilities
   server:setup(opts)
 end)
+
+-- Enable the following language servers manually
+local servers = { 'ccls' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
 
 
 -- Set completeopt to have a better completion experience
