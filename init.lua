@@ -105,6 +105,8 @@ require('packer').startup(function()
   }
 end)
 
+-- autoread
+vim.g.autoread = true
 -- autosave
 local autosave = require("autosave")
 autosave.setup(
