@@ -38,6 +38,8 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+  -- Inject Format, Diagnostics, Code Actions to Lsp
+  use { 'jose-elias-alvarez/null-ls.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'rcarriga/nvim-notify' -- Notification baloon
   -- Magit-like git plugin
@@ -420,6 +422,47 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- null-ls configuration
+local null_ls = require('null-ls')
+-- -- detect eslint config
+local has_eslint_config = function(u)
+  return u.root_has_file('.eslintrc')
+    or u.root_has_file('.eslintrc.json')
+    or u.root_has_file('.eslintrc.js')
+    or u.root_has_file('package.json')
+    or u.root_has_file('.eslintrc.cjs')
+    or u.root_has_file('.eslintrc.yaml')
+    or u.root_has_file('.eslintrc.yml')
+end
+-- -- setup
+require('null-ls').setup({
+  debug = true,
+  sources = {
+    -- eslint, prettier
+    null_ls.builtins.code_actions.eslint_d.with({
+      condition = has_eslint_config,
+      prefer_local = 'node_modules/.bin',
+    }),
+    null_ls.builtins.diagnostics.eslint_d.with({
+      condition = has_eslint_config,
+      prefer_local = 'node_modules/.bin',
+    }),
+    null_ls.builtins.formatting.eslint_d.with({
+      condition = has_eslint_config,
+      prefer_local = 'node_modules/.bin',
+    }),
+    null_ls.builtins.formatting.prettier.with({
+      prefer_local = 'node_modules/.bin',
+    }),
+    -- stylua
+    null_ls.builtins.formatting.stylua,
+    -- c++
+    --[[ null_ls.builtins.formatting.clang_format.with({
+      extra_args = {"--style=Google"}
+    }), ]]
+    null_ls.builtins.diagnostics.cppcheck
+  },
+})
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
