@@ -560,12 +560,11 @@ neogit.setup {
 vim.api.nvim_set_keymap("n", "<leader>G", "<cmd>LazyGit<CR>", {noremap = true})
 
 
--- lightspeed.nvim settings
+-- easymotion settings
 -- -- keymap
 vim.api.nvim_set_keymap("n", "<leader>f", "<Plug>Lightspeed_s", {noremap = false})
 vim.api.nvim_set_keymap("n", "<leader>F", "<Plug>Lightspeed_S", {noremap = false})
-vim.api.nvim_set_keymap("n", "s", "<cmd>FuzzyMotion<CR>", {noremap = false})
-vim.api.nvim_set_keymap("n", "S", "<Plug>Lightspeed_s", {noremap = false})
+vim.api.nvim_set_keymap("n", "S", "<cmd>FuzzyMotion<CR>", {noremap = false})
 
 -- kommentary
 -- -- keymap
