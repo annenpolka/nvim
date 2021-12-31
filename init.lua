@@ -51,6 +51,12 @@ require('packer').startup(function()
   }
   use { 'sindrets/diffview.nvim', requires = { 'kyazdani42/nvim-web-devicons' } } -- diff viewer
   use 'ggandor/lightspeed.nvim' -- Faster f/F
+  use {
+    'yuki-yano/fuzzy-motion.vim',
+    requires = {
+      'vim-denops/denops.vim'
+    }
+  }
   -- Surrounding plugin
   use {
   "blackCauldron7/surround.nvim",
@@ -558,8 +564,8 @@ vim.api.nvim_set_keymap("n", "<leader>G", "<cmd>LazyGit<CR>", {noremap = true})
 -- -- keymap
 vim.api.nvim_set_keymap("n", "<leader>f", "<Plug>Lightspeed_s", {noremap = false})
 vim.api.nvim_set_keymap("n", "<leader>F", "<Plug>Lightspeed_S", {noremap = false})
-vim.api.nvim_set_keymap("n", "s", "<Plug>Lightspeed_s", {noremap = false})
-vim.api.nvim_set_keymap("n", "S", "<Plug>Lightspeed_S", {noremap = false})
+vim.api.nvim_set_keymap("n", "s", "<cmd>FuzzyMotion<CR>", {noremap = false})
+vim.api.nvim_set_keymap("n", "S", "<Plug>Lightspeed_s", {noremap = false})
 
 -- kommentary
 -- -- keymap
