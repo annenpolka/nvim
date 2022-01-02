@@ -592,7 +592,10 @@ local on_attach = function(_, bufnr)
 	)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 	-- lsp_signature initialize
-	require("lsp_signature").on_attach()
+	require("lsp_signature").setup({
+		hint_enable = true,
+		max_width = 120,
+	})
 	-- -- format before saving
 	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 end
