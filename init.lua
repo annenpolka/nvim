@@ -110,6 +110,9 @@ require("packer").startup(function()
 			})
 		end,
 	})
+	-- code biscuits
+	use({ "code-biscuits/nvim-biscuits", requires = { "nvim-treesitter/nvim-treesitter" } })
+	use({ "norcalli/nvim-colorizer.lua" })
 end)
 
 -- autoread
@@ -467,6 +470,7 @@ vim.api.nvim_set_keymap(
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require("nvim-treesitter.configs").setup({
+	ensure_installed = "maintained",
 	highlight = {
 		enable = true, -- false will disable the whole extension
 	},
@@ -523,6 +527,23 @@ require("nvim-treesitter.configs").setup({
 		max_file_lines = nil, -- Do not enable for files with more than n lines, int
 		-- colors = {}, -- table of hex strings
 		-- termcolors = {} -- table of colour name strings
+	},
+})
+-- Code Biscuits
+vim.cmd([[highlight BiscuitColor ctermfg=lightgray]])
+local biscuits = require("nvim-biscuits").setup({
+	toggle_keybind = "<leader>bs",
+	show_on_start = true,
+	cursor_line_only = false,
+	default_config = {
+		max_length = 120,
+		min_distance = 3,
+		prefix_string = "<- ",
+	},
+	language_config = {
+		python = {
+			disabled = true,
+		},
 	},
 })
 
