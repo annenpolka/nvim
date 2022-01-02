@@ -22,6 +22,15 @@ require("packer").startup({
 		use("lewis6991/impatient.nvim") -- Optimize Lua modules loading
 		use("tpope/vim-fugitive") -- Git commands in nvim
 		use("tpope/vim-rhubarb") -- Fugitive-companion to interact with github
+		-- Magit-like git plugin
+		use({
+			"TimUntersberger/neogit",
+			requires = {
+				"nvim-lua/plenary.nvim",
+				"sindrets/diffview.nvim",
+			},
+		})
+		use({ "sindrets/diffview.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- diff viewer
 		use("ludovicchabant/vim-gutentags") -- Automatic tags management
 		-- UI to select things (files, grep results, open buffers...)
 		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -51,15 +60,6 @@ require("packer").startup({
 		use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } })
 		use("L3MON4D3/LuaSnip") -- Snippets plugin
 		use("rcarriga/nvim-notify") -- Notification baloon
-		-- Magit-like git plugin
-		use({
-			"TimUntersberger/neogit",
-			requires = {
-				"nvim-lua/plenary.nvim",
-				"sindrets/diffview.nvim",
-			},
-		})
-		use({ "sindrets/diffview.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- diff viewer
 		use("ggandor/lightspeed.nvim") -- Faster f/F
 		use({
 			"yuki-yano/fuzzy-motion.vim",
