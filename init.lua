@@ -12,12 +12,10 @@ vim.cmd([[
   augroup end
 ]])
 
-require("impatient") -- optimize loading
-
 local use = require("packer").use
 require("packer").startup({
 	function()
-		use("wbthomason/packer.nvim") -- Package manager
+		use({ "wbthomason/packer.nvim", opt = true }) -- Package manager
 		use("lewis6991/impatient.nvim") -- Optimize Lua modules loading
 		use("tpope/vim-fugitive") -- Git commands in nvim
 		use("tpope/vim-rhubarb") -- Fugitive-companion to interact with github
@@ -143,7 +141,7 @@ autosave.setup({
 	write_all_buffers = false,
 	on_off_commands = true,
 	clean_command_line_interval = 0,
-	debounce_delay = 3000,
+	debounce_delay = 10000,
 })
 
 -- Copy to system clipboard
@@ -173,6 +171,9 @@ vim.bo.smartindent = true
 
 --Save undo history
 vim.opt.undofile = true
+--Save with <c-s>
+vim.api.nvim_set_keymap("n", "<c-s>", "<cmd>w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<c-s>", "<esc><cmd>w<CR>", { noremap = true, silent = true })
 
 --Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
