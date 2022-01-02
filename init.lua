@@ -18,7 +18,7 @@ vim.cmd([[
 local use = require("packer").use
 require("packer").startup({
 	function()
-		use({ "wbthomason/packer.nvim", opt = true }) -- Package manager
+		use({ "wbthomason/packer.nvim" }) -- Package manager
 		use("lewis6991/impatient.nvim") -- Optimize Lua modules loading
 		use("tpope/vim-fugitive") -- Git commands in nvim
 		use("tpope/vim-rhubarb") -- Fugitive-companion to interact with github
