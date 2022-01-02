@@ -1,9 +1,12 @@
 -- Install packer
+vim.cmd([[packadd packer.nvim]])
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	vim.fn.execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
+
+require("impatient") -- optimize loading
 
 vim.cmd([[
   augroup Packer
@@ -202,7 +205,7 @@ vim.wo.foldcolumn = "1" -- visualize folding by column
 vim.wo.foldenable = false -- no auto folding
 vim.wo.foldlevel = 999 -- don't fold everything
 vim.wo.foldnestmax = 3
-vim.wo.foldminlines = 1
+vim.wo.foldminlines = 3
 vim.wo.foldtext =
 	[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 -- -- treesitter expr based folding
