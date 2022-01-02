@@ -26,6 +26,10 @@ require("packer").startup({
 		-- UI to select things (files, grep results, open buffers...)
 		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 		use("joshdick/onedark.vim") -- Theme inspired by Atom
+		use({
+			"akinsho/bufferline.nvim",
+			requires = "kyazdani42/nvim-web-devicons",
+		})
 		use("itchyny/lightline.vim") -- Fancier statusline
 		-- Add indentation guides even on blank lines
 		use("lukas-reineke/indent-blankline.nvim")
@@ -126,6 +130,10 @@ require("packer").startup({
 		},
 	},
 })
+-- bufferline configuration
+require("bufferline").setup()
+vim.api.nvim_set_keymap("n", "<tab>", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
 
 -- autoread
 vim.g.autoread = true
