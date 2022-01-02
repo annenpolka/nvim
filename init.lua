@@ -133,10 +133,7 @@ autosave.setup({
 	clean_command_line_interval = 0,
 	debounce_delay = 5000,
 })
--- -- format before autosaving Hook
-autosave.hook_before_saving = function()
-	vim.lsp.buf.formatting()
-end
+
 -- Copy to system clipboard
 vim.o.clipboard = "unnamedplus"
 
@@ -584,6 +581,8 @@ local on_attach = function(_, bufnr)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 	-- lsp_signature initialize
 	require("lsp_signature").on_attach()
+	-- -- format before saving
+	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 end
 
 -- Lsp diagnostic symbols
