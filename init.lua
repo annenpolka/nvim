@@ -112,7 +112,6 @@ require("packer").startup(function()
 	})
 	-- code biscuits
 	use({ "code-biscuits/nvim-biscuits", requires = { "nvim-treesitter/nvim-treesitter" } })
-	use({ "norcalli/nvim-colorizer.lua" })
 end)
 
 -- autoread
@@ -530,7 +529,6 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 -- Code Biscuits
-vim.cmd([[highlight BiscuitColor ctermfg=lightgray]])
 local biscuits = require("nvim-biscuits").setup({
 	toggle_keybind = "<leader>bs",
 	show_on_start = true,
