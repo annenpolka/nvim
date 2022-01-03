@@ -101,9 +101,7 @@ require("packer").startup({
 		use({
 			"folke/which-key.nvim", -- Show keybindings
 			config = function()
-				require("which-key").setup({
-					-- your configuration comes here
-				})
+				require("which-key").setup({})
 			end,
 		})
 		-- Problem view
@@ -144,6 +142,10 @@ require("packer").startup({
 		})
 		-- terminal integration
 		use({ "akinsho/toggleterm.nvim" })
+		-- project management
+		use({
+			"ahmedkhalf/project.nvim",
+		})
 	end,
 
 	-- Packer configuration
@@ -518,6 +520,10 @@ vim.api.nvim_set_keymap(
 	[[<cmd>lua require('telescope.builtin').oldfiles()<CR>]],
 	{ noremap = true, silent = true }
 )
+-- -- project.nvim configuration
+require("project_nvim").setup({})
+require("telescope").load_extension("projects")
+vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>Telescope projects<cr>", { silent = true, noremap = true })
 
 -- nvim-tree.lua file manager
 -- -- options
