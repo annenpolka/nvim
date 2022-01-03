@@ -124,7 +124,7 @@ require("packer").startup({
 				})
 			end,
 		})
-		-- code biscuits
+		-- code biscuits, Bracket Lens like plugin
 		use({ "code-biscuits/nvim-biscuits", requires = { "nvim-treesitter/nvim-treesitter" } })
 	end,
 	-- Packer configuration
