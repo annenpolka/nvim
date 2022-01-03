@@ -531,7 +531,7 @@ require("nvim-tree").setup({
 	auto_close = true,
 	open_on_tab = false,
 	hijack_cursor = true,
-	update_cwd = false,
+	update_cwd = true,
 	update_to_buf_dir = {
 		enable = true,
 		auto_open = true,
@@ -546,8 +546,8 @@ require("nvim-tree").setup({
 		},
 	},
 	update_focused_file = {
-		enable = false,
-		update_cwd = false,
+		enable = true,
+		update_cwd = true,
 		ignore_list = {},
 	},
 	system_open = {
@@ -812,7 +812,7 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-d>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-l>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
