@@ -35,6 +35,8 @@ require("packer").startup({
 		-- UI to select things (files, grep results, open buffers...)
 		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 		use("joshdick/onedark.vim") -- Theme inspired by Atom
+		use("sainnhe/sonokai") -- sonokai theme
+		use("projekt0n/github-nvim-theme") -- github theme
 		use({
 			"akinsho/bufferline.nvim",
 			requires = "kyazdani42/nvim-web-devicons",
@@ -92,8 +94,6 @@ require("packer").startup({
 				})
 			end,
 		})
-		use("sainnhe/sonokai") -- sonokai theme
-		use("projekt0n/github-nvim-theme") -- github theme
 		-- Problem view
 		use({
 			"folke/trouble.nvim",
