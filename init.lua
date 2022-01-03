@@ -126,12 +126,22 @@ require("packer").startup({
 		})
 		-- code biscuits, Bracket Lens like plugin
 		use({ "code-biscuits/nvim-biscuits", requires = { "nvim-treesitter/nvim-treesitter" } })
+		-- Better quickfix
+		use({ "kevinhwang91/nvim-bqf", ft = "qf", requires = { "junegunn/fzf" } })
+		-- fzf
+		use({
+			"junegunn/fzf",
+			run = function()
+				vim.fn["fzf#install"]()
+			end,
+		})
 	end,
+
 	-- Packer configuration
 	config = {
-		compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
+		compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua", -- for impatient.nvim's optimization
 		display = {
-			open_fn = require("packer.util").float,
+			open_fn = require("packer.util").float, -- show Packer in floating window
 		},
 	},
 })
