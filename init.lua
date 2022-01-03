@@ -158,6 +158,14 @@ require("bufferline").setup()
 vim.api.nvim_set_keymap("n", "<tab>", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
 
+-- quickfix autocmd
+vim.cmd([[
+  augroup QfAutoCommands
+    autocmd!
+    autocmd QuickfixCmdPost make,vimgrep cwindow " autoopen Quickfix
+    autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif " autoclose when quit
+  augroup end]])
+
 -- autoread
 vim.g.autoread = true
 -- autosave
