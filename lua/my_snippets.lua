@@ -1,7 +1,7 @@
 -- My Snippets for LuaSnip
 
 -- needed members
-local ls = require'luasnip'
+local ls = require("luasnip")
 local s = ls.s
 local sn = ls.sn
 local t = ls.t
@@ -12,11 +12,11 @@ local d = ls.d
 
 -- snippet definitions
 ls.snippets = {
-  all = {
-    s({trig = 'trigger'}, {
-        -- そのまま挿入される
-        t({"hello !"}),
-        i(0)
-    })
-  }
+	all = {
+		s({ trig = "triggerhogehogehoge" }, {
+			-- そのまま挿入される
+			t({ "hello !" }),
+			i(0),
+		}),
+	},
 }

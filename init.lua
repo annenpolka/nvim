@@ -34,6 +34,11 @@ require("packer").startup({
 		use("ludovicchabant/vim-gutentags") -- Automatic tags management
 		-- UI to select things (files, grep results, open buffers...)
 		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+		-- file manager
+		use({
+			"kyazdani42/nvim-tree.lua",
+			requires = { "kyazdani42/nvim-web-devicons", "antoinemadec/FixCursorHold.nvim" },
+		})
 		use("joshdick/onedark.vim") -- Theme inspired by Atom
 		use("sainnhe/sonokai") -- sonokai theme
 		use("projekt0n/github-nvim-theme") -- github theme
@@ -119,7 +124,7 @@ require("packer").startup({
 				})
 			end,
 		})
-		-- code biscuits
+		-- code biscuits, Bracket Lens like plugin
 		use({ "code-biscuits/nvim-biscuits", requires = { "nvim-treesitter/nvim-treesitter" } })
     -- search buffer
 		use({
@@ -495,6 +500,76 @@ vim.api.nvim_set_keymap(
 	[[<cmd>lua require('telescope.builtin').oldfiles()<CR>]],
 	{ noremap = true, silent = true }
 )
+
+-- nvim-tree.lua file manager
+-- -- options
+vim.g.nvim_tree_quit_on_open = 1
+local tree_cb = require("nvim-tree.config").nvim_tree_callback
+require("nvim-tree").setup({
+	disable_netrw = true,
+	hijack_netrw = true,
+	open_on_setup = false,
+	ignore_ft_on_setup = {},
+	auto_close = true,
+	open_on_tab = false,
+	hijack_cursor = true,
+	update_cwd = false,
+	update_to_buf_dir = {
+		enable = true,
+		auto_open = true,
+	},
+	diagnostics = {
+		enable = false,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		},
+	},
+	update_focused_file = {
+		enable = false,
+		update_cwd = false,
+		ignore_list = {},
+	},
+	system_open = {
+		cmd = nil,
+		args = {},
+	},
+	filters = {
+		dotfiles = false,
+		custom = {},
+	},
+	git = {
+		enable = true,
+		ignore = true,
+		timeout = 500,
+	},
+	view = {
+		width = 30,
+		height = 30,
+		hide_root_folder = false,
+		side = "left",
+		auto_resize = false,
+		-- keybindings inside nvimtree
+		mappings = {
+			custom_only = false,
+			list = {
+				{ key = { "<CR>", "o", "<2-LeftMouse>", "l" }, cb = tree_cb("edit") },
+				{ key = { "h" }, cb = tree_cb("close_node") },
+			},
+		},
+		number = false,
+		relativenumber = false,
+		signcolumn = "yes",
+	},
+	trash = {
+		cmd = "trash",
+		require_confirm = true,
+	},
+})
+-- -- mapping outside nvimtree
+vim.api.nvim_set_keymap("n", "<c-e>", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
