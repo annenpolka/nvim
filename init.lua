@@ -134,7 +134,8 @@ require("packer").startup({
 			run = function()
 				vim.fn["fzf#install"]()
 			end,
-    -- search buffer
+		})
+	    -- search buffer
 		use({
 			"nvim-pack/nvim-spectre",
 			requires = {
