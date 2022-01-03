@@ -127,7 +127,7 @@ require("packer").startup({
 		-- code biscuits, Bracket Lens like plugin
 		use({ "code-biscuits/nvim-biscuits", requires = { "nvim-treesitter/nvim-treesitter" } })
 		-- Better quickfix
-		use({ "kevinhwang91/nvim-bqf", ft = "qf", requires = { "junegunn/fzf" } })
+		use({ "kevinhwang91/nvim-bqf", requires = { "junegunn/fzf" } })
 		-- fzf
 		use({
 			"junegunn/fzf",
