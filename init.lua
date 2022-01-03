@@ -40,6 +40,8 @@ require("packer").startup({
 			requires = { "kyazdani42/nvim-web-devicons", "antoinemadec/FixCursorHold.nvim" },
 		})
 		use("joshdick/onedark.vim") -- Theme inspired by Atom
+		use("sainnhe/sonokai") -- sonokai theme
+		use("projekt0n/github-nvim-theme") -- github theme
 		use({
 			"akinsho/bufferline.nvim",
 			requires = "kyazdani42/nvim-web-devicons",
@@ -97,8 +99,6 @@ require("packer").startup({
 				})
 			end,
 		})
-		use("sainnhe/sonokai") -- sonokai theme
-		use("projekt0n/github-nvim-theme") -- github theme
 		-- Problem view
 		use({
 			"folke/trouble.nvim",
