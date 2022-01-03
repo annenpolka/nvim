@@ -121,6 +121,14 @@ require("packer").startup({
 		})
 		-- code biscuits
 		use({ "code-biscuits/nvim-biscuits", requires = { "nvim-treesitter/nvim-treesitter" } })
+    -- search buffer
+		use({
+			"nvim-pack/nvim-spectre",
+			requires = {
+				"kyazdani42/nvim-web-devicons",
+				"nvim-lua/plenary.nvim",
+			},
+		})
 	end,
 	-- Packer configuration
 	config = {
@@ -155,6 +163,7 @@ autosave.setup({
 	debounce_delay = 10000,
 })
 
+require('spectre').setup()
 -- Copy to system clipboard
 vim.o.clipboard = "unnamedplus"
 
