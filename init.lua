@@ -31,6 +31,13 @@ require("packer").startup({
 			},
 		})
 		use({ "sindrets/diffview.nvim", requires = { "kyazdani42/nvim-web-devicons" } }) -- diff viewer
+		use({
+			"nvim-pack/nvim-spectre",
+			requires = {
+				"kyazdani42/nvim-web-devicons",
+				"nvim-lua/plenary.nvim",
+			},
+		})
 		use("ludovicchabant/vim-gutentags") -- Automatic tags management
 		-- UI to select things (files, grep results, open buffers...)
 		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -124,7 +131,7 @@ require("packer").startup({
 				})
 			end,
 		})
-		-- code biscuits, Bracket Lens like plugin
+		-- code biscuits, Bracket Lens-like plugin
 		use({ "code-biscuits/nvim-biscuits", requires = { "nvim-treesitter/nvim-treesitter" } })
 		-- Better quickfix
 		use({ "kevinhwang91/nvim-bqf", requires = { "junegunn/fzf" } })
@@ -135,14 +142,7 @@ require("packer").startup({
 				vim.fn["fzf#install"]()
 			end,
 		})
-	    -- search buffer
-		use({
-			"nvim-pack/nvim-spectre",
-			requires = {
-				"kyazdani42/nvim-web-devicons",
-				"nvim-lua/plenary.nvim",
-			},
-		})
+		-- search buffer
 	end,
 
 	-- Packer configuration
@@ -178,7 +178,6 @@ autosave.setup({
 	debounce_delay = 10000,
 })
 
-require('spectre').setup()
 -- Copy to system clipboard
 vim.o.clipboard = "unnamedplus"
 
@@ -706,6 +705,13 @@ local on_attach = function(_, bufnr)
 	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 end
 
+-- spectre search configuration
+require("spectre").setup({
+	live_update = true,
+	open_cmd = "new",
+})
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>lua require('spectre').open()<CR>", { noremap = true, silent = true })
+
 -- Lsp diagnostic symbols
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -865,8 +871,6 @@ vim.api.nvim_set_keymap("n", "<leader>G", "<cmd>LazyGit<CR>", { noremap = true }
 
 -- easymotion settings
 -- -- keymap
-vim.api.nvim_set_keymap("n", "<leader>f", "<Plug>Lightspeed_s", { noremap = false })
-vim.api.nvim_set_keymap("n", "<leader>F", "<Plug>Lightspeed_S", { noremap = false })
 vim.api.nvim_set_keymap("n", "S", "<cmd>FuzzyMotion<CR>", { noremap = false })
 
 -- kommentary
