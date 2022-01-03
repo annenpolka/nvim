@@ -134,6 +134,13 @@ require("packer").startup({
 			run = function()
 				vim.fn["fzf#install"]()
 			end,
+    -- search buffer
+		use({
+			"nvim-pack/nvim-spectre",
+			requires = {
+				"kyazdani42/nvim-web-devicons",
+				"nvim-lua/plenary.nvim",
+			},
 		})
 	end,
 
@@ -170,6 +177,7 @@ autosave.setup({
 	debounce_delay = 10000,
 })
 
+require('spectre').setup()
 -- Copy to system clipboard
 vim.o.clipboard = "unnamedplus"
 
