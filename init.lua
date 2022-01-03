@@ -713,13 +713,6 @@ local on_attach = function(_, bufnr)
 	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 end
 
--- spectre search configuration
-require("spectre").setup({
-	live_update = true,
-	open_cmd = "new",
-})
-vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>lua require('spectre').open()<CR>", { noremap = true, silent = true })
-
 -- Lsp diagnostic symbols
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
@@ -792,6 +785,14 @@ require("null-ls").setup({
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
+
+-- spectre search configuration
+require("spectre").setup({
+	live_update = true,
+	open_cmd = "new",
+})
+
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>lua require('spectre').open()<CR>", { noremap = true, silent = true })
 
 -- luasnip setup
 local luasnip = require("luasnip")
