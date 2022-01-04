@@ -8,7 +8,6 @@ end
 
 -- optimize loading
 require("impatient")
-require("packer_compiled")
 
 -- auto PackerCompile when init.lua updated
 vim.cmd([[
@@ -21,9 +20,8 @@ vim.cmd([[
 -- packer configuration
 local packer = require("packer")
 packer.init({
-	compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua", -- for impatient.nvim's optimization
 	display = {
-		open_fn = require("packer.util").float,
+		open_fn = require("packer.util").float, -- floating packer window
 	},
 })
 -- -- plugins
@@ -63,6 +61,7 @@ require("packer").startup(function()
 	use({
 		"akinsho/bufferline.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
+		config = [[require("bufferline").setup({})]],
 	})
 	use("itchyny/lightline.vim") -- Fancier statusline
 	-- Add indentation guides even on blank lines
@@ -160,7 +159,6 @@ require("packer").startup(function()
 end)
 
 -- bufferline configuration
-require("bufferline").setup()
 vim.api.nvim_set_keymap("n", "<tab>", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-tab>", "<cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
 
