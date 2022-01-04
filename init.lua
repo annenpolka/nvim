@@ -29,6 +29,7 @@ local use = packer.use
 require("packer").startup(function()
 	use({ "wbthomason/packer.nvim" }) -- Package manager
 	use("lewis6991/impatient.nvim") -- Optimize Lua modules loading
+	use("notomo/gesture.nvim") -- mouse gestures
 	use("tpope/vim-fugitive") -- Git commands in nvim
 	use("tpope/vim-rhubarb") -- Fugitive-companion to interact with github
 	-- Magit-like git plugin
@@ -277,6 +278,31 @@ vim.cmd([[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]])
+
+-- mouse gestures configuration
+vim.api.nvim_set_keymap(
+	"n",
+	"<LeftDrag>",
+	[[<Cmd>lua require('gesture').draw()<CR>]],
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<LeftRelease>",
+	[[<Cmd>lua require('gesture').finish()<CR>]],
+	{ noremap = true, silent = true }
+)
+local gesture = require("gesture")
+gesture.register({
+	name = "vertical split",
+	inputs = { gesture.down() },
+	action = "vs",
+})
+gesture.register({
+	name = "horizontal split",
+	inputs = { gesture.right() },
+	action = "sp",
+})
 
 --Map blankline
 vim.g.indent_blankline_char = "┊"
