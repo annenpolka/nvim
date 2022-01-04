@@ -57,7 +57,6 @@ require("packer").startup(function()
 		requires = { "kyazdani42/nvim-web-devicons", "antoinemadec/FixCursorHold.nvim" },
 	})
 	use("joshdick/onedark.vim") -- Theme inspired by Atom
-	use("sainnhe/sonokai") -- sonokai theme
 	use("projekt0n/github-nvim-theme") -- github theme
 	use({
 		"akinsho/bufferline.nvim",
@@ -127,8 +126,6 @@ require("packer").startup(function()
 	})
 	-- show signiture guides on type
 	use("ray-x/lsp_signature.nvim")
-	-- Open lazygit in neovim
-	use("kdheepak/lazygit.nvim")
 	-- autosave
 	use("Pocco81/AutoSave.nvim")
 	-- Autopair
@@ -548,8 +545,6 @@ vim.api.nvim_set_keymap(
 	{ noremap = true, silent = true }
 )
 -- -- project.nvim configuration
-require("project_nvim").setup({})
-require("telescope").load_extension("projects")
 vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>Telescope projects<cr>", { silent = true, noremap = true })
 
 -- nvim-tree.lua file manager
@@ -908,9 +903,6 @@ neogit.setup({
 		diffview = true, -- set diffview.nvim integration
 	},
 })
-
--- lazygit keymaps
-vim.api.nvim_set_keymap("n", "<leader>G", "<cmd>LazyGit<CR>", { noremap = true })
 
 -- easymotion settings
 -- -- keymap
