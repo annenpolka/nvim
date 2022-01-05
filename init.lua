@@ -153,6 +153,17 @@ require("packer").startup(function()
 	-- project management
 	use({
 		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({})
+			require("telescope").load_extension("projects")
+		end,
+	})
+	-- automatic split management
+	use({
+		"beauwilliams/focus.nvim",
+		config = function()
+			require("focus").setup()
+		end,
 	})
 end)
 
@@ -987,7 +998,7 @@ vim.api.nvim_set_keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], 
 vim.api.nvim_set_keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>l", ":nohl<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>L", ":nohl<CR>", { noremap = true, silent = true })
 
 -- trouble.nvim
 -- -- kermaps
@@ -1002,3 +1013,9 @@ vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", { silent =
 require("toggleterm").setup({
 	open_mapping = [[<c-t>]],
 })
+
+-- focus.nvim, Auto split configuration
+vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>FocusSplitLeft<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>j", "<cmd>FocusSplitDown<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>k", "<cmd>FocusSplitUp<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>l", "<cmd>FocusSplitRight<CR>", { silent = true })
