@@ -487,6 +487,8 @@ require("gitsigns").setup({
 		topdelete = { hl = "GitGutterDelete", text = "‾" },
 		changedelete = { hl = "GitGutterChange", text = "~" },
 	},
+	-- unmap default keymappings
+	keymaps = {},
 })
 
 -- Telescope
