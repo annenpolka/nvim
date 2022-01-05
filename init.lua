@@ -29,6 +29,8 @@ local use = packer.use
 require("packer").startup(function()
 	use({ "wbthomason/packer.nvim" }) -- Package manager
 	use("lewis6991/impatient.nvim") -- Optimize Lua modules loading
+	-- Close buffer/window/vim wisely
+	use({ "mhinz/vim-sayonara" })
 	use("notomo/gesture.nvim") -- mouse gestures
 	use("tpope/vim-fugitive") -- Git commands in nvim
 	use("tpope/vim-rhubarb") -- Fugitive-companion to interact with github
@@ -1022,3 +1024,5 @@ vim.api.nvim_set_keymap("n", "<leader>j", ":FocusSplitDown<CR>", { silent = true
 vim.api.nvim_set_keymap("n", "<leader>k", ":FocusSplitUp<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>l", ":FocusSplitRight<CR>", { silent = true })
 
+-- Sayonara configuration
+vim.api.nvim_set_keymap("n", "<leader>Q", ":Sayonara<CR>", { silent = true })
