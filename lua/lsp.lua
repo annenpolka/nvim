@@ -114,3 +114,7 @@ require("null-ls").setup({
 	},
 })
 
+-- projects.nvim
+require("project_nvim").setup({})
+require("telescope").load_extension("projects")
+

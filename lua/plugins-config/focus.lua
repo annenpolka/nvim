@@ -1,5 +1,9 @@
 local M = {}
 
+function M.config()
+	require("focus").setup()
+end
+
 function M.map()
     vim.api.nvim_set_keymap("n", "<leader>h", ":FocusSplitLeft<CR>", { silent = true })
     vim.api.nvim_set_keymap("n", "<leader>j", ":FocusSplitDown<CR>", { silent = true })

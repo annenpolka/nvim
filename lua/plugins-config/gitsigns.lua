@@ -1,3 +1,6 @@
+local M = {}
+
+function M.config()
 -- Gitsigns
 require("gitsigns").setup({
 	signs = {
@@ -10,3 +13,6 @@ require("gitsigns").setup({
 	-- unmap default keymappings
 	keymaps = {},
 })
+end
+
+return M
