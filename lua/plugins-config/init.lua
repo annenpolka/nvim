@@ -9,6 +9,7 @@ require("paq")({
 	-- runtime, dependency----------------------------------------------------------
 	{ "kyazdani42/nvim-web-devicons" },
 	{ "nvim-lua/plenary.nvim" },
+	{ "vim-denops/denops.vim" },
 	-- fzf
 	{
 		"junegunn/fzf",
@@ -81,6 +82,8 @@ require("paq")({
 	-- Surrounding plugin
 	{ "blackCauldron7/surround.nvim" },
 	{ "b3nj5m1n/kommentary" },
+	-- multi cursor
+	{ "mg979/vim-visual-multi" },
 	-- Colorize brackets
 	{ "p00f/nvim-ts-rainbow" },
 	-- outline viewer
