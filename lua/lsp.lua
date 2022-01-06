@@ -2,7 +2,6 @@
 local lspconfig = require("lspconfig")
 local on_attach = function(_, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -36,10 +35,6 @@ local on_attach = function(_, bufnr)
 	)
 	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 	-- lsp_signature initialize
-	require("lsp_signature").setup({
-		hint_enable = true,
-		max_width = 120,
-	})
 	-- -- format before saving
 	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 end
@@ -117,4 +112,3 @@ require("null-ls").setup({
 -- projects.nvim
 require("project_nvim").setup({})
 require("telescope").load_extension("projects")
-
