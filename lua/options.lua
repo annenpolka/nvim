@@ -51,7 +51,7 @@ vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
---
+
 vim.o.termguicolors = true
 
 ---------------------------------------------------------------------------
@@ -70,3 +70,6 @@ vim.cmd([[
     autocmd QuickfixCmdPost make,vimgrep cwindow " autoopen Quickfix
     autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif " autoclose when quit
   augroup end]])
+
+-- disable auto commentout on line break
+vim.cmd([[au BufWinEnter * set formatoptions-=ro]])
