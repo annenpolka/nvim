@@ -1,0 +1,135 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.006  000.006: --- NVIM STARTING ---
+000.234  000.228: locale set
+000.453  000.219: inits 1
+000.463  000.010: window checked
+003.170  002.707: parsing arguments
+003.381  000.210: expanding arguments
+003.396  000.016: inits 2
+003.715  000.319: init highlight
+003.716  000.001: waiting for UI
+004.370  000.654: done waiting for UI
+004.375  000.005: init screen for UI
+004.390  000.015: init default mappings
+004.472  000.082: init default autocommands
+021.062  016.530  016.530: sourcing /home/annenpolka/.config/nvim/init.lua
+021.101  000.099: sourcing vimrc file(s)
+027.009  000.011  000.011: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/LuaSnip/ftdetect/snippets.vim
+027.318  000.018  000.018: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/elixir.vim
+027.331  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/fennel.vim
+027.347  000.008  000.008: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/fish.vim
+027.360  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/fusion.vim
+027.374  000.008  000.008: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/gdresource.vim
+027.388  000.007  000.007: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/gdscript.vim
+027.401  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/glimmer.vim
+027.425  000.018  000.018: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/glsl.vim
+027.437  000.005  000.005: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/gomod.vim
+027.451  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/gowork.vim
+027.470  000.011  000.011: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/graphql.vim
+027.488  000.010  000.010: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/hcl.vim
+027.499  000.005  000.005: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/heex.vim
+027.511  000.005  000.005: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/hjson.vim
+027.524  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/json5.vim
+027.538  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/julia.vim
+027.557  000.012  000.012: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/ledger.vim
+027.570  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/nix.vim
+027.583  000.007  000.007: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/prisma.vim
+027.596  000.007  000.007: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/pug.vim
+027.610  000.007  000.007: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/ql.vim
+027.633  000.017  000.017: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/query.vim
+027.647  000.007  000.007: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/surface.vim
+027.659  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/teal.vim
+027.673  000.008  000.008: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/tlaplus.vim
+027.686  000.007  000.007: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/yang.vim
+027.882  000.016  000.016: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/zig.vim
+028.015  000.014  000.014: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/vim-fugitive/ftdetect/fugitive.vim
+028.665  000.034  000.034: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/autoload/nvim_treesitter.vim
+033.497  012.236  011.943: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/filetype.vim
+033.688  000.041  000.041: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/ftplugin.vim
+033.825  000.018  000.018: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/indent.vim
+034.361  000.117  000.117: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/synload.vim
+034.447  000.595  000.478: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/syntax/syntax.vim
+035.924  000.567  000.567: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/gzip.vim
+035.955  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/health.vim
+036.039  000.074  000.074: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/man.vim
+036.404  000.155  000.155: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+036.461  000.411  000.257: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/matchit.vim
+036.576  000.107  000.107: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/matchparen.vim
+036.904  000.319  000.319: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/netrwPlugin.vim
+037.024  000.006  000.006: sourcing /home/annenpolka/.local/share/nvim/rplugin.vim
+037.029  000.105  000.099: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/rplugin.vim
+037.110  000.072  000.072: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/shada.vim
+037.188  000.022  000.022: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/spellfile.vim
+037.314  000.110  000.110: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tarPlugin.vim
+037.391  000.056  000.056: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tohtml.vim
+037.414  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/tutor.vim
+037.549  000.125  000.125: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/plugin/zipPlugin.vim
+121.150  083.504  083.504: sourcing /home/annenpolka/.config/nvim/plugin/packer_compiled.lua
+121.677  002.191: loading rtp plugins
+122.072  000.065  000.065: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/AutoSave.nvim/plugin/ascmds.vim
+122.331  000.184  000.184: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim/plugin/fix_cursorhold_nvim.vim
+122.574  000.191  000.191: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+122.773  000.048  000.048: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/denops.vim/autoload/denops.vim
+122.871  000.199  000.151: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/denops.vim/plugin/denops.vim
+125.781  002.856  002.856: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.vim
+125.984  000.124  000.124: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/fuzzy-motion.vim/plugin/fuzzy_motion.vim
+126.640  000.593  000.593: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+127.122  000.028  000.028: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+127.377  000.626  000.598: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+128.503  001.055  001.055: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/kommentary/plugin/kommentary.vim
+128.900  000.303  000.303: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/lightline.vim/plugin/lightline.vim
+132.015  003.018  003.018: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/lightspeed.nvim/plugin/lightspeed.vim
+132.276  000.147  000.147: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/neogit/plugin/neogit.vim
+132.441  000.080  000.080: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-biscuits/plugin/nvim-biscuits.vim
+132.521  000.014  000.014: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-bqf/plugin/bqf.vim
+133.415  000.817  000.817: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+133.640  000.172  000.172: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-hlslens/plugin/hlslens.vim
+133.786  000.080  000.080: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+133.906  000.062  000.062: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+134.091  000.089  000.089: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-tree.lua/plugin/nvim-tree-startup.lua
+134.607  000.453  000.453: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.vim
+135.948  001.271  001.271: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects/plugin/nvim-treesitter-textobjects.vim
+136.156  000.146  000.146: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow/plugin/rainbow.vim
+136.245  000.029  000.029: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+136.357  000.035  000.035: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+136.433  000.007  000.007: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/surround.nvim/plugin/surround.vim
+137.711  001.229  001.229: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim/plugin/symbols-outline.vim
+137.883  000.109  000.109: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.vim
+137.957  000.023  000.023: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/toggleterm.nvim/plugin/toggleterm.vim
+138.190  000.185  000.185: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+139.344  001.093  001.093: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+139.809  000.392  000.392: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/vim-gutentags/plugin/gutentags.vim
+139.964  000.092  000.092: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+140.173  000.099  000.099: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/vim-sayonara/plugin/sayonara.vim
+140.254  000.010  000.010: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/which-key.nvim/plugin/which-key.vim
+140.336  002.809: loading packages
+140.616  000.068  000.068: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+140.904  000.255  000.255: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/cmp-tabnine/after/plugin/cmp-tabnine.lua
+141.157  000.216  000.216: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+141.177  000.303: loading after plugins
+141.188  000.010: inits 3
+142.720  001.532: reading ShaDa
+143.427  000.708: opening buffers
+144.220  000.425  000.425: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/lightline.vim/autoload/lightline.vim
+149.541  004.374  004.374: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/vim-fugitive/autoload/fugitive.vim
+150.350  000.037  000.037: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/lightline.vim/autoload/lightline/tab.vim
+150.837  000.074  000.074: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/onedark.vim/autoload/onedark.vim
+151.118  000.134  000.134: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/lightline.vim/autoload/lightline/colorscheme.vim
+151.593  001.079  000.870: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/onedark.vim/autoload/lightline/colorscheme/onedark.vim
+154.463  005.120: BufEnter autocommands
+154.466  000.003: editing files in windows
+166.634  000.052  000.052: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/denops.vim/autoload/denops/util.vim
+166.829  000.294  000.241: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/denops.vim/autoload/denops/server.vim
+166.949  000.038  000.038: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/denops.vim/autoload/denops/job.vim
+168.912  000.323  000.323: sourcing /home/annenpolka/.local/share/nvim/site/pack/packer/start/vim-gutentags/autoload/gutentags.vim
+169.000  013.879: VimEnter autocommands
+169.002  000.002: UIEnter autocommands
+169.378  000.223  000.223: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.6.1/share/nvim/runtime/autoload/provider/clipboard.vim
+169.386  000.160: before starting main loop
+655.856  486.470: first screen update
+655.862  000.006: --- NVIM STARTED ---
