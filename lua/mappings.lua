@@ -27,14 +27,14 @@ end
 
 -- plugins
 require(m("bufferline")).map()
+require(m("focus")).map()
+require(m("fuzzy-motion")).map()
 require(m("gestures")).map()
-require(m("telescope")).map()
+require(m("neogit")).map()
 require(m("nvim-tree")).map()
 require(m("spectre")).map()
-require(m("neogit")).map()
-require(m("fuzzy-motion")).map()
+require(m("telescope")).map()
 require(m("kommentary")).map()
 require(m("hlslens")).map()
 require(m("trouble")).map()
-require(m("focus")).map()
 require(m("sayonara")).map()
