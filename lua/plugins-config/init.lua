@@ -58,6 +58,7 @@ require("paq")({
 	{ "nvim-treesitter/nvim-treesitter" },
 	-- Additional textobjects for treesitter
 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+	{ "David-Kunz/treesitter-unit" },
 	-- Collection of configurations for built-in LSP client
 	{ "neovim/nvim-lspconfig" },
 	--  To Install LSP Automatically with LspInstall
@@ -142,5 +143,6 @@ require(p("surround")).config()
 require(p("symbols-outline")).config()
 require(p("telescope")).config()
 require(p("toggleterm")).config()
+require(p("treesitter-unit")).config()
 require(p("trouble")).config()
 require(p("which-key")).config()
