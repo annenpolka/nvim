@@ -80,8 +80,9 @@ require("paq")({
 	-- Faster f/f
 	{ "ggandor/lightspeed.nvim" },
 	{ "yuki-yano/fuzzy-motion.vim" },
-	-- Surrounding plugin
-	{ "blackCauldron7/surround.nvim" },
+	-- sandwiching plugin
+	{ "machakann/vim-sandwich" },
+	-- commenting
 	{ "b3nj5m1n/kommentary" },
 	-- multi cursor
 	{ "mg979/vim-visual-multi" },
@@ -139,7 +140,7 @@ require(p("notify")).config()
 require(p("nvim-tree")).config()
 require(p("nvim-treesitter")).config()
 require(p("spectre")).config()
-require(p("surround")).config()
+require(p("sandwich")).config()
 require(p("symbols-outline")).config()
 require(p("telescope")).config()
 require(p("toggleterm")).config()
