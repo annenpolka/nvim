@@ -49,7 +49,7 @@ require("paq")({
 		"akinsho/bufferline.nvim",
 	},
 	-- Fancier statusline
-	{ "itchyny/lightline.vim" },
+	{ "nvim-lualine/lualine.nvim" },
 	-- Add indentation guides even on blank lines
 	{ "lukas-reineke/indent-blankline.nvim" },
 	-- Add git related info in the signs columns and popups
@@ -135,7 +135,7 @@ require(p("github-theme")).config()
 require(p("gitsigns")).config()
 require(p("indent-blankline")).config()
 require(p("lightbulb")).config()
-require(p("lightline")).config()
+require(p("lualine")).config()
 require(p("lsp_signature")).config()
 require(p("neogit")).config()
 require(p("notify")).config()
