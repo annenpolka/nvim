@@ -77,6 +77,8 @@ require("paq")({
 	{ "L3MON4D3/LuaSnip" },
 	-- Notification baloon
 	{ "rcarriga/nvim-notify" },
+	-- yank kill-ring
+	{ "tversteeg/registers.nvim" },
 	-- Faster f/f
 	{ "ggandor/lightspeed.nvim" },
 	{ "yuki-yano/fuzzy-motion.vim" },
@@ -122,6 +124,7 @@ require("paq")({
 local p = function(name)
 	return string.format("plugins-config.%s", name)
 end
+
 require(p("completion")).config() -- completion retaled bundle
 require(p("autopairs")).config()
 require(p("autosave")).config()
@@ -141,6 +144,7 @@ require(p("neogit")).config()
 require(p("notify")).config()
 require(p("nvim-tree")).config()
 require(p("nvim-treesitter")).config()
+require(p("registers")).config()
 require(p("sandwich")).config()
 require(p("spectre")).config()
 require(p("substitute")).config()
