@@ -21,6 +21,8 @@ require("paq")({
 
 	-- Close buffer/window/vim wisely
 	{ "mhinz/vim-sayonara" },
+	-- Better Escape
+	{ "max397574/better-escape.nvim" },
 	-- autosave
 	{ "Pocco81/AutoSave.nvim" },
 	-- mouse gestures
@@ -130,6 +132,7 @@ require(p("completion")).config() -- completion retaled bundle
 require(p("autopairs")).config()
 require(p("autosave")).config()
 require(p("biscuits")).config()
+require(p("better_escape")).config()
 require(p("bufferline")).config()
 require(p("copilot")).config()
 require(p("gestures")).config()

@@ -1,6 +1,7 @@
 --Vim Keybindings--------------------------------------------------------------------------
 -- Map jk Escape
-vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true })
+-- now using better-escape.nvim
+-- vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true })
 
 --Save with <c-s>
 vim.api.nvim_set_keymap("n", "<c-s>", "<cmd>w<CR>", { noremap = true, silent = true })
