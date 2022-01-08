@@ -23,6 +23,7 @@ require("paq")({
 	{ "mhinz/vim-sayonara" },
 	-- autosave
 	{ "Pocco81/AutoSave.nvim" },
+	-- mouse gestures
 	{ "notomo/gesture.nvim" },
 	{ "tpope/vim-fugitive" }, -- Git commands in nvim
 	{ "tpope/vim-rhubarb" }, -- Fugitive-companion to interact with github
