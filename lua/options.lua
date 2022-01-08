@@ -38,14 +38,14 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = "yes"
 
 -- folding settings
-vim.wo.foldcolumn = "1" -- visualize folding by column
 vim.wo.foldenable = false -- no auto folding
+vim.wo.foldcolumn = "1" -- visualize folding by column
 vim.wo.foldlevel = 999 -- don't fold everything
 vim.wo.foldnestmax = 3
 vim.wo.foldminlines = 3
 vim.wo.foldtext =
 	[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
--- -- treesitter expr based folding
+-- treesitter expr based folding
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 

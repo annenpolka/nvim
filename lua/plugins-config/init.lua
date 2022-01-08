@@ -35,6 +35,8 @@ require("paq")({
 	{
 		"TimUntersberger/neogit",
 	},
+	-- Add git related info in the signs columns and popups
+	{ "lewis6991/gitsigns.nvim" },
 	-- search buffer
 	{ "nvim-pack/nvim-spectre" },
 	-- Automatic tags management
@@ -57,8 +59,6 @@ require("paq")({
 	{ "nvim-lualine/lualine.nvim" },
 	-- Add indentation guides even on blank lines
 	{ "lukas-reineke/indent-blankline.nvim" },
-	-- Add git related info in the signs columns and popups
-	{ "lewis6991/gitsigns.nvim" },
 	-- Highlight, edit, and navigate code using a fast incremental parsing library
 	{ "nvim-treesitter/nvim-treesitter" },
 	-- Additional textobjects for treesitter
