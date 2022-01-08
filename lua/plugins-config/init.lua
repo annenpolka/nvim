@@ -27,6 +27,7 @@ require("paq")({
 	{ "Pocco81/AutoSave.nvim" },
 	-- mouse gestures
 	{ "notomo/gesture.nvim" },
+	-- Git
 	{ "tpope/vim-fugitive" }, -- Git commands in nvim
 	{ "tpope/vim-rhubarb" }, -- Fugitive-companion to interact with github
 	{ "sindrets/diffview.nvim" }, -- git diff viewer
