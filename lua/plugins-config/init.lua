@@ -84,6 +84,8 @@ require("paq")({
 	{ "rcarriga/nvim-notify" },
 	-- yank kill-ring
 	{ "tversteeg/registers.nvim" },
+	-- folding
+	{ "anuvyklack/pretty-fold.nvim" },
 	-- Faster f/f
 	{ "ggandor/lightspeed.nvim" },
 	{ "yuki-yano/fuzzy-motion.vim" },
@@ -151,6 +153,7 @@ require(p("notify")).config()
 require(p("nvim-tree")).config()
 require(p("nvim-treesitter")).config()
 require(p("registers")).config()
+require(p("pretty-fold")).config()
 require(p("sandwich")).config()
 require(p("spectre")).config()
 require(p("substitute")).config()
