@@ -24,6 +24,9 @@ vim.api.nvim_set_keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true,
 vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
+-- Open VSCode
+vim.api.nvim_set_keymap("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
+
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function
 local m = function(name)
