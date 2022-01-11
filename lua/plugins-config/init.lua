@@ -125,6 +125,8 @@ require("paq")({
 	{ "ahmedkhalf/project.nvim" },
 	-- automatic split management
 	{ "beauwilliams/focus.nvim" },
+	-- cpbooster, competitive programming cli tool
+	{ "searleser97/cpbooster.vim" },
 })
 
 -- require plugin's config
