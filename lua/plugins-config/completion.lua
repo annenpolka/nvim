@@ -46,9 +46,15 @@ function M.config()
 		},
 		sources = {
 			{ name = "nvim_lsp" },
-			{ name = "buffer", option = {
-				keyword_pattern = [[\k\+]],
-			} },
+			{
+				name = "buffer",
+				option = {
+					keyword_pattern = [[\k\+]],
+					get_bufnrs = function()
+						return vim.api.nvim_list_bufs()
+					end,
+				},
+			},
 			{ name = "luasnip" },
 			{ name = "cmp_tabnine" },
 		},
