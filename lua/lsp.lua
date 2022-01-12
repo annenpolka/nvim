@@ -89,37 +89,36 @@ for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
 end
 -- -- add predefined sources
 local sources_predefined = {
-		-- eslint, prettier
-		null_ls.builtins.code_actions.eslint_d.with({
-			condition = has_eslint_config,
-			prefer_local = "node_modules/.bin",
-		}),
-		null_ls.builtins.diagnostics.eslint_d.with({
-			condition = has_eslint_config,
-			prefer_local = "node_modules/.bin",
-		}),
-		null_ls.builtins.formatting.eslint_d.with({
-			condition = has_eslint_config,
-			prefer_local = "node_modules/.bin",
-		}),
-		null_ls.builtins.formatting.prettier.with({
-			prefer_local = "node_modules/.bin",
-		}),
-		-- stylua
-		null_ls.builtins.formatting.stylua,
-		-- c++
-		--[[ null_ls.builtins.formatting.clang_format.with({
+	-- eslint, prettier
+	null_ls.builtins.code_actions.eslint_d.with({
+		condition = has_eslint_config,
+		prefer_local = "node_modules/.bin",
+	}),
+	null_ls.builtins.diagnostics.eslint_d.with({
+		condition = has_eslint_config,
+		prefer_local = "node_modules/.bin",
+	}),
+	null_ls.builtins.formatting.eslint_d.with({
+		condition = has_eslint_config,
+		prefer_local = "node_modules/.bin",
+	}),
+	null_ls.builtins.formatting.prettier.with({
+		prefer_local = "node_modules/.bin",
+	}),
+	-- stylua
+	null_ls.builtins.formatting.stylua,
+	-- c++
+	--[[ null_ls.builtins.formatting.clang_format.with({
       extra_args = {"--style=Google"}
     }), ]]
-		null_ls.builtins.diagnostics.cppcheck,
-	}
+}
 for _, v in pairs(sources_predefined) do
-  table.insert(sources, v)
+	table.insert(sources, v)
 end
 -- -- setup
 require("null-ls").setup({
 	debug = true,
-	sources = sources
+	sources = sources,
 })
 
 -- projects.nvim
