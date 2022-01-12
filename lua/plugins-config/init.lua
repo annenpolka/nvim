@@ -18,7 +18,6 @@ require("paq")({
 		end,
 	},
 	---------------------------------------------------------------------------------
-
 	-- Close buffer/window/vim wisely
 	{ "mhinz/vim-sayonara" },
 	-- Better Escape
@@ -72,6 +71,8 @@ require("paq")({
 	{ "hrsh7th/nvim-cmp" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "saadparwaiz1/cmp_luasnip" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-cmdline" },
 	{ "tzachar/cmp-tabnine", run = "./install.sh" },
 	-- github copilot
 	{ "github/copilot.vim" },
