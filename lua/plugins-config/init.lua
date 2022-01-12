@@ -27,8 +27,8 @@ require("paq")({
 	-- mouse gestures
 	{ "notomo/gesture.nvim" },
 	-- Git related
-	{ "tpope/vim-fugitive" }, -- Git commands in nvim
-	{ "tpope/vim-rhubarb" }, -- Fugitive-companion to interact with github
+	--[[ { "tpope/vim-fugitive" }, -- Git commands in nvim
+	{ "tpope/vim-rhubarb" }, -- Fugitive-companion to interact with github ]]
 	{ "sindrets/diffview.nvim" }, -- git diff viewer
 	-- Magit-like git plugin
 	{
