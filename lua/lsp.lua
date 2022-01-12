@@ -79,10 +79,16 @@ local has_eslint_config = function(u)
 		or u.root_has_file(".eslintrc.yaml")
 		or u.root_has_file(".eslintrc.yml")
 end
--- -- setup
-require("null-ls").setup({
-	debug = true,
-	sources = {
+-- -- format-installer configuration
+local formatter_install = require("format-installer")
+
+local sources = {}
+for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
+	local config = { command = formatter.cmd }
+	table.insert(sources, null_ls.builtins.formatting[formatter.name].with(config))
+end
+-- -- add predefined sources
+local sources_predefined = {
 		-- eslint, prettier
 		null_ls.builtins.code_actions.eslint_d.with({
 			condition = has_eslint_config,
@@ -106,7 +112,14 @@ require("null-ls").setup({
       extra_args = {"--style=Google"}
     }), ]]
 		null_ls.builtins.diagnostics.cppcheck,
-	},
+	}
+for _, v in pairs(sources_predefined) do
+  table.insert(sources, v)
+end
+-- -- setup
+require("null-ls").setup({
+	debug = true,
+	sources = sources
 })
 
 -- projects.nvim

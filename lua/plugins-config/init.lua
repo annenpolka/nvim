@@ -80,6 +80,7 @@ require("paq")({
 	{ "hrsh7th/cmp-copilot" },
 	-- Inject Format, Diagnostics, Code Actions to Lsp
 	{ "jose-elias-alvarez/null-ls.nvim" },
+	{ "PlatyPew/format-installer.nvim" },
 	-- Snippets plugin
 	{ "L3MON4D3/LuaSnip" },
 	-- Notification baloon
