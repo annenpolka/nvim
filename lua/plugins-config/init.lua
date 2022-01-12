@@ -9,6 +9,7 @@ require("paq")({
 	-- runtime, dependency----------------------------------------------------------
 	{ "kyazdani42/nvim-web-devicons" },
 	{ "nvim-lua/plenary.nvim" },
+	{ "MunifTanjim/nui.nvim" },
 	{ "vim-denops/denops.vim" },
 	-- fzf
 	{
@@ -18,6 +19,8 @@ require("paq")({
 		end,
 	},
 	---------------------------------------------------------------------------------
+	-- UI overhaul
+	{ "stevearc/dressing.nvim" },
 	-- Close buffer/window/vim wisely
 	{ "mhinz/vim-sayonara" },
 	-- Better Escape
@@ -144,6 +147,7 @@ require(p("biscuits")).config()
 require(p("better_escape")).config()
 require(p("bufferline")).config()
 require(p("copilot")).config()
+require(p("dressing")).config()
 require(p("gestures")).config()
 require(p("focus")).config()
 require(p("gestures")).config()
