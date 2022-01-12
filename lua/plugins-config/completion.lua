@@ -55,6 +55,7 @@ function M.config()
 					end,
 				},
 			},
+			{ name = "path" },
 			{ name = "luasnip" },
 			{ name = "cmp_tabnine" },
 		},
