@@ -116,6 +116,8 @@ require("paq")({
 	{ "windwp/nvim-autopairs" },
 	-- code biscuits, Bracket Lens-like plugin
 	{ "code-biscuits/nvim-biscuits" },
+	-- bookmarks
+	{ "MattesGroeger/vim-bookmarks" },
 	-- Better quickfix
 	{ "kevinhwang91/nvim-bqf" },
 	-- terminal integration
