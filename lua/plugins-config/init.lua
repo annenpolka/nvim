@@ -140,7 +140,7 @@ end
 require(p("nvim-cmp")).config() -- completion retaled bundle
 require(p("autopairs")).config()
 require(p("autosave")).config()
--- require(p("biscuits")).config()
+require(p("biscuits")).config()
 require(p("better_escape")).config()
 require(p("bufferline")).config()
 require(p("copilot")).config()
