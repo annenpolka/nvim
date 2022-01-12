@@ -1,7 +1,9 @@
 local M = {}
 
 function M.config()
-	require("treesitter-unit").toggle_highlighting(higroup)
+	vim.cmd([[highlight ColorColumn guibg=#35354A]])
+	require("treesitter-unit").toggle_highlighting("ColorColumn")
+
 	-- text objects
 	vim.api.nvim_set_keymap("x", "iu", ':lua require"treesitter-unit".select()<CR>', { noremap = true })
 	vim.api.nvim_set_keymap("x", "au", ':lua require"treesitter-unit".select(true)<CR>', { noremap = true })
