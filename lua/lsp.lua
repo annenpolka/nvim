@@ -1,5 +1,6 @@
 -- LSP settings
 local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
 local on_attach = function(_, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	local opts = { noremap = true, silent = true }
@@ -66,6 +67,38 @@ for _, lsp in ipairs(servers) do
 		capabilities = capabilities,
 	})
 end
+-- emmet LSP configuration
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+if not configs.ls_emmet then
+	configs.ls_emmet = {
+		default_config = {
+			cmd = { "ls_emmet", "--stdio" },
+			filetypes = {
+				"html",
+				"css",
+				"scss",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"haml",
+				"xml",
+				"xsl",
+				"pug",
+				"slim",
+				"sass",
+				"stylus",
+				"less",
+				"sss",
+			},
+			root_dir = function(fname)
+				return vim.loop.cwd()
+			end,
+			settings = {},
+		},
+	}
+end
+lspconfig.ls_emmet.setup({ capabilities = capabilities })
 
 -- null-ls configuration
 local null_ls = require("null-ls")
