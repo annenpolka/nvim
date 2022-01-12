@@ -1,1 +1,0 @@
-/home/annenpolka/.config/nvim/lua/plugins-config/init.lua
