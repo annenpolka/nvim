@@ -1,6 +1,14 @@
 local M = {}
 
 function M.config()
+	-- toggle highlight by event
+	vim.cmd([[
+	augroup vimrc-auto-cursorline
+	  autocmd!
+	  autocmd CursorMoved,CursorMovedI,WinLeave * highlight clear ColorColumn
+	  autocmd CursorHold,CursorHoldI * highlight ColorColumn guibg=#35354A
+	augroup END
+	]])
 	vim.cmd([[highlight ColorColumn guibg=#35354A]])
 	require("treesitter-unit").toggle_highlighting("ColorColumn")
 
