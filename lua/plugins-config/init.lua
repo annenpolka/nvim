@@ -65,6 +65,7 @@ require("paq")({
 	{ "nvim-treesitter/nvim-treesitter" },
 	-- Additional textobjects for treesitter
 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+	-- textobject unit helper
 	{ "David-Kunz/treesitter-unit" },
 	-- Collection of configurations for built-in LSP client
 	{ "neovim/nvim-lspconfig" },
