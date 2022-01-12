@@ -34,9 +34,7 @@ require("paq")({
 	{ "tpope/vim-rhubarb" }, -- Fugitive-companion to interact with github ]]
 	{ "sindrets/diffview.nvim" }, -- git diff viewer
 	-- Magit-like git plugin
-	{
-		"TimUntersberger/neogit",
-	},
+	{ "TimUntersberger/neogit" },
 	-- Add git related info in the signs columns and popups
 	{ "lewis6991/gitsigns.nvim" },
 	-- search buffer
@@ -44,19 +42,13 @@ require("paq")({
 	-- Automatic tags management
 	{ "ludovicchabant/vim-gutentags" },
 	-- UI to select things (files, grep results, open buffers...)
-	{
-		"nvim-telescope/telescope.nvim",
-	},
+	{ "nvim-telescope/telescope.nvim" },
 	-- file manager
-	{
-		"kyazdani42/nvim-tree.lua",
-	},
+	{ "kyazdani42/nvim-tree.lua" },
 	{ "joshdick/onedark.vim" }, -- Theme inspired by Atom
 	-- github theme
 	{ "projekt0n/github-nvim-theme" },
-	{
-		"akinsho/bufferline.nvim",
-	},
+	{ "akinsho/bufferline.nvim" },
 	-- Fancier statusline
 	{ "nvim-lualine/lualine.nvim" },
 	-- Add indentation guides even on blank lines
