@@ -41,6 +41,7 @@ require("paq")({
 	{ "ludovicchabant/vim-gutentags" },
 	-- UI to select things (files, grep results, open buffers...)
 	{ "nvim-telescope/telescope.nvim" },
+	{ "nvim-telescope/telescope-file-browser.nvim" },
 	-- file manager
 	{ "kyazdani42/nvim-tree.lua" },
 	{ "joshdick/onedark.vim" }, -- Theme inspired by Atom

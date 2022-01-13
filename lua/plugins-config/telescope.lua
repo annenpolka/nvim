@@ -10,7 +10,12 @@ function M.config()
 				},
 			},
 		},
+		pickers = {
+			find_files = { theme = "ivy" },
+			tags = { theme = "ivy" },
+		},
 	})
+	require("telescope").load_extension("file_browser")
 end
 
 function M.map()

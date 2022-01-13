@@ -28,7 +28,7 @@ function M.config()
 			-- Options for telescope selector
 			telescope = {
 				-- can be 'dropdown', 'cursor', or 'ivy'
-				theme = "dropdown",
+				theme = "ivy",
 			},
 
 			-- Options for fzf selector
