@@ -116,6 +116,7 @@ require("paq")({
 	{ "folke/which-key.nvim" },
 	-- Problem view
 	{ "folke/trouble.nvim" },
+	{ "folke/todo-comments.nvim" },
 	-- show signiture guides on type
 	{ "ray-x/lsp_signature.nvim" },
 	-- Autopair
@@ -171,6 +172,7 @@ require(p("substitute")).config()
 require(p("symbols-outline")).config()
 require(p("tabout")).config()
 require(p("telescope")).config()
+require(p("todo-comments")).config()
 require(p("toggleterm")).config()
 require(p("treesitter-unit")).config()
 require(p("trouble")).config()
