@@ -46,7 +46,7 @@ require("paq")({
 	{ "kyazdani42/nvim-tree.lua" },
 	{ "joshdick/onedark.vim" }, -- Theme inspired by Atom
 	-- github theme
-	{ "projekt0n/github-nvim-theme" },
+	-- { "projekt0n/github-nvim-theme" },
 	-- catppuccin theme
 	{ "catppuccin/nvim", as = "catppuccin" },
 	-- bufferline
@@ -175,5 +175,5 @@ require(p("trouble")).config()
 require(p("which-key")).config()
 
 --- themes
-require(p("github-theme")).config()
+-- require(p("github-theme")).config()
 require(p("catppuccin")).config()
