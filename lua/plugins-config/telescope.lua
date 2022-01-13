@@ -4,15 +4,19 @@ function M.config()
 	require("telescope").setup({
 		defaults = {
 			mappings = {
-				i = {
-					["<C-u>"] = false,
-					["<C-d>"] = false,
+				n = {
+					["l"] = "select_default",
 				},
 			},
 		},
 		pickers = {
 			find_files = { theme = "ivy" },
 			tags = { theme = "ivy" },
+		},
+		extensions = {
+			file_browser = {
+				theme = "ivy",
+			},
 		},
 	})
 	require("telescope").load_extension("file_browser")
@@ -26,12 +30,7 @@ function M.map()
 		[[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
-		"n",
-		"<leader>sf",
-		[[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]],
-		{ noremap = true, silent = true }
-	)
+	vim.api.nvim_set_keymap("n", "<leader>sf", ":Telescope file_browser<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap(
 		"n",
 		"<leader>sb",
