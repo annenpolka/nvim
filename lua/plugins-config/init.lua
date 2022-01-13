@@ -143,6 +143,10 @@ local p = function(name)
 	return string.format("plugins-config.%s", name)
 end
 
+-- TODO: decide if we want to use vim-bookmarks
+vim.cmd([[let g:bookmark_save_per_working_dir = 1
+	let g:bookmark_auto_save = 1]])
+
 require(p("nvim-cmp")).config() -- completion retaled bundle
 require(p("autopairs")).config()
 require(p("autosave")).config()
