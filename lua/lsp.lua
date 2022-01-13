@@ -68,6 +68,7 @@ for _, lsp in ipairs(servers) do
 	})
 end
 -- emmet LSP configuration
+-- FIXME: This doesn't use nvim-lsp-installer's custom installer
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 if not configs.ls_emmet then
 	configs.ls_emmet = {
