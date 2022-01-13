@@ -22,7 +22,12 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap("n", "mm", ":lua require('harpoon.mark').add_file()<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap(
+		"n",
+		"mm",
+		":lua require('harpoon.mark').toggle_file()<CR>",
+		{ noremap = true, silent = true }
+	)
 	vim.api.nvim_set_keymap(
 		"n",
 		"M",
