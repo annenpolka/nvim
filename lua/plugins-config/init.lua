@@ -47,6 +47,9 @@ require("paq")({
 	{ "joshdick/onedark.vim" }, -- Theme inspired by Atom
 	-- github theme
 	{ "projekt0n/github-nvim-theme" },
+	-- catppuccin theme
+	{ "catppuccin/nvim", as = "catppuccin" },
+	-- bufferline
 	{ "akinsho/bufferline.nvim" },
 	-- Fancier statusline
 	{ "nvim-lualine/lualine.nvim" },
@@ -149,7 +152,6 @@ require(p("dressing")).config()
 require(p("gestures")).config()
 require(p("focus")).config()
 require(p("gestures")).config()
-require(p("github-theme")).config()
 require(p("gitsigns")).config()
 require(p("indent-blankline")).config()
 require(p("lightbulb")).config()
@@ -171,3 +173,7 @@ require(p("toggleterm")).config()
 require(p("treesitter-unit")).config()
 require(p("trouble")).config()
 require(p("which-key")).config()
+
+--- themes
+require(p("github-theme")).config()
+require(p("catppuccin")).config()
