@@ -79,6 +79,8 @@ require("paq")({
 	{ "PlatyPew/format-installer.nvim" },
 	-- Snippets plugin
 	{ "L3MON4D3/LuaSnip" },
+	-- tabout
+	{ "abecodes/tabout.nvim" },
 	-- Notification baloon
 	{ "rcarriga/nvim-notify" },
 	-- yank kill-ring
@@ -162,6 +164,7 @@ require(p("sandwich")).config()
 require(p("spectre")).config()
 require(p("substitute")).config()
 require(p("symbols-outline")).config()
+require(p("tabout")).config()
 require(p("telescope")).config()
 require(p("toggleterm")).config()
 require(p("treesitter-unit")).config()
