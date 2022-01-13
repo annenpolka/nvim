@@ -24,12 +24,12 @@ end
 
 function M.map()
 	--Add leader shortcuts
-	vim.api.nvim_set_keymap(
-		"n",
-		"<leader><space>",
-		[[<cmd>lua require('telescope.builtin').buffers()<CR>]],
-		{ noremap = true, silent = true }
-	)
+	-- vim.api.nvim_set_keymap(
+	-- "n",
+	-- "<leader><space>",
+	-- [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
+	-- { noremap = true, silent = true }
+	-- )
 	vim.api.nvim_set_keymap("n", "<leader>sf", ":Telescope file_browser<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap(
 		"n",

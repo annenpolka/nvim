@@ -123,7 +123,8 @@ require("paq")({
 	-- code biscuits, Bracket Lens-like plugin
 	{ "code-biscuits/nvim-biscuits" },
 	-- bookmarks
-	{ "MattesGroeger/vim-bookmarks" },
+	-- { "MattesGroeger/vim-bookmarks" },
+	{ "ThePrimeagen/harpoon" },
 	-- Better quickfix
 	{ "kevinhwang91/nvim-bqf" },
 	-- terminal integration
@@ -153,6 +154,7 @@ require(p("gestures")).config()
 require(p("focus")).config()
 require(p("gestures")).config()
 require(p("gitsigns")).config()
+require(p("harpoon")).config()
 require(p("indent-blankline")).config()
 require(p("lightbulb")).config()
 require(p("lualine")).config()
