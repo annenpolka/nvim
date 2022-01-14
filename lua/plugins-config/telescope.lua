@@ -16,6 +16,7 @@ function M.config()
 		extensions = {
 			file_browser = {
 				theme = "ivy",
+				depth = 5,
 			},
 		},
 	})
