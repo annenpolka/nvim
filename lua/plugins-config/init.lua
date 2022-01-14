@@ -126,6 +126,8 @@ require("paq")({
 	-- bookmarks
 	-- { "MattesGroeger/vim-bookmarks" },
 	{ "ThePrimeagen/harpoon" },
+	-- TODO: test marks.nvim
+	{ "chentau/marks.nvim" },
 	-- Better quickfix
 	{ "kevinhwang91/nvim-bqf" },
 	-- terminal integration
@@ -143,33 +145,30 @@ local p = function(name)
 	return string.format("plugins-config.%s", name)
 end
 
--- TODO: decide if we want to use vim-bookmarks
-vim.cmd([[let g:bookmark_save_per_working_dir = 1
-	let g:bookmark_auto_save = 1]])
-
 require(p("nvim-cmp")).config() -- completion retaled bundle
 require(p("autopairs")).config()
 require(p("autosave")).config()
-require(p("biscuits")).config()
 require(p("better_escape")).config()
+require(p("biscuits")).config()
 require(p("bufferline")).config()
 require(p("copilot")).config()
 require(p("dressing")).config()
-require(p("gestures")).config()
 require(p("focus")).config()
+require(p("gestures")).config()
 require(p("gestures")).config()
 require(p("gitsigns")).config()
 require(p("harpoon")).config()
 require(p("indent-blankline")).config()
 require(p("lightbulb")).config()
-require(p("lualine")).config()
 require(p("lsp_signature")).config()
+require(p("lualine")).config()
+require(p("marks")).config()
 require(p("neogit")).config()
 require(p("notify")).config()
 require(p("nvim-tree")).config()
 require(p("nvim-treesitter")).config()
-require(p("registers")).config()
 require(p("pretty-fold")).config()
+require(p("registers")).config()
 require(p("sandwich")).config()
 require(p("spectre")).config()
 require(p("substitute")).config()
