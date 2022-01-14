@@ -75,6 +75,7 @@ vim.cmd([[
 vim.cmd([[au BufWinEnter * set formatoptions-=ro]])
 
 -- save cursor position
-vim.cmd(
-	[[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]
-)
+-- -- now using harpoon's store offset
+-- vim.cmd(
+-- [[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]
+-- )

@@ -40,6 +40,12 @@ function M.map()
 		":lua require('harpoon.ui').nav_next()<CR>",
 		{ noremap = true, silent = true }
 	)
+	vim.api.nvim_set_keymap(
+		"n",
+		"<leader>m",
+		":lua require('harpoon.ui').nav_prev()<CR>",
+		{ noremap = true, silent = true }
+	)
 end
 
 return M
