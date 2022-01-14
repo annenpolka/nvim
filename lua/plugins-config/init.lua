@@ -123,11 +123,10 @@ require("paq")({
 	{ "windwp/nvim-autopairs" },
 	-- code biscuits, Bracket Lens-like plugin
 	{ "code-biscuits/nvim-biscuits" },
-	-- bookmarks
-	-- { "MattesGroeger/vim-bookmarks" },
+	-- buffer bookmarks
+	{ "MattesGroeger/vim-bookmarks" },
+	-- project file anchor
 	{ "ThePrimeagen/harpoon" },
-	-- TODO: test marks.nvim
-	{ "chentau/marks.nvim" },
 	-- Better quickfix
 	{ "kevinhwang91/nvim-bqf" },
 	-- terminal integration
@@ -179,6 +178,7 @@ require(p("todo-comments")).config()
 require(p("toggleterm")).config()
 require(p("treesitter-unit")).config()
 require(p("trouble")).config()
+require(p("vim-bookmarks")).config()
 require(p("which-key")).config()
 
 --- themes

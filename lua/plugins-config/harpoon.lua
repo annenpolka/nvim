@@ -24,28 +24,18 @@ end
 function M.map()
 	vim.api.nvim_set_keymap(
 		"n",
-		"mm",
+		"<leader>mm",
 		":lua require('harpoon.mark').toggle_file()<CR>",
 		{ noremap = true, silent = true }
 	)
 	vim.api.nvim_set_keymap(
 		"n",
-		"M",
+		"<leader><Space>",
 		":lua require('harpoon.ui').toggle_quick_menu()<CR>",
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
-		"n",
-		"<leader><Space>",
-		":lua require('harpoon.ui').nav_next()<CR>",
-		{ noremap = true, silent = true }
-	)
-	vim.api.nvim_set_keymap(
-		"n",
-		"<leader>m",
-		":lua require('harpoon.ui').nav_prev()<CR>",
-		{ noremap = true, silent = true }
-	)
+	vim.api.nvim_set_keymap("n", "m", ":lua require('harpoon.ui').nav_next()<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("n", "M", ":lua require('harpoon.ui').nav_prev()<CR>", { noremap = true, silent = true })
 end
 
 return M
