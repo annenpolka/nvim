@@ -63,6 +63,8 @@ require("paq")({
 	{ "windwp/nvim-ts-autotag" },
 	-- textobject unit helper
 	{ "David-Kunz/treesitter-unit" },
+	-- refactoring support
+	{ "ThePrimeagen/refactoring.nvim" },
 	-- Collection of configurations for built-in LSP client
 	{ "neovim/nvim-lspconfig" },
 	--  To Install LSP Automatically with LspInstall

@@ -6,6 +6,9 @@ function M.config()
 			-- Default prompt string
 			default_prompt = "➤ ",
 
+			-- when true, <ESC> will close the modal
+			insert_only = true,
+
 			-- These are passed to nvim_open_win
 			anchor = "SW",
 			relative = "cursor",

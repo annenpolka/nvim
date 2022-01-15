@@ -21,6 +21,7 @@ function M.config()
 		},
 	})
 	require("telescope").load_extension("file_browser")
+	require("telescope").load_extension("refactoring")
 end
 
 function M.map()
