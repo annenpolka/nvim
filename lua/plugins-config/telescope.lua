@@ -75,7 +75,13 @@ function M.map()
 		[[<cmd>lua require('telescope.builtin').oldfiles()<CR>]],
 		{ noremap = true, silent = true }
 	)
-
+	-- remap to open the Telescope refactoring menu in visual mode
+	vim.api.nvim_set_keymap(
+		"v",
+		"<leader>r",
+		"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
+		{ noremap = true }
+	)
 	-- -- project.nvim
 	vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>Telescope projects<cr>", { silent = true, noremap = true })
 end
