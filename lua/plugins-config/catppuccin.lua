@@ -39,8 +39,8 @@ function M.config()
 			},
 			which_key = true,
 			indent_blankline = {
-				enabled = true,
-				colored_indent_levels = true,
+				enabled = false,
+				colored_indent_levels = false,
 			},
 			dashboard = true,
 			neogit = true,
