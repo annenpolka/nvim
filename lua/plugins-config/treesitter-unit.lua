@@ -6,7 +6,7 @@ function M.config()
 	augroup vimrc-auto-cursorline
 	  autocmd!
 	  autocmd CursorMoved,CursorMovedI,WinLeave * highlight clear ColorColumn
-	  autocmd CursorHold,CursorHoldI * highlight ColorColumn guibg=#35354A
+	  autocmd CursorHold,CursorHoldI * highlight ColorColumn guibg=#35354F
 	augroup END
 	]])
 	vim.cmd([[highlight ColorColumn guibg=#35354A]])
