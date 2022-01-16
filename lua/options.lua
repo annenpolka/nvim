@@ -20,11 +20,11 @@ vim.o.mouse = "a"
 vim.o.breakindent = true
 
 -- Tab indent settings
-vim.bo.tabstop = 2
-vim.bo.shiftwidth = 2
-vim.bo.expandtab = true -- replace TAB char to spaces
-vim.bo.autoindent = true
-vim.bo.smartindent = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true -- replace TAB char to spaces
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
 --Save undo history
 vim.opt.undofile = true
