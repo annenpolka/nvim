@@ -19,4 +19,11 @@ ls.snippets = {
 			i(0),
 		}),
 	},
+	cpp = {
+		-- rep macro
+		s({ trig = "rep" }, {
+			t({ "#define rep(i, n) for (int i = 0; i < (int)(n); i++)" }),
+			i(2),
+		}),
+	},
 }
