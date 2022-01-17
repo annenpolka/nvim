@@ -11,7 +11,7 @@ local function load_plugins()
 		{ "kyazdani42/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "MunifTanjim/nui.nvim" },
-		{ "vim-denops/denops.vim" },
+		-- { "vim-denops/denops.vim" },
 		-- fzf
 		{
 			"junegunn/fzf",
@@ -97,7 +97,8 @@ local function load_plugins()
 		{ "anuvyklack/pretty-fold.nvim" },
 		-- Faster f/f
 		{ "ggandor/lightspeed.nvim" },
-		{ "yuki-yano/fuzzy-motion.vim" },
+		-- fuzzy match easymotion
+		{ "rlane/pounce.nvim" },
 		-- surrounding plugin
 		{ "machakann/vim-sandwich" },
 		-- substitute operator
