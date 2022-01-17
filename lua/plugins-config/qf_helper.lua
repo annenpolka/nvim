@@ -7,5 +7,6 @@ end
 function M.map()
 	vim.api.nvim_set_keymap("n", "q", ":QNext<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap("n", "Q", ":QPrev<CR>", { noremap = true, silent = true })
+	vim.cmd([[autocmd FileType qf          nnoremap <buffer> dd :Reject<CR>]])
 end
 return M
