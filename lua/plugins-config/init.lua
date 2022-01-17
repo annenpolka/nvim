@@ -132,6 +132,7 @@ local function load_plugins()
 		{ "ThePrimeagen/harpoon" },
 		-- Better quickfix
 		{ "kevinhwang91/nvim-bqf" },
+		{ "stevearc/qf_helper.nvim" },
 		-- terminal integration
 		{ "akinsho/toggleterm.nvim" },
 		-- project management
@@ -172,6 +173,7 @@ local function load_configs()
 	require(p("nvim-tree")).config()
 	require(p("nvim-treesitter")).config()
 	require(p("pretty-fold")).config()
+	require(p("qf_helper")).config()
 	require(p("registers")).config()
 	require(p("sandwich")).config()
 	require(p("spectre")).config()
