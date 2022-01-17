@@ -68,7 +68,7 @@ vim.cmd([[
   augroup QfAutoCommands
     autocmd!
     autocmd QuickfixCmdPost make,vimgrep cwindow " autoopen Quickfix
-    autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif " autoclose when quit
+    " autocmd WinEnter * if (winnr('$') == 1) && (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | quit | endif " autoclose when quit
   augroup end]])
 
 -- disable auto commentout on line break
