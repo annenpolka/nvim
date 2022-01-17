@@ -32,7 +32,7 @@ function M.map()
 	-- [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 	-- { noremap = true, silent = true }
 	-- )
-	vim.api.nvim_set_keymap("n", "<leader>sf", ":Telescope file_browser<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("n", "<leader>sf", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap(
 		"n",
 		"<leader>sb",
