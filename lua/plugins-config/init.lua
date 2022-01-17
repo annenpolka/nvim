@@ -45,7 +45,8 @@ local function load_plugins()
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 		-- file manager
 		{ "kyazdani42/nvim-tree.lua" },
-		{ "joshdick/onedark.vim" }, -- Theme inspired by Atom
+		-- Theme inspired by Atom
+		{ "joshdick/onedark.vim" },
 		-- github theme
 		-- { "projekt0n/github-nvim-theme" },
 		-- catppuccin theme
