@@ -5,7 +5,7 @@ function M.config()
 		defaults = {
 			mappings = {
 				n = {
-					["l"] = "select_default",
+					["l"] = "select_tab",
 				},
 			},
 		},

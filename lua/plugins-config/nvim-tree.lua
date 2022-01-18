@@ -54,7 +54,8 @@ function M.config()
 			mappings = {
 				custom_only = false,
 				list = {
-					{ key = { "<CR>", "o", "<2-LeftMouse>", "l" }, cb = tree_cb("edit") },
+					{ key = { "<CR>", "o", "<2-LeftMouse>" }, cb = tree_cb("edit") },
+					{ key = { "l" }, cb = tree_cb("tabnew") },
 					{ key = { "h" }, cb = tree_cb("close_node") },
 				},
 			},
