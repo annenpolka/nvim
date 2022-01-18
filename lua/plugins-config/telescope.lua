@@ -12,6 +12,7 @@ function M.config()
 		pickers = {
 			find_files = { theme = "ivy" },
 			tags = { theme = "ivy" },
+			buffers = { theme = "ivy" },
 		},
 		extensions = {
 			file_browser = {
