@@ -54,7 +54,9 @@ local function load_plugins()
 		-- catppuccin theme
 		{ "catppuccin/nvim", as = "catppuccin" },
 		-- bufferline
-		{ "akinsho/bufferline.nvim" },
+		-- { "akinsho/bufferline.nvim" },
+		-- tabline
+		{ "nanozuki/tabby.nvim" },
 		-- Fancier statusline
 		{ "nvim-lualine/lualine.nvim" },
 		-- Add indentation guides even on blank lines
@@ -160,7 +162,8 @@ local function load_configs()
 	require(p("autosave")).config()
 	require(p("better_escape")).config()
 	require(p("biscuits")).config()
-	require(p("bufferline")).config()
+	-- require(p("bufferline")).config()
+	require(p("tabby")).config()
 	require(p("copilot")).config()
 	require(p("dressing")).config()
 	require(p("focus")).config()

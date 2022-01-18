@@ -34,7 +34,8 @@ local m = function(name)
 end
 
 -- plugins
-require(m("bufferline")).map()
+-- require(m("bufferline")).map()
+require(m("tabby")).map()
 require(m("focus")).map()
 require(m("gestures")).map()
 require(m("harpoon")).map()
