@@ -33,13 +33,21 @@ local palettes = {
 		fg = "#e5e9f0", -- nord4
 		fg_sec = "#d8dee9", -- nord4
 	},
+	catppuccin = {
+		accent = "#96CDFB",
+		accent_sec = "#89DCEB",
+		bg = "#1E1D2F",
+		bg_sec = "#302D41",
+		fg = "#D9E0EE",
+		fg_sec = "#C3BAC6",
+	},
 }
 
 function M.config()
-	local palette = palettes.nord
+	local palette = palettes.catppuccin
 	local filename = require("tabby.filename")
 	local cwd = function()
-		return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
+		return "  " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
 	end
 	local tabname = function(tabid)
 		return vim.api.nvim_tabpage_get_number(tabid)
@@ -48,7 +56,7 @@ function M.config()
 		hl = { fg = palette.fg, bg = palette.bg },
 		layout = "active_wins_at_tail",
 		head = {
-			{ cwd, hl = { fg = palette.bg, bg = palette.accent } },
+			{ cwd, hl = { fg = palette.bg_sec, bg = palette.accent } },
 			{ "", hl = { fg = palette.accent, bg = palette.bg } },
 		},
 		active_tab = {
@@ -93,7 +101,7 @@ function M.config()
 		},
 		tail = {
 			{ "", hl = { fg = palette.accent_sec, bg = palette.bg } },
-			{ "  ", hl = { fg = palette.bg, bg = palette.accent_sec } },
+			{ "  ", hl = { fg = palette.bg, bg = palette.accent } },
 		},
 	}
 	require("tabby").setup({ tabline = line })
