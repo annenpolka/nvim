@@ -113,6 +113,8 @@ local function load_plugins()
 		{ "mg979/vim-visual-multi" },
 		-- Colorize brackets
 		{ "p00f/nvim-ts-rainbow" },
+		-- color highlighter
+		{ "norcalli/nvim-colorizer.lua" },
 		-- outline viewer
 		{ "simrat39/symbols-outline.nvim" },
 		-- Discover available code action like VSCode
@@ -165,6 +167,7 @@ local function load_configs()
 	-- require(p("bufferline")).config()
 	require(p("tabby")).config()
 	require(p("copilot")).config()
+	require(p("colorizer")).config()
 	require(p("dressing")).config()
 	require(p("focus")).config()
 	require(p("gestures")).config()
