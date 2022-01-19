@@ -55,6 +55,8 @@ local function load_plugins()
 		{ "catppuccin/nvim", as = "catppuccin" },
 		-- bufferline
 		-- { "akinsho/bufferline.nvim" },
+		-- fuzzy search things
+		{ "vim-ctrlspace/vim-ctrlspace" },
 		-- tabline
 		{ "nanozuki/tabby.nvim" },
 		-- Fancier statusline
@@ -164,8 +166,10 @@ local function load_configs()
 	require(p("autosave")).config()
 	require(p("better_escape")).config()
 	require(p("biscuits")).config()
-	-- require(p("bufferline")).config()
 	require(p("tabby")).config()
+	-- TODO: create CtrlSpace config file
+	vim.g.CtrlSpaceDefaultMappingKey = "<C-a> "
+	vim.g.CtrlSpaceUseTabline = 0
 	require(p("copilot")).config()
 	require(p("colorizer")).config()
 	require(p("dressing")).config()
