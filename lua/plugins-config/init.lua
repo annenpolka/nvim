@@ -167,9 +167,7 @@ local function load_configs()
 	require(p("better_escape")).config()
 	require(p("biscuits")).config()
 	require(p("tabby")).config()
-	-- TODO: create CtrlSpace config file
-	vim.g.CtrlSpaceDefaultMappingKey = "<C-a> "
-	vim.g.CtrlSpaceUseTabline = 0
+	require(p("vim-ctrlspace")).config()
 	require(p("copilot")).config()
 	require(p("colorizer")).config()
 	require(p("dressing")).config()

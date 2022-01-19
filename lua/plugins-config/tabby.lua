@@ -50,12 +50,16 @@ function M.config()
 	local cwd = function()
 		return "  " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
 	end
-	local tabname = function(tabid)
-		local number = vim.api.nvim_tabpage_get_number(tabid)
-		local name = util.get_tab_name(tabid)
+	local webicon = function(name)
 		-- TODO: improve the way get an file extension
 		local icon = require("nvim-web-devicons").get_icon(name) or ""
-		return string.format("%d%s %s", number, name, icon)
+		return icon
+	end
+	local tabname = function(tabid)
+		local number = vim.api.nvim_tabpage_get_number(tabid)
+		local ctrlspace_bufnum = vim.fn["ctrlspace#api#TabBuffersNumber"](number)
+		local name = util.get_tab_name(tabid)
+		return string.format("%d%s%s %s", number, ctrlspace_bufnum, name, webicon(name))
 	end
 	local line = {
 		hl = { fg = palette.fg, bg = palette.bg },
@@ -105,8 +109,8 @@ function M.config()
 			right_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		tail = {
-			-- { " ", hl = { fg = palette.accent_sec, bg = palette.bg } },
-			-- { "  ", hl = { fg = palette.bg, bg = palette.accent } },
+			{ " ", hl = { fg = palette.accent_sec, bg = palette.bg } },
+			{ "  ", hl = { fg = palette.bg, bg = palette.accent } },
 		},
 	}
 	require("tabby").setup({ tabline = line })
