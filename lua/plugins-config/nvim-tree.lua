@@ -55,7 +55,7 @@ function M.config()
 				custom_only = false,
 				list = {
 					{ key = { "<CR>", "o", "<2-LeftMouse>" }, cb = tree_cb("edit") },
-					{ key = { "l" }, cb = tree_cb("tabnew") },
+					{ key = { "l" }, cb = tree_cb("edit") },
 					{ key = { "h" }, cb = tree_cb("close_node") },
 				},
 			},
