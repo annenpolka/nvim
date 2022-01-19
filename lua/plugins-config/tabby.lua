@@ -36,7 +36,7 @@ local palettes = {
 	catppuccin = {
 		accent = "#96CDFB",
 		accent_sec = "#89DCEB",
-		bg = "#1E1D2F",
+		bg = "#131020",
 		bg_sec = "#302D41",
 		fg = "#D9E0EE",
 		fg_sec = "#C3BAC6",
@@ -46,38 +46,43 @@ local palettes = {
 function M.config()
 	local palette = palettes.catppuccin
 	local filename = require("tabby.filename")
+	local util = require("tabby.util")
 	local cwd = function()
 		return "  " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
 	end
 	local tabname = function(tabid)
-		return vim.api.nvim_tabpage_get_number(tabid)
+		local number = vim.api.nvim_tabpage_get_number(tabid)
+		local name = util.get_tab_name(tabid)
+		-- TODO: improve the way get an file extension
+		local icon = require("nvim-web-devicons").get_icon(name) or ""
+		return string.format("%d%s %s", number, name, icon)
 	end
 	local line = {
 		hl = { fg = palette.fg, bg = palette.bg },
 		layout = "active_wins_at_tail",
 		head = {
 			{ cwd, hl = { fg = palette.bg_sec, bg = palette.accent } },
-			{ "", hl = { fg = palette.accent, bg = palette.bg } },
+			{ " ", hl = { fg = palette.accent, bg = palette.bg } },
 		},
 		active_tab = {
 			label = function(tabid)
 				return {
-					"  " .. tabname(tabid) .. " ",
+					" " .. tabname(tabid) .. " ",
 					hl = { fg = palette.bg, bg = palette.accent_sec, style = "bold" },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.accent_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.accent_sec, bg = palette.bg } },
+			left_sep = { " ", hl = { fg = palette.accent_sec, bg = palette.bg } },
+			right_sep = { " ", hl = { fg = palette.accent_sec, bg = palette.bg } },
 		},
 		inactive_tab = {
 			label = function(tabid)
 				return {
-					"  " .. tabname(tabid) .. " ",
+					" " .. tabname(tabid) .. " ",
 					hl = { fg = palette.fg, bg = palette.bg_sec, style = "bold" },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			left_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		top_win = {
 			label = function(winid)
@@ -86,8 +91,8 @@ function M.config()
 					hl = { fg = palette.fg, bg = palette.bg_sec },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			left_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		win = {
 			label = function(winid)
@@ -96,12 +101,12 @@ function M.config()
 					hl = { fg = palette.fg, bg = palette.bg_sec },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			left_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		tail = {
-			{ "", hl = { fg = palette.accent_sec, bg = palette.bg } },
-			{ "  ", hl = { fg = palette.bg, bg = palette.accent } },
+			-- { " ", hl = { fg = palette.accent_sec, bg = palette.bg } },
+			-- { "  ", hl = { fg = palette.bg, bg = palette.accent } },
 		},
 	}
 	require("tabby").setup({ tabline = line })
