@@ -26,6 +26,8 @@ local function load_plugins()
 		{ "rmagatti/auto-session" },
 		-- Close buffer/window/vim wisely
 		{ "mhinz/vim-sayonara" },
+		-- automatic indent detection
+		{ "tpope/vim-sleuth" },
 		-- Better Escape
 		{ "max397574/better-escape.nvim" },
 		-- autosave
