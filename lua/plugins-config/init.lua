@@ -23,7 +23,7 @@ local function load_plugins()
 		-- UI overhaul
 		{ "stevearc/dressing.nvim" },
 		-- Session manager
-		{ "Shatur/neovim-session-manager" },
+		{ "rmagatti/auto-session" },
 		-- Close buffer/window/vim wisely
 		{ "mhinz/vim-sayonara" },
 		-- Better Escape
@@ -199,7 +199,7 @@ local function load_configs()
 	require(p("trouble")).config()
 	require(p("vim-bookmarks")).config()
 	require(p("which-key")).config()
-	require(p("neovim-session-manager")).config()
+	require(p("auto-session")).config()
 end
 load_configs()
 
