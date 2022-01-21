@@ -10,7 +10,7 @@ end
 
 function M.map()
 	vim.api.nvim_set_keymap("n", "<C-m>", "<Plug>BookmarkToggle", { silent = true })
-	vim.api.nvim_set_keymap("n", "<C-a>", "<Plug>BookmarkAnnotate", { silent = true })
+	-- vim.api.nvim_set_keymap("n", "<C-a>", "<Plug>BookmarkAnnotate", { silent = true })
 	vim.api.nvim_set_keymap("n", "<leader>bb", "<Plug>BookmarkShowAll", { silent = true })
 	vim.api.nvim_set_keymap("n", "<leader><C-i>", "<Plug>BookmarkNext", { silent = true })
 	vim.api.nvim_set_keymap("n", "<leader><C-a>", "<Plug>BookmarkPrev", { silent = true })
