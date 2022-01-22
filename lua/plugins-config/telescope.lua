@@ -8,6 +8,7 @@ function M.config()
 					["l"] = "select_default",
 				},
 			},
+			initial_mode = "normal",
 		},
 		pickers = {
 			find_files = { theme = "ivy" },
