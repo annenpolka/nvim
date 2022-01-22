@@ -149,6 +149,8 @@ local function load_plugins()
 		-- Better quickfix
 		{ "kevinhwang91/nvim-bqf" },
 		{ "stevearc/qf_helper.nvim" },
+		-- Batch editing quickfix
+		{ "gabrielpoca/replacer.nvim" },
 		-- terminal integration
 		{ "akinsho/toggleterm.nvim" },
 		-- project management
