@@ -65,6 +65,8 @@ local function load_plugins()
 		{ "nanozuki/tabby.nvim" },
 		-- Fancier statusline
 		{ "nvim-lualine/lualine.nvim" },
+		-- scrollbar with search info
+		{ "petertriho/nvim-scrollbar" },
 		-- Add indentation guides even on blank lines
 		{ "lukas-reineke/indent-blankline.nvim" },
 		-- Highlight, edit, and navigate code using a fast incremental parsing library
@@ -177,7 +179,6 @@ local function load_configs()
 	require(p("dressing")).config()
 	require(p("focus")).config()
 	require(p("gestures")).config()
-	require(p("gestures")).config()
 	require(p("gitsigns")).config()
 	require(p("harpoon")).config()
 	require(p("indent-blankline")).config()
@@ -204,6 +205,8 @@ local function load_configs()
 	require(p("vim-bookmarks")).config()
 	require(p("which-key")).config()
 	require(p("auto-session")).config()
+	require(p("hlslens")).config()
+	require(p("scrollbar")).config()
 end
 load_configs()
 
