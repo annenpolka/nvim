@@ -157,6 +157,8 @@ local function load_plugins()
 		{ "ahmedkhalf/project.nvim" },
 		-- automatic split management
 		{ "beauwilliams/focus.nvim" },
+		-- narrow region buffer
+		{ "chrisbra/NrrwRgn" },
 		-- cpbooster, competitive programming cli tool
 		{ "searleser97/cpbooster.vim" },
 	})
