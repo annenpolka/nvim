@@ -55,6 +55,8 @@ local function load_plugins()
 		-- { "projekt0n/github-nvim-theme" },
 		-- catppuccin theme
 		{ "catppuccin/nvim", as = "catppuccin" },
+		-- tokyonight theme
+		{ "folke/tokyonight.nvim" },
 		-- bufferline
 		-- { "akinsho/bufferline.nvim" },
 		-- fuzzy search things
