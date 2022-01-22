@@ -23,7 +23,7 @@ function M.config()
 			file_browser = {
 				layout_strategy = "flex",
 				theme = "ivy",
-				depth = 1,
+				depth = 2,
 			},
 		},
 	})
