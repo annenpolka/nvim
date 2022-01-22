@@ -94,6 +94,7 @@ local function load_plugins()
 		{ "hrsh7th/cmp-path" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-cmdline" },
+		{ "lukas-reineke/cmp-rg" },
 		{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		-- github copilot
 		{ "github/copilot.vim" },
@@ -220,7 +221,7 @@ local function load_configs()
 	require(p("nvim-gps")).config()
 end
 load_configs()
-
+BufHidden
 --- themes
 local function load_theme()
 	require(p("catppuccin")).config()

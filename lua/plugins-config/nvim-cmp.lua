@@ -57,6 +57,7 @@ function M.config()
 			},
 			{ name = "path" },
 			{ name = "luasnip" },
+			{ name = "rg" },
 			{ name = "cmp_tabnine" },
 		},
 		sorting = {
