@@ -71,6 +71,8 @@ local function load_plugins()
 		{ "lukas-reineke/indent-blankline.nvim" },
 		-- Highlight, edit, and navigate code using a fast incremental parsing library
 		{ "nvim-treesitter/nvim-treesitter" },
+		-- treesitter-based context viewer
+		{ "romgrk/nvim-treesitter-context" },
 		-- Additional textobjects for treesitter
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		-- html autotag
