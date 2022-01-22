@@ -72,7 +72,7 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap("n", "<c-e>", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
+	-- vim.api.nvim_set_keymap("n", "<c-e>", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
 end
 
 return M
