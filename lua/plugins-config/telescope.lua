@@ -13,10 +13,15 @@ function M.config()
 			find_files = { theme = "ivy" },
 			tags = { theme = "ivy" },
 			buffers = { theme = "ivy" },
+			live_grep = {
+				layout_strategy = "flex",
+				theme = "ivy",
+			},
 		},
 		extensions = {
 			file_browser = {
 				layout_strategy = "flex",
+				theme = "ivy",
 				depth = 1,
 			},
 		},
@@ -33,6 +38,7 @@ function M.map()
 	-- [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 	-- { noremap = true, silent = true }
 	-- )
+	vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap("n", "<leader>sf", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap(
 		"n",
