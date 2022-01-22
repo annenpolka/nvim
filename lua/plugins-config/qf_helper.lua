@@ -17,5 +17,7 @@ function M.map()
 	vim.api.nvim_set_keymap("n", "Q", ":QPrev<CR>", { noremap = true, silent = true })
 	vim.cmd([[autocmd FileType qf          nnoremap <buffer> dd :Reject<CR>]])
 	vim.cmd([[autocmd FileType qf          xnoremap <buffer> dd :Reject<CR>]])
+	-- start replacer.nvim
+	vim.cmd([[autocmd FileType qf          nnoremap <buffer> R :lua require("replacer").run()<CR>]])
 end
 return M
