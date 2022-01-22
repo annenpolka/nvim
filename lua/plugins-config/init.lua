@@ -73,6 +73,8 @@ local function load_plugins()
 		{ "nvim-treesitter/nvim-treesitter" },
 		-- treesitter-based context viewer
 		{ "romgrk/nvim-treesitter-context" },
+		-- breadcrumb
+		{ "SmiteshP/nvim-gps" },
 		-- Additional textobjects for treesitter
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		-- html autotag
@@ -215,6 +217,7 @@ local function load_configs()
 	require(p("hlslens")).config()
 	require(p("scrollbar")).config()
 	require(p("treesitter-context")).config()
+	require(p("nvim-gps")).config()
 end
 load_configs()
 

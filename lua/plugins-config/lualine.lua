@@ -1,6 +1,7 @@
 local M = {}
 
 function M.config()
+	local gps = require("nvim-gps")
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
@@ -13,7 +14,8 @@ function M.config()
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
-			lualine_c = { "filename" },
+			-- nvim-gps breadcrumb section
+			lualine_c = { { gps.get_location, cond = gps.is_available } },
 			lualine_x = { "encoding", "fileformat", "filetype" },
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
