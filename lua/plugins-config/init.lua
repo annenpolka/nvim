@@ -1,5 +1,5 @@
 -- optimize loading
--- require("impatient").enable_profile()
+require("impatient").enable_profile()
 
 -- -- plugins
 local function load_plugins()
