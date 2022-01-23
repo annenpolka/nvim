@@ -38,9 +38,6 @@ local on_attach = function(_, bufnr)
 	-- lsp_signature initialize
 	-- -- format before saving
 	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
-
-	-- vim-illuminate, highlight the word under cursor
-	require("illuminate").on_attach()
 end
 
 -- Lsp diagnostic symbols
