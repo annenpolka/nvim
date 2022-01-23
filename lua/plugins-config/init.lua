@@ -19,6 +19,7 @@ local function load_plugins()
 				vim.fn["fzf#install"]()
 			end,
 		},
+		{ "b0o/mapx.nvim" },
 		---------------------------------------------------------------------------------
 		-- UI overhaul
 		{ "stevearc/dressing.nvim" },
@@ -177,6 +178,8 @@ local p = function(name)
 end
 
 local function load_configs()
+	-- mapping
+	require("mapx").setup({ global = true })
 	require(p("nvim-cmp")).config() -- completion retaled bundle
 	require(p("autopairs")).config()
 	require(p("autosave")).config()
