@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-	require("focus").setup({ excluded_filetypes = { "toggleterm", "harpoon" } })
+	require("focus").setup({ excluded_filetypes = { "toggleterm", "harpoon", "ctrlspace" } })
 end
 
 function M.map()
