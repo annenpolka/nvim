@@ -67,6 +67,7 @@ local function load_plugins()
 		{ "nanozuki/tabby.nvim" },
 		-- Fancier statusline
 		{ "nvim-lualine/lualine.nvim" },
+		{ "windwp/windline.nvim" },
 		-- scrollbar with search info
 		{ "petertriho/nvim-scrollbar" },
 		-- Add indentation guides even on blank lines
@@ -184,7 +185,6 @@ end
 
 local function load_configs()
 	-- mapping
-	require("mapx").setup({ global = true })
 	require(p("nvim-cmp")).config() -- completion retaled bundle
 	require(p("autopairs")).config()
 	require(p("autosave")).config()
@@ -229,6 +229,7 @@ local function load_configs()
 	require(p("treesitter-context")).config()
 	require(p("nvim-gps")).config()
 	require(p("twilight")).config()
+	require(p("vim-illuminate")).config()
 end
 load_configs()
 
