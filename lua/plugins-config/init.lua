@@ -1,5 +1,5 @@
 -- optimize loading
-require("impatient").enable_profile()
+-- require("impatient").enable_profile()
 
 -- -- plugins
 local function load_plugins()
@@ -101,7 +101,7 @@ local function load_plugins()
 		{ "hrsh7th/cmp-cmdline" },
 		{ "lukas-reineke/cmp-rg" },
 		{ "lukas-reineke/cmp-under-comparator" },
-		{ "tzachar/cmp-tabnine", run = "./install.sh" },
+		-- { "tzachar/cmp-tabnine", run = "./install.sh" },
 		-- github copilot
 		{ "github/copilot.vim" },
 		{ "hrsh7th/cmp-copilot" },
