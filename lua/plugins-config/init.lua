@@ -72,6 +72,8 @@ local function load_plugins()
 		{ "lukas-reineke/indent-blankline.nvim" },
 		-- Highlight, edit, and navigate code using a fast incremental parsing library
 		{ "nvim-treesitter/nvim-treesitter" },
+		-- Limelighting
+		{ "folke/twilight.nvim" },
 		-- treesitter-based context viewer
 		{ "romgrk/nvim-treesitter-context" },
 		-- breadcrumb
@@ -223,9 +225,10 @@ local function load_configs()
 	require(p("scrollbar")).config()
 	require(p("treesitter-context")).config()
 	require(p("nvim-gps")).config()
+	require(p("twilight")).config()
 end
 load_configs()
-BufHidden
+
 --- themes
 local function load_theme()
 	require(p("catppuccin")).config()
