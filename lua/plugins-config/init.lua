@@ -95,6 +95,7 @@ local function load_plugins()
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-cmdline" },
 		{ "lukas-reineke/cmp-rg" },
+		{ "lukas-reineke/cmp-under-comparator" },
 		{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		-- github copilot
 		{ "github/copilot.vim" },
