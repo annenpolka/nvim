@@ -59,10 +59,10 @@ local function load_plugins()
 		{ "catppuccin/nvim", as = "catppuccin" },
 		-- tokyonight theme
 		{ "folke/tokyonight.nvim" },
+		-- buffer selector
+		{ "vim-ctrlspace/vim-ctrlspace" },
 		-- bufferline
 		-- { "akinsho/bufferline.nvim" },
-		-- fuzzy search things
-		{ "vim-ctrlspace/vim-ctrlspace" },
 		-- tabline
 		{ "nanozuki/tabby.nvim" },
 		-- Fancier statusline
