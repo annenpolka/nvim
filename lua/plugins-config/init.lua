@@ -19,6 +19,7 @@ local function load_plugins()
 				vim.fn["fzf#install"]()
 			end,
 		},
+		-- mapping helper functions
 		{ "b0o/mapx.nvim" },
 		---------------------------------------------------------------------------------
 		-- UI overhaul
