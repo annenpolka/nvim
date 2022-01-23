@@ -147,6 +147,8 @@ local function load_plugins()
 		{ "folke/todo-comments.nvim" },
 		-- show signiture guides on type
 		{ "ray-x/lsp_signature.nvim" },
+		-- highlighting the word under cursor
+		{ "RRethy/vim-illuminate" },
 		-- Autopair
 		{ "windwp/nvim-autopairs" },
 		-- code biscuits, Bracket Lens-like plugin
