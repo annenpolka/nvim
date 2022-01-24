@@ -59,7 +59,7 @@ function M.config()
 		local number = vim.api.nvim_tabpage_get_number(tabid)
 		-- local ctrlspace_bufnum = vim.fn["ctrlspace#api#TabBuffersNumber"](number)
 		local name = util.get_tab_name(tabid)
-		return string.format("%d%s %s", number, name, webicon(name))
+		return string.format("%d %s %s", number, name, webicon(name))
 	end
 	local line = {
 		hl = { fg = palette.fg, bg = palette.bg },
@@ -117,7 +117,7 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap("n", "<C-t>", ":$tabnew<CR>", { noremap = true })
+	-- vim.api.nvim_set_keymap("n", "<C-t>", ":$tabnew<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("n", "<Tab>", ":tabn<CR>", { noremap = true })
