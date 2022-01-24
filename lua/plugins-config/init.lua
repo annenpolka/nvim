@@ -48,6 +48,7 @@ local function load_plugins()
 		{ "ludovicchabant/vim-gutentags" },
 		-- UI to select things (files, grep results, open buffers...)
 		{ "nvim-telescope/telescope.nvim" },
+		{ "nvim-telescope/telescope-fzy-native.nvim" },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 		-- file manager
 		{ "kyazdani42/nvim-tree.lua" },
@@ -61,7 +62,6 @@ local function load_plugins()
 		{ "folke/tokyonight.nvim" },
 		-- buffer selector
 		-- { "vim-ctrlspace/vim-ctrlspace" },
-		{ "ctrlpvim/ctrlp.vim" },
 		-- bufferline
 		-- { "akinsho/bufferline.nvim" },
 		-- tabline

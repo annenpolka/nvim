@@ -3,17 +3,30 @@ function M.config()
 	-- Telescope
 	require("telescope").setup({
 		defaults = {
+			file_sorter = require("telescope.sorters").get_fzy_sorter,
 			mappings = {
 				n = {
 					["l"] = "select_default",
 				},
+				i = {},
 			},
-			initial_mode = "normal",
+			initial_mode = "insert",
 		},
 		pickers = {
 			find_files = { theme = "ivy" },
 			tags = { theme = "ivy" },
-			buffers = { theme = "ivy" },
+			buffers = {
+				initial_mode = "insert",
+				theme = "ivy",
+				mappings = {
+					n = {
+						["<c-d>"] = require("telescope.actions").delete_buffer,
+					},
+					i = {
+						["<c-d>"] = require("telescope.actions").delete_buffer,
+					},
+				},
+			},
 			live_grep = {
 				layout_strategy = "flex",
 				theme = "ivy",
@@ -27,6 +40,7 @@ function M.config()
 			},
 		},
 	})
+	require("telescope").load_extension("fzy_native")
 	require("telescope").load_extension("file_browser")
 	require("telescope").load_extension("refactoring")
 end
@@ -39,6 +53,7 @@ function M.map()
 	-- [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 	-- { noremap = true, silent = true }
 	-- )
+	vim.api.nvim_set_keymap("n", "<C-a>", ":Telescope buffers<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap("n", "<leader>sf", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap(
