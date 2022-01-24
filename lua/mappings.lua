@@ -54,7 +54,7 @@ local function map_plugins()
 	require(m("todo-comments")).map()
 	require(m("trouble")).map()
 	require(m("vim-bookmarks")).map()
-	require(m("vim-ctrlspace")).map()
+	-- require(m("vim-ctrlspace")).map()
 	require(m("twilight")).map()
 end
 map_plugins()

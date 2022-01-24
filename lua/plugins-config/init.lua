@@ -60,7 +60,8 @@ local function load_plugins()
 		-- tokyonight theme
 		{ "folke/tokyonight.nvim" },
 		-- buffer selector
-		{ "vim-ctrlspace/vim-ctrlspace" },
+		-- { "vim-ctrlspace/vim-ctrlspace" },
+		{ "ctrlpvim/ctrlp.vim" },
 		-- bufferline
 		-- { "akinsho/bufferline.nvim" },
 		-- tabline

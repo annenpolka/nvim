@@ -57,9 +57,9 @@ function M.config()
 	end
 	local tabname = function(tabid)
 		local number = vim.api.nvim_tabpage_get_number(tabid)
-		local ctrlspace_bufnum = vim.fn["ctrlspace#api#TabBuffersNumber"](number)
+		-- local ctrlspace_bufnum = vim.fn["ctrlspace#api#TabBuffersNumber"](number)
 		local name = util.get_tab_name(tabid)
-		return string.format("%d%s%s %s", number, ctrlspace_bufnum, name, webicon(name))
+		return string.format("%d%s %s", number, name, webicon(name))
 	end
 	local line = {
 		hl = { fg = palette.fg, bg = palette.bg },
