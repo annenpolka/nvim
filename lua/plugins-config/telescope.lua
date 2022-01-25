@@ -53,7 +53,12 @@ function M.map()
 	-- [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 	-- { noremap = true, silent = true }
 	-- )
-	vim.api.nvim_set_keymap("n", "<C-a>", ":Telescope buffers<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap(
+		"n",
+		"<C-a>",
+		[[<cmd>lua require('telescope.builtin').buffers({ ignore_current_buffer = true })<CR>]],
+		{ noremap = true, silent = true }
+	)
 	vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap("n", "<leader>sf", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap(
