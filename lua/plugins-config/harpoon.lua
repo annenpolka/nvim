@@ -36,6 +36,19 @@ function M.map()
 	)
 	vim.api.nvim_set_keymap("n", "m", ":lua require('harpoon.ui').nav_next()<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap("n", "M", ":lua require('harpoon.ui').nav_prev()<CR>", { noremap = true, silent = true })
+
+	-- in harpoon buffer --
+	-- append current buffer parent path
+	local function get_active_buffer_path()
+		return vim.fn.fnamemodify(vim.fn.expand("#:p:h"), ":~:.") .. "/"
+	end
+	local function append_to_buffer_last_line(text)
+		vim.cmd("normal Go" .. text)
+	end
+	nnoremap("<C-n>", function()
+		append_to_buffer_last_line(get_active_buffer_path())
+		vim.api.nvim_feedkeys("A", "n", true)
+	end, { ft = "harpoon" })
 end
 
 return M
