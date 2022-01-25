@@ -59,6 +59,7 @@ function M.config()
 			{ name = "path" },
 			{ name = "luasnip" },
 			{ name = "rg" },
+			{ name = "treesitter" },
 			-- { name = "cmp_tabnine" },
 		},
 		sorting = {

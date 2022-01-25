@@ -97,11 +97,15 @@ local function load_plugins()
 		{ "williamboman/nvim-lsp-installer" },
 		-- Autocompletion plugin
 		{ "hrsh7th/nvim-cmp" },
+		-- -- cmp devicons apperance dependency
+		{ "onsails/lspkind-nvim" },
+		-- -- cmp plugins
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-path" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-cmdline" },
+		{ "ray-x/cmp-treesitter" },
 		{ "lukas-reineke/cmp-rg" },
 		{ "lukas-reineke/cmp-under-comparator" },
 		-- { "tzachar/cmp-tabnine", run = "./install.sh" },
