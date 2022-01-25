@@ -143,7 +143,7 @@ local function load_plugins()
 		-- color highlighter
 		{ "norcalli/nvim-colorizer.lua" },
 		-- outline viewer
-		{ "simrat39/symbols-outline.nvim" },
+		-- { "simrat39/symbols-outline.nvim" },
 		-- Discover available code action like VSCode
 		{ "kosayoda/nvim-lightbulb" },
 		-- code action modal
@@ -221,7 +221,7 @@ local function load_configs()
 	require(p("sandwich")).config()
 	require(p("spectre")).config()
 	require(p("substitute")).config()
-	require(p("symbols-outline")).config()
+	-- require(p("symbols-outline")).config()
 	require(p("tabout")).config()
 	require(p("telescope")).config()
 	require(p("todo-comments")).config()
