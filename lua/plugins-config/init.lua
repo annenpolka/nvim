@@ -60,6 +60,8 @@ local function load_plugins()
 		{ "catppuccin/nvim", as = "catppuccin" },
 		-- tokyonight theme
 		{ "folke/tokyonight.nvim" },
+		-- Project root switcher
+		{ "nyngwang/NeoRoot.lua" },
 		-- buffer selector
 		-- { "vim-ctrlspace/vim-ctrlspace" },
 		-- bufferline
