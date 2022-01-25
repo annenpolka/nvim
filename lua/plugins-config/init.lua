@@ -103,6 +103,7 @@ local function load_plugins()
 		{ "hrsh7th/cmp-nvim-lsp" },
 		{ "saadparwaiz1/cmp_luasnip" },
 		{ "hrsh7th/cmp-path" },
+		{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-cmdline" },
 		{ "ray-x/cmp-treesitter" },
@@ -191,7 +192,6 @@ local p = function(name)
 end
 
 local function load_configs()
-	-- mapping
 	require(p("nvim-cmp")).config() -- completion retaled bundle
 	require(p("autopairs")).config()
 	require(p("autosave")).config()

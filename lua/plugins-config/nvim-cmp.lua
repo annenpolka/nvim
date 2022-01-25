@@ -108,6 +108,7 @@ function M.config()
 	})
 	require("cmp").setup.cmdline("/", {
 		sources = {
+			{ name = "nvim_lsp_document_symbol" },
 			{ name = "buffer" },
 		},
 	})
