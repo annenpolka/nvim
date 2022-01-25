@@ -24,7 +24,7 @@ end
 function M.map()
 	vim.api.nvim_set_keymap(
 		"n",
-		"<leader>mm",
+		"<leader>m",
 		":lua require('harpoon.mark').toggle_file()<CR>",
 		{ noremap = true, silent = true }
 	)

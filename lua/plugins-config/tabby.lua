@@ -117,7 +117,7 @@ function M.config()
 end
 
 function M.map()
-	-- vim.api.nvim_set_keymap("n", "<C-t>", ":$tabnew<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("n", "<C-t>", ":$tabnew<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("n", "<Tab>", ":tabn<CR>", { noremap = true })
