@@ -4,6 +4,7 @@ function M.config()
 	-- luasnip setup
 	local luasnip = require("luasnip")
 	local snippets = require("my_snippets")
+	local lspkind = require("lspkind")
 
 	-- nvim-cmp setup
 	local cmp = require("cmp")
@@ -75,6 +76,22 @@ function M.config()
 				cmp.config.compare.order,
 				-- The rest of your comparators...
 			},
+		},
+		formatting = {
+			-- devicons by lspkind
+			format = lspkind.cmp_format({
+				with_text = true, -- do not show text alongside icons
+				maxwidth = 50,
+			}),
+			-- avoid duplicates
+			function(entry, vim_item)
+				vim_item.dup = ({
+					buffer = 0,
+					path = 1,
+					nvim_lsp = 0,
+				})[entry.source.name] or 0
+				return vim_item
+			end,
 		},
 	})
 
