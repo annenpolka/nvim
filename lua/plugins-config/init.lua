@@ -192,6 +192,12 @@ local p = function(name)
 	return string.format("plugins-config.%s", name)
 end
 
+--- themes
+local function load_theme()
+	require(p("catppuccin")).config()
+end
+load_theme()
+
 local function load_configs()
 	require(p("nvim-cmp")).config() -- completion retaled bundle
 	require(p("autopairs")).config()
@@ -241,9 +247,3 @@ local function load_configs()
 	require(p("vim-illuminate")).config()
 end
 load_configs()
-
---- themes
-local function load_theme()
-	require(p("catppuccin")).config()
-end
-load_theme()
