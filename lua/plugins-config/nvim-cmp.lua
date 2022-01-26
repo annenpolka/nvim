@@ -56,6 +56,7 @@ function M.config()
 					end,
 				},
 			},
+			{ name = "look", keyword_length = 2, option = { convert_case = true, loud = true } },
 			{ name = "path" },
 			{ name = "luasnip" },
 			{ name = "rg" },
@@ -83,6 +84,13 @@ function M.config()
 			format = lspkind.cmp_format({
 				with_text = true, -- do not show text alongside icons
 				maxwidth = 50,
+				menu = {
+					buffer = "[Buf]",
+					nvim_lsp = "[LSP]",
+					look = "[Look]",
+					luasnip = "[LuaSnip]",
+					rg = "[rg]",
+				},
 			}),
 			-- avoid duplicates
 			function(entry, vim_item)
