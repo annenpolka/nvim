@@ -25,7 +25,8 @@ local function load_plugins()
 		-- UI overhaul
 		{ "stevearc/dressing.nvim" },
 		-- Session manager
-		{ "rmagatti/auto-session" },
+		-- { "rmagatti/auto-session" },
+		{ "Shatur/neovim-session-manager" },
 		-- Close buffer/window/vim wisely
 		{ "mhinz/vim-sayonara" },
 		-- automatic indent detection
@@ -230,7 +231,8 @@ local function load_configs()
 	require(p("trouble")).config()
 	require(p("vim-bookmarks")).config()
 	require(p("which-key")).config()
-	require(p("auto-session")).config()
+	-- require(p("auto-session")).config()
+	require(p("neovim-session-manager")).config()
 	require(p("hlslens")).config()
 	require(p("scrollbar")).config()
 	require(p("treesitter-context")).config()
