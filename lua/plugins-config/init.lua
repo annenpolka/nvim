@@ -97,7 +97,7 @@ local function load_plugins()
 		{ "williamboman/nvim-lsp-installer" },
 		-- Autocompletion plugin
 		{ "hrsh7th/nvim-cmp" },
-		-- -- cmp devicons apperance dependency
+		-- -- cmp devicons appearance dependency
 		{ "onsails/lspkind-nvim" },
 		-- -- cmp plugins
 		{ "hrsh7th/cmp-nvim-lsp" },
@@ -120,7 +120,7 @@ local function load_plugins()
 		{ "L3MON4D3/LuaSnip" },
 		-- tabout
 		{ "abecodes/tabout.nvim" },
-		-- Notification baloon
+		-- Notification balloon
 		{ "rcarriga/nvim-notify" },
 		-- yank kill-ring
 		{ "tversteeg/registers.nvim" },
