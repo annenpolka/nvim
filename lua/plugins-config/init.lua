@@ -11,6 +11,7 @@ local function load_plugins()
 		{ "kyazdani42/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "MunifTanjim/nui.nvim" },
+		{ "kamykn/popup-menu.nvim" },
 		-- { "vim-denops/denops.vim" },
 		-- fzf
 		{
@@ -119,6 +120,8 @@ local function load_plugins()
 		{ "PlatyPew/format-installer.nvim" },
 		-- Snippets plugin
 		{ "L3MON4D3/LuaSnip" },
+		-- spellcheck
+		{ "kamykn/spelunker.vim" },
 		-- tabout
 		{ "abecodes/tabout.nvim" },
 		-- Notification balloon
@@ -245,5 +248,6 @@ local function load_configs()
 	require(p("nvim-gps")).config()
 	require(p("twilight")).config()
 	require(p("vim-illuminate")).config()
+	require(p("spelunker")).config()
 end
 load_configs()
