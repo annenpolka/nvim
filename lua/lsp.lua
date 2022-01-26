@@ -1,4 +1,4 @@
--- LSP settings
+-- LSP setting
 local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
 local on_attach = function(_, bufnr)
@@ -116,10 +116,11 @@ end
 -- -- format-installer configuration
 local formatter_install = require("format-installer")
 
-local sources = {}
+-- add sources managed by format-installer.nvim
+local sources_managed = {}
 for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
 	local config = { command = formatter.cmd }
-	table.insert(sources, null_ls.builtins.formatting[formatter.name].with(config))
+	table.insert(sources_managed, null_ls.builtins.formatting[formatter.name].with(config))
 end
 -- -- add predefined sources
 local sources_predefined = {
@@ -145,14 +146,19 @@ local sources_predefined = {
 	--[[ null_ls.builtins.formatting.clang_format.with({
       extra_args = {"--style=Google"}
     }), ]]
+	-- spellcheck
+	-- null_ls.builtins.diagnostics.cspell,
+	-- spellsuggest
+	null_ls.builtins.completion.spell,
 }
 for _, v in pairs(sources_predefined) do
-	table.insert(sources, v)
+	table.insert(sources_managed, v)
 end
+
 -- -- setup
 require("null-ls").setup({
 	debug = true,
-	sources = sources,
+	sources = sources_managed,
 })
 
 -- projects.nvim
