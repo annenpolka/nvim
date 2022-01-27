@@ -34,6 +34,8 @@ local function load_plugins()
 		{ "tpope/vim-sleuth" },
 		-- Better Escape
 		{ "max397574/better-escape.nvim" },
+		-- Better line number jump with peek
+		{ "nacro90/numb.nvim" },
 		-- autosave
 		{ "Pocco81/AutoSave.nvim" },
 		-- mouse gestures
@@ -249,5 +251,6 @@ local function load_configs()
 	require(p("twilight")).config()
 	require(p("vim-illuminate")).config()
 	require(p("spelunker")).config()
+	require(p("numb")).config()
 end
 load_configs()
