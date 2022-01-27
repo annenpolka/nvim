@@ -47,7 +47,7 @@ local function load_plugins()
 		-- search buffer
 		{ "nvim-pack/nvim-spectre" },
 		-- Automatic tags management
-		{ "ludovicchabant/vim-gutentags" },
+		-- { "ludovicchabant/vim-gutentags" },
 		-- UI to select things (files, grep results, open buffers...)
 		{ "nvim-telescope/telescope.nvim" },
 		{ "nvim-telescope/telescope-fzy-native.nvim" },
