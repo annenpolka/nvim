@@ -65,7 +65,7 @@ local function load_plugins()
 		-- tokyonight theme
 		{ "folke/tokyonight.nvim" },
 		-- Project root switcher
-		{ "nyngwang/NeoRoot.lua" },
+		-- { "nyngwang/NeoRoot.lua" },
 		-- buffer selector
 		-- { "vim-ctrlspace/vim-ctrlspace" },
 		-- bufferline
