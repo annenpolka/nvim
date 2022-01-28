@@ -52,6 +52,11 @@ vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 
+-- spellsuggest
+-- vim.opt.spell = true
+-- vim.opt.spelllang = { "en_us" }
+
+-- color terminal
 vim.o.termguicolors = true
 
 ---------------------------------------------------------------------------
