@@ -146,8 +146,9 @@ local sources_predefined = {
 	--[[ null_ls.builtins.formatting.clang_format.with({
       extra_args = {"--style=Google"}
     }), ]]
-	-- spellcheck
+	-- spellcheck by cspell
 	-- null_ls.builtins.diagnostics.cspell,
+
 	-- spellsuggest
 	null_ls.builtins.completion.spell,
 }
