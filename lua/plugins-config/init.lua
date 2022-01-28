@@ -1,7 +1,9 @@
 -- optimize loading
 require("impatient").enable_profile()
 
--- -- plugins
+-- ╭──────────────────────────────────────────────────────────╮
+-- │                          plugins                         │
+-- ╰──────────────────────────────────────────────────────────╯
 local function load_plugins()
 	require("paq")({
 		{ "savq/paq-nvim" },
@@ -55,7 +57,7 @@ local function load_plugins()
 		{ "nvim-telescope/telescope-fzy-native.nvim" },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 		-- file manager
-		{ "kyazdani42/nvim-tree.lua" },
+		-- { "kyazdani42/nvim-tree.lua" },
 		-- Theme inspired by Atom
 		{ "joshdick/onedark.vim" },
 		-- github theme
@@ -110,6 +112,7 @@ local function load_plugins()
 		{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-cmdline" },
+		{ "octaltree/cmp-look" },
 		{ "ray-x/cmp-treesitter" },
 		{ "lukas-reineke/cmp-rg" },
 		{ "lukas-reineke/cmp-under-comparator" },
@@ -142,6 +145,8 @@ local function load_plugins()
 		{ "gbprod/substitute.nvim" },
 		-- commenting
 		{ "b3nj5m1n/kommentary" },
+		-- comment eyecandies
+		{ "LudoPinelli/comment-box.nvim" },
 		-- multi cursor
 		{ "mg979/vim-visual-multi" },
 		-- Colorize brackets
@@ -185,14 +190,18 @@ local function load_plugins()
 		-- automatic split management
 		{ "beauwilliams/focus.nvim" },
 		-- narrow region buffer
-		{ "chrisbra/NrrwRgn" },
+		-- { "chrisbra/NrrwRgn" },
 		-- cpbooster, competitive programming cli tool
 		{ "searleser97/cpbooster.vim" },
 	})
 end
 load_plugins()
 
--- require plugin's config
+-- ╭──────────────────────────────────────────────────────────╮
+-- │                      plugin config                      │
+-- ╰──────────────────────────────────────────────────────────╯
+
+-- require plugin's config helper
 local p = function(name)
 	return string.format("plugins-config.%s", name)
 end
@@ -203,6 +212,7 @@ local function load_theme()
 end
 load_theme()
 
+-- load plugin configs
 local function load_configs()
 	require(p("nvim-cmp")).config() -- completion retaled bundle
 	require(p("autopairs")).config()
@@ -225,7 +235,7 @@ local function load_configs()
 	require(p("lualine")).config()
 	require(p("neogit")).config()
 	require(p("notify")).config()
-	require(p("nvim-tree")).config()
+	-- require(p("nvim-tree")).config()
 	require(p("nvim-treesitter")).config()
 	require(p("pretty-fold")).config()
 	require(p("qf_helper")).config()
