@@ -14,7 +14,6 @@ function M.config()
 	-- Check spelling for words longer than set characters. (default: 4)
 	vim.g.spelunker_target_min_char_len = 4
 
-	-- amoount
 	-- Max amount of word suggestions. (default: 15)
 	vim.g.spelunker_max_suggest_words = 15
 
@@ -32,7 +31,7 @@ function M.config()
 	-- 1: Highlight all types (SpellBad, SpellCap, SpellRare, SpellLocal).
 	-- 2: Highlight only SpellBad.
 	-- FYI: https://vim-jp.org/vimdoc-en/spell.html#spell-quickstart
-	vim.g.spelunker_highlight_type = 1
+	vim.g.spelunker_highlight_type = 2
 
 	-- Disable checking words in backtick/backquote. (default: 0)
 	vim.g.spelunker_disable_backquoted_checking = 1
