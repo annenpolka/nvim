@@ -32,8 +32,9 @@ local function load_plugins()
 		-- ╰──────────────────────────────────────────────────────────╯
 		-- UI overhaul
 		{ "stevearc/dressing.nvim" },
+		-- sudo
+		{ "lambdalisue/suda.vim" },
 		-- Session manager
-		-- { "rmagatti/auto-session" },
 		{ "Shatur/neovim-session-manager" },
 		-- Close buffer/window/vim wisely
 		{ "mhinz/vim-sayonara" },
