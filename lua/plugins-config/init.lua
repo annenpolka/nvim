@@ -2,7 +2,7 @@
 require("impatient").enable_profile()
 
 -- ╭──────────────────────────────────────────────────────────╮
--- │                          plugins                         │
+-- │                      plugins loading                     │
 -- ╰──────────────────────────────────────────────────────────╯
 local function load_plugins()
 	require("paq")({
@@ -81,7 +81,9 @@ local function load_plugins()
 		{ "petertriho/nvim-scrollbar" },
 		-- Add indentation guides even on blank lines
 		{ "lukas-reineke/indent-blankline.nvim" },
-		-- Highlight, edit, and navigate code using a fast incremental parsing library
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                        treesitter                        │
+		-- ╰──────────────────────────────────────────────────────────╯
 		{ "nvim-treesitter/nvim-treesitter" },
 		-- Limelighting
 		{ "folke/twilight.nvim" },
@@ -97,11 +99,18 @@ local function load_plugins()
 		{ "David-Kunz/treesitter-unit" },
 		-- refactoring support
 		{ "ThePrimeagen/refactoring.nvim" },
+		-- Generate annotation
+		{ "danymat/neogen" },
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                            LSP                           │
+		-- ╰──────────────────────────────────────────────────────────╯
 		-- Collection of configurations for built-in LSP client
 		{ "neovim/nvim-lspconfig" },
 		--  To Install LSP Automatically with LspInstall
 		{ "williamboman/nvim-lsp-installer" },
-		-- Autocompletion plugin
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                      Autocompletion                      │
+		-- ╰──────────────────────────────────────────────────────────╯
 		{ "hrsh7th/nvim-cmp" },
 		-- -- cmp devicons appearance dependency
 		{ "onsails/lspkind-nvim" },
@@ -262,5 +271,6 @@ local function load_configs()
 	require(p("vim-illuminate")).config()
 	require(p("spelunker")).config()
 	require(p("numb")).config()
+	require(p("neogen")).config()
 end
 load_configs()
