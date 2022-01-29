@@ -62,5 +62,6 @@ local function map_plugins()
 	-- require(m("neoroot")).map()
 	require(m("comment-box")).map()
 	require(m("zen-mode")).map()
+	require(m("nvim-treehopper")).map()
 end
 map_plugins()

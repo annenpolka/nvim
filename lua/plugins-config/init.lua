@@ -113,6 +113,8 @@ local function load_plugins()
 		{ "windwp/nvim-ts-autotag" },
 		-- textobject unit helper
 		{ "David-Kunz/treesitter-unit" },
+		-- select textobject with hints
+		{ "mfussenegger/nvim-treehopper" },
 		-- refactoring support
 		{ "ThePrimeagen/refactoring.nvim" },
 		-- Generate annotation
