@@ -63,6 +63,12 @@ local function load_plugins()
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 		-- file manager
 		-- { "kyazdani42/nvim-tree.lua" },
+		-- yank kill-ring
+		{ "tversteeg/registers.nvim" },
+		-- comment eyecandies
+		{ "LudoPinelli/comment-box.nvim" },
+		-- buffer bookmarks
+		{ "MattesGroeger/vim-bookmarks" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           theme                          │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -154,8 +160,6 @@ local function load_plugins()
 		{ "abecodes/tabout.nvim" },
 		-- Notification balloon
 		{ "rcarriga/nvim-notify" },
-		-- yank kill-ring
-		{ "tversteeg/registers.nvim" },
 		-- folding
 		{ "anuvyklack/pretty-fold.nvim" },
 		-- Faster f/f
@@ -168,8 +172,6 @@ local function load_plugins()
 		{ "gbprod/substitute.nvim" },
 		-- commenting
 		{ "b3nj5m1n/kommentary" },
-		-- comment eyecandies
-		{ "LudoPinelli/comment-box.nvim" },
 		-- multi cursor
 		{ "mg979/vim-visual-multi" },
 		-- Colorize brackets
@@ -195,8 +197,6 @@ local function load_plugins()
 		{ "windwp/nvim-autopairs" },
 		-- code biscuits, Bracket Lens-like plugin
 		{ "code-biscuits/nvim-biscuits" },
-		-- buffer bookmarks
-		{ "MattesGroeger/vim-bookmarks" },
 		-- project file anchor
 		{ "ThePrimeagen/harpoon" },
 		-- Better quickfix
