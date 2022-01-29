@@ -210,6 +210,9 @@ load_plugins()
 -- │                      plugin config                      │
 -- ╰──────────────────────────────────────────────────────────╯
 
+-- mapping sugar syntax
+require("mapx").setup({ global = true }) -- global keymap helper
+
 -- require plugin's config helper
 local p = function(name)
 	return string.format("plugins-config.%s", name)
