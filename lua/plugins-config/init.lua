@@ -27,6 +27,9 @@ local function load_plugins()
 		-- mapping helper functions
 		{ "b0o/mapx.nvim" },
 		---------------------------------------------------------------------------------
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                          Utility                         │
+		-- ╰──────────────────────────────────────────────────────────╯
 		-- UI overhaul
 		{ "stevearc/dressing.nvim" },
 		-- Session manager
@@ -74,7 +77,7 @@ local function load_plugins()
 		-- nightfox theme
 		{ "EdenEast/nightfox.nvim" },
 		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                        UI Widgets                        │
+		-- │                     lines and widgets                    │
 		-- ╰──────────────────────────────────────────────────────────╯
 		-- bufferline
 		-- { "akinsho/bufferline.nvim" },
@@ -142,6 +145,9 @@ local function load_plugins()
 		{ "PlatyPew/format-installer.nvim" },
 		-- Snippets plugin
 		{ "L3MON4D3/LuaSnip" },
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                           Misc                           │
+		-- ╰──────────────────────────────────────────────────────────╯
 		-- spellcheck
 		{ "kamykn/spelunker.vim" },
 		-- tabout
@@ -215,7 +221,7 @@ end
 load_plugins()
 
 -- ╭──────────────────────────────────────────────────────────╮
--- │                      plugin config                      │
+-- │                      plugin config                       │
 -- ╰──────────────────────────────────────────────────────────╯
 
 -- mapping sugar syntax
