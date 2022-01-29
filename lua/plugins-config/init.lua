@@ -9,7 +9,9 @@ local function load_plugins()
 		{ "savq/paq-nvim" },
 		-- lua loading optimizer
 		{ "lewis6991/impatient.nvim" },
-		-- runtime, dependency----------------------------------------------------------
+-- ╭──────────────────────────────────────────────────────────╮
+-- │                    runtime, dependency                   │
+-- ╰──────────────────────────────────────────────────────────╯
 		{ "kyazdani42/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "MunifTanjim/nui.nvim" },
