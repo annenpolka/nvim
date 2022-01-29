@@ -77,7 +77,7 @@ function M.config()
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		inactive_tab = {
 			label = function(tabid)
@@ -97,7 +97,7 @@ function M.config()
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		win = {
 			label = function(winid)
