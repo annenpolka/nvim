@@ -58,6 +58,9 @@ local function load_plugins()
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 		-- file manager
 		-- { "kyazdani42/nvim-tree.lua" },
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                           theme                          │
+		-- ╰──────────────────────────────────────────────────────────╯
 		-- Theme inspired by Atom
 		{ "joshdick/onedark.vim" },
 		-- github theme
@@ -66,10 +69,11 @@ local function load_plugins()
 		{ "catppuccin/nvim", as = "catppuccin" },
 		-- tokyonight theme
 		{ "folke/tokyonight.nvim" },
-		-- Project root switcher
-		-- { "nyngwang/NeoRoot.lua" },
-		-- buffer selector
-		-- { "vim-ctrlspace/vim-ctrlspace" },
+		-- nightfox theme
+		{ "EdenEast/nightfox.nvim" },
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                            UI                            │
+		-- ╰──────────────────────────────────────────────────────────╯
 		-- bufferline
 		-- { "akinsho/bufferline.nvim" },
 		-- tabline
@@ -108,6 +112,8 @@ local function load_plugins()
 		{ "neovim/nvim-lspconfig" },
 		--  To Install LSP Automatically with LspInstall
 		{ "williamboman/nvim-lsp-installer" },
+		-- show signiture guides on type
+		{ "ray-x/lsp_signature.nvim" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -175,8 +181,6 @@ local function load_plugins()
 		-- Problem view
 		{ "folke/trouble.nvim" },
 		{ "folke/todo-comments.nvim" },
-		-- show signiture guides on type
-		{ "ray-x/lsp_signature.nvim" },
 		-- highlighting the word under cursor
 		{ "RRethy/vim-illuminate" },
 		-- Autopair
