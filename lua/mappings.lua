@@ -27,6 +27,9 @@ vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent =
 -- Open VSCode
 vim.api.nvim_set_keymap("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
 
+-- disbale default <C-c> behaviour
+nnoremap("<C-c>","<Nop>")
+
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function
 local m = function(name)
