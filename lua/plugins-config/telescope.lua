@@ -10,7 +10,22 @@ function M.config()
 				},
 				i = {},
 			},
+			layout_config = {
+				horizontal = {
+					prompt_position = "top",
+					preview_width = 0.55,
+				},
+				vertical = {
+					mirror = false,
+				},
+				width = 0.87,
+				height = 0.80,
+				preview_cutoff = 120,
+			},
 			initial_mode = "insert",
+			path_display = { "truncate" },
+			selection_strategy = "follow",
+			border = {},
 		},
 		pickers = {
 			find_files = { theme = "ivy" },
@@ -60,7 +75,7 @@ function M.map()
 		{ noremap = true, silent = true }
 	)
 	vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "<leader>sf", ":Telescope find_files<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	vim.api.nvim_set_keymap(
 		"n",
 		"<leader>sb",
