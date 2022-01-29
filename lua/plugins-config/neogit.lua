@@ -5,6 +5,7 @@ function M.config()
     -- -- setup
     local neogit = require("neogit")
     neogit.setup({
+	disable_commit_confirmation = true,
     	integrations = {
     		diffview = true, -- set diffview.nvim integration
     	},
