@@ -97,7 +97,7 @@ function M.config()
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		win = {
 			label = function(winid)
@@ -107,7 +107,7 @@ function M.config()
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		tail = {
 			{ "", hl = { fg = palette.accent_sec, bg = palette.bg } },
