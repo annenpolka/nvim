@@ -60,14 +60,14 @@ function M.config()
 		local number = vim.api.nvim_tabpage_get_number(tabid)
 		-- local ctrlspace_bufnum = vim.fn["ctrlspace#api#TabBuffersNumber"](number)
 		local name = util.get_tab_name(tabid)
-		return string.format("%d%s %s", number, name, webicon(name))
+		return string.format("%d %s %s", number, name, webicon(name))
 	end
 	local line = {
 		hl = { fg = palette.fg, bg = palette.bg },
 		layout = "active_wins_at_tail",
 		head = {
 			{ cwd, hl = { fg = palette.bg_sec, bg = palette.accent } },
-			{ "  ", hl = { fg = palette.accent, bg = palette.bg } },
+			{ "", hl = { fg = palette.accent, bg = palette.bg } },
 		},
 		active_tab = {
 			label = function(tabid)
@@ -76,8 +76,8 @@ function M.config()
 					hl = { fg = palette.accent, bg = palette.bg_sec, style = "bold" },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		inactive_tab = {
 			label = function(tabid)
@@ -86,8 +86,8 @@ function M.config()
 					hl = { fg = palette.fg, bg = palette.bg_third, style = "" },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
+			left_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
 		},
 		top_win = {
 			label = function(winid)
@@ -96,8 +96,8 @@ function M.config()
 					hl = { fg = palette.fg, bg = palette.bg_sec },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		win = {
 			label = function(winid)
@@ -106,11 +106,11 @@ function M.config()
 					hl = { fg = palette.fg, bg = palette.bg_sec },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		tail = {
-			{ " ", hl = { fg = palette.accent_sec, bg = palette.bg } },
+			{ "", hl = { fg = palette.accent_sec, bg = palette.bg } },
 			{ "  ", hl = { fg = palette.bg, bg = palette.accent } },
 		},
 	}
