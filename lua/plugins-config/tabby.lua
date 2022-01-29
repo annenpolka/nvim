@@ -72,17 +72,17 @@ function M.config()
 			label = function(tabid)
 				return {
 					" " .. tabname(tabid) .. " ",
-					hl = { fg = palette.bg, bg = palette.accent_sec, style = "bold" },
+					hl = { fg = palette.accent, bg = palette.bg_sec, style = "bold" },
 				}
 			end,
-			left_sep = { " ", hl = { fg = palette.accent_sec, bg = palette.bg } },
-			right_sep = { " ", hl = { fg = palette.accent_sec, bg = palette.bg } },
+			left_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		inactive_tab = {
 			label = function(tabid)
 				return {
 					" " .. tabname(tabid) .. " ",
-					hl = { fg = palette.fg, bg = palette.bg_sec, style = "bold" },
+					hl = { fg = palette.fg, bg = palette.bg_sec, style = "" },
 				}
 			end,
 			left_sep = { " ", hl = { fg = palette.bg_sec, bg = palette.bg } },
