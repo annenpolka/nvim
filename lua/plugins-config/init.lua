@@ -215,6 +215,8 @@ local function load_plugins()
 		{ "folke/zen-mode.nvim" },
 		-- narrow region buffer
 		-- { "chrisbra/NrrwRgn" },
+		-- show inline git blame
+		{ "APZelos/blamer.nvim" },
 		-- cpbooster, competitive programming cli tool
 		{ "searleser97/cpbooster.vim" },
 	})
@@ -291,5 +293,6 @@ local function load_configs()
 	require(p("numb")).config()
 	require(p("neogen")).config()
 	require(p("zen-mode")).config()
+	require(p("blamer")).config()
 end
 load_configs()
