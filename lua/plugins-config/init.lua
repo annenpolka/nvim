@@ -9,9 +9,9 @@ local function load_plugins()
 		{ "savq/paq-nvim" },
 		-- lua loading optimizer
 		{ "lewis6991/impatient.nvim" },
--- ╭──────────────────────────────────────────────────────────╮
--- │                    runtime, dependency                   │
--- ╰──────────────────────────────────────────────────────────╯
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                    runtime, dependency                   │
+		-- ╰──────────────────────────────────────────────────────────╯
 		{ "kyazdani42/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "MunifTanjim/nui.nvim" },
@@ -74,7 +74,7 @@ local function load_plugins()
 		-- nightfox theme
 		{ "EdenEast/nightfox.nvim" },
 		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                            UI                            │
+		-- │                        UI Widgets                        │
 		-- ╰──────────────────────────────────────────────────────────╯
 		-- bufferline
 		-- { "akinsho/bufferline.nvim" },
@@ -204,6 +204,8 @@ local function load_plugins()
 		{ "ahmedkhalf/project.nvim" },
 		-- automatic split management
 		{ "beauwilliams/focus.nvim" },
+		-- Zen mode
+		{ "folke/zen-mode.nvim" },
 		-- narrow region buffer
 		-- { "chrisbra/NrrwRgn" },
 		-- cpbooster, competitive programming cli tool
@@ -281,5 +283,6 @@ local function load_configs()
 	require(p("spelunker")).config()
 	require(p("numb")).config()
 	require(p("neogen")).config()
+	require(p("zen-mode")).config()
 end
 load_configs()

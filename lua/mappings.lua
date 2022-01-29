@@ -27,8 +27,8 @@ vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent =
 -- Open VSCode
 vim.api.nvim_set_keymap("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
 
--- disbale default <C-c> behaviour
-nnoremap("<C-c>","<Nop>")
+-- disable default <C-c> behaviour
+nnoremap("<C-c>", "<Nop>")
 
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function
@@ -61,5 +61,6 @@ local function map_plugins()
 	require(m("twilight")).map()
 	-- require(m("neoroot")).map()
 	require(m("comment-box")).map()
+	require(m("zen-mode")).map()
 end
 map_plugins()
