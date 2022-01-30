@@ -30,6 +30,9 @@ vim.api.nvim_set_keymap("n", "<F5>", ":!code .<CR>", { noremap = true, silent = 
 -- disable default <C-c> behaviour
 nnoremap("<C-c>", "<Nop>")
 
+-- open commandline buffer
+nnoremap("<leader>cc", "q:")
+
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function
 local m = function(name)
@@ -63,5 +66,6 @@ local function map_plugins()
 	require(m("comment-box")).map()
 	require(m("zen-mode")).map()
 	require(m("nvim-treehopper")).map()
+	require(m("dirbuf")).map()
 end
 map_plugins()
