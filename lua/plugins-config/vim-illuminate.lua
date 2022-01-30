@@ -5,8 +5,8 @@ function M.config()
 	vim.cmd([[
 		augroup illuminate_augroup
 			autocmd!
-			autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline guibg=#16162D
-			autocmd VimEnter * hi illuminatedCurWord guibg=#16162D
+			autocmd VimEnter * hi illuminatedWord cterm=underline gui=underline guibg=#362639
+			autocmd VimEnter * hi illuminatedCurWord guibg=#362639
 		augroup END
 	]])
 end
