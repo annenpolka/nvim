@@ -67,6 +67,7 @@ local function load_plugins()
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 		-- file manager
 		-- { "kyazdani42/nvim-tree.lua" },
+		{ "elihunter173/dirbuf.nvim" },
 		-- yank kill-ring
 		{ "tversteeg/registers.nvim" },
 		-- comment eyecandies
@@ -86,6 +87,10 @@ local function load_plugins()
 		{ "folke/tokyonight.nvim" },
 		-- nightfox theme
 		{ "EdenEast/nightfox.nvim" },
+		-- Everforest theme
+		{ "sainnhe/everforest" },
+		-- gruvbox theme
+		{ "eddyekofo94/gruvbox-flat.nvim" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                     lines and widgets                    │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -242,7 +247,8 @@ end
 
 --- themes
 local function load_theme()
-	require(p("catppuccin")).config()
+	-- require(p("catppuccin")).config()
+	require(p("everforest")).config()
 end
 load_theme()
 
@@ -299,5 +305,6 @@ local function load_configs()
 	require(p("neogen")).config()
 	require(p("zen-mode")).config()
 	require(p("blamer")).config()
+	require(p("dirbuf")).config()
 end
 load_configs()
