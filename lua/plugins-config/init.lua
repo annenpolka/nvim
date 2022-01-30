@@ -163,6 +163,15 @@ local function load_plugins()
 		-- Snippets plugin
 		{ "L3MON4D3/LuaSnip" },
 		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                          debug                           │
+		-- ╰──────────────────────────────────────────────────────────╯
+		-- Debug Adapter Protocol
+		{ "mfussenegger/nvim-dap" },
+		-- DAP UI
+		{ "rcarriga/nvim-dap-ui" },
+		-- DAP Installer
+		{ "Pocco81/DAPInstall.nvim" },
+		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           Misc                           │
 		-- ╰──────────────────────────────────────────────────────────╯
 		-- spellcheck
@@ -254,7 +263,7 @@ load_theme()
 
 -- load plugin configs
 local function load_configs()
-	require(p("nvim-cmp")).config() -- completion retaled bundle
+	require(p("nvim-cmp")).config() -- completion related bundle
 	require(p("autopairs")).config()
 	require(p("autosave")).config()
 	require(p("better_escape")).config()
@@ -306,5 +315,6 @@ local function load_configs()
 	require(p("zen-mode")).config()
 	require(p("blamer")).config()
 	require(p("dirbuf")).config()
+	require(p("dap")).config() -- dap-related bundle
 end
 load_configs()
