@@ -48,8 +48,11 @@ local function load_plugins()
 		{ "Pocco81/AutoSave.nvim" },
 		-- mouse gestures
 		{ "notomo/gesture.nvim" },
-		-- Git related
-		{ "sindrets/diffview.nvim" }, -- git diff viewer
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                        Git related                       │
+		-- ╰──────────────────────────────────────────────────────────╯
+		-- git diff viewer
+		{ "sindrets/diffview.nvim" },
 		-- Magit-like git plugin
 		{ "TimUntersberger/neogit" },
 		-- Add git related info in the signs columns and popups
