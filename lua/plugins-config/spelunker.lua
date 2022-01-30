@@ -25,7 +25,7 @@ function M.config()
 	-- may take a bit of time on large files.
 	-- 2: Spellcheck displayed words in buffer. Fast and dynamic. The waiting time
 	-- depends on the setting of CursorHold `set updatetime=1000`.
-	vim.g.spelunker_check_type = 1
+	vim.g.spelunker_check_type = 2
 
 	-- Highlight type: (default: 1)
 	-- 1: Highlight all types (SpellBad, SpellCap, SpellRare, SpellLocal).
