@@ -38,6 +38,8 @@ local on_attach = function(_, bufnr)
 	-- lsp_signature initialize
 	-- -- format before saving
 	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+	-- attach aerial
+	require("aerial").on_attach(_, bufnr)
 end
 
 -- Lsp diagnostic symbols

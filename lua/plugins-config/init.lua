@@ -136,6 +136,8 @@ local function load_plugins()
 		{ "williamboman/nvim-lsp-installer" },
 		-- show signiture guides on type
 		{ "ray-x/lsp_signature.nvim" },
+		-- code outline
+		{ "stevearc/aerial.nvim" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
 		-- ╰──────────────────────────────────────────────────────────╯
