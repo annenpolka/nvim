@@ -16,8 +16,37 @@ function M.config()
 			lualine_b = { "branch", "diff", "diagnostics" },
 			-- nvim-gps breadcrumb section
 			lualine_c = { { gps.get_location, cond = gps.is_available } },
-			lualine_x = { "encoding", "fileformat", "filetype" },
-			lualine_y = { "progress" },
+			lualine_x = {
+				{
+					"buffers",
+					show_filename_only = true, -- Shows shortened relative path when set to false.
+					show_modified_status = true, -- Shows indicator when the buffer is modified.
+
+					separators = { left = "", right = "" },
+					mode = 0, -- 0: Shows buffer name
+					-- 1: Shows buffer index (bufnr)
+					-- 2: Shows buffer name + buffer index (bufnr)
+
+					max_length = vim.o.columns * 1 / 3, -- Maximum width of buffers component,
+					-- it can also be a function that returns
+					-- the value of `max_length` dynamically.
+					filetype_names = {
+						TelescopePrompt = "Telescope",
+						fzf = "FZF",
+						alpha = "Alpha",
+					}, -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
+
+					buffers_color = {
+						-- Same values as the general color option can be used here.
+						active = "lualine_{section}_normal", -- Color for active buffer.
+						-- inactive = "lualine_{section}_inactive", -- Color for inactive buffer.
+					},
+				},
+				"encoding",
+				-- "fileformat",
+				"filetype",
+			},
+			-- lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},
 		inactive_sections = {
