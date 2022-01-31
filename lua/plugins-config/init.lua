@@ -91,6 +91,8 @@ local function load_plugins()
 		{ "sainnhe/everforest" },
 		-- gruvbox theme
 		{ "eddyekofo94/gruvbox-flat.nvim" },
+		-- aquarium theme
+		{ "FrenzyExists/aquarium-vim" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                     lines and widgets                    │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -109,6 +111,8 @@ local function load_plugins()
 		-- │                        treesitter                        │
 		-- ╰──────────────────────────────────────────────────────────╯
 		{ "nvim-treesitter/nvim-treesitter" },
+		-- playground
+		{ "nvim-treesitter/playground" },
 		-- Limelighting
 		{ "folke/twilight.nvim" },
 		-- treesitter-based context viewer
