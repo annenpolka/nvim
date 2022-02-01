@@ -69,8 +69,8 @@ function M.config()
 		hl = { fg = palette.fg, bg = palette.bg },
 		layout = "active_wins_at_tail",
 		head = {
-			{ cwd, hl = { fg = palette.accent, bg = palette.bg_sec } },
-			{ "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			{ cwd, hl = { fg = palette.bg_sec, bg = palette.accent } },
+			{ "", hl = { fg = palette.accent, bg = palette.bg } },
 		},
 		active_tab = {
 			label = function(tabid)
