@@ -68,5 +68,6 @@ local function map_plugins()
 	require(m("nvim-treehopper")).map()
 	require(m("dirbuf")).map()
 	require(m("aerial")).map()
+	require(m("dap")).map()
 end
 map_plugins()

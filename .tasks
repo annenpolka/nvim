@@ -1,0 +1,11 @@
+# vim: set fenc=utf-8 ft=dosini:
+# see: https://github.com/skywind3000/asynctasks.vim/wiki/Task-Config
+
+# define a new task named "file-build"
+[file-build]
+command:c,cpp=gcc -O2 -Wall "$(VIM_FILEPATH)" -o "$(VIM_PATHNOEXT)" -lstdc++ -lm -msse3
+command:go=go build -o "$(VIM_PATHNOEXT)" "$(VIM_FILEPATH)"
+command:make=make -f "$(VIM_FILEPATH)"
+output=quickfix
+cwd=$(VIM_FILEDIR)
+save=2

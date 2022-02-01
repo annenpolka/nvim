@@ -175,8 +175,13 @@ local function load_plugins()
 		{ "mfussenegger/nvim-dap" },
 		-- DAP UI
 		{ "rcarriga/nvim-dap-ui" },
+		-- vitrual text
+		{ "theHamsta/nvim-dap-virtual-text" },
 		-- DAP Installer
 		{ "Pocco81/DAPInstall.nvim" },
+		-- async task runners
+		{ "skywind3000/asyncrun.vim" },
+		{ "skywind3000/asynctasks.vim" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           Misc                           │
 		-- ╰──────────────────────────────────────────────────────────╯
