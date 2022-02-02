@@ -84,3 +84,19 @@ vim.cmd([[au BufWinEnter * set formatoptions-=ro]])
 -- vim.cmd(
 -- [[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]
 -- )
+
+-- load project local settings
+vim.cmd([[
+  function! Vimrc_local(loc)
+    let files = findfile('vimrc.lua', escape(a:loc, ' ') . ';', -1)
+    for i in reverse(filter(files, 'filereadable(v:val)'))
+      source `=i`
+    endfor
+  endfunction
+ ]])
+vim.cmd([[
+  augroup vimrcLocal
+    autocmd!
+    autocmd BufNewFile,BufReadPost * call Vimrc_local(expand('<afile>:p:h'))
+  augroup END
+]])
