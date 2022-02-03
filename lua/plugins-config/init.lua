@@ -9,6 +9,8 @@ local function load_plugins()
 		{ "savq/paq-nvim" },
 		-- lua loading optimizer
 		{ "lewis6991/impatient.nvim" },
+		-- faster filetype
+		{ "nathom/filetype.nvim" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                    runtime, dependency                   │
 		-- ╰──────────────────────────────────────────────────────────╯
