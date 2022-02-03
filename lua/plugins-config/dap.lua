@@ -28,7 +28,7 @@ function M.config()
 	-- vim.g.asyncrun_open = 6
 
 	-- execute compile task on save
-	-- 	vim.api.nvim_command([[autocmd BufWritePost * silent! AsyncTask file-build]])
+	vim.api.nvim_command([[autocmd BufWritePost * silent! AsyncTask file-build]])
 end
 
 function M.map()
