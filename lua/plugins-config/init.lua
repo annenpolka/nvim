@@ -140,6 +140,8 @@ local function load_plugins()
 		{ "neovim/nvim-lspconfig" },
 		--  To Install LSP Automatically with LspInstall
 		{ "williamboman/nvim-lsp-installer" },
+		-- rust lsp tools
+		{ "simrat39/rust-tools.nvim" },
 		-- show signiture guides on type
 		{ "ray-x/lsp_signature.nvim" },
 		-- code outline

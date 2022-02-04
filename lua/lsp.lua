@@ -58,13 +58,25 @@ lsp_installer.on_server_ready(function(server)
 	local opts = {}
 	opts.on_attach = on_attach
 	opts.capabilities = capabilities
-	server:setup(opts)
+	if server.name == "rust_analyzer" then
+		-- Initialize the LSP via rust-tools instead
+		require("rust-tools").setup({
+			-- The "server" property provided in rust-tools setup function are the
+			-- settings rust-tools will provide to lspconfig during init.            --
+			-- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
+			-- with the user's own settings (opts).
+			server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
+		})
+		server:attach_buffers()
+	else
+		server:setup(opts)
+	end
 end)
 
 -- Enable the following language servers manually
 local servers = {}
 -- workaround about offset encoding
-capabilities.offsetEncoding = { "utf-16" }
+-- capabilities.offsetEncoding = { "utf-16" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
@@ -122,13 +134,13 @@ end
 local formatter_install = require("format-installer")
 
 -- add sources managed by format-installer.nvim
-local sources_managed = {}
+local formatter_managed = {}
 for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
 	local config = { command = formatter.cmd }
-	table.insert(sources_managed, null_ls.builtins.formatting[formatter.name].with(config))
+	table.insert(formatter_managed, null_ls.builtins.formatting[formatter.name].with(config))
 end
 -- -- add predefined sources
-local sources_predefined = {
+local formatter_predefined = {
 	-- eslint, prettier
 	null_ls.builtins.code_actions.eslint_d.with({
 		condition = has_eslint_config,
@@ -151,20 +163,22 @@ local sources_predefined = {
 	--[[ null_ls.builtins.formatting.clang_format.with({
       extra_args = {"--style=Google"}
     }), ]]
+	-- rust
+	null_ls.builtins.formatting.rustfmt,
 	-- spellcheck by cspell
 	-- null_ls.builtins.diagnostics.cspell,
 
 	-- spellsuggest
 	null_ls.builtins.completion.spell,
 }
-for _, v in pairs(sources_predefined) do
-	table.insert(sources_managed, v)
+for _, v in pairs(formatter_predefined) do
+	table.insert(formatter_managed, v)
 end
 
 -- -- setup
 require("null-ls").setup({
 	debug = true,
-	sources = sources_managed,
+	sources = formatter_managed,
 })
 
 -- projects.nvim
