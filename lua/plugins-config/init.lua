@@ -54,6 +54,8 @@ local function load_plugins()
 		{ "notomo/gesture.nvim" },
 		-- readline keybindings in insert mode
 		{ "tpope/vim-rsi" },
+		-- switch working directory
+		{ "nyngwang/NeoRoot.lua" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
