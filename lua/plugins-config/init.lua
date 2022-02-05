@@ -32,6 +32,8 @@ local function load_plugins()
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          Utility                         │
 		-- ╰──────────────────────────────────────────────────────────╯
+		-- fix cursorhold performance problem
+		{ "antoinemadec/FixCursorHold.nvim" },
 		-- UI overhaul
 		{ "stevearc/dressing.nvim" },
 		-- sudo
