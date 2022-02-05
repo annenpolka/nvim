@@ -152,7 +152,7 @@ local function load_plugins()
 		{ "williamboman/nvim-lsp-installer" },
 		-- rust lsp tools
 		{ "simrat39/rust-tools.nvim" },
-		-- show signiture guides on type
+		-- show signature guides on type
 		{ "ray-x/lsp_signature.nvim" },
 		-- code outline
 		{ "stevearc/aerial.nvim" },
