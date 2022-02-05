@@ -50,6 +50,8 @@ local function load_plugins()
 		{ "Pocco81/AutoSave.nvim" },
 		-- mouse gestures
 		{ "notomo/gesture.nvim" },
+		-- readline keybindings in insert mode
+		{ "tpope/vim-rsi" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
