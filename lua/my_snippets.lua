@@ -27,3 +27,8 @@ ls.snippets = {
 		}),
 	},
 }
+
+-- load frinedly-snippets
+require("luasnip/loaders/from_vscode").load({
+	paths = { "~/.local/share/nvim/site/pack/paqs/start/friendly-snippets" },
+})

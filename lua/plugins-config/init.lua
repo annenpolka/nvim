@@ -182,6 +182,8 @@ local function load_plugins()
 		{ "PlatyPew/format-installer.nvim" },
 		-- Snippets plugin
 		{ "L3MON4D3/LuaSnip" },
+		-- snippets bundle
+		{ "rafamadriz/friendly-snippets" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          debug                           │
 		-- ╰──────────────────────────────────────────────────────────╯
