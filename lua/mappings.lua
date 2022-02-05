@@ -69,5 +69,6 @@ local function map_plugins()
 	require(m("dirbuf")).map()
 	require(m("aerial")).map()
 	require(m("dap")).map()
+	require(m("mundo")).map()
 end
 map_plugins()
