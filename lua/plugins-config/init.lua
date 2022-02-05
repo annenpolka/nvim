@@ -59,6 +59,9 @@ local function load_plugins()
 		{ "TimUntersberger/neogit" },
 		-- Add git related info in the signs columns and popups
 		{ "lewis6991/gitsigns.nvim" },
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                           files                          │
+		-- ╰──────────────────────────────────────────────────────────╯
 		-- search buffer
 		{ "nvim-pack/nvim-spectre" },
 		-- Automatic tags management
@@ -70,12 +73,17 @@ local function load_plugins()
 		-- file manager
 		-- { "kyazdani42/nvim-tree.lua" },
 		{ "elihunter173/dirbuf.nvim" },
+		-- ╭──────────────────────────────────────────────────────────╮
+		-- │                       text editing                       │
+		-- ╰──────────────────────────────────────────────────────────╯
 		-- yank kill-ring
 		{ "tversteeg/registers.nvim" },
 		-- comment eyecandies
 		{ "LudoPinelli/comment-box.nvim" },
 		-- buffer bookmarks
 		{ "MattesGroeger/vim-bookmarks" },
+		-- undo-tree
+		{ "simnalamburt/vim-mundo" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           theme                          │
 		-- ╰──────────────────────────────────────────────────────────╯
