@@ -25,13 +25,17 @@ vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent =
 vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- Open VSCode
-vim.api.nvim_set_keymap("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
 
 -- disable default <C-c> behaviour
 nnoremap("<C-c>", "<Nop>")
 
 -- open commandline buffer
 nnoremap("<leader>cc", "q:")
+
+-- bnext/bprev
+vim.api.nvim_set_keymap("n", "^", ":bnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "-", ":bprev<CR>", { noremap = true, silent = true })
 
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function
