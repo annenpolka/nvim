@@ -63,6 +63,8 @@ local function load_plugins()
 		{ "TimUntersberger/neogit" },
 		-- Add git related info in the signs columns and popups
 		{ "lewis6991/gitsigns.nvim" },
+		-- Github editor
+		{ "pwntester/octo.nvim" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           files                          │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -346,6 +348,7 @@ local function load_configs()
 	require(p("zen-mode")).config()
 	require(p("blamer")).config()
 	require(p("dirbuf")).config()
+	require(p("octo")).config()
 	require(p("dap")).config() -- dap-related bundle
 end
 load_configs()
