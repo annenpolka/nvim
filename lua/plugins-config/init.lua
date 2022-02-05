@@ -263,6 +263,8 @@ local function load_plugins()
 		-- { "chrisbra/NrrwRgn" },
 		-- show inline git blame
 		{ "APZelos/blamer.nvim" },
+		-- json viewer
+		{ "gennaro-tedesco/nvim-jqx" },
 		-- cpbooster, competitive programming cli tool
 		{ "searleser97/cpbooster.vim" },
 	})
