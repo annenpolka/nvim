@@ -22,12 +22,11 @@ function M.config()
 					show_filename_only = true, -- Shows shortened relative path when set to false.
 					show_modified_status = true, -- Shows indicator when the buffer is modified.
 
-					separators = { left = "", right = "" },
 					mode = 0, -- 0: Shows buffer name
 					-- 1: Shows buffer index (bufnr)
 					-- 2: Shows buffer name + buffer index (bufnr)
 
-					max_length = vim.o.columns * 1 / 3, -- Maximum width of buffers component,
+					max_length = vim.o.columns * 2 / 5, -- Maximum width of buffers component,
 					-- it can also be a function that returns
 					-- the value of `max_length` dynamically.
 					filetype_names = {
@@ -43,8 +42,8 @@ function M.config()
 					},
 				},
 				"encoding",
-				-- "fileformat",
-				"filetype",
+				"fileformat",
+				-- "filetype",
 			},
 			-- lualine_y = { "progress" },
 			lualine_z = { "location" },
