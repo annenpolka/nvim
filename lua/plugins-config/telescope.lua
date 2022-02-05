@@ -70,7 +70,7 @@ function M.map()
 	-- )
 	vim.api.nvim_set_keymap(
 		"n",
-		"<C-a>",
+		"<C-z>",
 		[[<cmd>lua require('telescope.builtin').buffers({ ignore_current_buffer = true })<CR>]],
 		{ noremap = true, silent = true }
 	)
