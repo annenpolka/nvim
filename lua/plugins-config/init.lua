@@ -92,6 +92,8 @@ local function load_plugins()
 		{ "MattesGroeger/vim-bookmarks" },
 		-- undo-tree
 		{ "simnalamburt/vim-mundo" },
+		-- switch keywords
+		{ "AndrewRadev/switch.vim" },
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           theme                          │
 		-- ╰──────────────────────────────────────────────────────────╯
