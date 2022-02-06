@@ -1,4 +1,4 @@
--- optimize loading
+ -- optimize loading
 require("impatient").enable_profile()
 -- initialize packer
 local fn = vim.fn
@@ -53,7 +53,10 @@ require("packer").startup(function(use)
 	-- UI overhaul
 	use({ "stevearc/dressing.nvim" })
 	-- sudo
-	use({ "lambdalisue/suda.vim" })
+	use({
+		"lambdalisue/suda.vim",
+		cmd = { "SudaWrite", "SudaRead" },
+	})
 	-- Session manager
 	use({ "Shatur/neovim-session-manager" })
 	-- Close buffer/window/vim wisely
@@ -78,7 +81,13 @@ require("packer").startup(function(use)
 	-- git diff viewer
 	use({ "sindrets/diffview.nvim" })
 	-- Magit-like git plugin
-	use({ "TimUntersberger/neogit" })
+	use({
+		"TimUntersberger/neogit",
+		config = function()
+			require("plugins-config.neogit").config()
+		end,
+		cmd = "Neogit",
+	})
 	-- Add git related info in the signs columns and popups
 	use({ "lewis6991/gitsigns.nvim" })
 	-- Github editor
@@ -113,22 +122,27 @@ require("packer").startup(function(use)
 	-- split/join lines
 	use({ "AndrewRadev/splitjoin.vim" })
 	-- ╭──────────────────────────────────────────────────────────╮
-	-- │                           theme                          │
+	-- │                          themes                          │
 	-- ╰──────────────────────────────────────────────────────────╯
 	-- Theme inspired by Atom
 	use({ "joshdick/onedark.vim" })
 	-- github theme
 	-- use{ "projekt0n/github-nvim-theme" },
 	-- catppuccin theme
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	-- use({ "catppuccin/nvim", as = "catppuccin" })
 	-- tokyonight theme
 	use({ "folke/tokyonight.nvim" })
 	-- nightfox theme
-	use({ "EdenEast/nightfox.nvim" })
+	-- use({ "EdenEast/nightfox.nvim" })
 	-- Everforest theme
-	use({ "sainnhe/everforest" })
+	use({
+		"sainnhe/everforest",
+		config = function()
+			require("plugins-config.everforest").config()
+		end,
+	})
 	-- gruvbox theme
-	use({ "eddyekofo94/gruvbox-flat.nvim" })
+	-- use({ "eddyekofo94/gruvbox-flat.nvim" })
 	-- aquarium theme
 	use({ "FrenzyExists/aquarium-vim" })
 	-- ╭──────────────────────────────────────────────────────────╮
@@ -137,10 +151,20 @@ require("packer").startup(function(use)
 	-- bufferline
 	-- use{ "akinsho/bufferline.nvim" },
 	-- tabline
-	use({ "nanozuki/tabby.nvim" })
+	use({
+		"nanozuki/tabby.nvim",
+		config = function()
+			require("plugins-config.tabby").config()
+			require("plugins-config.tabby").map()
+		end,
+	})
 	-- Fancier statusline
-	use({ "nvim-lualine/lualine.nvim" })
-	use({ "windwp/windline.nvim" })
+	use({
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins-config.lualine").config()
+		end,
+	})
 	-- scrollbar with search info
 	use({ "petertriho/nvim-scrollbar" })
 	-- Add indentation guides even on blank lines
@@ -148,27 +172,92 @@ require("packer").startup(function(use)
 	-- ╭──────────────────────────────────────────────────────────╮
 	-- │                        treesitter                        │
 	-- ╰──────────────────────────────────────────────────────────╯
-	use({ "nvim-treesitter/nvim-treesitter" })
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("plugins-config.nvim-treesitter").config()
+		end,
+	})
 	-- playground
-	use({ "nvim-treesitter/playground" })
+	use({
+		"nvim-treesitter/playground",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		after = { "nvim-treesitter" },
+	})
 	-- Limelighting
-	use({ "folke/twilight.nvim" })
+	use({
+		"folke/twilight.nvim",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		after = { "nvim-treesitter" },
+		config = function()
+			require("plugins-config.twilight").config()
+		end,
+	})
 	-- treesitter-based context viewer
-	use({ "romgrk/nvim-treesitter-context" })
+	use({
+		"romgrk/nvim-treesitter-context",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		after = { "nvim-treesitter" },
+		config = function()
+			require("plugins-config.treesitter-context").config()
+		end,
+	})
 	-- breadcrumb
-	use({ "SmiteshP/nvim-gps" })
+	use({
+		"SmiteshP/nvim-gps",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("plugins-config.nvim-gps").config()
+		end,
+	})
 	-- Additional textobjects for treesitter
-	use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		after = { "nvim-treesitter" },
+	})
 	-- html autotag
-	use({ "windwp/nvim-ts-autotag" })
+	use({
+		"windwp/nvim-ts-autotag",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		after = { "nvim-treesitter" },
+	})
 	-- textobject unit helper
-	use({ "David-Kunz/treesitter-unit" })
+	use({
+		"David-Kunz/treesitter-unit",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		after = { "nvim-treesitter" },
+		config = function()
+			require("plugins-config.treesitter-unit").config()
+		end,
+	})
 	-- select textobject with hints
-	use({ "mfussenegger/nvim-treehopper" })
+	use({
+		"mfussenegger/nvim-treehopper",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		after = { "nvim-treesitter" },
+		config = function()
+			require("plugins-config.nvim-treehopper").map()
+		end,
+	})
 	-- refactoring support
-	use({ "ThePrimeagen/refactoring.nvim" })
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+	})
 	-- Generate annotation
-	use({ "danymat/neogen" })
+	use({
+		"danymat/neogen",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+	})
+	-- code biscuits, Bracket Lens-like plugin
+	use({
+		"code-biscuits/nvim-biscuits",
+		after = { "nvim-treesitter" },
+		config = function()
+			require("plugins-config.biscuits").config()
+		end,
+	})
 	-- ╭──────────────────────────────────────────────────────────╮
 	-- │                            LSP                           │
 	-- ╰──────────────────────────────────────────────────────────╯
@@ -182,10 +271,19 @@ require("packer").startup(function(use)
 	use({ "ray-x/lsp_signature.nvim" })
 	-- code outline
 	use({ "stevearc/aerial.nvim" })
+	-- Inject Format, Diagnostics, Code Actions to Lsp
+	use({ "jose-elias-alvarez/null-ls.nvim" })
+	use({ "PlatyPew/format-installer.nvim" })
 	-- ╭──────────────────────────────────────────────────────────╮
 	-- │                      Autocompletion                      │
 	-- ╰──────────────────────────────────────────────────────────╯
-	use({ "hrsh7th/nvim-cmp" })
+	use({
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("plugins-config.nvim-cmp").config()
+		end,
+		-- event = "InsertEnter",
+	})
 	-- -- cmp devicons appearance dependency
 	use({ "onsails/lspkind-nvim" })
 	-- -- cmp plugins
@@ -203,9 +301,6 @@ require("packer").startup(function(use)
 	-- github copilot
 	use({ "github/copilot.vim" })
 	use({ "hrsh7th/cmp-copilot" })
-	-- Inject Format, Diagnostics, Code Actions to Lsp
-	use({ "jose-elias-alvarez/null-ls.nvim" })
-	use({ "PlatyPew/format-installer.nvim" })
 	-- Snippets plugin
 	use({ "L3MON4D3/LuaSnip" })
 	-- snippets bundle
@@ -270,8 +365,6 @@ require("packer").startup(function(use)
 	use({ "RRethy/vim-illuminate" })
 	-- Autopair
 	use({ "windwp/nvim-autopairs" })
-	-- code biscuits, Bracket Lens-like plugin
-	use({ "code-biscuits/nvim-biscuits" })
 	-- project file anchor
 	use({ "ThePrimeagen/harpoon" })
 	-- Better quickfix
@@ -288,7 +381,7 @@ require("packer").startup(function(use)
 	-- Zen mode
 	use({ "folke/zen-mode.nvim" })
 	-- narrow region buffer
-	-- use{ "chrisbra/NrrwRgn" },
+	use({ "chrisbra/NrrwRgn" })
 	-- show inline git blame
 	use({ "APZelos/blamer.nvim" })
 	-- json viewer
@@ -315,18 +408,18 @@ end
 --- themes
 local function load_theme()
 	-- require(p("catppuccin")).config()
-	require(p("everforest")).config()
+	-- require(p("everforest")).config()
 end
 load_theme()
 
 -- load plugin configs
 local function load_configs()
-	require(p("nvim-cmp")).config() -- completion related bundle
+	-- require(p("nvim-cmp")).config() -- completion related bundle
 	require(p("autopairs")).config()
 	require(p("autosave")).config()
 	require(p("better_escape")).config()
-	require(p("biscuits")).config()
-	require(p("tabby")).config()
+	-- require(p("biscuits")).config()
+	-- require(p("tabby")).config()
 	require(p("vim-ctrlspace")).config()
 	require(p("copilot")).config()
 	require(p("colorizer")).config()
@@ -339,11 +432,11 @@ local function load_configs()
 	require(p("indent-blankline")).config()
 	require(p("lightbulb")).config()
 	require(p("lsp_signature")).config()
-	require(p("lualine")).config()
-	require(p("neogit")).config()
+	-- require(p("lualine")).config()
+	-- require(p("neogit")).config()
 	require(p("notify")).config()
 	-- require(p("nvim-tree")).config()
-	require(p("nvim-treesitter")).config()
+	-- require(p("nvim-treesitter")).config()
 	require(p("pretty-fold")).config()
 	require(p("qf_helper")).config()
 	require(p("registers")).config()
@@ -355,7 +448,7 @@ local function load_configs()
 	require(p("telescope")).config()
 	require(p("todo-comments")).config()
 	require(p("toggleterm")).config()
-	require(p("treesitter-unit")).config()
+	-- require(p("treesitter-unit")).config()
 	require(p("trouble")).config()
 	require(p("vim-bookmarks")).config()
 	require(p("which-key")).config()
@@ -363,9 +456,9 @@ local function load_configs()
 	require(p("neovim-session-manager")).config()
 	require(p("hlslens")).config()
 	require(p("scrollbar")).config()
-	require(p("treesitter-context")).config()
-	require(p("nvim-gps")).config()
-	require(p("twilight")).config()
+	-- require(p("treesitter-context")).config()
+	-- require(p("nvim-gps")).config()
+	-- require(p("twilight")).config()
 	require(p("vim-illuminate")).config()
 	require(p("spelunker")).config()
 	require(p("numb")).config()
