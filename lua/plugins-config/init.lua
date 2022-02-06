@@ -221,6 +221,8 @@ local function load_plugins()
 		{ "ggandor/lightspeed.nvim" },
 		-- fuzzy match easymotion
 		{ "rlane/pounce.nvim" },
+		-- hop easymotion
+		{ "phaazon/hop.nvim", branch = "v1" },
 		-- surrounding plugin
 		{ "machakann/vim-sandwich" },
 		-- substitute operator
@@ -353,6 +355,7 @@ local function load_configs()
 	require(p("blamer")).config()
 	require(p("dirbuf")).config()
 	require(p("octo")).config()
+	require(p("hop")).config()
 	require(p("dap")).config() -- dap-related bundle
 end
 load_configs()
