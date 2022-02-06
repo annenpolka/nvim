@@ -1,285 +1,304 @@
 -- optimize loading
 require("impatient").enable_profile()
+-- initialize packer
+local fn = vim.fn
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local packer_bootstrap
+if fn.empty(fn.glob(install_path)) > 0 then
+	packer_bootstrap = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
+end
+vim.cmd([[autocmd BufWritePost init.lua PackerCompile]])
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                      plugins loading                     │
 -- ╰──────────────────────────────────────────────────────────╯
-local function load_plugins()
-	require("paq")({
-		{ "savq/paq-nvim" },
-		-- lua loading optimizer
-		{ "lewis6991/impatient.nvim" },
-		-- faster filetype
-		{ "nathom/filetype.nvim" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                    runtime, dependency                   │
-		-- ╰──────────────────────────────────────────────────────────╯
-		{ "kyazdani42/nvim-web-devicons" },
-		{ "nvim-lua/plenary.nvim" },
-		{ "MunifTanjim/nui.nvim" },
-		{ "kamykn/popup-menu.nvim" },
-		-- { "vim-denops/denops.vim" },
-		-- fzf
-		{
-			"junegunn/fzf",
-			run = function()
-				vim.fn["fzf#install"]()
-			end,
-		},
-		-- mapping helper functions
-		{ "b0o/mapx.nvim" },
-		---------------------------------------------------------------------------------
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                          Utility                         │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- fix cursorhold performance problem
-		{ "antoinemadec/FixCursorHold.nvim" },
-		-- UI overhaul
-		{ "stevearc/dressing.nvim" },
-		-- sudo
-		{ "lambdalisue/suda.vim" },
-		-- Session manager
-		{ "Shatur/neovim-session-manager" },
-		-- Close buffer/window/vim wisely
-		{ "mhinz/vim-sayonara" },
-		-- automatic indent detection
-		{ "tpope/vim-sleuth" },
-		-- Better Escape
-		{ "max397574/better-escape.nvim" },
-		-- Better line number jump with peek
-		{ "nacro90/numb.nvim" },
-		-- autosave
-		{ "Pocco81/AutoSave.nvim" },
-		-- mouse gestures
-		{ "notomo/gesture.nvim" },
-		-- readline keybindings in insert mode
-		{ "tpope/vim-rsi" },
-		-- switch working directory
-		{ "nyngwang/NeoRoot.lua" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                        Git related                       │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- git diff viewer
-		{ "sindrets/diffview.nvim" },
-		-- Magit-like git plugin
-		{ "TimUntersberger/neogit" },
-		-- Add git related info in the signs columns and popups
-		{ "lewis6991/gitsigns.nvim" },
-		-- Github editor
-		{ "pwntester/octo.nvim" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                           files                          │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- search buffer
-		{ "nvim-pack/nvim-spectre" },
-		-- Automatic tags management
-		-- { "ludovicchabant/vim-gutentags" },
-		-- UI to select things (files, grep results, open buffers...)
-		{ "nvim-telescope/telescope.nvim" },
-		{ "nvim-telescope/telescope-fzy-native.nvim" },
-		{ "nvim-telescope/telescope-file-browser.nvim" },
-		-- file manager
-		-- { "kyazdani42/nvim-tree.lua" },
-		{ "elihunter173/dirbuf.nvim" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                       text editing                       │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- yank kill-ring
-		{ "tversteeg/registers.nvim" },
-		-- comment eyecandies
-		{ "LudoPinelli/comment-box.nvim" },
-		-- buffer bookmarks
-		{ "MattesGroeger/vim-bookmarks" },
-		-- undo-tree
-		{ "simnalamburt/vim-mundo" },
-		-- switch keywords
-		{ "AndrewRadev/switch.vim" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                           theme                          │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- Theme inspired by Atom
-		{ "joshdick/onedark.vim" },
-		-- github theme
-		-- { "projekt0n/github-nvim-theme" },
-		-- catppuccin theme
-		{ "catppuccin/nvim", as = "catppuccin" },
-		-- tokyonight theme
-		{ "folke/tokyonight.nvim" },
-		-- nightfox theme
-		{ "EdenEast/nightfox.nvim" },
-		-- Everforest theme
-		{ "sainnhe/everforest" },
-		-- gruvbox theme
-		{ "eddyekofo94/gruvbox-flat.nvim" },
-		-- aquarium theme
-		{ "FrenzyExists/aquarium-vim" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                     lines and widgets                    │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- bufferline
-		-- { "akinsho/bufferline.nvim" },
-		-- tabline
-		{ "nanozuki/tabby.nvim" },
-		-- Fancier statusline
-		{ "nvim-lualine/lualine.nvim" },
-		{ "windwp/windline.nvim" },
-		-- scrollbar with search info
-		{ "petertriho/nvim-scrollbar" },
-		-- Add indentation guides even on blank lines
-		{ "lukas-reineke/indent-blankline.nvim" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                        treesitter                        │
-		-- ╰──────────────────────────────────────────────────────────╯
-		{ "nvim-treesitter/nvim-treesitter" },
-		-- playground
-		{ "nvim-treesitter/playground" },
-		-- Limelighting
-		{ "folke/twilight.nvim" },
-		-- treesitter-based context viewer
-		{ "romgrk/nvim-treesitter-context" },
-		-- breadcrumb
-		{ "SmiteshP/nvim-gps" },
-		-- Additional textobjects for treesitter
-		{ "nvim-treesitter/nvim-treesitter-textobjects" },
-		-- html autotag
-		{ "windwp/nvim-ts-autotag" },
-		-- textobject unit helper
-		{ "David-Kunz/treesitter-unit" },
-		-- select textobject with hints
-		{ "mfussenegger/nvim-treehopper" },
-		-- refactoring support
-		{ "ThePrimeagen/refactoring.nvim" },
-		-- Generate annotation
-		{ "danymat/neogen" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                            LSP                           │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- Collection of configurations for built-in LSP client
-		{ "neovim/nvim-lspconfig" },
-		--  To Install LSP Automatically with LspInstall
-		{ "williamboman/nvim-lsp-installer" },
-		-- rust lsp tools
-		{ "simrat39/rust-tools.nvim" },
-		-- show signature guides on type
-		{ "ray-x/lsp_signature.nvim" },
-		-- code outline
-		{ "stevearc/aerial.nvim" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                      Autocompletion                      │
-		-- ╰──────────────────────────────────────────────────────────╯
-		{ "hrsh7th/nvim-cmp" },
-		-- -- cmp devicons appearance dependency
-		{ "onsails/lspkind-nvim" },
-		-- -- cmp plugins
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "saadparwaiz1/cmp_luasnip" },
-		{ "hrsh7th/cmp-path" },
-		{ "hrsh7th/cmp-nvim-lsp-document-symbol" },
-		{ "hrsh7th/cmp-buffer" },
-		{ "hrsh7th/cmp-cmdline" },
-		{ "octaltree/cmp-look" },
-		{ "ray-x/cmp-treesitter" },
-		{ "lukas-reineke/cmp-rg" },
-		{ "lukas-reineke/cmp-under-comparator" },
-		-- { "tzachar/cmp-tabnine", run = "./install.sh" },
-		-- github copilot
-		{ "github/copilot.vim" },
-		{ "hrsh7th/cmp-copilot" },
-		-- Inject Format, Diagnostics, Code Actions to Lsp
-		{ "jose-elias-alvarez/null-ls.nvim" },
-		{ "PlatyPew/format-installer.nvim" },
-		-- Snippets plugin
-		{ "L3MON4D3/LuaSnip" },
-		-- snippets bundle
-		{ "rafamadriz/friendly-snippets" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                          debug                           │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- Debug Adapter Protocol
-		{ "mfussenegger/nvim-dap" },
-		-- DAP UI
-		{ "rcarriga/nvim-dap-ui" },
-		-- vitrual text
-		{ "theHamsta/nvim-dap-virtual-text" },
-		-- DAP Installer
-		{ "Pocco81/DAPInstall.nvim" },
-		-- async task runners
-		{ "skywind3000/asyncrun.vim" },
-		{ "skywind3000/asynctasks.vim" },
-		-- ╭──────────────────────────────────────────────────────────╮
-		-- │                           Misc                           │
-		-- ╰──────────────────────────────────────────────────────────╯
-		-- spellcheck
-		{ "kamykn/spelunker.vim" },
-		-- tabout
-		{ "abecodes/tabout.nvim" },
-		-- Notification balloon
-		{ "rcarriga/nvim-notify" },
-		-- folding
-		{ "anuvyklack/pretty-fold.nvim" },
-		-- Faster f/f
-		{ "ggandor/lightspeed.nvim" },
-		-- fuzzy match easymotion
-		{ "rlane/pounce.nvim" },
-		-- hop easymotion
-		{ "phaazon/hop.nvim", branch = "v1" },
-		-- surrounding plugin
-		{ "machakann/vim-sandwich" },
-		-- substitute operator
-		{ "gbprod/substitute.nvim" },
-		-- commenting
-		{ "b3nj5m1n/kommentary" },
-		-- multi cursor
-		{ "mg979/vim-visual-multi" },
-		-- Colorize brackets
-		{ "p00f/nvim-ts-rainbow" },
-		-- color highlighter
-		{ "norcalli/nvim-colorizer.lua" },
-		-- outline viewer
-		-- { "simrat39/symbols-outline.nvim" },
-		-- Discover available code action like VSCode
-		{ "kosayoda/nvim-lightbulb" },
-		-- code action modal
-		{ "weilbith/nvim-code-action-menu" },
-		-- Show matched information in search
-		{ "kevinhwang91/nvim-hlslens" },
-		-- Show keybindings
-		{ "folke/which-key.nvim" },
-		-- Problem view
-		{ "folke/trouble.nvim" },
-		{ "folke/todo-comments.nvim" },
-		-- highlighting the word under cursor
-		{ "RRethy/vim-illuminate" },
-		-- Autopair
-		{ "windwp/nvim-autopairs" },
-		-- code biscuits, Bracket Lens-like plugin
-		{ "code-biscuits/nvim-biscuits" },
-		-- project file anchor
-		{ "ThePrimeagen/harpoon" },
-		-- Better quickfix
-		{ "kevinhwang91/nvim-bqf" },
-		{ "stevearc/qf_helper.nvim" },
-		-- Batch editing quickfix
-		{ "gabrielpoca/replacer.nvim" },
-		-- terminal integration
-		{ "akinsho/toggleterm.nvim" },
-		-- project management
-		{ "ahmedkhalf/project.nvim" },
-		-- automatic split management
-		{ "beauwilliams/focus.nvim" },
-		-- Zen mode
-		{ "folke/zen-mode.nvim" },
-		-- narrow region buffer
-		-- { "chrisbra/NrrwRgn" },
-		-- show inline git blame
-		{ "APZelos/blamer.nvim" },
-		-- json viewer
-		{ "gennaro-tedesco/nvim-jqx" },
-		-- cpbooster, competitive programming cli tool
-		{ "searleser97/cpbooster.vim" },
+require("packer").startup(function(use)
+	use({ "wbthomason/packer.nvim" })
+	-- lua loading optimizer
+	use({
+		"lewis6991/impatient.nvim",
 	})
-end
-load_plugins()
+	-- faster filetype
+	use({ "nathom/filetype.nvim" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                    runtime, dependency                   │
+	-- ╰──────────────────────────────────────────────────────────╯
+	use({ "kyazdani42/nvim-web-devicons" })
+	use({ "nvim-lua/plenary.nvim" })
+	use({ "MunifTanjim/nui.nvim" })
+	use({ "kamykn/popup-menu.nvim" })
+	-- use{ "vim-denops/denops.vim" },
+	-- fzf
+	use({
+		"junegunn/fzf",
+		run = function()
+			vim.fn["fzf#install"]()
+		end,
+	})
+	-- mapping helper functions
+	use({ "b0o/mapx.nvim" })
+	---------------------------------------------------------------------------------
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                          Utility                         │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- fix cursorhold performance problem
+	use({ "antoinemadec/FixCursorHold.nvim" })
+	-- UI overhaul
+	use({ "stevearc/dressing.nvim" })
+	-- sudo
+	use({ "lambdalisue/suda.vim" })
+	-- Session manager
+	use({ "Shatur/neovim-session-manager" })
+	-- Close buffer/window/vim wisely
+	use({ "mhinz/vim-sayonara" })
+	-- automatic indent detection
+	use({ "tpope/vim-sleuth" })
+	-- Better Escape
+	use({ "max397574/better-escape.nvim" })
+	-- Better line number jump with peek
+	use({ "nacro90/numb.nvim" })
+	-- autosave
+	use({ "Pocco81/AutoSave.nvim" })
+	-- mouse gestures
+	use({ "notomo/gesture.nvim" })
+	-- readline keybindings in insert mode
+	use({ "tpope/vim-rsi" })
+	-- switch working directory
+	use({ "nyngwang/NeoRoot.lua" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                        Git related                       │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- git diff viewer
+	use({ "sindrets/diffview.nvim" })
+	-- Magit-like git plugin
+	use({ "TimUntersberger/neogit" })
+	-- Add git related info in the signs columns and popups
+	use({ "lewis6991/gitsigns.nvim" })
+	-- Github editor
+	use({ "pwntester/octo.nvim" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                           files                          │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- search buffer
+	use({ "nvim-pack/nvim-spectre" })
+	-- Automatic tags management
+	-- use{ "ludovicchabant/vim-gutentags" },
+	-- UI to select things (files, grep results, open buffers...)
+	use({ "nvim-telescope/telescope.nvim" })
+	use({ "nvim-telescope/telescope-fzy-native.nvim" })
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	-- file manager
+	-- use{ "kyazdani42/nvim-tree.lua" },
+	use({ "elihunter173/dirbuf.nvim" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                       text editing                       │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- yank kill-ring
+	use({ "tversteeg/registers.nvim" })
+	-- comment eyecandies
+	use({ "LudoPinelli/comment-box.nvim" })
+	-- buffer bookmarks
+	use({ "MattesGroeger/vim-bookmarks" })
+	-- undo-tree
+	use({ "simnalamburt/vim-mundo" })
+	-- switch keywords
+	use({ "AndrewRadev/switch.vim" })
+	-- split/join lines
+	use({ "AndrewRadev/splitjoin.vim" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                           theme                          │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- Theme inspired by Atom
+	use({ "joshdick/onedark.vim" })
+	-- github theme
+	-- use{ "projekt0n/github-nvim-theme" },
+	-- catppuccin theme
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	-- tokyonight theme
+	use({ "folke/tokyonight.nvim" })
+	-- nightfox theme
+	use({ "EdenEast/nightfox.nvim" })
+	-- Everforest theme
+	use({ "sainnhe/everforest" })
+	-- gruvbox theme
+	use({ "eddyekofo94/gruvbox-flat.nvim" })
+	-- aquarium theme
+	use({ "FrenzyExists/aquarium-vim" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                     lines and widgets                    │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- bufferline
+	-- use{ "akinsho/bufferline.nvim" },
+	-- tabline
+	use({ "nanozuki/tabby.nvim" })
+	-- Fancier statusline
+	use({ "nvim-lualine/lualine.nvim" })
+	use({ "windwp/windline.nvim" })
+	-- scrollbar with search info
+	use({ "petertriho/nvim-scrollbar" })
+	-- Add indentation guides even on blank lines
+	use({ "lukas-reineke/indent-blankline.nvim" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                        treesitter                        │
+	-- ╰──────────────────────────────────────────────────────────╯
+	use({ "nvim-treesitter/nvim-treesitter" })
+	-- playground
+	use({ "nvim-treesitter/playground" })
+	-- Limelighting
+	use({ "folke/twilight.nvim" })
+	-- treesitter-based context viewer
+	use({ "romgrk/nvim-treesitter-context" })
+	-- breadcrumb
+	use({ "SmiteshP/nvim-gps" })
+	-- Additional textobjects for treesitter
+	use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+	-- html autotag
+	use({ "windwp/nvim-ts-autotag" })
+	-- textobject unit helper
+	use({ "David-Kunz/treesitter-unit" })
+	-- select textobject with hints
+	use({ "mfussenegger/nvim-treehopper" })
+	-- refactoring support
+	use({ "ThePrimeagen/refactoring.nvim" })
+	-- Generate annotation
+	use({ "danymat/neogen" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                            LSP                           │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- Collection of configurations for built-in LSP client
+	use({ "neovim/nvim-lspconfig" })
+	--  To Install LSP Automatically with LspInstall
+	use({ "williamboman/nvim-lsp-installer" })
+	-- rust lsp tools
+	use({ "simrat39/rust-tools.nvim" })
+	-- show signature guides on type
+	use({ "ray-x/lsp_signature.nvim" })
+	-- code outline
+	use({ "stevearc/aerial.nvim" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                      Autocompletion                      │
+	-- ╰──────────────────────────────────────────────────────────╯
+	use({ "hrsh7th/nvim-cmp" })
+	-- -- cmp devicons appearance dependency
+	use({ "onsails/lspkind-nvim" })
+	-- -- cmp plugins
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "saadparwaiz1/cmp_luasnip" })
+	use({ "hrsh7th/cmp-path" })
+	use({ "hrsh7th/cmp-nvim-lsp-document-symbol" })
+	use({ "hrsh7th/cmp-buffer" })
+	use({ "hrsh7th/cmp-cmdline" })
+	use({ "octaltree/cmp-look" })
+	use({ "ray-x/cmp-treesitter" })
+	use({ "lukas-reineke/cmp-rg" })
+	use({ "lukas-reineke/cmp-under-comparator" })
+	-- use{ "tzachar/cmp-tabnine", run = "./install.sh" },
+	-- github copilot
+	use({ "github/copilot.vim" })
+	use({ "hrsh7th/cmp-copilot" })
+	-- Inject Format, Diagnostics, Code Actions to Lsp
+	use({ "jose-elias-alvarez/null-ls.nvim" })
+	use({ "PlatyPew/format-installer.nvim" })
+	-- Snippets plugin
+	use({ "L3MON4D3/LuaSnip" })
+	-- snippets bundle
+	use({ "rafamadriz/friendly-snippets" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                          debug                           │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- Debug Adapter Protocol
+	use({ "mfussenegger/nvim-dap" })
+	-- DAP UI
+	use({ "rcarriga/nvim-dap-ui" })
+	-- vitrual text
+	use({ "theHamsta/nvim-dap-virtual-text" })
+	-- DAP Installer
+	use({ "Pocco81/DAPInstall.nvim" })
+	-- async task runners
+	use({ "skywind3000/asyncrun.vim" })
+	use({ "skywind3000/asynctasks.vim" })
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                           Misc                           │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- spellcheck
+	use({ "kamykn/spelunker.vim" })
+	-- tabout
+	use({ "abecodes/tabout.nvim" })
+	-- Notification balloon
+	use({ "rcarriga/nvim-notify" })
+	-- folding
+	use({ "anuvyklack/pretty-fold.nvim" })
+	-- Faster f/f
+	use({ "ggandor/lightspeed.nvim" })
+	-- fuzzy match easymotion
+	use({ "rlane/pounce.nvim" })
+	-- hop easymotion
+	use({ "phaazon/hop.nvim", branch = "v1" })
+	-- surrounding plugin
+	use({ "machakann/vim-sandwich" })
+	-- substitute operator
+	use({ "gbprod/substitute.nvim" })
+	-- commenting
+	use({ "b3nj5m1n/kommentary" })
+	-- multi cursor
+	use({ "mg979/vim-visual-multi" })
+	-- Colorize brackets
+	use({ "p00f/nvim-ts-rainbow" })
+	-- color highlighter
+	use({ "norcalli/nvim-colorizer.lua" })
+	-- outline viewer
+	-- use{ "simrat39/symbols-outline.nvim" },
+	-- Discover available code action like VSCode
+	use({ "kosayoda/nvim-lightbulb" })
+	-- code action modal
+	use({ "weilbith/nvim-code-action-menu" })
+	-- Show matched information in search
+	use({ "kevinhwang91/nvim-hlslens" })
+	-- Show keybindings
+	use({ "folke/which-key.nvim" })
+	-- Problem view
+	use({ "folke/trouble.nvim" })
+	use({ "folke/todo-comments.nvim" })
+	-- highlighting the word under cursor
+	use({ "RRethy/vim-illuminate" })
+	-- Autopair
+	use({ "windwp/nvim-autopairs" })
+	-- code biscuits, Bracket Lens-like plugin
+	use({ "code-biscuits/nvim-biscuits" })
+	-- project file anchor
+	use({ "ThePrimeagen/harpoon" })
+	-- Better quickfix
+	use({ "kevinhwang91/nvim-bqf" })
+	use({ "stevearc/qf_helper.nvim" })
+	-- Batch editing quickfix
+	use({ "gabrielpoca/replacer.nvim" })
+	-- terminal integration
+	use({ "akinsho/toggleterm.nvim" })
+	-- project management
+	use({ "ahmedkhalf/project.nvim" })
+	-- automatic split management
+	use({ "beauwilliams/focus.nvim" })
+	-- Zen mode
+	use({ "folke/zen-mode.nvim" })
+	-- narrow region buffer
+	-- use{ "chrisbra/NrrwRgn" },
+	-- show inline git blame
+	use({ "APZelos/blamer.nvim" })
+	-- json viewer
+	use({ "gennaro-tedesco/nvim-jqx" })
+	-- cpbooster, competitive programming cli tool
+	use({ "searleser97/cpbooster.vim" })
+	if packer_bootstrap then
+		require("packer").sync()
+	end
+end)
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                      plugin config                       │
