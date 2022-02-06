@@ -1,7 +1,7 @@
 -- LSP setting
 local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
@@ -39,7 +39,7 @@ local on_attach = function(_, bufnr)
 	-- -- format before saving
 	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 	-- attach aerial
-	require("aerial").on_attach(_, bufnr)
+	require("aerial").on_attach(client, bufnr)
 end
 
 -- Lsp diagnostic symbols
