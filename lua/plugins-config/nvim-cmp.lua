@@ -59,7 +59,7 @@ function M.config()
 			{ name = "look", keyword_length = 2, option = { convert_case = true, loud = true } },
 			{ name = "path" },
 			{ name = "luasnip" },
-			{ name = "rg", option = { additional_arguments = "--smart-case --max-depth 3" } },
+			{ name = "rg", option = { additional_arguments = "--smart-case --max-depth 2" } },
 			{ name = "treesitter" },
 			-- { name = "cmp_tabnine" },
 		},

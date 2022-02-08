@@ -6,7 +6,7 @@ function M.config()
 	-- ╰──────────────────────────────────────────────────────────╯
 	local dap = require("dap")
 	local dapui = require("dapui")
-	-- load each language settings
+	-- load each language settings in nvim/lua/dbg/
 	require("dbg")
 	-- initialize dap-ui
 	dapui.setup()
@@ -42,11 +42,11 @@ function M.map()
 		":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
 		{ silent = true }
 	)
-	nnoremap(
-		"<leader>lp",
-		":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
-		{ silent = true }
-	)
+	-- nnoremap(
+	-- 	"<leader>lp",
+	-- 	":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>",
+	-- 	{ silent = true }
+	-- )
 	nnoremap("<leader>dr", ":lua require'dap'.repl.open()<CR>", { silent = true })
 	nnoremap("<leader>dl", ":lua require'dap'.run_last()<CR>", { silent = true })
 	nnoremap("<leader>dd", ":lua require'dapui'.toggle()<CR>", { silent = true })
