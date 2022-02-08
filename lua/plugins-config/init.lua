@@ -415,6 +415,10 @@ require("packer").startup({
 		})
 		use({
 			"andymass/vim-matchup",
+			config = function()
+				require("plugins-config.matchup").config()
+			end,
+			-- disable = true,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                            LSP                           │
