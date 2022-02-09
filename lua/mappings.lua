@@ -72,7 +72,7 @@ local function map_plugins()
 	require(m("zen-mode")).map()
 	-- require(m("nvim-treehopper")).map()
 	require(m("dirbuf")).map()
-	require(m("aerial")).map()
+	-- require(m("aerial")).map()
 	require(m("mundo")).map()
 	-- require(m("dap")).map()
 end

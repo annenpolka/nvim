@@ -441,8 +441,8 @@ require("packer").startup({
 		-- code outline
 		use({
 			"stevearc/aerial.nvim",
-			setup = function()
-				require("plugins-config.aerial").map()
+			config = function()
+				require("plugins-config.aerial").config()
 			end,
 		})
 		-- Inject Format, Diagnostics, Code Actions to Lsp
