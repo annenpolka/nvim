@@ -1,5 +1,5 @@
 -- optimize loading
--- require("impatient").enable_profile()
+require("impatient").enable_profile()
 -- initialize packer
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -22,7 +22,7 @@ vim.cmd([[
 	]])
 
 -- load plugin after entering vim ui
--- FIXME: This shouldn't be global, but this won't work with local keyword
+-- HACK: This shouldn't be global, but this won't work with local keyword
 Lazyload_timer = function(plugin, timer)
 	if plugin then
 		timer = timer or 100
@@ -466,22 +466,6 @@ require("packer").startup({
 				require("plugins-config.nvim-cmp").config()
 			end,
 			event = { "InsertEnter", "CmdlineEnter" },
-			wants = {
-				"lspkind-nvim",
-				"LuaSnip",
-				"friendly-snippets"
-				"cmp-nvim-lsp",
-				"cmp_luasnip",
-				"cmp-path",
-				"cmp-nvim-lsp-document-symbol",
-				"cmp-buffer",
-				"cmp-cmdline",
-				"cmp-look",
-				"cmp-treesitter",
-				"cmp-rg",
-				"cmp-under-comparator",
-				"cmp-copilot",
-			},
 		})
 		-- -- cmp devicons appearance dependency
 		use({
@@ -557,7 +541,7 @@ require("packer").startup({
 		use({
 			"L3MON4D3/LuaSnip",
 			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
+			-- after = "nvim-cmp",
 		})
 		-- snippets bundle
 		use({
