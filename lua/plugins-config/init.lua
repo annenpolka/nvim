@@ -416,12 +416,22 @@ require("packer").startup({
 				require("plugins-config.neogen").config()
 			end,
 		})
-		-- code biscuits, Bracket Lens-like plugin
+		-- Bracket Lens-like plugin
 		use({
+			-- this is unused, now using nvim_context_vt
 			"code-biscuits/nvim-biscuits",
-			after = { "nvim-treesitter" },
+			-- after = { "nvim-treesitter" },
 			config = function()
 				require("plugins-config.biscuits").config()
+			end,
+			disable = true,
+		})
+		use({
+			"haringsrob/nvim_context_vt",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+			config = function()
+				-- TODO: create a config file for this
+				require("plugins-config.context_vt").config()
 			end,
 		})
 		use({
@@ -429,7 +439,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.matchup").config()
 			end,
-			-- disable = true,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                            LSP                           │
