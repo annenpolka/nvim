@@ -1,5 +1,5 @@
 -- optimize loading
-require("impatient").enable_profile()
+-- require("impatient").enable_profile()
 -- initialize packer
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -399,6 +399,9 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.nvim-treehopper").map()
 			end,
+			config = function()
+				require("plugins-config.nvim-treehopper").config()
+			end,
 		})
 		-- refactoring support
 		use({
@@ -490,7 +493,7 @@ require("packer").startup({
 		use({
 			"hrsh7th/cmp-nvim-lsp",
 			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
+			-- after = "nvim-cmp",
 		})
 		use({
 			"saadparwaiz1/cmp_luasnip",
@@ -569,10 +572,10 @@ require("packer").startup({
 		-- Debug Adapter Protocol
 		use({
 			"mfussenegger/nvim-dap",
-			opt = true,
+			-- opt = true,
 			setup = function()
 				require("plugins-config.dap").map()
-				Lazyload_timer("nvim-dap")
+				-- Lazyload_timer("nvim-dap")
 			end,
 			config = function()
 				require("plugins-config.dap").config()
