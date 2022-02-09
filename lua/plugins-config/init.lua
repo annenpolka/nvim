@@ -277,6 +277,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.everforest").config()
 			end,
+			event = "BufRead",
 		})
 		-- gruvbox theme
 		-- use({ "eddyekofo94/gruvbox-flat.nvim" })
@@ -319,6 +320,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.indent-blankline").config()
 			end,
+			event = "BufRead",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
@@ -437,7 +439,12 @@ require("packer").startup({
 			end,
 		})
 		-- code outline
-		use({ "stevearc/aerial.nvim" })
+		use({
+			"stevearc/aerial.nvim",
+			setup = function()
+				require("plugins-config.aerial").map()
+			end,
+		})
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
 		use({ "PlatyPew/format-installer.nvim" })
@@ -541,19 +548,33 @@ require("packer").startup({
 		-- Debug Adapter Protocol
 		use({
 			"mfussenegger/nvim-dap",
+			opt = true,
 			setup = function()
 				require("plugins-config.dap").map()
+				Lazyload_timer("nvim-dap")
 			end,
 			config = function()
 				require("plugins-config.dap").config()
 			end,
 		})
 		-- DAP UI
-		use({ "rcarriga/nvim-dap-ui" })
+		use({
+			"rcarriga/nvim-dap-ui",
+			requires = { "mfussenegger/nvim-dap" },
+			after = "nvim-dap",
+		})
 		-- vitrual text
-		use({ "theHamsta/nvim-dap-virtual-text" })
+		use({
+			"theHamsta/nvim-dap-virtual-text",
+			requires = { "mfussenegger/nvim-dap" },
+			after = "nvim-dap",
+		})
 		-- DAP Installer
-		use({ "Pocco81/DAPInstall.nvim" })
+		use({
+			"Pocco81/DAPInstall.nvim",
+			requires = { "mfussenegger/nvim-dap" },
+			after = "nvim-dap",
+		})
 		-- async task runners
 		use({
 			"skywind3000/asyncrun.vim",
@@ -648,7 +669,10 @@ require("packer").startup({
 		-- multi cursor
 		use({
 			"mg979/vim-visual-multi",
-			event = "BufWinEnter",
+			opt = true,
+			setup = function()
+				Lazyload_timer("vim-visual-multi")
+			end,
 		})
 		-- Colorize brackets
 		use({ "p00f/nvim-ts-rainbow" })
@@ -683,10 +707,19 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.which-key").config()
 			end,
+			opt = true,
+			setup = function()
+				Lazyload_timer("which-key.nvim")
+			end,
 		})
 		-- Problem view
 		use({
 			"folke/trouble.nvim",
+			opt = true,
+			setup = function()
+				require("plugins-config.trouble").map()
+				Lazyload_timer("trouble.nvim")
+			end,
 			config = function()
 				require("plugins-config.trouble").config()
 			end,
