@@ -17,7 +17,7 @@ end
 vim.cmd([[
 	augroup PackerAug
 		autocmd!
-		autocmd BufWritePost init.lua PackerCompile
+		"autocmd BufWritePost init.lua PackerCompile
 	augroup END
 	]])
 
@@ -118,6 +118,9 @@ require("packer").startup({
 		-- mouse gestures
 		use({
 			"notomo/gesture.nvim",
+			setup = function()
+				require("plugins-config.gesture").map()
+			end,
 			config = function()
 				require("plugins-config.gesture").config()
 			end,
@@ -148,6 +151,9 @@ require("packer").startup({
 		-- Magit-like git plugin
 		use({
 			"TimUntersberger/neogit",
+			setup = function()
+				require("plugins-config.neogit").map()
+			end,
 			config = function()
 				require("plugins-config.neogit").config()
 			end,
@@ -277,7 +283,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.everforest").config()
 			end,
-			event = "BufRead",
+			-- event = "BufRead",
 		})
 		-- gruvbox theme
 		-- use({ "eddyekofo94/gruvbox-flat.nvim" })
@@ -617,7 +623,13 @@ require("packer").startup({
 			end,
 		})
 		-- Faster f/f
-		use({ "ggandor/lightspeed.nvim" })
+		use({
+			"ggandor/lightspeed.nvim",
+			opt = true,
+			setup = function()
+				Lazyload_timer("lightspeed.nvim")
+			end,
+		})
 		-- fuzzy match easymotion
 		-- use({ "rlane/pounce.nvim" })
 		-- hop easymotion
@@ -697,6 +709,9 @@ require("packer").startup({
 		-- Show matched information in search
 		use({
 			"kevinhwang91/nvim-hlslens",
+			setup = function()
+				require("plugins-config.hlslens").map()
+			end,
 			config = function()
 				require("plugins-config.hlslens").config()
 			end,
@@ -754,20 +769,29 @@ require("packer").startup({
 		-- project file anchor
 		use({
 			"ThePrimeagen/harpoon",
+			opt = true,
+			setup = function()
+				require("plugins-config.harpoon").map()
+				Lazyload_timer("harpoon", 0)
+			end,
 			config = function()
 				require("plugins-config.harpoon").config()
 			end,
 		})
 		-- Better quickfix
-		use({ "kevinhwang91/nvim-bqf" })
+		use({
+			"kevinhwang91/nvim-bqf",
+		})
 		use({
 			"stevearc/qf_helper.nvim",
-			config = function()
-				require("plugins-config.qf_helper").config()
+			setup = function()
+				require("plugins-config.qf_helper").map()
 			end,
 		})
 		-- Batch editing quickfix
-		use({ "gabrielpoca/replacer.nvim" })
+		use({
+			"gabrielpoca/replacer.nvim",
+		})
 		-- terminal integration
 		use({
 			"akinsho/toggleterm.nvim",
@@ -777,10 +801,15 @@ require("packer").startup({
 			event = "BufWinEnter",
 		})
 		-- project management
-		use({ "ahmedkhalf/project.nvim" })
+		use({
+			"ahmedkhalf/project.nvim",
+		})
 		-- automatic split management
 		use({
 			"beauwilliams/focus.nvim",
+			setup = function()
+				require("plugins-config.focus").map()
+			end,
 			config = function()
 				require("plugins-config.focus").config()
 			end,
@@ -804,9 +833,18 @@ require("packer").startup({
 			event = "BufRead",
 		})
 		-- json viewer
-		use({ "gennaro-tedesco/nvim-jqx" })
+		use({
+			"gennaro-tedesco/nvim-jqx",
+			ft = "json",
+		})
 		-- cpbooster, competitive programming cli tool
-		use({ "searleser97/cpbooster.vim" })
+		use({
+			"searleser97/cpbooster.vim",
+			opt = true,
+			setup = function()
+				Lazyload_timer("cpbooster.vim", 500)
+			end,
+		})
 		if packer_bootstrap then
 			require("packer").sync()
 		end
