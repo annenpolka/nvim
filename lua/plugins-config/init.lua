@@ -463,7 +463,22 @@ require("packer").startup({
 				require("plugins-config.nvim-cmp").config()
 			end,
 			event = { "InsertEnter", "CmdlineEnter" },
-			-- after = "friendly-snippets",
+			wants = {
+				"lspkind-nvim",
+				"LuaSnip",
+				"friendly-snippets"
+				"cmp-nvim-lsp",
+				"cmp_luasnip",
+				"cmp-path",
+				"cmp-nvim-lsp-document-symbol",
+				"cmp-buffer",
+				"cmp-cmdline",
+				"cmp-look",
+				"cmp-treesitter",
+				"cmp-rg",
+				"cmp-under-comparator",
+				"cmp-copilot",
+			},
 		})
 		-- -- cmp devicons appearance dependency
 		use({
