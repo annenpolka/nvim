@@ -87,6 +87,9 @@ require("packer").startup({
 		-- Close buffer/window/vim wisely
 		use({
 			"mhinz/vim-sayonara",
+			setup = function()
+				require("plugins-config.vim-sayonara").map()
+			end,
 			cmd = { "Sayonara", "Sayonara!" },
 		})
 		-- automatic indent detection
@@ -110,21 +113,25 @@ require("packer").startup({
 		-- autosave
 		use({
 			"Pocco81/AutoSave.nvim",
+			opt = true,
+			setup = function()
+				Lazyload_timer("gesture.nvim")
+			end,
 			config = function()
 				require("plugins-config.autosave").config()
 			end,
-			event = "BufWinEnter",
 		})
 		-- mouse gestures
 		use({
 			"notomo/gesture.nvim",
+			opt = true,
 			setup = function()
 				require("plugins-config.gesture").map()
+				Lazyload_timer("gesture.nvim")
 			end,
 			config = function()
 				require("plugins-config.gesture").config()
 			end,
-			event = "BufWinEnter",
 		})
 		-- readline keybindings in insert mode
 		use({
@@ -134,6 +141,9 @@ require("packer").startup({
 		-- switch working directory
 		use({
 			"nyngwang/NeoRoot.lua",
+			setup = function()
+				require("plugins-config.neoroot").map()
+			end,
 			cmd = {
 				"NeoRoot",
 				"NeoRootChange",
@@ -194,6 +204,9 @@ require("packer").startup({
 		-- UI to select things (files, grep results, open buffers...)
 		use({
 			"nvim-telescope/telescope.nvim",
+			setup = function()
+				require("plugins-config.telescope").map()
+			end,
 			config = function()
 				require("plugins-config.telescope").config()
 			end,
@@ -210,6 +223,9 @@ require("packer").startup({
 		-- use{ "kyazdani42/nvim-tree.lua" },
 		use({
 			"elihunter173/dirbuf.nvim",
+			setup = function()
+				-- require("plugins-config.dirbuf").map()
+			end,
 			config = function()
 				require("plugins-config.dirbuf").config()
 			end,
@@ -231,11 +247,15 @@ require("packer").startup({
 			opt = true,
 			setup = function()
 				Lazyload_timer("comment-box.nvim")
+				require("plugins-config.comment-box").map()
 			end,
 		})
 		-- buffer bookmarks
 		use({
 			"MattesGroeger/vim-bookmarks",
+			setup = function()
+				require("plugins-config.bookmarks").map()
+			end,
 			config = function()
 				require("plugins-config.vim-bookmarks").config()
 			end,
@@ -246,6 +266,7 @@ require("packer").startup({
 			opt = true,
 			setup = function()
 				Lazyload_timer("vim-mundo")
+				require("plugins-config.mundo").map()
 			end,
 		})
 		-- switch keywords
@@ -349,6 +370,9 @@ require("packer").startup({
 			"folke/twilight.nvim",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
+			setup = function()
+				require("plugins-config.twilight").map()
+			end,
 			config = function()
 				require("plugins-config.twilight").config()
 			end,
@@ -828,6 +852,9 @@ require("packer").startup({
 		-- Zen mode
 		use({
 			"folke/zen-mode.nvim",
+			setup = function()
+				require("plugins-config.zen-mode").map()
+			end,
 			config = function()
 				require("plugins-config.zen-mode").config()
 			end,
@@ -885,7 +912,7 @@ local function load_theme()
 	-- require(p("catppuccin")).config()
 	-- require(p("everforest")).config()
 end
-load_theme()
+-- load_theme()
 
 -- load plugin configs
 local function load_configs()

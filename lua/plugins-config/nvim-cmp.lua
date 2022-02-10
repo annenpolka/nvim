@@ -114,6 +114,7 @@ function M.config()
 			{ name = "cmdline" },
 		},
 	})
+	-- search completion
 	require("cmp").setup.cmdline("/", {
 		sources = {
 			{ name = "nvim_lsp_document_symbol" },
