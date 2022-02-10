@@ -88,7 +88,7 @@ require("packer").startup({
 		use({
 			"mhinz/vim-sayonara",
 			setup = function()
-				require("plugins-config.vim-sayonara").map()
+				require("plugins-config.sayonara").map()
 			end,
 			cmd = { "Sayonara", "Sayonara!" },
 		})
@@ -254,7 +254,7 @@ require("packer").startup({
 		use({
 			"MattesGroeger/vim-bookmarks",
 			setup = function()
-				require("plugins-config.bookmarks").map()
+				require("plugins-config.vim-bookmarks").map()
 			end,
 			config = function()
 				require("plugins-config.vim-bookmarks").config()
