@@ -180,7 +180,3 @@ require("null-ls").setup({
 	debug = true,
 	sources = formatter_managed,
 })
-
--- projects.nvim
-require("project_nvim").setup({})
-require("telescope").load_extension("projects")
