@@ -1,7 +1,18 @@
 local M = {}
 
 function M.config()
-	require("focus").setup({ excluded_filetypes = { "toggleterm", "harpoon", "ctrlspace", "telescope" } })
+	local focus = require("focus")
+	focus.setup({
+		excluded_filetypes = { "toggleterm", "harpoon", "ctrlspace", "telescope" },
+		winhighlight = true,
+		hybridnumber = true,
+	})
+	vim.cmd([[
+		augroup FocusWindowHighlight
+			autocmd!
+				autocmd VimEnter * hi link UnfocusedWindow CursorLine
+		augroup END
+	]])
 end
 
 function M.map()
