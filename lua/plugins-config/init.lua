@@ -349,6 +349,13 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		use({
+			"echasnovski/mini.nvim",
+			config = function()
+				require("plugins-config.mini-indentscope").config()
+				require("plugins-config.mini-cursorword").config()
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -789,6 +796,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.vim-illuminate").config()
 			end,
+			disable = true,
 		})
 		-- Autopair
 		use({

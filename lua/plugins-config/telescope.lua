@@ -3,7 +3,8 @@ function M.config()
 	-- Telescope
 	require("telescope").setup({
 		defaults = {
-			file_sorter = require("telescope.sorters").get_fzy_sorter,
+			-- generic_sorter = require("telescope.sorters").get_fzy_sorter,
+			generic_sorter = require("mini.fuzzy").get_telescope_sorter,
 			mappings = {
 				n = {
 					["l"] = "select_default",
