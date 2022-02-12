@@ -210,10 +210,15 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.telescope").config()
 			end,
+			requires = {
+				"nvim-telescope/telescope-fzy-native.nvim",
+				"echasnovski/mini.nvim", -- for fuzzy sorter
+			},
 		})
 		use({
 			"nvim-telescope/telescope-fzy-native.nvim",
 			requires = "nvim-telescope/telescope.nvim",
+			disable = true,
 		})
 		use({
 			"nvim-telescope/telescope-file-browser.nvim",
@@ -452,12 +457,12 @@ require("packer").startup({
 		-- Bracket Lens-like plugin
 		use({
 			-- this is unused, now using nvim_context_vt
+			disable = true,
 			"code-biscuits/nvim-biscuits",
 			-- after = { "nvim-treesitter" },
 			config = function()
 				require("plugins-config.biscuits").config()
 			end,
-			disable = true,
 		})
 		use({
 			"haringsrob/nvim_context_vt",
