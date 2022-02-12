@@ -228,7 +228,7 @@ require("packer").startup({
 		use({
 			"elihunter173/dirbuf.nvim",
 			setup = function()
-				-- require("plugins-config.dirbuf").map()
+				require("plugins-config.dirbuf").map()
 			end,
 			config = function()
 				require("plugins-config.dirbuf").config()
@@ -259,9 +259,7 @@ require("packer").startup({
 			"MattesGroeger/vim-bookmarks",
 			setup = function()
 				require("plugins-config.vim-bookmarks").map()
-			end,
-			config = function()
-				require("plugins-config.vim-bookmarks").config()
+				require("plugins-config.vim-bookmarks").config() -- options should set before loading
 			end,
 		})
 		-- undo-tree
@@ -515,7 +513,7 @@ require("packer").startup({
 		use({
 			"onsails/lspkind-nvim",
 			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
+			-- after = "nvim-cmp",
 		})
 		-- -- cmp plugins
 		use({
@@ -671,9 +669,9 @@ require("packer").startup({
 		-- Faster f/f
 		use({
 			"ggandor/lightspeed.nvim",
-			opt = true,
+			opt = false,
 			setup = function()
-				Lazyload_timer("lightspeed.nvim")
+				-- Lazyload_timer("lightspeed.nvim")
 			end,
 		})
 		-- fuzzy match easymotion
@@ -800,7 +798,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.vim-illuminate").config()
 			end,
-			disable = true,
 		})
 		-- Autopair
 		use({
@@ -876,6 +873,9 @@ require("packer").startup({
 		use({
 			"hoschi/yode-nvim",
 			require = "nvim-lua/plenary.nvim",
+			setup = function()
+				require("plugins-config.yode").map()
+			end,
 			config = function()
 				require("plugins-config.yode").config()
 			end,

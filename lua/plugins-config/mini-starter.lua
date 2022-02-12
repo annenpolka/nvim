@@ -4,7 +4,7 @@ function M.config()
 	starter.setup({
 		items = {
 			{
-				name = [[open current dir session]],
+				name = [[current dir session]],
 				action = [[SessionManager load_current_dir_session]],
 				section = "Sessions",
 			},
