@@ -3,9 +3,10 @@ local M = {}
 function M.config()
 	local focus = require("focus")
 	focus.setup({
-		excluded_filetypes = { "toggleterm", "harpoon", "ctrlspace", "telescope" },
+		excluded_filetypes = { "toggleterm", "harpoon", "ctrlspace", "TelescopePrompt" },
+		excluded_buftypes = { "acwrite" },
 		winhighlight = true,
-		hybridnumber = true,
+		hybridnumber = false,
 	})
 	vim.cmd([[
 		augroup FocusWindowHighlight

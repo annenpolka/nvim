@@ -868,8 +868,15 @@ require("packer").startup({
 			end,
 			cmd = "ZenMode",
 		})
-		-- narrow region buffer
-		use({ "chrisbra/NrrwRgn" })
+		-- region buffer window
+		use({
+			"hoschi/yode-nvim",
+			require = "nvim-lua/plenary.nvim",
+			config = function()
+				require("plugins-config.yode").config()
+			end,
+			event = "BufRead",
+		})
 		-- show inline git blame
 		use({
 			"APZelos/blamer.nvim",
