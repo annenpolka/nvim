@@ -219,6 +219,10 @@ require("packer").startup({
 			"nvim-telescope/telescope-file-browser.nvim",
 			requires = "nvim-telescope/telescope.nvim",
 		})
+		use({
+			"willthbill/opener.nvim",
+			requires = "nvim-telescope/telescope.nvim",
+		})
 		-- file manager
 		-- use{ "kyazdani42/nvim-tree.lua" },
 		use({

@@ -61,6 +61,19 @@ function M.config()
 	require("telescope").load_extension("refactoring")
 	require("project_nvim").setup({ manual_mode = true })
 	require("telescope").load_extension("projects")
+	require("opener").setup({
+		pre_open = {
+			function()
+				vim.cmd("SessionManager save_current_session")
+			end,
+		},
+		post_open = {
+			function()
+				vim.cmd("SessionManager load_current_dir_session")
+			end,
+		},
+	})
+	require("telescope").load_extension("opener")
 end
 
 function M.map()
