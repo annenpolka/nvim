@@ -357,7 +357,7 @@ require("packer").startup({
 			"echasnovski/mini.nvim",
 			config = function()
 				require("plugins-config.mini-indentscope").config()
-				require("plugins-config.mini-cursorword").config()
+				require("plugins-config.mini-starter").config()
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
