@@ -76,7 +76,7 @@ end)
 -- Enable the following language servers manually
 local servers = {}
 -- workaround about offset encoding
--- capabilities.offsetEncoding = { "utf-16" }
+capabilities.offsetEncoding = { "utf-16" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,

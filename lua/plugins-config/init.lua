@@ -19,7 +19,7 @@ vim.cmd([[
 		autocmd!
 		"autocmd BufWritePost init.lua PackerCompile
 	augroup END
-	]])
+]])
 
 -- load plugin after entering vim ui
 -- HACK: This shouldn't be global, but this won't work with local keyword
