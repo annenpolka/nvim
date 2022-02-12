@@ -468,7 +468,6 @@ require("packer").startup({
 			"haringsrob/nvim_context_vt",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			config = function()
-				-- TODO: create a config file for this
 				require("plugins-config.context_vt").config()
 			end,
 		})
@@ -698,6 +697,18 @@ require("packer").startup({
 				"HopWordCurrentLine",
 				"HopWordCurrentLineBC",
 				"HopWordCurrentLineAC",
+				"HopLine",
+				"HopLineAC",
+				"HopLineBC",
+				"HopChar1",
+				"HopChar1AC",
+				"HopChar1BC",
+				"HopChar2",
+				"HopChar2AC",
+				"HopChar2BC",
+				"HopPattern",
+				"HopPatternAC",
+				"HopPatternBC",
 			},
 		})
 		-- surrounding plugin
