@@ -696,7 +696,7 @@ require("packer").startup({
 		-- hop easymotion
 		use({
 			"phaazon/hop.nvim",
-			branch = "v1",
+			branch = "master",
 			setup = function()
 				require("plugins-config.hop").map()
 			end,
