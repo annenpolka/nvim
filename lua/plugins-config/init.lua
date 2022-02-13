@@ -292,6 +292,13 @@ require("packer").startup({
 				Lazyload_timer("splitjoin.vim")
 			end,
 		})
+		-- non-lsp formatter
+		use({
+			"sbdchd/neoformat",
+			setup = function()
+				require("plugins-config.neoformat").map()
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          themes                          │
 		-- ╰──────────────────────────────────────────────────────────╯
