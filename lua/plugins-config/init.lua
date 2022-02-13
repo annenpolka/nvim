@@ -150,6 +150,12 @@ require("packer").startup({
 				"NeoRootSwitchMode",
 			},
 		})
+		use({
+			"sbulav/nredir.nvim",
+			setup = function()
+				require("plugins-config.nredir").map()
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
