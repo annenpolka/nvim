@@ -3,7 +3,7 @@ local M = {}
 function M.config()
 	-- toggle highlight by event
 	vim.cmd([[
-	augroup AutoCursorline
+	augroup AutoUnitHighlight
 	  autocmd!
 	  autocmd CursorMoved,CursorMovedI,WinLeave * highlight clear ColorColumn
 	  autocmd CursorHold,CursorHoldI * highlight ColorColumn guibg=#35354F

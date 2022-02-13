@@ -12,6 +12,7 @@ function M.config()
 		augroup FocusWindowHighlight
 			autocmd!
 				autocmd VimEnter * hi link UnfocusedWindow CursorLine
+				autocmd VimEnter * hi link focusedWindow VisualNC
 		augroup END
 	]])
 end

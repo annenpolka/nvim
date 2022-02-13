@@ -6,6 +6,7 @@ vim.g.autoread = true
 
 -- Show cursorline
 vim.wo.cursorline = true
+vim.wo.cursorcolumn = false
 
 --Set highlight on search
 vim.o.hlsearch = true

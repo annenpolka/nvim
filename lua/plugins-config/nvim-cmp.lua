@@ -56,7 +56,7 @@ function M.config()
 					end,
 				},
 			},
-			{ name = "look", keyword_length = 2, option = { convert_case = true, loud = true } },
+			{ name = "look", keyword_length = 3, option = { convert_case = true, loud = true } },
 			{ name = "path" },
 			{ name = "luasnip" },
 			{ name = "rg", option = { additional_arguments = "--smart-case --max-depth 2" } },
