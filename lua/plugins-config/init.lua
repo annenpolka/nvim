@@ -818,7 +818,7 @@ require("packer").startup({
 		-- highlighting the word under cursor
 		use({
 			"RRethy/vim-illuminate",
-			config = function()
+			setup = function()
 				require("plugins-config.vim-illuminate").config()
 			end,
 		})
@@ -853,6 +853,9 @@ require("packer").startup({
 			"stevearc/qf_helper.nvim",
 			setup = function()
 				require("plugins-config.qf_helper").map()
+			end,
+			config = function()
+				require("plugins-config.qf_helper").config()
 			end,
 		})
 		-- Batch editing quickfix
@@ -895,7 +898,9 @@ require("packer").startup({
 		-- region buffer window
 		use({
 			"hoschi/yode-nvim",
-			require = "nvim-lua/plenary.nvim",
+			require = {
+				"nvim-lua/plenary.nvim",
+			},
 			setup = function()
 				require("plugins-config.yode").map()
 			end,
