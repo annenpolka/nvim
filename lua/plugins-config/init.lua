@@ -322,14 +322,32 @@ require("packer").startup({
 		use({
 			"sainnhe/everforest",
 			config = function()
-				require("plugins-config.everforest").config()
+				-- require("plugins-config.everforest").config()
 			end,
 			-- event = "BufRead",
 		})
 		-- gruvbox theme
 		-- use({ "eddyekofo94/gruvbox-flat.nvim" })
 		-- aquarium theme
-		use({ "FrenzyExists/aquarium-vim" })
+		use({
+			"FrenzyExists/aquarium-vim",
+			config = function()
+				-- require("plugins-config.aquarium").config()
+			end,
+		})
+		use({
+			"mcchrish/zenbones.nvim",
+			requires = "rktjmp/lush.nvim",
+			config = function()
+				-- require("plugins-config.zenbones").config()
+			end,
+		})
+		use({
+			"aktersnurra/no-clown-fiesta.nvim",
+			setup = function()
+				-- vim.cmd([[colorscheme no-clown-fiesta]])
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                     lines and widgets                    │
 		-- ╰──────────────────────────────────────────────────────────╯
