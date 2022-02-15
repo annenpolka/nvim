@@ -13,11 +13,11 @@ local d = ls.d
 -- snippet definitions
 ls.snippets = {
 	all = {
-		s({ trig = "triggerhogehogehoge" }, {
-			-- そのまま挿入される
-			t({ "hello !" }),
-			i(0),
-		}),
+		-- s({ trig = "triggerhogehogehoge" }, {
+		-- 	-- -- そのまま挿入される
+		-- 	-- t({ "hello !" }),
+		-- 	-- i(0),
+		-- }),
 	},
 	cpp = {
 		-- rep macro
