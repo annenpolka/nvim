@@ -15,10 +15,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 end
 vim.cmd([[
-	augroup PackerAug
-		autocmd!
-		"autocmd BufWritePost init.lua PackerCompile
-	augroup END
+  augroup PackerAug
+    autocmd!
+    "autocmd BufWritePost init.lua PackerCompile
+  augroup END
 ]])
 
 -- load plugin after entering vim ui
