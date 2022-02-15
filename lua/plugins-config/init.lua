@@ -536,7 +536,7 @@ require("packer").startup({
 		use({
 			"hrsh7th/cmp-nvim-lsp",
 			requires = { "hrsh7th/nvim-cmp" },
-			-- after = "nvim-cmp",
+			after = "nvim-cmp",
 		})
 		use({
 			"saadparwaiz1/cmp_luasnip",
@@ -615,10 +615,10 @@ require("packer").startup({
 		-- Debug Adapter Protocol
 		use({
 			"mfussenegger/nvim-dap",
-			-- opt = true,
+			opt = true,
 			setup = function()
 				require("plugins-config.dap").map()
-				-- Lazyload_timer("nvim-dap")
+				Lazyload_timer("nvim-dap")
 			end,
 			config = function()
 				require("plugins-config.dap").config()
