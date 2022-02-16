@@ -345,7 +345,7 @@ require("packer").startup({
 		use({
 			"aktersnurra/no-clown-fiesta.nvim",
 			setup = function()
-				-- vim.cmd([[colorscheme no-clown-fiesta]])
+				vim.cmd([[colorscheme no-clown-fiesta]])
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
