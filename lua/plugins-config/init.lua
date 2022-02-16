@@ -231,6 +231,10 @@ require("packer").startup({
 			requires = "nvim-telescope/telescope.nvim",
 		})
 		use({
+			"nvim-telescope/telescope-frecency.nvim",
+			requires = { "nvim-telescope/telescope.nvim", "tami5/sqlite.lua" },
+		})
+		use({
 			"willthbill/opener.nvim",
 			requires = "nvim-telescope/telescope.nvim",
 		})

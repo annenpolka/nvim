@@ -61,6 +61,7 @@ function M.config()
 	require("telescope").load_extension("refactoring")
 	require("project_nvim").setup({ manual_mode = true })
 	require("telescope").load_extension("projects")
+	require("telescope").load_extension("frecency")
 	require("opener").setup({
 		pre_open = {
 			function()
