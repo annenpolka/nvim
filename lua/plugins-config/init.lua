@@ -889,6 +889,9 @@ require("packer").startup({
 		-- terminal integration
 		use({
 			"akinsho/toggleterm.nvim",
+			setup = function()
+				require("plugins-config.toggleterm").map()
+			end,
 			config = function()
 				require("plugins-config.toggleterm").config()
 			end,
