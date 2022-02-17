@@ -340,6 +340,7 @@ require("packer").startup({
 			end,
 		})
 		use({
+			disable = true,
 			"mcchrish/zenbones.nvim",
 			requires = "rktjmp/lush.nvim",
 			config = function()
@@ -347,8 +348,9 @@ require("packer").startup({
 			end,
 		})
 		use({
-			"aktersnurra/no-clown-fiesta.nvim",
+			"annenpolka/no-clown-fiesta.nvim",
 			setup = function()
+				vim.g["italic_comments"] = true
 				vim.cmd([[colorscheme no-clown-fiesta]])
 			end,
 		})
@@ -396,6 +398,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.mini-indentscope").config()
 				require("plugins-config.mini-starter").config()
+				-- require("plugins-config.mini-surround").config()
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
