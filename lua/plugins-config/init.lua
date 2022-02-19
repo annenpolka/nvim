@@ -294,6 +294,14 @@ require("packer").startup({
 				Lazyload_timer("switch.vim")
 			end,
 		})
+		-- find a unique character in each word
+		use({
+			"unblevable/quick-scope",
+			opt = true,
+			setup = function()
+				Lazyload_timer("quick-scope")
+			end,
+		})
 		-- split/join lines
 		use({
 			"AndrewRadev/splitjoin.vim",
