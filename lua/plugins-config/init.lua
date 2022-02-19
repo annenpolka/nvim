@@ -519,6 +519,10 @@ require("packer").startup({
 		})
 		use({
 			"andymass/vim-matchup",
+			opt = true,
+			setup = function()
+				Lazyload_timer("vim-matchup")
+			end,
 			config = function()
 				require("plugins-config.matchup").config()
 			end,
@@ -777,8 +781,10 @@ require("packer").startup({
 		-- commenting
 		use({
 			"b3nj5m1n/kommentary",
+			opt = true,
 			setup = function()
 				require("plugins-config.kommentary").map()
+				Lazyload_timer("kommentary")
 			end,
 			config = function()
 				require("plugins-config.kommentary").config()
