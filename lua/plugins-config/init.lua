@@ -59,6 +59,8 @@ require("packer").startup({
 		})
 		-- mapping helper functions
 		use({ "b0o/mapx.nvim" })
+		-- extended dot repeat
+		use({ "tpope/vim-repeat" })
 		---------------------------------------------------------------------------------
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          Utility                         │
