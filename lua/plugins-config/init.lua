@@ -59,6 +59,8 @@ require("packer").startup({
 		})
 		-- mapping helper functions
 		use({ "b0o/mapx.nvim" })
+		-- extended dot repeat
+		use({ "tpope/vim-repeat" })
 		---------------------------------------------------------------------------------
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          Utility                         │
@@ -294,6 +296,21 @@ require("packer").startup({
 				Lazyload_timer("switch.vim")
 			end,
 		})
+		use({
+			"Matt-A-Bennett/vim-surround-funk",
+			opt = true,
+			setup = function()
+				Lazyload_timer("vim-surround-funk")
+			end,
+		})
+		-- find a unique character in each word
+		use({
+			"unblevable/quick-scope",
+			opt = true,
+			setup = function()
+				Lazyload_timer("quick-scope")
+			end,
+		})
 		-- split/join lines
 		use({
 			"AndrewRadev/splitjoin.vim",
@@ -511,6 +528,10 @@ require("packer").startup({
 		})
 		use({
 			"andymass/vim-matchup",
+			opt = true,
+			setup = function()
+				Lazyload_timer("vim-matchup")
+			end,
 			config = function()
 				require("plugins-config.matchup").config()
 			end,
@@ -769,8 +790,10 @@ require("packer").startup({
 		-- commenting
 		use({
 			"b3nj5m1n/kommentary",
+			opt = true,
 			setup = function()
 				require("plugins-config.kommentary").map()
+				Lazyload_timer("kommentary")
 			end,
 			config = function()
 				require("plugins-config.kommentary").config()
