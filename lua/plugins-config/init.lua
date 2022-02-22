@@ -14,6 +14,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		install_path,
 	})
 end
+
 vim.cmd([[
   augroup PackerAug
     autocmd!
@@ -54,7 +55,7 @@ require("packer").startup({
 		use({
 			"junegunn/fzf",
 			run = function()
-				vim.fn["fzf#install"]()
+				fn["fzf#install"]()
 			end,
 		})
 		-- mapping helper functions
@@ -357,7 +358,7 @@ require("packer").startup({
 			end,
 		})
 		use({
-			disable = true,
+			disable = false,
 			"mcchrish/zenbones.nvim",
 			requires = "rktjmp/lush.nvim",
 			config = function()
@@ -544,7 +545,10 @@ require("packer").startup({
 		--  To Install LSP Automatically with LspInstall
 		use({ "williamboman/nvim-lsp-installer" })
 		-- rust lsp tools
-		use({ "simrat39/rust-tools.nvim" })
+		use({
+			"simrat39/rust-tools.nvim",
+			requires = { "neovim/nvim-lspconfig" },
+		})
 		-- show signature guides on type
 		use({
 			"ray-x/lsp_signature.nvim",
@@ -994,7 +998,7 @@ require("packer").startup({
 	config = {
 		display = {
 			open_fn = require("packer.util").float, -- floating window
-			compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua", -- to optimize loading with impatient
+			compile_path = fn.stdpath("config") .. "/lua/packer_compiled.lua", -- to optimize loading with impatient
 		},
 	},
 })
