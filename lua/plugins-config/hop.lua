@@ -5,7 +5,9 @@ function M.config()
 end
 
 function M.map()
-	nnoremap("S", ":HopWord<CR>", "silent")
+	-- nnoremap("S", ":HopWord<CR>", "silent")
+	nnoremap("H", ":HopWordBC<CR>", "silent")
+	nnoremap("L", ":HopWordAC<CR>", "silent")
 end
 
 return M

@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-	vim.cmd([[runtime macros/sandwich/keymap/surround.vim]])
+	-- vim.cmd([[runtime macros/sandwich/keymap/surround.vim]])
 end
 
 function M.map()
