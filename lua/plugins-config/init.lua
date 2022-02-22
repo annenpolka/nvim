@@ -296,6 +296,13 @@ require("packer").startup({
 				Lazyload_timer("switch.vim")
 			end,
 		})
+		use({
+			"Matt-A-Bennett/vim-surround-funk",
+			opt = true,
+			setup = function()
+				Lazyload_timer("vim-surround-funk")
+			end,
+		})
 		-- find a unique character in each word
 		use({
 			"unblevable/quick-scope",
