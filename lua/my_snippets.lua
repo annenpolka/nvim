@@ -30,5 +30,5 @@ ls.snippets = {
 
 -- load frinedly-snippets
 require("luasnip/loaders/from_vscode").load({
-	paths = { "~/.local/share/nvim/site/pack/packer/opt/friendly-snippets" },
+	paths = { "~/.local/share/nvim/site/pack/jetpack/src/friendly-snippets" },
 })

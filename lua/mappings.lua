@@ -37,6 +37,14 @@ nnoremap("<leader>cc", "q:")
 vim.api.nvim_set_keymap("n", "^", ":bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "-", ":bprev<CR>", { noremap = true, silent = true })
 
+vim.cmd([[
+com! CheckHighlightUnderCursor echo {l,c,n ->
+        \   'hi<'    . synIDattr(synID(l, c, 1), n)             . '> '
+        \  .'trans<' . synIDattr(synID(l, c, 0), n)             . '> '
+        \  .'lo<'    . synIDattr(synIDtrans(synID(l, c, 1)), n) . '> '
+        \ }(line("."), col("."), "name")
+]])
+
 --Plugin Keybindings-----------------------------------------------------------------------
 -- plugins
 local function map_plugins()

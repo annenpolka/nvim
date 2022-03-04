@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-	require("yode-nvim").setup()
+	require("yode-nvim").setup({})
 end
 
 function M.map()
