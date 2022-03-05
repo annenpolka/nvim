@@ -158,6 +158,7 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.nredir").map()
 			end,
+			event = "BufWinEnter",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
@@ -259,9 +260,10 @@ require("packer").startup({
 		-- yank kill-ring
 		use({
 			"tversteeg/registers.nvim",
-			config = function()
+			setup = function()
 				require("plugins-config.registers").config()
 			end,
+			event = "BufRead",
 		})
 		-- comment eyecandies
 		use({
@@ -279,6 +281,7 @@ require("packer").startup({
 				require("plugins-config.vim-bookmarks").map()
 				require("plugins-config.vim-bookmarks").config() -- options should set before loading
 			end,
+			event = "BufRead",
 		})
 		-- undo-tree
 		use({
@@ -326,6 +329,7 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.neoformat").map()
 			end,
+			cmd = "Neoformat",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          themes                          │
@@ -344,7 +348,7 @@ require("packer").startup({
 		use({
 			"sainnhe/everforest",
 			config = function()
-				-- require("plugins-config.everforest").config()
+				require("plugins-config.everforest").config()
 			end,
 			-- event = "BufRead",
 		})
@@ -352,24 +356,18 @@ require("packer").startup({
 		-- use({ "eddyekofo94/gruvbox-flat.nvim" })
 		-- aquarium theme
 		use({
+			disable = true,
 			"FrenzyExists/aquarium-vim",
 			config = function()
 				-- require("plugins-config.aquarium").config()
 			end,
 		})
 		use({
-			disable = false,
+			disable = true,
 			"mcchrish/zenbones.nvim",
 			requires = "rktjmp/lush.nvim",
 			config = function()
 				-- require("plugins-config.zenbones").config()
-			end,
-		})
-		use({
-			"annenpolka/no-clown-fiesta.nvim",
-			setup = function()
-				vim.g["italic_comments"] = true
-				vim.cmd([[colorscheme no-clown-fiesta]])
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
@@ -402,6 +400,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.scrollbar").config()
 			end,
+			event = "BufRead",
 		})
 		-- Add indentation guides even on blank lines
 		use({
@@ -427,6 +426,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.nvim-treesitter").config()
 			end,
+			-- event = "VimEnter",
 			run = ":TSUpdate",
 		})
 		-- playground
@@ -460,6 +460,7 @@ require("packer").startup({
 		use({
 			"SmiteshP/nvim-gps",
 			requires = { "nvim-treesitter/nvim-treesitter" },
+			after = { "nvim-treesitter" },
 			config = function()
 				require("plugins-config.nvim-gps").config()
 			end,
@@ -505,6 +506,7 @@ require("packer").startup({
 		-- Generate annotation
 		use({
 			"danymat/neogen",
+			after = { "nvim-treesitter" },
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			config = function()
 				require("plugins-config.neogen").config()
@@ -512,16 +514,8 @@ require("packer").startup({
 		})
 		-- Bracket Lens-like plugin
 		use({
-			-- this is unused, now using nvim_context_vt
-			disable = true,
-			"code-biscuits/nvim-biscuits",
-			-- after = { "nvim-treesitter" },
-			config = function()
-				require("plugins-config.biscuits").config()
-			end,
-		})
-		use({
 			"haringsrob/nvim_context_vt",
+			after = { "nvim-treesitter" },
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			config = function()
 				require("plugins-config.context_vt").config()
@@ -565,7 +559,9 @@ require("packer").startup({
 		})
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
-		use({ "PlatyPew/format-installer.nvim" })
+		use({
+			"PlatyPew/format-installer.nvim",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -695,6 +691,7 @@ require("packer").startup({
 		-- async task runners
 		use({
 			"skywind3000/asyncrun.vim",
+			event = "BufRead",
 		})
 		use({
 			"skywind3000/asynctasks.vim",
@@ -710,6 +707,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.spelunker").config()
 			end,
+			event = "BufRead",
 		})
 		-- tabout
 		use({
@@ -783,6 +781,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.sandwich").config()
 			end,
+			event = "BufRead",
 		})
 		-- substitute operator
 		use({
@@ -840,6 +839,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.hlslens").config()
 			end,
+      event = "BufRead",
 		})
 		-- Show keybindings
 		use({
@@ -944,6 +944,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.focus").config()
 			end,
+      event = "BufRead",
 		})
 		-- Zen mode
 		use({
@@ -998,8 +999,8 @@ require("packer").startup({
 	config = {
 		display = {
 			open_fn = require("packer.util").float, -- floating window
-			compile_path = fn.stdpath("config") .. "/lua/packer_compiled.lua", -- to optimize loading with impatient
 		},
+		compile_path = fn.stdpath("config") .. "/lua/packer_compiled.lua", -- to optimize loading with impatient
 	},
 })
 
