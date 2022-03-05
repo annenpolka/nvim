@@ -1000,7 +1000,6 @@ require("packer").startup({
 		display = {
 			open_fn = require("packer.util").float, -- floating window
 		},
-		compile_path = fn.stdpath("config") .. "/lua/packer_compiled.lua", -- to optimize loading with impatient
 	},
 })
 
