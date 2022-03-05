@@ -4,11 +4,11 @@ local fn = vim.fn
 -- │                      plugins loading                     │
 -- ╰──────────────────────────────────────────────────────────╯
 vim.g["jetpack#optimization"] = 2
-vim.cmd("packadd vim-jetpack")
+-- vim.cmd("packadd vim-jetpack")
 require("jetpack").startup(function(use)
 	use({
 		"tani/vim-jetpack",
-		-- opt = 1,
+		opt = 1,
 	})
 	-- lua loading optimizer
 	use({ "lewis6991/impatient.nvim" })
@@ -598,22 +598,11 @@ end
 -- config loading autocmd
 local function load_config()
 	-- theme
-	vim.cmd("colorscheme everforest")
-
-	-- load on start
-	require("plugins-config.mini-starter").config()
-	require("plugins-config.mini-indentscope").config()
-	require("plugins-config.vim-bookmarks").config()
-	require("plugins-config.telescope").config()
-	require("plugins-config.tabby").config()
-	require("plugins-config.registers").config()
-	require("plugins-config.matchup").config()
-	require("plugins-config.kommentary").config()
+	require("plugins-config.everforest").config()
 
 	-- config list
-	vim.o.termguicolors = true
 	require("plugins-config.nvim-treesitter").config()
-	require("plugins-config.nvim-cmp").config()
+	-- require("plugins-config.nvim-cmp").config()
 	require("plugins-config.aerial").config()
 	require("plugins-config.autopairs").config()
 	require("plugins-config.better-escape").config()
@@ -624,7 +613,6 @@ local function load_config()
 	require("plugins-config.dap").config()
 	require("plugins-config.dirbuf").config()
 	require("plugins-config.dressing").config()
-	require("plugins-config.everforest").config()
 	require("plugins-config.focus").config()
 	require("plugins-config.gesture").config()
 	require("plugins-config.gitsigns").config()
@@ -673,101 +661,7 @@ local function load_config()
 	require("plugins-config.zen-mode").config()
 	-- require("plugins-config.zenbones").config()
 
-	-- load config on require(lua), packadd(vimscript)
-	load_config_on_jetpack("dressing", "dressing")
-	load_config_on_jetpack("session-manager", "neovim-session-manager")
-	load_config_on_jetpack("gesture", "gesture")
-	load_config_on_jetpack("neogit", "neogit")
-	load_config_on_jetpack("hop", "hop")
-	load_config_on_jetpack("dirbuf", "dirbuf")
-
-	-- lazyload
-	-- -- timer
-	lazyload_timer("nvim-spectre", "spectre", "spectre", 1000)
-	lazyload_timer("lualine.nvim", "lualine", "lualine", 100)
-	-- -- event
-	load_on_event("FileType", "gitsigns.nvim", "gitsigns")
-	load_on_event("FileType,BufRead,BufNewFile", "substitute.nvim", "substitute")
-	load_on_event("FileType,BufRead,BufNewFile", "nvim-scrollbar", "scrollbar")
-	load_on_event("FileType,BufRead,BufNewFile", "which-key.nvim", "which-key")
-	load_on_event("FileType,BufRead,BufNewFile", "yode-nvim", "yode")
-	load_on_event("FileType,BufRead,BufNewFile", "copilot.vim", "copilot")
-	load_on_event("FileType,BufRead,BufNewFile", "focus.nvim", "focus")
-	load_on_event("FileType,BufRead,BufNewFile", "indent-blankline.nvim", "indent-blankline")
-	load_on_event("FileType,BufRead,BufNewFile", "vim-illuminate", "vim-illuminate")
-	load_on_event("CmdlineEnter", "numb", "numb")
-	load_on_event("CmdlineEnter", "octo.nvim", "octo")
-	load_on_event("InsertEnter", "better-escape.nvim", "better-escape")
-	load_on_event("InsertEnter", "lsp_signature.nvim", "lsp_signature")
-	load_on_event("InsertEnter", "vim-rsi")
-
 	-- TODO: create vim-surround-funk config with mappings
 	vim.g.surround_funk_create_mappings = 0
-	-- --  treesitter things
-	load_on_event("BufRead", "nvim-treesitter", "nvim-treesitter")
-	vim.cmd([[
-    augroup TreesitterRelated
-     autocmd!
-     autocmd User JetpackNvimTreesitter lua require("plugins-config.twilight").config() 
-     autocmd User JetpackNvimTreesitter lua require("plugins-config.treesitter-context").config()
-     autocmd User JetpackNvimTreesitter lua require("plugins-config.nvim-gps").config()
-     autocmd User JetpackNvimTreesitter lua require("plugins-config.treesitter-unit").config()
-     autocmd User JetpackNvimTreesitter lua require("plugins-config.nvim-treehopper").config()
-     autocmd User JetpackNvimTreesitter lua require("plugins-config.neogen").config()
-     autocmd User JetpackNvimTreesitter lua require("plugins-config.context_vt").config()
-     autocmd User JetpackNvimTreesitter lua require("plugins-config.aerial").config()
-    augroup END
-  ]])
-
-	-- nvim-cmp things
-	load_on_event("InsertEnter,CmdlineEnter", "nvim-cmp", "nvim-cmp")
-	packadd_on_jetpack("nvim-cmp", "lspkind-nvim")
-	packadd_on_jetpack("nvim-cmp", "cmp-nvim-lsp")
-	packadd_on_jetpack("nvim-cmp", "cmp_luasnip")
-	packadd_on_jetpack("nvim-cmp", "cmp-path")
-	packadd_on_jetpack("nvim-cmp", "cmp-nvim-lsp-document-symbol")
-	packadd_on_jetpack("nvim-cmp", "cmp-buffer")
-	packadd_on_jetpack("nvim-cmp", "cmp-cmdline")
-	packadd_on_jetpack("nvim-cmp", "cmp-look")
-	packadd_on_jetpack("nvim-cmp", "cmp-treesitter")
-	packadd_on_jetpack("nvim-cmp", "cmp-rg")
-	packadd_on_jetpack("nvim-cmp", "cmp-under-comparator")
-	packadd_on_jetpack("nvim-cmp", "cmp-copilot")
-	packadd_on_jetpack("nvim-cmp", "friendly-snippets")
-	packadd_on_jetpack("nvim-cmp", "LuaSnip")
-
-	-- TODO: lazyload nvim-cmp related plugins
-
-	-- nvim-dap things
-	load_on_event("BufWinEnter", "nvim-dap")
-	load_on_event("BufWinEnter", "nvim-dap-ui")
-	load_on_event("BufWinEnter", "nvim-dap-virtual-text")
-	load_on_event("BufWinEnter", "DAPInstall.nvim", "dap-install")
-	vim.cmd([[
-	   augroup DapConfig
-	    autocmd!
-	    autocmd User JetpackDapInstall lua require("plugins-config.dap").config()
-	   augroup END
-	 ]])
-
-	-- list
-	load_on_event("BufRead", "spelunker.vim", "spelunker")
-	require("plugins-config.spelunker").config()
-	require("plugins-config.tabout").config()
-	require("plugins-config.notify").config()
-	require("plugins-config.pretty-fold").config()
-	require("plugins-config.sandwich").config()
-	require("plugins-config.kommentary").config()
-	require("plugins-config.colorizer").config()
-	require("plugins-config.lightbulb").config()
-	require("plugins-config.hlslens").config()
-	require("plugins-config.trouble").config()
-	require("plugins-config.todo-comments").config()
-	require("plugins-config.autopairs").config()
-	require("plugins-config.harpoon").config()
-	require("plugins-config.qf_helper").config()
-	require("plugins-config.toggleterm").config()
-	require("plugins-config.zen-mode").config()
-	require("plugins-config.blamer").config()
 end
 load_config()
