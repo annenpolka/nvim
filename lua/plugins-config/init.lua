@@ -631,7 +631,7 @@ require("packer").startup({
 		use({
 			"lukas-reineke/cmp-under-comparator",
 			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
+			-- after = "nvim-cmp",
 		})
 		-- use{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		-- github copilot
