@@ -583,7 +583,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.nvim-cmp").config()
 			end,
-			event = { "InsertEnter", "CmdlineEnter" },
+			-- event = { "InsertEnter", "CmdlineEnter" },
 		})
 		-- -- cmp devicons appearance dependency
 		use({
@@ -852,7 +852,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.hlslens").config()
 			end,
-      event = "BufRead",
+			event = "BufRead",
 		})
 		-- Show keybindings
 		use({
@@ -957,7 +957,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.focus").config()
 			end,
-      event = "BufRead",
+			event = "BufRead",
 		})
 		-- Zen mode
 		use({
