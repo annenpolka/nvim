@@ -41,7 +41,6 @@ function M.map()
 		[[g#<Cmd>lua require('hlslens').start()<CR>zzzv]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap("n", "<leader>L", ":nohl<CR>", { noremap = true, silent = true })
 end
 
 return M
