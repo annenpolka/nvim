@@ -544,9 +544,16 @@ require("packer").startup({
 		use({ "neovim/nvim-lspconfig" })
 		--  To Install LSP Automatically with LspInstall
 		use({ "williamboman/nvim-lsp-installer" })
+		-- format on save with lsp asynchronously
+    use({ "lukas-reineke/lsp-format.nvim" })
 		-- rust lsp tools
 		use({
 			"simrat39/rust-tools.nvim",
+			requires = { "neovim/nvim-lspconfig" },
+		})
+		-- clangd lsp tools
+		use({
+			"p00f/clangd_extensions.nvim",
 			requires = { "neovim/nvim-lspconfig" },
 		})
 		-- show signature guides on type

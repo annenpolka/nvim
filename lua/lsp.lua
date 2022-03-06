@@ -79,11 +79,16 @@ lsp_installer.on_server_ready(function(server)
 			server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
 		})
 		server:attach_buffers()
+	elseif server.name == "clangd" then
+		require("clangd_extensions").setup({
+			server = {
+				server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
+			},
+		})
 	else
 		server:setup(opts)
 	end
 end)
-
 -- Enable the following language servers manually
 local servers = {}
 -- workaround about offset encoding
