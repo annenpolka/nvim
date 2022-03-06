@@ -418,6 +418,12 @@ require("packer").startup({
 				-- require("plugins-config.mini-surround").config()
 			end,
 		})
+		use({
+			"mvllow/modes.nvim",
+			config = function()
+				require("plugins-config.modes").config()
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
 		-- ╰──────────────────────────────────────────────────────────╯
