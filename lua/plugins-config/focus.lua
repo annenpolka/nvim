@@ -9,11 +9,8 @@ function M.config()
 		hybridnumber = false,
 	})
 	vim.cmd([[
-		augroup FocusWindowHighlight
-			autocmd!
-				autocmd VimEnter * hi link UnfocusedWindow CursorLine
-				autocmd VimEnter * hi link focusedWindow VisualNC
-		augroup END
+    hi link UnfocusedWindow CursorLine
+    hi link focusedWindow VisualNC
 	]])
 end
 
