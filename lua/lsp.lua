@@ -56,7 +56,18 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
 	local opts = {}
-	opts.on_attach = on_attach
+	local disable_lsp_formatter_list = { "sumneko_lua" }
+	-- disable lsp's formatting on the list
+	opts.on_attach = function(client, bufnr)
+		for _, value in ipairs(disable_lsp_formatter_list) do
+			if value == server.name then
+				client.resolved_capabilities.document_formatting = false
+				client.resolved_capabilities.document_range_formatting = false
+				break
+			end
+		end
+		on_attach(client, bufnr)
+	end
 	opts.capabilities = capabilities
 	if server.name == "rust_analyzer" then
 		-- Initialize the LSP via rust-tools instead
