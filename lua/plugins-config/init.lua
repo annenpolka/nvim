@@ -295,6 +295,7 @@ require("packer").startup({
 		-- switch keywords
 		use({
 			"AndrewRadev/switch.vim",
+			disable = true,
 			opt = true,
 			setup = function()
 				Lazyload_timer("switch.vim")
@@ -418,7 +419,9 @@ require("packer").startup({
 				-- require("plugins-config.mini-surround").config()
 			end,
 		})
+		-- vim edit mode colorizer
 		use({
+			disable = true,
 			"mvllow/modes.nvim",
 			config = function()
 				require("plugins-config.modes").config()
