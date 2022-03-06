@@ -161,6 +161,13 @@ require("packer").startup({
 			end,
 			event = "BufWinEnter",
 		})
+		-- mkdir
+		use({
+			"jghauser/mkdir.nvim",
+			config = function()
+				require("mkdir")
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
