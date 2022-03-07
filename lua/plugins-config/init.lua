@@ -437,6 +437,18 @@ require("packer").startup({
 				require("plugins-config.modes").config()
 			end,
 		})
+		-- show regex info
+		use({
+			"bennypowers/nvim-regexplainer",
+			config = function()
+				require("plugins-config.regexplainer").config()
+			end,
+			requires = {
+				"nvim-lua/plenary.nvim",
+				"MunifTanjim/nui.nvim",
+			},
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
 		-- ╰──────────────────────────────────────────────────────────╯
