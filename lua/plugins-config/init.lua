@@ -187,6 +187,10 @@ require("packer").startup({
 			end,
 			cmd = "Neogit",
 		})
+		-- full-featured git plugin
+		use({
+			"lambdalisue/gina.vim",
+		})
 		-- Add git related info in the signs columns and popups
 		use({
 			"lewis6991/gitsigns.nvim",
