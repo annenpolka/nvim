@@ -6,8 +6,8 @@ end
 
 function M.map()
 	-- nnoremap("S", ":HopWord<CR>", "silent")
-	nnoremap("H", ":HopWordBC<CR>", "silent")
-	nnoremap("L", ":HopWordAC<CR>", "silent")
+	nnoremap("K", ":HopWordBC<CR>", "silent")
+	nnoremap("J", ":HopWordAC<CR>", "silent")
 end
 
 return M
