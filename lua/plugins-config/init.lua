@@ -161,12 +161,18 @@ require("packer").startup({
 			end,
 			event = "BufWinEnter",
 		})
-		-- mkdir
+		-- mkdir on save
 		use({
 			"jghauser/mkdir.nvim",
 			config = function()
 				require("mkdir")
 			end,
+		})
+		-- open file in terminal with new tab, not nested window
+		use({
+			"lambdalisue/guise.vim",
+			requires = "vim-denops/denops.vim",
+			event = "TermOpen",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
