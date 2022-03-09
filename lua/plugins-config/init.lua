@@ -43,14 +43,16 @@ require("packer").startup({
 		use({ "lewis6991/impatient.nvim" })
 		-- faster filetype
 		use({ "nathom/filetype.nvim" })
+		-- fix cursorhold performance problem
+		use({ "antoinemadec/FixCursorHold.nvim" })
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                    runtime, dependency                   │
 		-- ╰──────────────────────────────────────────────────────────╯
+		use({ "vim-denops/denops.vim" })
 		use({ "kyazdani42/nvim-web-devicons" })
 		use({ "nvim-lua/plenary.nvim" })
 		use({ "MunifTanjim/nui.nvim" })
 		use({ "kamykn/popup-menu.nvim" })
-		-- use{ "vim-denops/denops.vim" },
 		-- fzf
 		use({
 			"junegunn/fzf",
@@ -66,8 +68,6 @@ require("packer").startup({
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          Utility                         │
 		-- ╰──────────────────────────────────────────────────────────╯
-		-- fix cursorhold performance problem
-		use({ "antoinemadec/FixCursorHold.nvim" })
 		-- UI overhaul
 		use({
 			"stevearc/dressing.nvim",
