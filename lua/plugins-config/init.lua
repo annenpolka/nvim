@@ -173,6 +173,13 @@ require("packer").startup({
 			"lambdalisue/guise.vim",
 			requires = "vim-denops/denops.vim",
 			event = "TermOpen",
+		-- cycle yank manager
+		use({
+			"svermeulen/vim-yoink",
+			setup = function()
+				require("plugins-config.yoink").map()
+				require("plugins-config.yoink").config()
+			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
