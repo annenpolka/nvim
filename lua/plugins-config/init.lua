@@ -159,7 +159,7 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.nredir").map()
 			end,
-			event = "BufWinEnter",
+			evejt = "BufRead",
 		})
 		-- mkdir on save
 		use({
@@ -172,7 +172,8 @@ require("packer").startup({
 		use({
 			"lambdalisue/guise.vim",
 			requires = "vim-denops/denops.vim",
-			event = "TermOpen",
+			event = "BufRead",
+		})
 		-- cycle yank manager
 		use({
 			"svermeulen/vim-yoink",
