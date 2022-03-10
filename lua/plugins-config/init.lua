@@ -330,9 +330,8 @@ require("packer").startup({
 			"Matt-A-Bennett/vim-surround-funk",
 			opt = true,
 			setup = function()
-				vim.g.surround_funk_create_mappings = 1
+				require("plugins-config.surround-funk").map()
 				Lazyload_timer("vim-surround-funk")
-				-- TODO: create mapping
 			end,
 		})
 		-- find a unique character in each word
