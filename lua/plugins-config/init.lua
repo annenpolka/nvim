@@ -465,6 +465,16 @@ require("packer").startup({
 			},
 			event = "BufRead",
 		})
+		-- dim unused variables and functions
+		use({
+			"narutoxy/dim.lua",
+			disable = false,
+			requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
+			after = { "nvim-treesitter" },
+			config = function()
+				require("dim").setup({})
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
 		-- ╰──────────────────────────────────────────────────────────╯
