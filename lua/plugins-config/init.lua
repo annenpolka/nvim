@@ -240,7 +240,6 @@ require("packer").startup({
 				require("plugins-config.telescope").config()
 			end,
 			requires = {
-				"nvim-telescope/telescope-fzy-native.nvim",
 				"echasnovski/mini.nvim", -- for fuzzy sorter
 			},
 		})
@@ -480,7 +479,8 @@ require("packer").startup({
 		-- Colorize brackets
 		use({
 			"p00f/nvim-ts-rainbow",
-			after = "nvim-treesitter/nvim-treesitter",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+			after = "nvim-treesitter",
 		})
 		-- Limelighting
 		use({
@@ -644,7 +644,7 @@ require("packer").startup({
 		use({
 			"hrsh7th/cmp-nvim-lsp",
 			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
+			-- after = "nvim-cmp",
 		})
 		use({
 			"saadparwaiz1/cmp_luasnip",
@@ -672,6 +672,7 @@ require("packer").startup({
 			after = "nvim-cmp",
 		})
 		use({
+      disable = true,
 			"octaltree/cmp-look",
 			requires = { "hrsh7th/nvim-cmp" },
 			after = "nvim-cmp",
@@ -695,9 +696,10 @@ require("packer").startup({
 		-- github copilot
 		use({
 			"github/copilot.vim",
-			config = function()
+			setup = function()
 				require("plugins-config.copilot").config()
 			end,
+			event = "BufRead",
 		})
 		use({
 			"hrsh7th/cmp-copilot",
