@@ -1,14 +1,11 @@
 local M = {}
 
 function M.config()
-	-- luasnip setup
-	local luasnip = require("luasnip")
-	local snippets = require("my_snippets")
-	local lspkind = require("lspkind")
-
-	-- nvim-cmp setup
 	local cmp = require("cmp")
 	local cmp_buffer = require("cmp_buffer")
+	local luasnip = require("luasnip")
+	local lspkind = require("lspkind")
+
 	cmp.setup({
 		snippet = {
 			expand = function(args)
@@ -45,6 +42,7 @@ function M.config()
 				end
 			end,
 		},
+
 		sources = {
 			{ name = "nvim_lsp" },
 			{
@@ -56,28 +54,11 @@ function M.config()
 					end,
 				},
 			},
-			{ name = "look", keyword_length = 3, option = { convert_case = true, loud = true } },
 			{ name = "path" },
 			{ name = "luasnip" },
-			{ name = "rg", option = { additional_arguments = "--smart-case --max-depth 2" } },
 			{ name = "treesitter" },
-			-- { name = "cmp_tabnine" },
-		},
-		sorting = {
-			comparators = {
-				function(...)
-					return cmp_buffer:compare_locality(...)
-				end,
-				cmp.config.compare.offset,
-				cmp.config.compare.exact,
-				cmp.config.compare.score,
-				require("cmp-under-comparator").under,
-				cmp.config.compare.kind,
-				cmp.config.compare.sort_text,
-				cmp.config.compare.length,
-				cmp.config.compare.order,
-				-- The rest of your comparators...
-			},
+			{ name = "copilot" },
+			{ name = "rg", option = { additional_arguments = "--smart-case --max-depth 2" } },
 		},
 		formatting = {
 			-- devicons by lspkind
@@ -102,11 +83,24 @@ function M.config()
 				return vim_item
 			end,
 		},
-	})
 
-	-- If you want insert `(` after select function or method item
-	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+		sorting = {
+			comparators = {
+				function(...)
+					return cmp_buffer:compare_locality(...)
+				end,
+				cmp.config.compare.offset,
+				cmp.config.compare.exact,
+				cmp.config.compare.score,
+				require("cmp-under-comparator").under,
+				cmp.config.compare.kind,
+				cmp.config.compare.sort_text,
+				cmp.config.compare.length,
+				cmp.config.compare.order,
+				-- The rest of your comparators...
+			},
+		},
+	})
 
 	-- cmdline completion
 	require("cmp").setup.cmdline(":", {
@@ -122,19 +116,9 @@ function M.config()
 		},
 	})
 
-	-- cmp-tabnine config
-	-- 	local tabnine = require("cmp_tabnine.config")
-	-- 	tabnine:setup({
-	-- 		max_lines = 1000,
-	-- 		max_num_results = 20,
-	-- 		sort = true,
-	-- 		run_on_every_keystroke = true,
-	-- 		snippet_placeholder = "..",
-	-- 		ignored_file_types = { -- default is not to ignore
-	-- 			-- uncomment to ignore in lua:
-	-- 			-- lua = true
-	-- 		},
-	-- 	})
+	-- autopairs integration
+	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 end
 
 return M
