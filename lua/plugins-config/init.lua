@@ -45,6 +45,10 @@ require("packer").startup({
 		use({ "nathom/filetype.nvim" })
 		-- fix cursorhold performance problem
 		use({ "antoinemadec/FixCursorHold.nvim" })
+		-- major startuptime
+		use({
+			"dstein64/vim-startuptime",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                    runtime, dependency                   │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -113,17 +117,6 @@ require("packer").startup({
 			end,
 			event = "CmdlineEnter",
 		})
-		-- autosave
-		use({
-			"Pocco81/AutoSave.nvim",
-			opt = true,
-			setup = function()
-				Lazyload_timer("gesture.nvim")
-			end,
-			config = function()
-				require("plugins-config.autosave").config()
-			end,
-		})
 		-- mouse gestures
 		use({
 			"notomo/gesture.nvim",
@@ -172,7 +165,7 @@ require("packer").startup({
 		use({
 			"lambdalisue/guise.vim",
 			requires = "vim-denops/denops.vim",
-			event = "BufRead",
+			-- event = "BufRead",
 		})
 		-- cycle yank manager
 		use({
@@ -312,6 +305,7 @@ require("packer").startup({
 		-- undo-tree
 		use({
 			"simnalamburt/vim-mundo",
+			disable = true,
 			opt = true,
 			setup = function()
 				Lazyload_timer("vim-mundo")
@@ -466,16 +460,6 @@ require("packer").startup({
 			},
 			event = "BufRead",
 		})
-		-- dim unused variables and functions
-		use({
-			"narutoxy/dim.lua",
-			disable = false,
-			requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
-			after = { "nvim-treesitter" },
-			config = function()
-				require("dim").setup({})
-			end,
-		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -492,6 +476,11 @@ require("packer").startup({
 			"nvim-treesitter/playground",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
+		})
+		-- Colorize brackets
+		use({
+			"p00f/nvim-ts-rainbow",
+			after = "nvim-treesitter/nvim-treesitter",
 		})
 		-- Limelighting
 		use({
@@ -587,6 +576,16 @@ require("packer").startup({
 			end,
 			config = function()
 				require("plugins-config.matchup").config()
+			end,
+		})
+		-- dim unused variables and functions
+		use({
+			"narutoxy/dim.lua",
+			disable = false,
+			requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
+			after = { "nvim-treesitter" },
+			config = function()
+				require("dim").setup({})
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
@@ -745,12 +744,6 @@ require("packer").startup({
 			requires = { "mfussenegger/nvim-dap" },
 			after = "nvim-dap",
 		})
-		-- DAP Installer
-		use({
-			"Pocco81/DAPInstall.nvim",
-			requires = { "mfussenegger/nvim-dap" },
-			after = "nvim-dap",
-		})
 		-- async task runners
 		use({
 			"skywind3000/asyncrun.vim",
@@ -873,8 +866,6 @@ require("packer").startup({
 				Lazyload_timer("vim-visual-multi")
 			end,
 		})
-		-- Colorize brackets
-		use({ "p00f/nvim-ts-rainbow" })
 		-- color highlighter
 		use({
 			"norcalli/nvim-colorizer.lua",
