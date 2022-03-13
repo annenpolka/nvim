@@ -6,7 +6,6 @@ function M.config()
 end
 
 function M.map()
-	vim.g.yoinkAutoFormatPaste = 1
 	nmap("p", "<Plug>(YoinkPaste_p)", "silent")
 	nmap("P", "<Plug>(YoinkPaste_P)", "silent")
 	nmap("gp", "<Plug>(YoinkPaste_gp)", "silent")

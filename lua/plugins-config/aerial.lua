@@ -12,6 +12,7 @@ function M.config()
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "[[", "<cmd>AerialPrevUp<CR>", {})
 			vim.api.nvim_buf_set_keymap(bufnr, "n", "]]", "<cmd>AerialNextUp<CR>", {})
 		end,
+		backends = { "lsp", "treesitter", "markdown" },
 	})
 end
 

@@ -159,7 +159,7 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.nredir").map()
 			end,
-			evejt = "BufRead",
+			event = "BufRead",
 		})
 		-- mkdir on save
 		use({
