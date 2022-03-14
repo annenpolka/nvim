@@ -3,10 +3,10 @@ local M = {}
 function M.config()
 	vim.g.nordbones = {
 		zenbones_solid_line_nr = true,
-		darkness = "warm",
+		darkness = "stark",
 		colorize_diagnostic_underline_text = true,
 	}
-	vim.cmd([[colorscheme nordbones]])
+	vim.cmd([[colorscheme forestbones]])
 end
 
 return M
