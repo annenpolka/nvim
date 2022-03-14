@@ -46,13 +46,14 @@ require("packer").startup({
 		-- fix cursorhold performance problem
 		use({ "antoinemadec/FixCursorHold.nvim" })
 		-- major startuptime
-		use({
-			"dstein64/vim-startuptime",
-		})
+		use({ "dstein64/vim-startuptime" })
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                    runtime, dependency                   │
 		-- ╰──────────────────────────────────────────────────────────╯
-		use({ "vim-denops/denops.vim" })
+		use({
+			"vim-denops/denops.vim",
+			event = "BufRead",
+		})
 		use({ "kyazdani42/nvim-web-devicons" })
 		use({ "nvim-lua/plenary.nvim" })
 		use({ "MunifTanjim/nui.nvim" })
@@ -165,7 +166,7 @@ require("packer").startup({
 		use({
 			"lambdalisue/guise.vim",
 			requires = "vim-denops/denops.vim",
-			-- event = "BufRead",
+			after = "denops.vim",
 		})
 		-- cycle yank manager
 		use({
@@ -369,7 +370,7 @@ require("packer").startup({
 		use({
 			"sainnhe/everforest",
 			config = function()
-				require("plugins-config.everforest").config()
+				-- require("plugins-config.everforest").config()
 			end,
 			-- event = "BufRead",
 		})
@@ -377,18 +378,17 @@ require("packer").startup({
 		-- use({ "eddyekofo94/gruvbox-flat.nvim" })
 		-- aquarium theme
 		use({
-			disable = true,
 			"FrenzyExists/aquarium-vim",
 			config = function()
 				-- require("plugins-config.aquarium").config()
 			end,
 		})
 		use({
-			disable = true,
+			disable = false,
 			"mcchrish/zenbones.nvim",
 			requires = "rktjmp/lush.nvim",
 			config = function()
-				-- require("plugins-config.zenbones").config()
+				require("plugins-config.zenbones").config()
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
@@ -672,7 +672,7 @@ require("packer").startup({
 			after = "nvim-cmp",
 		})
 		use({
-      disable = true,
+			disable = true,
 			"octaltree/cmp-look",
 			requires = { "hrsh7th/nvim-cmp" },
 			after = "nvim-cmp",
@@ -788,6 +788,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.pretty-fold").config()
 			end,
+			event = "BufRead",
 		})
 		-- Faster f/f
 		use({
