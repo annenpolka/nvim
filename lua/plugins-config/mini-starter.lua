@@ -2,6 +2,7 @@ local M = {}
 function M.config()
 	local starter = require("mini.starter")
 	starter.setup({
+		query_updaters = [[abcdefghijklnopqrstuvwxyz0123456789_-.]],
 		items = {
 			{
 				name = [[current dir session]],
