@@ -68,6 +68,7 @@ local disabled_built_ins = {
 	"getscriptPlugin",
 	"gzip",
 	"logipat",
+	"matchparen",
 	-- "netrw",
 	-- "netrwPlugin",
 	-- "netrwSettings",

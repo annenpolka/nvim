@@ -43,6 +43,13 @@ require("packer").startup({
 		use({ "lewis6991/impatient.nvim" })
 		-- faster filetype
 		use({ "nathom/filetype.nvim" })
+		-- faster matchparen
+		use({
+			"monkoose/matchparen.nvim",
+			config = function()
+				require("plugins-config.matchparen").config()
+			end,
+		})
 		-- fix cursorhold performance problem
 		use({ "antoinemadec/FixCursorHold.nvim" })
 		-- major startuptime
