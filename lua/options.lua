@@ -63,6 +63,7 @@ vim.o.termguicolors = true
 -- disable built-in plugins
 local disabled_built_ins = {
 	"2html_plugin",
+	"filetypes",
 	"getscript",
 	"getscriptPlugin",
 	"gzip",
