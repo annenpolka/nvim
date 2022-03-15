@@ -71,7 +71,7 @@ local disabled_built_ins = {
 	-- "netrwPlugin",
 	-- "netrwSettings",
 	-- "netrwFileHandlers",
-	"matchit",
+	-- "matchit",
 	"tar",
 	"tarPlugin",
 	"rrhelper",

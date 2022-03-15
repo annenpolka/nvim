@@ -570,6 +570,7 @@ require("packer").startup({
 		})
 		use({
 			"andymass/vim-matchup",
+			disable = true,
 			opt = true,
 			setup = function()
 				Lazyload_timer("vim-matchup")
