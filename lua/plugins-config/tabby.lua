@@ -48,7 +48,7 @@ local palettes = {
 }
 
 function M.config()
-	local palette = palettes.gruvbox_dark
+	local palette = palettes.catppuccin
 	local filename = require("tabby.filename")
 	local util = require("tabby.util")
 	local cwd = function()
