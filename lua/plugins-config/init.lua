@@ -408,8 +408,6 @@ require("packer").startup({
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                     lines and widgets                    │
 		-- ╰──────────────────────────────────────────────────────────╯
-		-- bufferline
-		-- use{ "akinsho/bufferline.nvim" },
 		-- tabline
 		use({
 			"nanozuki/tabby.nvim",
