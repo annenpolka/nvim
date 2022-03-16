@@ -6,7 +6,6 @@ function M.config()
 		darkness = "stark",
 		colorize_diagnostic_underline_text = true,
 	}
-	vim.cmd([[colorscheme forestbones]])
 end
 
 return M

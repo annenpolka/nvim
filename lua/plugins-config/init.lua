@@ -372,12 +372,19 @@ require("packer").startup({
 		-- tokyonight theme
 		use({ "folke/tokyonight.nvim" })
 		-- nightfox theme
-		-- use({ "EdenEast/nightfox.nvim" })
+		use({
+			"EdenEast/nightfox.nvim",
+			config = function()
+				require("plugins-config.nightfox").config()
+				vim.cmd([[colorscheme nightfox]])
+			end,
+		})
 		-- Everforest theme
 		use({
 			"sainnhe/everforest",
 			config = function()
-				-- require("plugins-config.everforest").config()
+				require("plugins-config.everforest").config()
+				-- vim.cmd([[colorscheme everforest]])
 			end,
 			-- event = "BufRead",
 		})
@@ -391,11 +398,11 @@ require("packer").startup({
 			end,
 		})
 		use({
-			disable = false,
 			"mcchrish/zenbones.nvim",
 			requires = "rktjmp/lush.nvim",
 			config = function()
 				require("plugins-config.zenbones").config()
+				-- vim.cmd([[colorscheme forestbones]])
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
