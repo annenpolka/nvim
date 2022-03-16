@@ -508,6 +508,15 @@ require("packer").startup({
 				require("plugins-config.twilight").config()
 			end,
 		})
+		-- highlight arguments
+		use({
+			"m-demare/hlargs.nvim",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+			after = "nvim-treesitter",
+			config = function()
+				require("plugins-config.hlargs").config()
+			end,
+		})
 		-- treesitter-based context viewer
 		use({
 			"romgrk/nvim-treesitter-context",
