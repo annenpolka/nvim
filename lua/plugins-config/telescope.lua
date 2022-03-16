@@ -23,13 +23,16 @@ function M.config()
 				height = 0.80,
 				preview_cutoff = 120,
 			},
-			initial_mode = "insert",
+			initial_mode = "normal",
 			path_display = { "truncate" },
 			selection_strategy = "follow",
 			border = {},
 		},
 		pickers = {
-			find_files = { theme = "ivy" },
+			find_files = {
+				theme = "ivy",
+				initial_mode = "insert",
+			},
 			tags = { theme = "ivy" },
 			buffers = {
 				initial_mode = "insert",
