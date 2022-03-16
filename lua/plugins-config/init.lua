@@ -591,17 +591,6 @@ require("packer").startup({
 				require("plugins-config.context_vt").config()
 			end,
 		})
-		use({
-			"andymass/vim-matchup",
-			disable = true,
-			opt = true,
-			setup = function()
-				Lazyload_timer("vim-matchup")
-			end,
-			config = function()
-				require("plugins-config.matchup").config()
-			end,
-		})
 		-- dim unused variables and functions
 		use({
 			"narutoxy/dim.lua",

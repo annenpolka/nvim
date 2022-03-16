@@ -8,6 +8,7 @@
         "nnoremap",
         "vnoremap",
         "nmap",
-        "omap"
+        "omap",
+        "xmap"
     ]
 }
