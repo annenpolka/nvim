@@ -29,10 +29,7 @@ function M.config()
 			backend = { "telescope", "fzf", "builtin", "nui" },
 
 			-- Options for telescope selector
-			telescope = {
-				-- can be 'dropdown', 'cursor', or 'ivy'
-				theme = "ivy",
-			},
+			telescope = "ivy",
 
 			-- Options for fzf selector
 			fzf = {

@@ -86,6 +86,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.dressing").config()
 			end,
+			requires = "nvim-telescope/telescope.nvim",
 		})
 		-- sudo
 		use({
