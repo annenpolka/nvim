@@ -9,6 +9,7 @@
         "vnoremap",
         "nmap",
         "omap",
-        "xmap"
+        "xmap",
+        "vmap"
     ]
 }

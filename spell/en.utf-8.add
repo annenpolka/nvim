@@ -189,3 +189,10 @@ echasnovski
 matchparen
 hlargs
 demare
+bufnr
+configs
+omnifunc
+nvim_buf_set_keymap
+nvim_buf_set_keymap
+keymap
+keymap
