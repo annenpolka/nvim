@@ -377,7 +377,7 @@ require("packer").startup({
 			"EdenEast/nightfox.nvim",
 			config = function()
 				require("plugins-config.nightfox").config()
-				-- vim.cmd([[colorscheme nightfox]])
+				vim.cmd([[colorscheme nightfox]])
 			end,
 		})
 		-- Everforest theme
@@ -412,7 +412,7 @@ require("packer").startup({
 			config = function()
 				-- TODO: Create config file
 				require("plugins-config.kanagawa").config()
-				vim.cmd([[colorscheme kanagawa]])
+				-- vim.cmd([[colorscheme kanagawa]])
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
