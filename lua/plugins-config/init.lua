@@ -693,7 +693,6 @@ require("packer").startup({
 			after = "nvim-cmp",
 		})
 		use({
-			disable = true,
 			"octaltree/cmp-look",
 			requires = { "hrsh7th/nvim-cmp" },
 			after = "nvim-cmp",
