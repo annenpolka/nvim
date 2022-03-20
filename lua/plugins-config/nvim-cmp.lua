@@ -59,6 +59,15 @@ function M.config()
 			{ name = "treesitter" },
 			{ name = "copilot" },
 			{ name = "rg", option = { additional_arguments = "--smart-case --max-depth 2" } },
+			{
+				name = "look",
+				keyword_length = 2,
+				option = {
+					convert_case = true,
+					loud = true,
+					--dict = '/usr/share/dict/words'
+				},
+			},
 		},
 		formatting = {
 			-- devicons by lspkind
