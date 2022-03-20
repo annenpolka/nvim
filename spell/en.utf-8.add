@@ -197,3 +197,10 @@ nvim_buf_set_keymap
 keymap
 keymap
 backend
+yoink
+matchit
+autocommand
+vimrc
+spellfile
+inits
+netrwPlugin
