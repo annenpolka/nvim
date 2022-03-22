@@ -90,16 +90,16 @@ end
 function M.map()
 	inoremap(
 		"<TAB>",
-		[[pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : '<TAB>']],
+		[[pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ? '<TAB>' : ddc#manual_complete()]],
 		{ silent = true, expr = true }
 	)
 	inoremap("<S-Tab>", [[<Cmd>call pum#map#insert_relative(-1)<CR>]])
 	inoremap("<C-n>", [[<Cmd>call pum#map#insert_relative(+1)<CR>]])
 	inoremap("<C-p>", [[<Cmd>call pum#map#insert_relative(-1)<CR>]])
 	inoremap("<C-y>", [[<Cmd>call pum#map#confirm()<CR>]])
+	inoremap("<CR>", [[pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>']], { silent = true, expr = true })
 	inoremap("<C-e>", [[<Cmd>call pum#map#cancel()<CR>]])
-	-- call commandline completion hook
-	-- nnoremap(":", "<Cmd>lua require'plugins-config.ddc'.commandlinePre()<CR>")
+	nnoremap(":", "<Cmd>lua require'plugins-config.ddc'.commandlinePre()<CR>:")
 end
 
 -- store buffer config for commandline completion
@@ -108,18 +108,15 @@ M.prev_buffer_config = nil
 function M.commandlinePre()
 	cnoremap(
 		"<TAB>",
-		[[pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
-      \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-      \ '<TAB>' : ddc#manual_complete()]],
+		[[pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' : (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ? '<TAB>' : ddc#manual_complete()]],
 		{ silent = true, expr = true }
 	)
 	cnoremap("<S-Tab>", [[<Cmd>call pum#map#insert_relative(-1)<CR>]])
 	cnoremap("<C-y>", [[<Cmd>call pum#map#confirm()<CR>]])
 	cnoremap("<C-e>", [[<Cmd>call pum#map#cancel()<CR>]])
-	M.prev_buffer_config = vim.call("ddc#custom#get_buffer()")
+	M.prev_buffer_config = vim.fn["ddc#custom#get_buffer"]()
 	vim.fn["ddc#enable_cmdline_completion"]()
-	vim.fn["ddc#enable"]()
-
+	-- vim.fn["ddc#enable"]()
 	--autocmd for calling post hook
 	local group = vim.api.nvim_create_augroup("ddc_commandline", { clear = true })
 	local autocmd = vim.api.nvim_create_autocmd
