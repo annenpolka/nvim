@@ -410,7 +410,6 @@ require("packer").startup({
 		use({
 			"rebelot/kanagawa.nvim",
 			config = function()
-				-- TODO: Create config file
 				require("plugins-config.kanagawa").config()
 				-- vim.cmd([[colorscheme kanagawa]])
 			end,
