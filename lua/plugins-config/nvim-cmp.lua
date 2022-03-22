@@ -42,11 +42,11 @@ function M.config()
 				end
 			end,
 		},
-
 		sources = {
 			{ name = "nvim_lsp" },
 			{
 				name = "buffer",
+				max_item_count = 5,
 				option = {
 					keyword_pattern = [[\k\+]],
 					get_bufnrs = function()
@@ -54,13 +54,22 @@ function M.config()
 					end,
 				},
 			},
-			{ name = "path" },
+			{
+				name = "path",
+			},
 			{ name = "luasnip" },
-			{ name = "treesitter" },
-			{ name = "copilot" },
-			{ name = "rg", option = { additional_arguments = "--smart-case --max-depth 2" } },
+			{
+				name = "treesitter",
+				max_item_count = 5,
+			},
+			{
+				name = "rg",
+				max_item_count = 5,
+				option = { additional_arguments = "--smart-case --max-depth 3" },
+			},
 			{
 				name = "look",
+				max_item_count = 5,
 				keyword_length = 2,
 				option = {
 					convert_case = true,
@@ -80,6 +89,8 @@ function M.config()
 					look = "[Look]",
 					luasnip = "[LuaSnip]",
 					rg = "[rg]",
+					path = "[path]",
+					treesitter = "[TS]",
 				},
 			}),
 			-- avoid duplicates
