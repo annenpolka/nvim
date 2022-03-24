@@ -456,6 +456,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.mini-indentscope").config()
 				require("plugins-config.mini-starter").config()
+				require("plugins-config.mini-jump").config()
 				-- require("plugins-config.mini-surround").config()
 			end,
 		})
@@ -842,7 +843,7 @@ require("packer").startup({
 		-- Faster f/f
 		use({
 			"ggandor/lightspeed.nvim",
-			opt = false,
+			disable = true,
 			setup = function()
 				-- Lazyload_timer("lightspeed.nvim")
 			end,
@@ -853,6 +854,7 @@ require("packer").startup({
 		use({
 			"phaazon/hop.nvim",
 			branch = "master",
+			disable = true,
 			setup = function()
 				require("plugins-config.hop").map()
 			end,
@@ -879,6 +881,16 @@ require("packer").startup({
 				"HopPatternAC",
 				"HopPatternBC",
 			},
+		})
+		-- easymotion next-level
+		use({
+			"ggandor/leap.nvim",
+			setup = function()
+				require("plugins-config.leap").map()
+			end,
+			config = function()
+				require("plugins-config.leap").config()
+			end,
 		})
 		-- surrounding plugin
 		use({
