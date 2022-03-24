@@ -124,8 +124,8 @@ function M.map()
 	vim.api.nvim_set_keymap("n", "<C-t>", ":$tabnew<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
 	vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("n", "L", ":tabn<CR>", { noremap = true })
-	vim.api.nvim_set_keymap("n", "H", ":tabp<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("n", "<Tab>", ":tabn<CR>", { noremap = true })
+	vim.api.nvim_set_keymap("n", "<S-Tab>", ":tabp<CR>", { noremap = true })
 	-- move current tab to previous position
 	vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
 	-- move current tab to next position
