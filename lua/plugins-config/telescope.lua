@@ -49,6 +49,7 @@ function M.config()
 			live_grep = {
 				layout_strategy = "flex",
 				theme = "ivy",
+				initial_mode = "insert",
 			},
 		},
 		extensions = {
