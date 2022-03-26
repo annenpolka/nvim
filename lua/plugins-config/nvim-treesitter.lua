@@ -54,6 +54,15 @@ function M.config()
 					["[]"] = "@class.outer",
 				},
 			},
+			swap = {
+				enable = true,
+				swap_next = {
+					["cx"] = "@swappable",
+				},
+				swap_previous = {
+					["cX"] = "@swappable",
+				},
+			},
 		},
 		-- nvim-ts-rainbow
 		rainbow = {
