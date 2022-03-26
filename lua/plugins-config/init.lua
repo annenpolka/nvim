@@ -64,6 +64,7 @@ require("packer").startup({
 		-- ╰──────────────────────────────────────────────────────────╯
 		use({
 			"vim-denops/denops.vim",
+			event = "BufRead",
 		})
 		use({ "kyazdani42/nvim-web-devicons" })
 		use({ "nvim-lua/plenary.nvim" })
