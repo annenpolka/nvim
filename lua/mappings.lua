@@ -21,8 +21,8 @@ vim.api.nvim_set_keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { noremap = true,
 vim.api.nvim_set_keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
 -- go forward/previous position
-vim.api.nvim_set_keymap("n", "H", "<C-o>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "L", "<C-i>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "H", "<C-o>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "L", "<C-i>", { noremap = true, silent = true })
 
 -- Shift + J/K moves selected lines down/up in visual mode
 vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
