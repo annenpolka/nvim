@@ -849,9 +849,8 @@ require("packer").startup({
 		-- Faster f/f
 		use({
 			"ggandor/lightspeed.nvim",
-			disable = true,
 			setup = function()
-				-- Lazyload_timer("lightspeed.nvim")
+				require("plugins-config.lightspeed").map()
 			end,
 		})
 		-- fuzzy match easymotion
