@@ -462,7 +462,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.mini-indentscope").config()
 				require("plugins-config.mini-starter").config()
-				require("plugins-config.mini-jump").config()
+				-- require("plugins-config.mini-jump").config()
 				-- require("plugins-config.mini-surround").config()
 			end,
 		})
