@@ -16,11 +16,6 @@ function M.config()
 				action = [[Telescope projects]],
 				section = "Telescope",
 			},
-			{
-				name = [[opener]],
-				action = [[Telescope opener hidden=false]],
-				section = "Telescope",
-			},
 		},
 		content_hooks = {
 			starter.gen_hook.adding_bullet(),

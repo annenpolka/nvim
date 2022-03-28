@@ -430,7 +430,7 @@ require("packer").startup({
 		use({
 			"lewpoly/sherbet.nvim",
 			config = function()
-				vim.cmd([[colorscheme sherbet]])
+				-- vim.cmd([[colorscheme sherbet]])
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮

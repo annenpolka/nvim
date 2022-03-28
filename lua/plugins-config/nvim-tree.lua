@@ -2,23 +2,54 @@ local M = {}
 
 function M.config()
 	-- -- options
-	vim.g.nvim_tree_quit_on_open = 1
 	local tree_cb = require("nvim-tree.config").nvim_tree_callback
-	local nvimtree_config = {
-		disable_netrw = true,
-		hijack_netrw = true,
-		open_on_setup = true,
-		ignore_ft_on_setup = {},
-		auto_close = false,
-		open_on_tab = false,
+	require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
+		auto_reload_on_write = true,
+		disable_netrw = false,
+		hide_root_folder = false,
 		hijack_cursor = true,
-		update_cwd = true,
-		update_to_buf_dir = {
+		hijack_netrw = false,
+		hijack_unnamed_buffer_when_opening = true,
+		ignore_buffer_on_setup = false,
+		open_on_setup = false,
+		open_on_tab = false,
+		sort_by = "name",
+		update_cwd = false,
+		view = {
+			width = 30,
+			height = 30,
+			side = "left",
+			preserve_window_proportions = true,
+			number = false,
+			relativenumber = false,
+			signcolumn = "yes",
+			mappings = {
+				custom_only = false,
+				list = {
+					{ key = { "<CR>", "o", "<2-LeftMouse>" }, cb = tree_cb("edit") },
+					{ key = { "l" }, cb = tree_cb("edit") },
+					{ key = { "h" }, cb = tree_cb("close_node") },
+					{ key = { "q", "<C-e>" }, action = "close" },
+				},
+			},
+		},
+		hijack_directories = {
 			enable = true,
 			auto_open = true,
 		},
-		diagnostics = {
+		update_focused_file = {
 			enable = false,
+			update_cwd = false,
+			ignore_list = {},
+		},
+		ignore_ft_on_setup = {},
+		system_open = {
+			cmd = nil,
+			args = {},
+		},
+		diagnostics = {
+			enable = true,
+			show_on_dirs = false,
 			icons = {
 				hint = "",
 				info = "",
@@ -26,53 +57,54 @@ function M.config()
 				error = "",
 			},
 		},
-		update_focused_file = {
-			enable = true,
-			update_cwd = true,
-			ignore_list = {},
-		},
-		system_open = {
-			cmd = nil,
-			args = {},
-		},
 		filters = {
 			dotfiles = false,
 			custom = {},
+			exclude = {},
 		},
 		git = {
 			enable = true,
 			ignore = true,
-			timeout = 500,
+			timeout = 400,
 		},
-		view = {
-			width = 30,
-			height = 30,
-			hide_root_folder = false,
-			side = "left",
-			auto_resize = false,
-			-- keybindings inside nvimtree
-			mappings = {
-				custom_only = false,
-				list = {
-					{ key = { "<CR>", "o", "<2-LeftMouse>" }, cb = tree_cb("edit") },
-					{ key = { "l" }, cb = tree_cb("edit") },
-					{ key = { "h" }, cb = tree_cb("close_node") },
+		actions = {
+			change_dir = {
+				enable = true,
+				global = false,
+			},
+			open_file = {
+				quit_on_open = false,
+				resize_window = false,
+				window_picker = {
+					enable = true,
+					chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+					exclude = {
+						filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+						buftype = { "nofile", "terminal", "help" },
+					},
 				},
 			},
-			number = false,
-			relativenumber = false,
-			signcolumn = "yes",
 		},
 		trash = {
 			cmd = "trash",
 			require_confirm = true,
 		},
-	}
-	require("nvim-tree").setup(nvimtree_config)
+		log = {
+			enable = false,
+			truncate = false,
+			types = {
+				all = false,
+				config = false,
+				copy_paste = false,
+				git = false,
+				profile = false,
+			},
+		},
+	})
 end
 
 function M.map()
-	-- vim.api.nvim_set_keymap("n", "<c-e>", "<cmd>NvimTreeToggle<CR>", { noremap = true, silent = true })
+	vim.api.nvim_set_keymap("n", "<c-e>", "<cmd>NvimTreeFindFileToggle<CR>", { noremap = true, silent = true })
 end
 
 return M
