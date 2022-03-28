@@ -12,6 +12,7 @@
         "xmap",
         "vmap",
         "inoremap",
-        "cnoremap"
+        "cnoremap",
+        "imap"
     ]
 }
