@@ -182,13 +182,13 @@ require("packer").startup({
 			after = "denops.vim",
 		})
 		-- cycle yank manager
-		use({
-			"svermeulen/vim-yoink",
-			setup = function()
-				require("plugins-config.yoink").map()
-				require("plugins-config.yoink").config()
-			end,
-		})
+		-- use({
+		-- 	"svermeulen/vim-yoink",
+		-- 	setup = function()
+		-- 		require("plugins-config.yoink").map()
+		-- 		require("plugins-config.yoink").config()
+		-- 	end,
+		-- })
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -270,12 +270,17 @@ require("packer").startup({
 			"nvim-telescope/telescope-frecency.nvim",
 			requires = { "nvim-telescope/telescope.nvim", "tami5/sqlite.lua" },
 		})
-		use({
-			"willthbill/opener.nvim",
-			requires = "nvim-telescope/telescope.nvim",
-		})
 		-- file manager
-		-- use{ "kyazdani42/nvim-tree.lua" },
+		use({
+			"kyazdani42/nvim-tree.lua",
+			disable = true,
+			setup = function()
+				require("plugins-config.nvim-tree").map()
+			end,
+			config = function()
+				require("plugins-config.nvim-tree").config()
+			end,
+		})
 		use({
 			"elihunter173/dirbuf.nvim",
 			setup = function()
@@ -399,6 +404,7 @@ require("packer").startup({
 		-- aquarium theme
 		use({
 			"FrenzyExists/aquarium-vim",
+			disable = true,
 			config = function()
 				-- require("plugins-config.aquarium").config()
 			end,
@@ -406,6 +412,7 @@ require("packer").startup({
 		-- low-contrast themes
 		use({
 			"mcchrish/zenbones.nvim",
+			disable = true,
 			requires = "rktjmp/lush.nvim",
 			config = function()
 				require("plugins-config.zenbones").config()
@@ -414,9 +421,16 @@ require("packer").startup({
 		})
 		use({
 			"rebelot/kanagawa.nvim",
+			disable = true,
 			config = function()
 				require("plugins-config.kanagawa").config()
 				-- vim.cmd([[colorscheme kanagawa]])
+			end,
+		})
+		use({
+			"lewpoly/sherbet.nvim",
+			config = function()
+				vim.cmd([[colorscheme sherbet]])
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
@@ -607,7 +621,6 @@ require("packer").startup({
 		-- dim unused variables and functions
 		use({
 			"narutoxy/dim.lua",
-			disable = false,
 			requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
 			after = { "nvim-treesitter" },
 			config = function()
