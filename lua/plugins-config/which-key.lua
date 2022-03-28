@@ -4,7 +4,7 @@ function M.config()
 	require("which-key").setup({
 		plugins = {
 			presets = {
-				operators = false,
+				operators = true,
 			},
 		},
 	})
