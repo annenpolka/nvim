@@ -905,6 +905,12 @@ require("packer").startup({
 			requires = { "skywind3000/asyncrun.vim" },
 			after = "asyncrun.vim",
 		})
+		-- block code snippet runner
+		use({
+			"michaelb/sniprun",
+			run = "bash ./install.sh",
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           Misc                           │
 		-- ╰──────────────────────────────────────────────────────────╯
