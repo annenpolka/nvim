@@ -10,9 +10,9 @@ function M.config()
 end
 
 function M.map()
-	-- vim.api.nvim_set_keymap("n", "<C-a>", ":CtrlSpace a<CR>", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "-", ":CtrlSpaceGoDown<CR>", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "^", ":CtrlSpaceGoUp<CR>", { noremap = true, silent = true })
+	-- vim.keymap.set("n", "<C-a>", ":CtrlSpace a<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "-", ":CtrlSpaceGoDown<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "^", ":CtrlSpaceGoUp<CR>", { noremap = true, silent = true })
 end
 
 return M

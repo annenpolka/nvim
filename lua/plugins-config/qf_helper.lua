@@ -13,8 +13,8 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap("n", "gq", ":QNext<CR>", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "gQ", ":QPrev<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "gq", ":QNext<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "gQ", ":QPrev<CR>", { noremap = true, silent = true })
 	vim.cmd([[autocmd FileType qf          nnoremap <buffer> dd :Reject<CR>]])
 	vim.cmd([[autocmd FileType qf          xnoremap <buffer> dd :Reject<CR>]])
 	-- start replacer.nvim

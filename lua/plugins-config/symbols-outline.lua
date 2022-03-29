@@ -58,7 +58,7 @@ vim.g.symbols_outline = {
 end
 
 function M.map()
-    vim.api.nvim_set_keymap("n", "<leader>o", "<cmd>SymbolsOutline<CR>", { noremap = true })
+    vim.keymap.set("n", "<leader>o", "<cmd>SymbolsOutline<CR>", { noremap = true })
 end
 
 return M

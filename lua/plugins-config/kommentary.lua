@@ -7,14 +7,14 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap("n", "<leader>cic", "<Plug>kommentary_line_increase", {})
-	vim.api.nvim_set_keymap("n", "<leader>ci", "<Plug>kommentary_motion_increase", {})
-	vim.api.nvim_set_keymap("x", "<leader>ci", "<Plug>kommentary_visual_increase", {})
-	vim.api.nvim_set_keymap("n", "<leader>cdc", "<Plug>kommentary_line_decrease", {})
-	vim.api.nvim_set_keymap("n", "<leader>cd", "<Plug>kommentary_motion_decrease", {})
-	vim.api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {})
-	vim.api.nvim_set_keymap("n", "<C-_>", "<Plug>kommentary_line_default", {})
-	vim.api.nvim_set_keymap("v", "<C-_>", "<Plug>kommentary_visual_default<C-c>", {})
+	vim.keymap.set("n", "<leader>cic", "<Plug>kommentary_line_increase", {})
+	vim.keymap.set("n", "<leader>ci", "<Plug>kommentary_motion_increase", {})
+	vim.keymap.set("x", "<leader>ci", "<Plug>kommentary_visual_increase", {})
+	vim.keymap.set("n", "<leader>cdc", "<Plug>kommentary_line_decrease", {})
+	vim.keymap.set("n", "<leader>cd", "<Plug>kommentary_motion_decrease", {})
+	vim.keymap.set("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {})
+	vim.keymap.set("n", "<C-_>", "<Plug>kommentary_line_default", {})
+	vim.keymap.set("v", "<C-_>", "<Plug>kommentary_visual_default<C-c>", {})
 end
 
 return M

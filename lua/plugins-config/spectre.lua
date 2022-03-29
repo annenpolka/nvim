@@ -9,7 +9,7 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"<leader>f",
 		"<cmd>lua require('spectre').open()<CR>",

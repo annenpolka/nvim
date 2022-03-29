@@ -1,6 +1,6 @@
 local M = {}
 function M.map()
-	vim.api.nvim_set_keymap("n", "<leader>G", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<leader>G", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 end
 
 function M.config()

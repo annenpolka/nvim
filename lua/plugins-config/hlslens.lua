@@ -5,37 +5,37 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"n",
 		[[n<Cmd>lua require('hlslens').start()<CR>zzzv]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"N",
 		[[N<Cmd>lua require('hlslens').start()<CR>zzzv]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"*",
 		[[*<Cmd>lua require('hlslens').start()<CR>zzzv]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"#",
 		[[#<Cmd>lua require('hlslens').start()<CR>zzzv]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"g*",
 		[[g*<Cmd>lua require('hlslens').start()<CR>zzzv]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"g#",
 		[[g#<Cmd>lua require('hlslens').start()<CR>zzzv]],

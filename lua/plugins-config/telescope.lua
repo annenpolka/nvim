@@ -70,71 +70,71 @@ end
 
 function M.map()
 	--Add leader shortcuts
-	-- vim.api.nvim_set_keymap(
+	-- vim.keymap.set(
 	-- "n",
 	-- "<leader><space>",
 	-- [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 	-- { noremap = true, silent = true }
 	-- )
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"R",
 		[[<cmd>lua require('telescope.builtin').buffers({ ignore_current_buffer = true })<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap(
+	vim.keymap.set("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
+	vim.keymap.set(
 		"n",
 		"<leader>sb",
 		[[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"<leader>sh",
 		[[<cmd>lua require('telescope.builtin').help_tags()<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"<leader>st",
 		[[<cmd>lua require('telescope.builtin').tags()<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"<leader>sd",
 		[[<cmd>lua require('telescope.builtin').grep_string()<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"<leader>sp",
 		[[<cmd>lua require('telescope.builtin').live_grep()<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"<leader>so",
 		[[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"<leader>?",
 		[[<cmd>lua require('telescope.builtin').oldfiles()<CR>]],
 		{ noremap = true, silent = true }
 	)
 	-- remap to open the Telescope refactoring menu in visual mode
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"v",
 		"<leader>r",
 		"<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>",
 		{ noremap = true }
 	)
 	-- -- project.nvim
-	vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>Telescope projects<cr>", { silent = true, noremap = true })
+	vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>", { silent = true, noremap = true })
 end
 
 return M

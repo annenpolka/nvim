@@ -1,35 +1,35 @@
 --Vim Keybindings--------------------------------------------------------------------------
 -- Map jk Escape
 -- now using better-escape.nvim
--- vim.api.nvim_set_keymap("i", "jk", "<esc>", { noremap = true })
+-- vim.keymap.set("i", "jk", "<esc>", { noremap = true })
 
 --Save with <c-s>
-vim.api.nvim_set_keymap("n", "<c-s>", "<cmd>w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<c-s>", "<esc><cmd>w<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-s>", "<cmd>w<CR>", { noremap = true, silent = true })
+vim.keymap.set("i", "<c-s>", "<esc><cmd>w<CR>", { noremap = true, silent = true })
 
 -- -- fold/unfold
-vim.api.nvim_set_keymap("n", "<c-j>", "zo", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<c-k>", "zc", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-j>", "zo", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-k>", "zc", { noremap = true, silent = true })
 
 --Remap space as leader key
-vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 --Remap for dealing with word wrap
-vim.api.nvim_set_keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
-vim.api.nvim_set_keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
 -- go forward/previous position
--- vim.api.nvim_set_keymap("n", "H", "<C-o>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "L", "<C-i>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "H", "<C-o>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "L", "<C-i>", { noremap = true, silent = true })
 
 -- Shift + J/K moves selected lines down/up in visual mode
-vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- Open VSCode
--- vim.api.nvim_set_keymap("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
 
 -- disable default <C-c> behaviour
 nnoremap("<C-c>", "<Nop>")
@@ -38,8 +38,8 @@ nnoremap("<C-c>", "<Nop>")
 nnoremap("<leader>cc", "q:")
 
 -- bnext/bprev
-vim.api.nvim_set_keymap("n", "^", ":bnext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "-", ":bprev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "^", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "-", ":bprev<CR>", { noremap = true, silent = true })
 
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function

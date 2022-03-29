@@ -9,12 +9,12 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap("n", "<C-b>", "<Plug>BookmarkToggle", { silent = true })
-	-- vim.api.nvim_set_keymap("n", "<C-a>", "<Plug>BookmarkAnnotate", { silent = true })
-	vim.api.nvim_set_keymap("n", "<leader>bb", "<Plug>BookmarkShowAll", { silent = true })
-	vim.api.nvim_set_keymap("n", "<leader><Tab>", "<Plug>BookmarkNext", { silent = true })
-	vim.api.nvim_set_keymap("n", "<leader><S-Tab>", "<Plug>BookmarkPrev", { silent = true })
-	vim.api.nvim_set_keymap("n", "<leader>bc", "<Plug>BookmarkClear", { silent = true })
-	vim.api.nvim_set_keymap("n", "<leader>bx", "<Plug>BookmarkClearAll", { silent = true })
+	vim.keymap.set("n", "<C-b>", "<Plug>BookmarkToggle", { silent = true })
+	-- vim.keymap.set("n", "<C-a>", "<Plug>BookmarkAnnotate", { silent = true })
+	vim.keymap.set("n", "<leader>bb", "<Plug>BookmarkShowAll", { silent = true })
+	vim.keymap.set("n", "<leader><Tab>", "<Plug>BookmarkNext", { silent = true })
+	vim.keymap.set("n", "<leader><S-Tab>", "<Plug>BookmarkPrev", { silent = true })
+	vim.keymap.set("n", "<leader>bc", "<Plug>BookmarkClear", { silent = true })
+	vim.keymap.set("n", "<leader>bx", "<Plug>BookmarkClearAll", { silent = true })
 end
 return M

@@ -5,6 +5,6 @@ function M.config()
 end
 
 function M.map()
-	vim.api.nvim_set_keymap("n", "<leader>tt", ":TodoTrouble<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<leader>tt", ":TodoTrouble<CR>", { noremap = true, silent = true })
 end
 return M

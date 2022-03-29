@@ -16,14 +16,14 @@ end
 
 function M.map()
 	-- mouse gestures configuration
-	vim.api.nvim_set_keymap("n", "<RightMouse>", [[<Nop>]], { noremap = true, silent = true })
-	vim.api.nvim_set_keymap(
+	vim.keymap.set("n", "<RightMouse>", [[<Nop>]], { noremap = true, silent = true })
+	vim.keymap.set(
 		"n",
 		"<RightDrag>",
 		[[<Cmd>lua require('gesture').draw()<CR>]],
 		{ noremap = true, silent = true }
 	)
-	vim.api.nvim_set_keymap(
+	vim.keymap.set(
 		"n",
 		"<RightRelease>",
 		[[<Cmd>lua require('gesture').finish()<CR>]],
