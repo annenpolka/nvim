@@ -181,12 +181,6 @@ require("packer").startup({
 			requires = "vim-denops/denops.vim",
 			after = "denops.vim",
 		})
-		-- prompt for ask user input like ssh passphrase
-		use({
-			"lambdalisue/askpass.vim",
-			requires = "vim-denops/denops.vim",
-			after = "denops.vim",
-		})
 		-- cycle yank manager
 		-- use({
 		-- 	"svermeulen/vim-yoink",
