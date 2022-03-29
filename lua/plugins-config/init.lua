@@ -960,8 +960,6 @@ require("packer").startup({
 				require("plugins-config.colorizer").config()
 			end,
 		})
-		-- outline viewer
-		-- use{ "simrat39/symbols-outline.nvim" },
 		-- Discover available code action like VSCode
 		use({
 			"kosayoda/nvim-lightbulb",
