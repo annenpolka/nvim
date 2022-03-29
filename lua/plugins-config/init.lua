@@ -1123,6 +1123,14 @@ require("packer").startup({
 			"gennaro-tedesco/nvim-jqx",
 			ft = "json",
 		})
+		-- javascript package manager helper
+		use({
+			"vuki656/package-info.nvim",
+			config = function()
+				require("package-info").setup()
+			end,
+			ft = "json",
+		})
 		-- cpbooster, competitive programming cli tool
 		use({
 			"searleser97/cpbooster.vim",
