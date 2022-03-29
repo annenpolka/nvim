@@ -224,7 +224,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.gitsigns").config()
 			end,
-			event = "BufRead",
 		})
 		-- Github editor
 		use({
