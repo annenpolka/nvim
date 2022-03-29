@@ -371,6 +371,95 @@ require("packer").startup({
 			end,
 			cmd = "Neoformat",
 		})
+		-- Faster f/f
+		use({
+			"ggandor/lightspeed.nvim",
+			setup = function()
+				require("plugins-config.lightspeed").map()
+			end,
+		})
+		-- fuzzy match easymotion
+		-- use({ "rlane/pounce.nvim" })
+		-- hop easymotion
+		use({
+			"phaazon/hop.nvim",
+			branch = "master",
+			disable = true,
+			setup = function()
+				require("plugins-config.hop").map()
+			end,
+			config = function()
+				require("plugins-config.hop").config()
+			end,
+			cmd = {
+				"HopWord",
+				"HopWordBC",
+				"HopWordAC",
+				"HopWordCurrentLine",
+				"HopWordCurrentLineBC",
+				"HopWordCurrentLineAC",
+				"HopLine",
+				"HopLineAC",
+				"HopLineBC",
+				"HopChar1",
+				"HopChar1AC",
+				"HopChar1BC",
+				"HopChar2",
+				"HopChar2AC",
+				"HopChar2BC",
+				"HopPattern",
+				"HopPatternAC",
+				"HopPatternBC",
+			},
+		})
+		-- easymotion next-level
+		use({
+			"ggandor/leap.nvim",
+			setup = function()
+				require("plugins-config.leap").map()
+			end,
+			config = function()
+				require("plugins-config.leap").config()
+			end,
+		})
+		-- surrounding plugin
+		use({
+			"machakann/vim-sandwich",
+			setup = function()
+				require("plugins-config.sandwich").map()
+			end,
+			config = function()
+				require("plugins-config.sandwich").config()
+			end,
+			event = "BufRead",
+		})
+		-- substitute operator
+		use({
+			"gbprod/substitute.nvim",
+			config = function()
+				require("plugins-config.substitute").config()
+			end,
+		})
+		-- commenting
+		use({
+			"b3nj5m1n/kommentary",
+			opt = true,
+			setup = function()
+				require("plugins-config.kommentary").map()
+				Lazyload_timer("kommentary")
+			end,
+			config = function()
+				require("plugins-config.kommentary").config()
+			end,
+		})
+		-- multi cursor
+		use({
+			"mg979/vim-visual-multi",
+			opt = true,
+			setup = function()
+				Lazyload_timer("vim-visual-multi")
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          themes                          │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -736,7 +825,6 @@ require("packer").startup({
 		use({
 			disable = true, -- enable when ddc is ready
 			"Shougo/ddc.vim",
-			-- TODO: add related plugins names with descriptions
 			requires = {
 				"vim-denops/denops.vim",
 				-- non-native completion menu
@@ -858,95 +946,6 @@ require("packer").startup({
 				require("plugins-config.pretty-fold").config()
 			end,
 			event = "BufRead",
-		})
-		-- Faster f/f
-		use({
-			"ggandor/lightspeed.nvim",
-			setup = function()
-				require("plugins-config.lightspeed").map()
-			end,
-		})
-		-- fuzzy match easymotion
-		-- use({ "rlane/pounce.nvim" })
-		-- hop easymotion
-		use({
-			"phaazon/hop.nvim",
-			branch = "master",
-			disable = true,
-			setup = function()
-				require("plugins-config.hop").map()
-			end,
-			config = function()
-				require("plugins-config.hop").config()
-			end,
-			cmd = {
-				"HopWord",
-				"HopWordBC",
-				"HopWordAC",
-				"HopWordCurrentLine",
-				"HopWordCurrentLineBC",
-				"HopWordCurrentLineAC",
-				"HopLine",
-				"HopLineAC",
-				"HopLineBC",
-				"HopChar1",
-				"HopChar1AC",
-				"HopChar1BC",
-				"HopChar2",
-				"HopChar2AC",
-				"HopChar2BC",
-				"HopPattern",
-				"HopPatternAC",
-				"HopPatternBC",
-			},
-		})
-		-- easymotion next-level
-		use({
-			"ggandor/leap.nvim",
-			setup = function()
-				require("plugins-config.leap").map()
-			end,
-			config = function()
-				require("plugins-config.leap").config()
-			end,
-		})
-		-- surrounding plugin
-		use({
-			"machakann/vim-sandwich",
-			setup = function()
-				require("plugins-config.sandwich").map()
-			end,
-			config = function()
-				require("plugins-config.sandwich").config()
-			end,
-			event = "BufRead",
-		})
-		-- substitute operator
-		use({
-			"gbprod/substitute.nvim",
-			config = function()
-				require("plugins-config.substitute").config()
-			end,
-		})
-		-- commenting
-		use({
-			"b3nj5m1n/kommentary",
-			opt = true,
-			setup = function()
-				require("plugins-config.kommentary").map()
-				Lazyload_timer("kommentary")
-			end,
-			config = function()
-				require("plugins-config.kommentary").config()
-			end,
-		})
-		-- multi cursor
-		use({
-			"mg979/vim-visual-multi",
-			opt = true,
-			setup = function()
-				Lazyload_timer("vim-visual-multi")
-			end,
 		})
 		-- color highlighter
 		use({
