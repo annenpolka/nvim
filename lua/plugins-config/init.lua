@@ -308,6 +308,11 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- Subvert, Cocercion name-cases
+		use({
+			"tpope/vim-abolish",
+			event = "BufRead",
+		})
 		-- comment eyecandies
 		use({
 			"LudoPinelli/comment-box.nvim",
