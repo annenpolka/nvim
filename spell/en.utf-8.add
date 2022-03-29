@@ -227,4 +227,8 @@ kanagawa
 dotfiles
 fileformat
 globalstatus
-askpass
+cursorline
+cursorcolumn
+hlsearch
+breakindent
+tabstop
