@@ -1130,6 +1130,12 @@ require("packer").startup({
 			end,
 			ft = "json",
 		})
+		-- docker manager
+		use({
+			"skanehira/denops-docker.vim",
+			requires = "vim-denops/denops.vim",
+			after = "denops.vim",
+		})
 		-- cpbooster, competitive programming cli tool
 		use({
 			"searleser97/cpbooster.vim",
