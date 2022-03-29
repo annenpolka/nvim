@@ -15,13 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 end
 
-vim.cmd([[
-  augroup PackerAug
-    autocmd!
-    "autocmd BufWritePost init.lua PackerCompile
-  augroup END
-]])
-
 -- load plugin after entering vim ui
 -- HACK: This shouldn't be global, but this won't work with local keyword
 Lazyload_timer = function(plugin, timer)
