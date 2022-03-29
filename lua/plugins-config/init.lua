@@ -126,6 +126,7 @@ require("packer").startup({
 		})
 		-- mouse gestures
 		use({
+			disable = true,
 			"notomo/gesture.nvim",
 			opt = true,
 			setup = function()
