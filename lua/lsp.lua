@@ -68,6 +68,7 @@ lsp_installer.on_server_ready(function(server)
 		end
 		on_attach(client, bufnr)
 	end
+
 	opts.capabilities = capabilities
 	if server.name == "rust_analyzer" then
 		-- Initialize the LSP via rust-tools instead
