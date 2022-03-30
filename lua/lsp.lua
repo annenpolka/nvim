@@ -56,7 +56,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
 	local opts = {}
-	local disable_lsp_formatter_list = { "sumneko_lua" }
+	local disable_lsp_formatter_list = { "sumneko_lua", "rust_analyzer", "html" }
 	-- disable lsp's formatting on the list
 	opts.on_attach = function(client, bufnr)
 		for _, value in ipairs(disable_lsp_formatter_list) do
