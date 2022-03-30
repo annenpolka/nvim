@@ -314,25 +314,6 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		-- undo-tree
-		use({
-			"simnalamburt/vim-mundo",
-			disable = true,
-			opt = true,
-			setup = function()
-				Lazyload_timer("vim-mundo")
-				require("plugins-config.mundo").map()
-			end,
-		})
-		-- switch keywords
-		use({
-			"AndrewRadev/switch.vim",
-			disable = true,
-			opt = true,
-			setup = function()
-				Lazyload_timer("switch.vim")
-			end,
-		})
 		use({
 			"Matt-A-Bennett/vim-surround-funk",
 			opt = true,
@@ -372,8 +353,6 @@ require("packer").startup({
 				require("plugins-config.lightspeed").map()
 			end,
 		})
-		-- fuzzy match easymotion
-		-- use({ "rlane/pounce.nvim" })
 		-- hop easymotion
 		use({
 			"phaazon/hop.nvim",
