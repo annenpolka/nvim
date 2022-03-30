@@ -43,7 +43,7 @@ require("packer").startup({
 				require("plugins-config.matchparen").config()
 			end,
 		})
-		-- fix cursorhold performance problem, set dediacted updatetime
+		-- fix cursorhold performance problem, set dedicated updatetime
 		use({
 			"antoinemadec/FixCursorHold.nvim",
 			setup = function()
@@ -352,38 +352,6 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.lightspeed").map()
 			end,
-		})
-		-- hop easymotion
-		use({
-			"phaazon/hop.nvim",
-			branch = "master",
-			disable = true,
-			setup = function()
-				require("plugins-config.hop").map()
-			end,
-			config = function()
-				require("plugins-config.hop").config()
-			end,
-			cmd = {
-				"HopWord",
-				"HopWordBC",
-				"HopWordAC",
-				"HopWordCurrentLine",
-				"HopWordCurrentLineBC",
-				"HopWordCurrentLineAC",
-				"HopLine",
-				"HopLineAC",
-				"HopLineBC",
-				"HopChar1",
-				"HopChar1AC",
-				"HopChar1BC",
-				"HopChar2",
-				"HopChar2AC",
-				"HopChar2BC",
-				"HopPattern",
-				"HopPatternAC",
-				"HopPatternBC",
-			},
 		})
 		-- easymotion next-level
 		use({
