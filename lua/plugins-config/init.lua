@@ -205,6 +205,7 @@ require("packer").startup({
 		-- full-featured git plugin
 		use({
 			"lambdalisue/gina.vim",
+			event = "CmdlineEnter",
 		})
 		-- Add git related info in the signs columns and popups
 		use({
@@ -469,7 +470,7 @@ require("packer").startup({
 			"EdenEast/nightfox.nvim",
 			config = function()
 				require("plugins-config.nightfox").config()
-				vim.cmd([[colorscheme nightfox]])
+				vim.cmd([[colorscheme terafox]])
 			end,
 		})
 		-- Everforest theme
@@ -742,9 +743,7 @@ require("packer").startup({
 		})
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
-		use({
-			"PlatyPew/format-installer.nvim",
-		})
+		use({ "PlatyPew/format-installer.nvim" })
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
 		-- ╰──────────────────────────────────────────────────────────╯
