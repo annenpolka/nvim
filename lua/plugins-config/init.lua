@@ -557,8 +557,9 @@ require("packer").startup({
 		use({
 			"echasnovski/mini.nvim",
 			config = function()
-				require("plugins-config.mini-indentscope").config()
 				require("plugins-config.mini-starter").config()
+				require("plugins-config.mini-indentscope").config()
+				require("plugins-config.mini-cursorword").config()
 				-- require("plugins-config.mini-jump").config()
 				-- require("plugins-config.mini-surround").config()
 			end,
@@ -963,6 +964,7 @@ require("packer").startup({
 		-- highlighting the word under cursor
 		use({
 			"RRethy/vim-illuminate",
+			disable = true,
 			setup = function()
 				require("plugins-config.vim-illuminate").config()
 			end,
