@@ -752,66 +752,22 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.nvim-cmp").config()
 			end,
-			-- event = { "InsertEnter", "CmdlineEnter" },
+			requires = {
+				-- -- cmp devicons appearance dependency
+				"onsails/lspkind-nvim",
+				-- -- cmp plugins
+				"hrsh7th/cmp-nvim-lsp",
+				"saadparwaiz1/cmp_luasnip",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-nvim-lsp-document-symbol",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-cmdline",
+				"octaltree/cmp-look",
+				"ray-x/cmp-treesitter",
+				"lukas-reineke/cmp-rg",
+				"lukas-reineke/cmp-under-comparator",
+			},
 		})
-		-- -- cmp devicons appearance dependency
-		use({
-			"onsails/lspkind-nvim",
-			requires = { "hrsh7th/nvim-cmp" },
-			-- after = "nvim-cmp",
-		})
-		-- -- cmp plugins
-		use({
-			"hrsh7th/cmp-nvim-lsp",
-			requires = { "hrsh7th/nvim-cmp" },
-			-- after = "nvim-cmp",
-		})
-		use({
-			"saadparwaiz1/cmp_luasnip",
-			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
-		})
-		use({
-			"hrsh7th/cmp-path",
-			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
-		})
-		use({
-			"hrsh7th/cmp-nvim-lsp-document-symbol",
-			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
-		})
-		use({
-			"hrsh7th/cmp-buffer",
-			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
-		})
-		use({
-			"hrsh7th/cmp-cmdline",
-			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
-		})
-		use({
-			"octaltree/cmp-look",
-			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
-		})
-		use({
-			"ray-x/cmp-treesitter",
-			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
-		})
-		use({
-			"lukas-reineke/cmp-rg",
-			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
-		})
-		use({
-			"lukas-reineke/cmp-under-comparator",
-			requires = { "hrsh7th/nvim-cmp" },
-			-- after = "nvim-cmp",
-		})
-		-- use{ "tzachar/cmp-tabnine", run = "./install.sh" },
 		--------------------------------------------------------------------------------
 		-- ddc.vim, denops-based completion
 		use({
