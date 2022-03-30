@@ -4,7 +4,7 @@ function M.config()
 	local focus = require("focus")
 	focus.setup({
 		excluded_filetypes = { "toggleterm", "harpoon", "ctrlspace", "TelescopePrompt" },
-		excluded_buftypes = { "acwrite", "prompt", "nofile" },
+		excluded_buftypes = { "acwrite", "prompt", "nofile", "terminal" },
 		winhighlight = true,
 		hybridnumber = false,
 	})
