@@ -712,9 +712,11 @@ require("packer").startup({
 				"hrsh7th/cmp-cmdline",
 				"octaltree/cmp-look",
 				"ray-x/cmp-treesitter",
+				"hrsh7th/cmp-nvim-lua",
 				"lukas-reineke/cmp-rg",
 				"lukas-reineke/cmp-under-comparator",
 			},
+			event = { "BufRead" },
 		})
 		--------------------------------------------------------------------------------
 		-- ddc.vim, denops-based completion

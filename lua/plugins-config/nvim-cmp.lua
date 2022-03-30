@@ -46,9 +46,9 @@ function M.config()
 			{ name = "nvim_lsp" },
 			{
 				name = "buffer",
-				max_item_count = 5,
+				max_item_count = 10,
 				option = {
-					keyword_pattern = [[\k\+]],
+					-- keyword_pattern = [[\k\+]], -- isKeyword
 					get_bufnrs = function()
 						return vim.api.nvim_list_bufs()
 					end,
@@ -58,6 +58,7 @@ function M.config()
 				name = "path",
 			},
 			{ name = "luasnip" },
+			{ name = "nvim_lua" },
 			{
 				name = "treesitter",
 				max_item_count = 5,
@@ -88,6 +89,7 @@ function M.config()
 					nvim_lsp = "[LSP]",
 					look = "[Look]",
 					luasnip = "[LuaSnip]",
+					nvim_lua = "[Neovim]",
 					rg = "[rg]",
 					path = "[path]",
 					treesitter = "[TS]",
