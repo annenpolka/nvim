@@ -6,7 +6,13 @@ function M.config()
 		load_natural_dictionaries_at_startup = true,
 		load_programming_dictionaries_at_startup = true,
 		natural_dictionaries = {
-			["nt_en"] = {},
+			["nt_en"] = {
+				["confgi"] = "config",
+				["improt"] = "import",
+				["imprto"] = "import",
+				["requier"] = "require",
+				["diasble"] = "disable",
+			},
 		},
 		programming_dictionaries = {
 			["pr_py"] = {},
