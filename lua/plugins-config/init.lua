@@ -264,16 +264,27 @@ require("packer").startup({
 			"nvim-telescope/telescope-frecency.nvim",
 			requires = { "nvim-telescope/telescope.nvim", "tami5/sqlite.lua" },
 		})
-		-- file manager
+		-- fuzzy find many things
 		use({
-			"kyazdani42/nvim-tree.lua",
 			disable = true,
-			setup = function()
-				require("plugins-config.nvim-tree").map()
-			end,
+			"Shougo/ddu.vim",
 			config = function()
-				require("plugins-config.nvim-tree").config()
+				require("plugins-config.ddu").config()
 			end,
+			requires = {
+				"vim-denops/denops.vim",
+				"Shougo/ddu-commands.vim",
+				"Shougo/ddu-ui-ff",
+				"Shougo/ddu-source-file_rec",
+				"shun/ddu-source-buffer",
+				"shun/ddu-source-rg",
+				"Shougo/ddu-source-action",
+				"yuki-yano/ddu-filter-fzf",
+				"Shougo/ddu-filter-matcher_substring",
+				"Shougo/ddu-kind-file",
+				"Shougo/ddu-kind-word",
+			},
+			after = "denops.vim",
 		})
 		use({
 			"elihunter173/dirbuf.nvim",
