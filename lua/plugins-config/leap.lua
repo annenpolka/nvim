@@ -58,7 +58,7 @@ function M.map()
 			end,
 		})
 	end
-	set_leap_repeat_keys("<Enter>", "<S-Tab>")
+	-- set_leap_repeat_keys("<Enter>", "<S-Tab>")
 end
 
 return M
