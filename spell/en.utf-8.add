@@ -219,7 +219,7 @@ foldminlines
 foldminlines
 spellsuggest
 svermeulen
-jghauser
+#ghauser
 monkoose
 updatetime
 highlight_dalay
@@ -253,3 +253,7 @@ frecency
 frecency
 noremap
 oldfiles
+indentscope
+#bulav
+#redir
+#ghauser
