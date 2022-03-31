@@ -401,6 +401,13 @@ require("packer").startup({
 				Lazyload_timer("vim-visual-multi")
 			end,
 		})
+		-- abbreviation expansion, typo correction
+		use({
+			"Pocco81/AbbrevMan.nvim",
+			config = function()
+				require("plugins-config.abbrevman").config()
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          themes                          │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -475,7 +482,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.tabby").config()
 			end,
-			event = "BufWinEnter",
+			event = "BufRead",
 		})
 		-- Fancier statusline
 		use({

@@ -1,5 +1,6 @@
 local M = {}
 
+local terafox_palette = require("nightfox.palette").load("terafox")
 local palettes = {
 	gruvbox_light = {
 		accent = "#d65d0e", -- orange
@@ -45,10 +46,19 @@ local palettes = {
 		fg = "#D9E0EE",
 		fg_sec = "#C3BAC6",
 	},
+	terafox = {
+		accent = terafox_palette.cyan.base,
+		accent_sec = terafox_palette.cyan.bright,
+		bg = terafox_palette.bg0,
+		bg_sec = terafox_palette.bg2,
+		bg_third = terafox_palette.bg3,
+		fg = terafox_palette.fg0,
+		fg_sec = terafox_palette.fg3,
+	},
 }
 
 function M.config()
-	local palette = palettes.catppuccin
+	local palette = palettes.terafox
 	local filename = require("tabby.filename")
 	local util = require("tabby.util")
 	local cwd = function()
@@ -76,37 +86,37 @@ function M.config()
 			label = function(tabid)
 				return {
 					" " .. tabname(tabid) .. " ",
-					hl = { fg = palette.fg, bg = palette.bg_sec, style = "bold" },
+					hl = { fg = palette.fg, bg = palette.bg_third, style = "bold" },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			left_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
 		},
 		inactive_tab = {
 			label = function(tabid)
 				return {
 					" " .. tabname(tabid) .. " ",
-					hl = { fg = palette.fg_sec, bg = palette.bg_third, style = "" },
+					hl = { fg = palette.fg_sec, bg = palette.bg_sec, style = "" },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
+			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		top_win = {
 			label = function(winid)
 				return {
 					"  " .. filename.unique(winid) .. " ",
-					hl = { fg = palette.fg, bg = palette.bg_sec },
+					hl = { fg = palette.fg, bg = palette.bg_third },
 				}
 			end,
-			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			left_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
 		},
 		win = {
 			label = function(winid)
 				return {
 					"  " .. filename.unique(winid) .. " ",
-					hl = { fg = palette.fg, bg = palette.bg_sec },
+					hl = { fg = palette.fg_sec, bg = palette.bg_sec },
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
