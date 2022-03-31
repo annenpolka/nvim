@@ -51,6 +51,9 @@ function M.config()
 				theme = "ivy",
 				initial_mode = "insert",
 			},
+			spell_suggest = {
+				theme = "ivy",
+			},
 		},
 		extensions = {
 			file_browser = {
@@ -79,11 +82,14 @@ function M.map()
 	vim.keymap.set(
 		"n",
 		"R",
-		[[<cmd>lua require('telescope.builtin').buffers({ ignore_current_buffer = true })<CR>]],
+		[[<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<CR>]],
 		{ noremap = true, silent = true }
 	)
 	vim.keymap.set("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<C-z>", function()
+		require("telescope.builtin").spell_suggest()
+	end, { noremap = true, silent = true })
 	vim.keymap.set(
 		"n",
 		"<leader>sb",
