@@ -392,6 +392,15 @@ require("packer").startup({
 				require("plugins-config.substitute").config()
 			end,
 		})
+		-- indent movements
+		use({
+			"jeetsukumaran/vim-indentwise",
+			-- TODO: create keymap
+			setup = function()
+				require("plugins-config.indentwise").map()
+			end,
+			event = "BufRead",
+		})
 		-- commenting
 		use({
 			"b3nj5m1n/kommentary",
