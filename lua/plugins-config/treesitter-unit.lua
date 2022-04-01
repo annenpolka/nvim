@@ -13,10 +13,10 @@ function M.config()
 	require("treesitter-unit").toggle_highlighting("ColorColumn")
 
 	-- text objects
-	vim.keymap.set("x", "iu", ':lua require"treesitter-unit".select()<CR>', { noremap = true })
-	vim.keymap.set("x", "au", ':lua require"treesitter-unit".select(true)<CR>', { noremap = true })
-	vim.keymap.set("o", "iu", ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true })
-	vim.keymap.set("o", "au", ':<c-u>lua require"treesitter-unit".select(true)<CR>', { noremap = true })
+	vim.keymap.set("x", "iU", ':lua require"treesitter-unit".select()<CR>', { noremap = true })
+	vim.keymap.set("x", "aU", ':lua require"treesitter-unit".select(true)<CR>', { noremap = true })
+	vim.keymap.set("o", "iU", ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true })
+	vim.keymap.set("o", "aU", ':<c-u>lua require"treesitter-unit".select(true)<CR>', { noremap = true })
 end
 
 return M
