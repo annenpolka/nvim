@@ -168,6 +168,7 @@ require("packer").startup({
 			config = function()
 				require("mkdir")
 			end,
+			event = "BufRead",
 		})
 		-- open file in terminal with new tab, not nested window
 		use({
@@ -502,7 +503,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.tabby").config()
 			end,
-			event = "BufRead",
+			after = "nightfox.nvim",
 		})
 		-- Fancier statusline
 		use({
