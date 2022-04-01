@@ -11,10 +11,10 @@ function M.config()
 		incremental_selection = {
 			enable = true,
 			keymaps = {
-				init_selection = "gnn",
-				node_incremental = "grn",
-				scope_incremental = "grc",
-				node_decremental = "grm",
+				init_selection = "gv",
+				node_incremental = "v",
+				scope_incremental = "gv",
+				node_decremental = "V",
 			},
 		},
 		indent = {
