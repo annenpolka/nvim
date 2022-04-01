@@ -176,14 +176,6 @@ require("packer").startup({
 			requires = "vim-denops/denops.vim",
 			after = "denops.vim",
 		})
-		-- cycle yank manager
-		-- use({
-		-- 	"svermeulen/vim-yoink",
-		-- 	setup = function()
-		-- 		require("plugins-config.yoink").map()
-		-- 		require("plugins-config.yoink").config()
-		-- 	end,
-		-- })
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
