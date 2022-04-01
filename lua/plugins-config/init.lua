@@ -375,6 +375,20 @@ require("packer").startup({
 				require("plugins-config.leap").config()
 			end,
 		})
+		-- custom textobjects
+		use({
+			"kana/vim-textobj-user",
+			requires = {
+				-- method chaining
+				"D4KU/vim-textobj-chainmember",
+				-- punctuation
+				"beloglazov/vim-textobj-punctuation",
+			},
+			setup = function()
+				require("plugins-config.textobj-user").map()
+			end,
+		})
+
 		-- surrounding plugin
 		use({
 			"machakann/vim-sandwich",
