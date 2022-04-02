@@ -2,7 +2,7 @@ local M = {}
 function M.config()
 	local starter = require("mini.starter")
 	starter.setup({
-		query_updaters = [[abcdefghijklnopqrstuvwxyz0123456789_-.]],
+		query_updaters = [[abcdefghijklmnopqrstuvwxyz0123456789_-.]],
 		items = {
 			{
 				name = [[current dir session]],
@@ -12,7 +12,7 @@ function M.config()
 			starter.sections.recent_files(),
 			starter.sections.telescope(),
 			{
-				name = [[projects]],
+				name = [[Projects]],
 				action = [[Telescope projects]],
 				section = "Telescope",
 			},
