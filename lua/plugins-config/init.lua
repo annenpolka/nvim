@@ -279,6 +279,15 @@ require("packer").startup({
 			},
 			after = "denops.vim",
 		})
+		-- 2-panes file explorer
+		use({
+			"obaland/vfiler.vim",
+			config = function()
+				require("plugins-config.vfiler").config()
+			end,
+			event = "BufRead",
+		})
+		-- text-based filesystem edit
 		use({
 			"elihunter173/dirbuf.nvim",
 			setup = function()
