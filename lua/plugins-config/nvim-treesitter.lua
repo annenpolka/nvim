@@ -32,6 +32,7 @@ function M.config()
 					["ic"] = "@class.inner",
 					["ia"] = "@parameter.inner",
 					["aa"] = "@parameter.outer",
+					["ix"] = "@swappable",
 				},
 			},
 			move = {
