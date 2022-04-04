@@ -43,12 +43,15 @@ function M.config()
 			end,
 		},
 		sources = {
-			{ name = "nvim_lsp" },
+			{
+				name = "nvim_lsp",
+				max_item_count = 10,
+			},
 			{
 				name = "buffer",
 				max_item_count = 10,
 				option = {
-					-- keyword_pattern = [[\k\+]], -- isKeyword
+					keyword_pattern = [[\k\+]], -- isKeyword
 					get_bufnrs = function()
 						return vim.api.nvim_list_bufs()
 					end,
@@ -66,6 +69,7 @@ function M.config()
 			{
 				name = "rg",
 				max_item_count = 5,
+				keyword_length = 4,
 				option = { additional_arguments = "--smart-case --max-depth 3" },
 			},
 			{
