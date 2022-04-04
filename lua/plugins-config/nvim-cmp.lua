@@ -126,8 +126,10 @@ function M.config()
 				-- The rest of your comparators...
 			},
 		},
+		experimental = {
+			ghost_text = true,
+		},
 	})
-
 	-- cmdline completion
 	require("cmp").setup.cmdline(":", {
 		sources = {
