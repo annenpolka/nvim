@@ -224,4 +224,4 @@ local function qf_rename()
 		end)
 	end)
 end
-vim.lsp.buf.rename = qf_rename
+-- vim.lsp.buf.rename = qf_rename
