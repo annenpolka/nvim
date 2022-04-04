@@ -1,6 +1,9 @@
--- LSP setting
+-- ╭──────────────────────────────────────────────────────────╮
+-- │                       LSP setting                        │
+-- ╰──────────────────────────────────────────────────────────╯
 local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	local opts = { noremap = true, silent = true }
@@ -49,8 +52,10 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+-- workaround about offset encoding
+capabilities.offsetEncoding = { "utf-16" }
+
 -- nvim-cmp supports additional completion capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local lsp_installer = require("nvim-lsp-installer")
@@ -92,8 +97,6 @@ lsp_installer.on_server_ready(function(server)
 end)
 -- Enable the following language servers manually
 local servers = {}
--- workaround about offset encoding
-capabilities.offsetEncoding = { "utf-16" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
@@ -101,7 +104,9 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
--- null-ls configuration
+-- ╭──────────────────────────────────────────────────────────╮
+-- │                  null-ls configuration                   │
+-- ╰──────────────────────────────────────────────────────────╯
 local null_ls = require("null-ls")
 -- -- detect eslint config
 local has_eslint_config = function(u)
@@ -142,17 +147,12 @@ local formatter_predefined = {
 	}),
 	-- stylua
 	null_ls.builtins.formatting.stylua,
-	-- c++
-	--[[ null_ls.builtins.formatting.clang_format.with({
-      extra_args = {"--style=Google"}
-    }), ]]
 	-- rust
 	null_ls.builtins.formatting.rustfmt,
 	-- spellcheck by cspell
 	-- null_ls.builtins.diagnostics.cspell,
-
-	-- spellsuggest
-	null_ls.builtins.completion.spell,
+	-- spellsuggest completion
+	-- null_ls.builtins.completion.spell,
 }
 for _, v in pairs(formatter_predefined) do
 	table.insert(formatter_managed, v)
@@ -160,12 +160,12 @@ end
 
 -- -- setup
 require("null-ls").setup({
-	debug = true,
+	debug = false,
 	sources = formatter_managed,
 })
 
 -- ╭──────────────────────────────────────────────────────────╮
--- │                   -- Wrapper Functions                   │
+-- │                    Wrapper Functions                     │
 -- ╰──────────────────────────────────────────────────────────╯
 local function qf_rename()
 	local notify = require("notify")
