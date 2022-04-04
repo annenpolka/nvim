@@ -257,3 +257,14 @@ indentscope
 #bulav
 #redir
 #ghauser
+paren
+textobj
+filesystem
+bashls
+grammarly
+omnisharp
+pyright
+sumneko_lua
+sumneko_lua
+sumneko
+tsserver
