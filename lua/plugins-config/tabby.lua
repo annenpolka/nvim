@@ -65,7 +65,6 @@ function M.config()
 		return "  " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
 	end
 	local webicon = function(name)
-		-- TODO: improve the way get an file extension
 		local icon = require("nvim-web-devicons").get_icon(name) or ""
 		return icon
 	end
