@@ -197,8 +197,11 @@ require("packer").startup({
 		})
 		-- full-featured git plugin
 		use({
-			"lambdalisue/gina.vim",
-			event = "CmdlineEnter",
+			"lambdalisue/gin.vim",
+			requires = {
+				"vim-denops/denops.vim",
+			},
+			after = { "denops.vim" },
 		})
 		-- Add git related info in the signs columns and popups
 		use({
