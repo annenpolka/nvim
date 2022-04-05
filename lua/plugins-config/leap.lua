@@ -9,10 +9,12 @@ function M.config()
 		-- labels = { . . . },
 		-- These keys are captured directly by the plugin at runtime.
 		special_keys = {
-			["next_match_group"] = "<space>",
-			["prev_match_group"] = "<tab>",
-			["repeat"] = "<enter>",
-			["revert"] = "<tab>",
+			repeat_search = "<enter>",
+			next_match = "<enter>",
+			prev_match = "<tab>",
+			next_group = "<space>",
+			prev_group = "<tab>",
+			eol = "<space>",
 		},
 	})
 end
