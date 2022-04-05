@@ -5,6 +5,7 @@ function M.config()
 	local cmp_buffer = require("cmp_buffer")
 	local luasnip = require("luasnip")
 	local lspkind = require("lspkind")
+	require("snippets") -- load snippets
 
 	cmp.setup({
 		snippet = {
