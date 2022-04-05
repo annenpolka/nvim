@@ -364,6 +364,7 @@ require("packer").startup({
 		})
 		-- Faster f/f
 		use({
+			disable = true,
 			"ggandor/lightspeed.nvim",
 			setup = function()
 				require("plugins-config.lightspeed").map()
@@ -544,7 +545,7 @@ require("packer").startup({
 				require("plugins-config.mini-starter").config()
 				require("plugins-config.mini-indentscope").config()
 				require("plugins-config.mini-cursorword").config()
-				-- require("plugins-config.mini-jump").config()
+				require("plugins-config.mini-jump").config()
 				-- require("plugins-config.mini-surround").config()
 			end,
 		})
