@@ -70,17 +70,8 @@ function M.config()
 				name = "rg",
 				max_item_count = 5,
 				keyword_length = 4,
+				group_index = 2,
 				option = { additional_arguments = "--smart-case --max-depth 3" },
-			},
-			{
-				name = "look",
-				max_item_count = 5,
-				keyword_length = 2,
-				option = {
-					convert_case = true,
-					loud = true,
-					--dict = '/usr/share/dict/words'
-				},
 			},
 		},
 		formatting = {

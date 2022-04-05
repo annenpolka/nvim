@@ -747,7 +747,6 @@ require("packer").startup({
 				"hrsh7th/cmp-nvim-lsp-document-symbol",
 				"hrsh7th/cmp-buffer",
 				"hrsh7th/cmp-cmdline",
-				"octaltree/cmp-look",
 				"ray-x/cmp-treesitter",
 				"hrsh7th/cmp-nvim-lua",
 				"lukas-reineke/cmp-rg",
