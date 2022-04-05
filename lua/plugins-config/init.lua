@@ -792,11 +792,6 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		use({
-			"hrsh7th/cmp-copilot",
-			requires = { "hrsh7th/nvim-cmp", "github/copilot.vim" },
-			after = "nvim-cmp",
-		})
 		-- Snippets plugin
 		use({
 			"L3MON4D3/LuaSnip",
