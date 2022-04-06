@@ -615,7 +615,7 @@ require("packer").startup({
 		})
 		-- treesitter-based context viewer
 		use({
-      disable = true,
+			disable = true,
 			"romgrk/nvim-treesitter-context",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
