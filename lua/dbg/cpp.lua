@@ -4,8 +4,10 @@ dap.adapters.lldb = {
 	command = "/usr/bin/lldb-vscode", -- adjust as needed
 	name = "lldb",
 }
+-- confirm lldb-vscode is installed
 local command_exists = require("dbg.utils").file_exists(dap.adapters.lldb.command)
 if not command_exists then
+	-- for Ubuntu 21.10
 	dap.adapters.lldb.command = "/usr/bin/lldb-vscode-13"
 end
 
