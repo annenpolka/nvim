@@ -797,14 +797,14 @@ require("packer").startup({
 		use({
 			"L3MON4D3/LuaSnip",
 			requires = { "hrsh7th/nvim-cmp" },
-			-- after = "nvim-cmp",
+			after = "nvim-cmp",
 		})
 		-- snippets bundle
 		use({
 			"rafamadriz/friendly-snippets",
 			requires = { "hrsh7th/nvim-cmp", "L3MON4D3/LuaSnip" },
 			event = "InsertEnter",
-			-- after = "nvim-cmp",
+			after = "nvim-cmp",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          debug                           │
