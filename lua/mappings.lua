@@ -41,6 +41,10 @@ nnoremap("<leader>cc", "q:")
 vim.keymap.set("n", "^", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", ":bprev<CR>", { noremap = true, silent = true })
 
+-- noautocmd on macro execution
+vim.keymap.set("n", "@", [[<cmd>execute "noautocmd norm! " . v:count1 . "@" . getcharstr()<cr>]], { noremap = true })
+vim.keymap.set("x", "@", [[:<C-U>execute "noautocmd '<,'>norm! " . v:count1 . "@" . getcharstr()<cr>]], { noremap = true })
+
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function
 local m = function(name)
