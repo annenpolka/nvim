@@ -387,7 +387,7 @@ require("packer").startup({
 				-- method chaining
 				"D4KU/vim-textobj-chainmember",
 				-- punctuation
-				"beloglazov/vim-textobj-punctuation",
+				-- "beloglazov/vim-textobj-punctuation",
 			},
 			setup = function()
 				require("plugins-config.textobj-user").map()
