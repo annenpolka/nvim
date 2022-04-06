@@ -260,6 +260,10 @@ require("packer").startup({
 			"nvim-telescope/telescope-frecency.nvim",
 			requires = { "nvim-telescope/telescope.nvim", "tami5/sqlite.lua" },
 		})
+		use({
+			"ahmedkhalf/project.nvim",
+			requires = "nvim-telescope/telescope.nvim",
+		})
 		-- fuzzy find many things
 		use({
 			disable = true,
@@ -1001,10 +1005,6 @@ require("packer").startup({
 				require("plugins-config.toggleterm").config()
 			end,
 			event = "BufWinEnter",
-		})
-		-- project management
-		use({
-			"ahmedkhalf/project.nvim",
 		})
 		-- automatic split management
 		use({
