@@ -21,13 +21,18 @@ ls.config.set_config({
 	-- deleted snippets is performed.
 	-- This can be especially useful when `history` is enabled.
 	delete_check_events = "TextChanged",
-	ext_opts = {
-		[types.choiceNode] = {
-			active = {
-				virt_text = { { "choiceNode", "Comment" } },
-			},
-		},
-	},
+	-- ext_opts = {
+	-- 	[types.choiceNode] = {
+	-- 		active = {
+	-- 			virt_text = { { "● ", "Type" } },
+	-- 		},
+	-- 	},
+	-- 	[types.insertNode] = {
+	-- 		active = {
+	-- 			virt_text = { { "● ", "NonText" } },
+	-- 		},
+	-- 	},
+	-- },
 	-- treesitter-hl has 100, use something higher (default is 200).
 	ext_base_prio = 300,
 	-- minimal increase in priority.
@@ -48,12 +53,16 @@ ls.config.set_config({
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                   snippet definitions                    │
 -- ╰──────────────────────────────────────────────────────────╯
-ls.add_snippets("cpp", {
-	-- rep macro
-	s({ trig = "#rep" }, {
-		t({ "#define rep(i, n) for (int i = 0; i < (int)(n); i++)" }),
-		i(2),
-	}),
+
+-- my snippets
+ls.add_snippets(nil, {
+	cpp = {
+		-- rep macro
+		s({ trig = "#rep" }, {
+			t({ "#define rep(i, n) for (int i = 0; i < (int)(n); i++)" }),
+			i(2),
+		}),
+	},
 })
 
 -- load friendly-snippets
