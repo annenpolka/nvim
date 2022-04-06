@@ -1,9 +1,13 @@
 local dap = require("dap")
 dap.adapters.lldb = {
 	type = "executable",
-	command = "/home/linuxbrew/.linuxbrew/bin/lldb-vscode", -- adjust as needed
+	command = "/usr/bin/lldb-vscode", -- adjust as needed
 	name = "lldb",
 }
+local command_exists = require("dbg.utils").file_exists(dap.adapters.lldb.command)
+if not command_exists then
+	dap.adapters.lldb.command = "/usr/bin/lldb-vscode-13"
+end
 
 dap.configurations.cpp = {
 	{
