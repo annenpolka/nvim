@@ -61,4 +61,9 @@ function M.config()
 	comment_ft.set("lua", { "--%s", "--[[%s]]" })
 end
 
+function M.map()
+	vim.keymap.set("n", "<C-_>", "<Cmd>lua require('Comment.api').toggle_current_linewise(false)<CR>", {})
+	vim.keymap.set("x", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', {})
+end
+
 return M

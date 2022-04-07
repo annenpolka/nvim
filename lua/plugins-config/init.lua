@@ -419,6 +419,9 @@ require("packer").startup({
 		-- commenting
 		use({
 			"numToStr/Comment.nvim",
+			setup = function()
+				require("plugins-config.comment").map()
+			end,
 			config = function()
 				require("plugins-config.comment").config()
 			end,
