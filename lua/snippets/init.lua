@@ -53,7 +53,6 @@ ls.config.set_config({
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                   snippet definitions                    │
 -- ╰──────────────────────────────────────────────────────────╯
-
 -- my snippets
 ls.add_snippets(nil, {
 	cpp = {
@@ -64,6 +63,18 @@ ls.add_snippets(nil, {
 		}),
 	},
 })
-
+-- -- autosnippets
+ls.add_snippets(
+	"all",
+	-- get current file name
+	{
+		ls.parser.parse_snippet("$file$", "$TM_FILENAME"),
+	},
+	-- set above ones as autosnippets
+	{
+		type = "autosnippets",
+		key = "all_auto",
+	}
+)
 -- load friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
