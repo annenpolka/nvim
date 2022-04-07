@@ -418,15 +418,11 @@ require("packer").startup({
 		})
 		-- commenting
 		use({
-			"b3nj5m1n/kommentary",
-			opt = true,
-			setup = function()
-				require("plugins-config.kommentary").map()
-				Lazyload_timer("kommentary")
-			end,
+			"numToStr/Comment.nvim",
 			config = function()
-				require("plugins-config.kommentary").config()
+				require("plugins-config.comment").config()
 			end,
+			event = "BufRead",
 		})
 		-- multi cursor
 		use({
