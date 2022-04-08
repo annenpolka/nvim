@@ -24,6 +24,13 @@ function M.config()
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
 			}),
+			["<C-k>"] = function(fallback)
+				if luasnip.expand_or_jumpable() then
+					luasnip.expand_or_jump()
+				else
+					fallback()
+				end
+			end,
 			["<Tab>"] = function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
