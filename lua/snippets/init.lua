@@ -53,28 +53,11 @@ ls.config.set_config({
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                   snippet definitions                    │
 -- ╰──────────────────────────────────────────────────────────╯
--- my snippets
-ls.add_snippets(nil, {
-	cpp = {
-		-- rep macro
-		s({ trig = "#rep" }, {
-			t({ "#define rep(i, n) for (int i = 0; i < (int)(n); i++)" }),
-			i(2),
-		}),
-	},
-})
--- -- autosnippets
-ls.add_snippets(
-	"all",
-	-- get current file name
-	{
-		ls.parser.parse_snippet("$file$", "$TM_FILENAME"),
-	},
-	-- set above ones as autosnippets
-	{
-		type = "autosnippets",
-		key = "all_auto",
-	}
-)
+-- load snippets for each language
+for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/snippets/languages/*.lua", true)) do
+	local ft = vim.fn.fnamemodify(ft_path, ":t:r")
+	require("snippets.languages." .. ft)
+end
+
 -- load friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
