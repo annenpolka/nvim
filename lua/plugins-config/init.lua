@@ -761,33 +761,33 @@ require("packer").startup({
 		})
 		--------------------------------------------------------------------------------
 		-- ddc.vim, denops-based completion
-		use({
-			disable = true, -- enable when ddc is ready
-			"Shougo/ddc.vim",
-			requires = {
-				"vim-denops/denops.vim",
-				-- non-native completion menu
-				"Shougo/pum.vim",
-				-- show candidates' docs with floating window
-				"matsui54/denops-popup-preview.vim",
-				-- matchers
-				"tani/ddc-fuzzy",
-				-- sources
-				"Shougo/ddc-nvim-lsp",
-				"Shougo/ddc-around",
-				"matsui54/ddc-buffer",
-				"LumaKernel/ddc-file",
-				-- snippets
-				"hrsh7th/vim-vsnip",
-				"hrsh7th/vim-vsnip-integ",
-			},
-			setup = function()
-				require("plugins-config.ddc").map()
-			end,
-			config = function()
-				require("plugins-config.ddc").config()
-			end,
-		})
+		-- use({
+		-- 	disable = true, -- enable when ddc is ready
+		-- 	"Shougo/ddc.vim",
+		-- 	requires = {
+		-- 		"vim-denops/denops.vim",
+		-- 		-- non-native completion menu
+		-- 		"Shougo/pum.vim",
+		-- 		-- show candidates' docs with floating window
+		-- 		"matsui54/denops-popup-preview.vim",
+		-- 		-- matchers
+		-- 		"tani/ddc-fuzzy",
+		-- 		-- sources
+		-- 		"Shougo/ddc-nvim-lsp",
+		-- 		"Shougo/ddc-around",
+		-- 		"matsui54/ddc-buffer",
+		-- 		"LumaKernel/ddc-file",
+		-- 		-- snippets
+		-- 		"hrsh7th/vim-vsnip",
+		-- 		"hrsh7th/vim-vsnip-integ",
+		-- 	},
+		-- 	setup = function()
+		-- 		require("plugins-config.ddc").map()
+		-- 	end,
+		-- 	config = function()
+		-- 		require("plugins-config.ddc").config()
+		-- 	end,
+		-- })
 		--------------------------------------------------------------------------------
 		-- github copilot
 		use({
