@@ -265,27 +265,27 @@ require("packer").startup({
 			requires = "nvim-telescope/telescope.nvim",
 		})
 		-- fuzzy find many things
-		-- use({
-		-- 	disable = true,
-		-- 	"Shougo/ddu.vim",
-		-- 	config = function()
-		-- 		require("plugins-config.ddu").config()
-		-- 	end,
-		-- 	requires = {
-		-- 		"vim-denops/denops.vim",
-		-- 		"Shougo/ddu-commands.vim",
-		-- 		"Shougo/ddu-ui-ff",
-		-- 		"Shougo/ddu-source-file_rec",
-		-- 		"shun/ddu-source-buffer",
-		-- 		"shun/ddu-source-rg",
-		-- 		"Shougo/ddu-source-action",
-		-- 		"yuki-yano/ddu-filter-fzf",
-		-- 		"Shougo/ddu-filter-matcher_substring",
-		-- 		"Shougo/ddu-kind-file",
-		-- 		"Shougo/ddu-kind-word",
-		-- 	},
-		-- 	after = "denops.vim",
-		-- })
+		use({
+			disable = true,
+			"Shougo/ddu.vim",
+			config = function()
+				require("plugins-config.ddu").config()
+			end,
+			requires = {
+				"vim-denops/denops.vim",
+				"Shougo/ddu-commands.vim",
+				"Shougo/ddu-ui-ff",
+				"Shougo/ddu-source-file_rec",
+				"shun/ddu-source-buffer",
+				"shun/ddu-source-rg",
+				"Shougo/ddu-source-action",
+				"yuki-yano/ddu-filter-fzf",
+				"Shougo/ddu-filter-matcher_substring",
+				"Shougo/ddu-kind-file",
+				"Shougo/ddu-kind-word",
+			},
+			after = "denops.vim",
+		})
 		-- 2-panes file explorer
 		use({
 			"obaland/vfiler.vim",
@@ -761,33 +761,33 @@ require("packer").startup({
 		})
 		--------------------------------------------------------------------------------
 		-- ddc.vim, denops-based completion
-		-- use({
-		-- 	disable = true, -- enable when ddc is ready
-		-- 	"Shougo/ddc.vim",
-		-- 	requires = {
-		-- 		"vim-denops/denops.vim",
-		-- 		-- non-native completion menu
-		-- 		"Shougo/pum.vim",
-		-- 		-- show candidates' docs with floating window
-		-- 		"matsui54/denops-popup-preview.vim",
-		-- 		-- matchers
-		-- 		"tani/ddc-fuzzy",
-		-- 		-- sources
-		-- 		"Shougo/ddc-nvim-lsp",
-		-- 		"Shougo/ddc-around",
-		-- 		"matsui54/ddc-buffer",
-		-- 		"LumaKernel/ddc-file",
-		-- 		-- snippets
-		-- 		"hrsh7th/vim-vsnip",
-		-- 		"hrsh7th/vim-vsnip-integ",
-		-- 	},
-		-- 	setup = function()
-		-- 		require("plugins-config.ddc").map()
-		-- 	end,
-		-- 	config = function()
-		-- 		require("plugins-config.ddc").config()
-		-- 	end,
-		-- })
+		use({
+			disable = true, -- enable when ddc is ready
+			"Shougo/ddc.vim",
+			requires = {
+				"vim-denops/denops.vim",
+				-- non-native completion menu
+				"Shougo/pum.vim",
+				-- show candidates' docs with floating window
+				"matsui54/denops-popup-preview.vim",
+				-- matchers
+				"tani/ddc-fuzzy",
+				-- sources
+				"Shougo/ddc-nvim-lsp",
+				"Shougo/ddc-around",
+				"matsui54/ddc-buffer",
+				"LumaKernel/ddc-file",
+				-- snippets
+				"hrsh7th/vim-vsnip",
+				"hrsh7th/vim-vsnip-integ",
+			},
+			setup = function()
+				require("plugins-config.ddc").map()
+			end,
+			config = function()
+				require("plugins-config.ddc").config()
+			end,
+		})
 		--------------------------------------------------------------------------------
 		-- github copilot
 		use({
