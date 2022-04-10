@@ -47,7 +47,7 @@ function M.config()
 				"filetype",
 			},
 			lualine_y = { "progress" },
-			lualine_z = { "location" },
+			lualine_z = {},
 		},
 		inactive_sections = {
 			lualine_a = {},
