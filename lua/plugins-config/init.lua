@@ -265,27 +265,27 @@ require("packer").startup({
 			requires = "nvim-telescope/telescope.nvim",
 		})
 		-- fuzzy find many things
-		use({
-			disable = true,
-			"Shougo/ddu.vim",
-			config = function()
-				require("plugins-config.ddu").config()
-			end,
-			requires = {
-				"vim-denops/denops.vim",
-				"Shougo/ddu-commands.vim",
-				"Shougo/ddu-ui-ff",
-				"Shougo/ddu-source-file_rec",
-				"shun/ddu-source-buffer",
-				"shun/ddu-source-rg",
-				"Shougo/ddu-source-action",
-				"yuki-yano/ddu-filter-fzf",
-				"Shougo/ddu-filter-matcher_substring",
-				"Shougo/ddu-kind-file",
-				"Shougo/ddu-kind-word",
-			},
-			after = "denops.vim",
-		})
+		-- use({
+		-- 	disable = true,
+		-- 	"Shougo/ddu.vim",
+		-- 	config = function()
+		-- 		require("plugins-config.ddu").config()
+		-- 	end,
+		-- 	requires = {
+		-- 		"vim-denops/denops.vim",
+		-- 		"Shougo/ddu-commands.vim",
+		-- 		"Shougo/ddu-ui-ff",
+		-- 		"Shougo/ddu-source-file_rec",
+		-- 		"shun/ddu-source-buffer",
+		-- 		"shun/ddu-source-rg",
+		-- 		"Shougo/ddu-source-action",
+		-- 		"yuki-yano/ddu-filter-fzf",
+		-- 		"Shougo/ddu-filter-matcher_substring",
+		-- 		"Shougo/ddu-kind-file",
+		-- 		"Shougo/ddu-kind-word",
+		-- 	},
+		-- 	after = "denops.vim",
+		-- })
 		-- 2-panes file explorer
 		use({
 			"obaland/vfiler.vim",
@@ -367,13 +367,13 @@ require("packer").startup({
 			cmd = "Neoformat",
 		})
 		-- Faster f/f
-		use({
-			disable = true,
-			"ggandor/lightspeed.nvim",
-			setup = function()
-				require("plugins-config.lightspeed").map()
-			end,
-		})
+		-- use({
+		-- 	disable = true,
+		-- 	"ggandor/lightspeed.nvim",
+		-- 	setup = function()
+		-- 		require("plugins-config.lightspeed").map()
+		-- 	end,
+		-- })
 		-- easymotion next-level
 		use({
 			"ggandor/leap.nvim",
