@@ -370,13 +370,13 @@ require("packer").startup({
 			cmd = "Neoformat",
 		})
 		-- Faster f/f
-		-- use({
-		-- 	disable = true,
-		-- 	"ggandor/lightspeed.nvim",
-		-- 	setup = function()
-		-- 		require("plugins-config.lightspeed").map()
-		-- 	end,
-		-- })
+		use({
+			disable = true,
+			"ggandor/lightspeed.nvim",
+			setup = function()
+				require("plugins-config.lightspeed").map()
+			end,
+		})
 		-- easymotion next-level
 		use({
 			"ggandor/leap.nvim",
