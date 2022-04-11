@@ -545,22 +545,19 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- small modules package
 		use({
 			"echasnovski/mini.nvim",
 			config = function()
+				-- greeter
 				require("plugins-config.mini-starter").config()
+				-- animated indent guides
 				require("plugins-config.mini-indentscope").config()
+				-- cursorword highlighting
 				require("plugins-config.mini-cursorword").config()
+				-- clever-f
 				require("plugins-config.mini-jump").config()
 				-- require("plugins-config.mini-surround").config()
-			end,
-		})
-		-- vim edit mode colorizer
-		use({
-			disable = true,
-			"mvllow/modes.nvim",
-			config = function()
-				require("plugins-config.modes").config()
 			end,
 		})
 		-- show regex info
