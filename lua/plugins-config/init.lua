@@ -289,6 +289,9 @@ require("packer").startup({
 		-- 2-panes file explorer
 		use({
 			"obaland/vfiler.vim",
+			setup = function()
+				require("plugins-config.vfiler").map()
+			end,
 			config = function()
 				require("plugins-config.vfiler").config()
 			end,
