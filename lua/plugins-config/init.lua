@@ -36,6 +36,14 @@ require("packer").startup({
 		use({ "lewis6991/impatient.nvim" })
 		-- faster filetype
 		use({ "nathom/filetype.nvim" })
+		-- improved matchit
+		use({
+			disable = true,
+			"andymass/vim-matchup",
+			setup = function()
+				require("plugins-config.matchup").config()
+			end,
+		})
 		-- faster matchparen
 		use({
 			"monkoose/matchparen.nvim",
@@ -337,6 +345,7 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- grip function and its name
 		use({
 			"Matt-A-Bennett/vim-surround-funk",
 			opt = true,
