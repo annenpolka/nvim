@@ -81,6 +81,16 @@ function M.config()
 				group_index = 2,
 				option = { additional_arguments = "--smart-case --max-depth 3" },
 			},
+			{
+				name = "look",
+				keyword_length = 2,
+				max_item_count = 5,
+				option = {
+					convert_case = true,
+					loud = true,
+					--dict = '/usr/share/dict/words'
+				},
+			},
 		},
 		formatting = {
 			-- devicons by lspkind

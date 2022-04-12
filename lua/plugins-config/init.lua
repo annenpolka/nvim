@@ -762,6 +762,7 @@ require("packer").startup({
 				"hrsh7th/cmp-buffer",
 				"hrsh7th/cmp-cmdline",
 				"ray-x/cmp-treesitter",
+				"octaltree/cmp-look",
 				"hrsh7th/cmp-nvim-lua",
 				"lukas-reineke/cmp-rg",
 				"lukas-reineke/cmp-under-comparator",
