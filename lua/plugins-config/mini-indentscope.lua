@@ -24,6 +24,7 @@ function M.config()
 	})
 	-- Sync highlight color to indent_blankline
 	vim.cmd([[highlight! link MiniIndentscopeSymbol CursorLine]])
+	-- space highlight
 	vim.cmd([[highlight! link MiniIndentscopePrefix PMenuSel]])
 end
 

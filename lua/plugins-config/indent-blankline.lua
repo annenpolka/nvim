@@ -6,6 +6,8 @@ function M.config()
 	vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
 	-- vim.g.indent_blankline_show_trailing_blankline_indent = true
 
+	vim.cmd([[highlight IndentBlanklineContextStart guisp=#FA6A88 guibg=#181222 gui=underline]])
+	vim.cmd([[highlight IndentBlanklineContextChar guifg=#FA6A88 gui=nocombine]])
 	vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
 	vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
 	vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
@@ -18,6 +20,8 @@ function M.config()
 
 	require("indent_blankline").setup({
 		space_char_blankline = " ",
+		show_current_context = true,
+		show_current_context_start = true,
 		char_highlight_list = {
 			"IndentBlanklineIndent1",
 			"IndentBlanklineIndent2",
