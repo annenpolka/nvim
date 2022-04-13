@@ -65,9 +65,7 @@ function M.config()
 					end,
 				},
 			},
-			{
-				name = "path",
-			},
+			{ name = "path" },
 			{ name = "luasnip" },
 			{ name = "nvim_lua" },
 			{
@@ -78,13 +76,14 @@ function M.config()
 				name = "rg",
 				max_item_count = 5,
 				keyword_length = 4,
-				group_index = 2,
+				priority = -1,
 				option = { additional_arguments = "--smart-case --max-depth 3" },
 			},
 			{
 				name = "look",
 				keyword_length = 2,
 				max_item_count = 5,
+				priority = -1,
 				option = {
 					convert_case = true,
 					loud = true,
