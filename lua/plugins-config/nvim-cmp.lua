@@ -83,7 +83,7 @@ function M.config()
 				name = "look",
 				keyword_length = 2,
 				max_item_count = 5,
-				priority = -1,
+				priority = -2,
 				option = {
 					convert_case = true,
 					loud = true,
