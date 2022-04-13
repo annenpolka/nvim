@@ -6,7 +6,7 @@ function M.config()
 	augroup AutoUnitHighlight
 	  autocmd!
 	  autocmd CursorMoved,CursorMovedI,WinLeave * highlight clear ColorColumn
-	  autocmd CursorHold,CursorHoldI * highlight ColorColumn guibg=#35354A
+	  autocmd CursorHold * highlight ColorColumn guibg=#35354A
 	augroup END
 	]])
 	vim.cmd([[highlight ColorColumn guibg=#35354A]])
