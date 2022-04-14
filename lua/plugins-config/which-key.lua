@@ -6,6 +6,7 @@ function M.config()
 			presets = {
 				operators = true,
 			},
+			registers = false,
 		},
 	})
 end
