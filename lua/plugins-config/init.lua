@@ -887,6 +887,19 @@ require("packer").startup({
 			run = "bash ./install.sh",
 			event = "BufRead",
 		})
+		-- test framework runner
+		use({
+			"klen/nvim-test",
+			config = function()
+				require("plugins-config.nvim-test").config()
+			end,
+			cmd = {
+				"TestNearest",
+				"TestFile",
+				"TestSuite",
+				"TestLast",
+			},
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           Misc                           │
 		-- ╰──────────────────────────────────────────────────────────╯
