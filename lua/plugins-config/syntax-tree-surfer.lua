@@ -26,6 +26,19 @@ function M.map()
 		'<cmd>lua require("syntax-tree-surfer").surf("child", "visual")<cr>',
 		{ noremap = true, silent = true }
 	)
+	-- SWAPPING WITH VISUAL SELECTION: Only change the keymap to your liking. Don't change the .surf() parameters!
+	vim.keymap.set(
+		"x",
+		"x",
+		'<cmd>lua require("syntax-tree-surfer").surf("next", "visual", true)<cr>',
+		{ noremap = true, silent = true }
+	)
+	vim.keymap.set(
+		"x",
+		"X",
+		'<cmd>lua require("syntax-tree-surfer").surf("prev", "visual", true)<cr>',
+		{ noremap = true, silent = true }
+	)
 end
 
 return M
