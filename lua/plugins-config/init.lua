@@ -184,6 +184,17 @@ require("packer").startup({
 			requires = "vim-denops/denops.vim",
 			after = "denops.vim",
 		})
+		-- better sorting
+		use({
+			"sQVe/sort.nvim",
+			setup = function()
+				require("plugins-config.sort").map()
+			end,
+			config = function()
+				require("plugins-config.sort").config()
+			end,
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
