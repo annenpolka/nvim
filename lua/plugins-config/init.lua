@@ -1097,6 +1097,11 @@ require("packer").startup({
 			end,
 			ft = "json",
 		})
+		-- sql keyword uppercased
+		use({
+			"jsborjesson/vim-uppercase-sql",
+			ft = "sql",
+		})
 		-- docker manager
 		use({
 			"skanehira/denops-docker.vim",
