@@ -143,9 +143,7 @@ function M.config()
 		sources = {
 			{ name = "cmdline" },
 		},
-		mapping = cmp.mapping.preset.cmdline({
-			-- Your configuration here.
-		}),
+		mapping = cmp.mapping.preset.cmdline({}),
 	})
 
 	-- search completion
@@ -154,9 +152,7 @@ function M.config()
 			{ name = "nvim_lsp_document_symbol" },
 			{ name = "buffer" },
 		},
-		mapping = cmp.mapping.preset.cmdline({
-			-- Your configuration here.
-		}),
+		mapping = cmp.mapping.preset.cmdline({}),
 	})
 
 	-- autopairs integration
