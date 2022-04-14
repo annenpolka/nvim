@@ -22,6 +22,11 @@ end
 function M.map()
 	nmap("J", "<Plug>(leap-forward)", "silent")
 	nmap("K", "<Plug>(leap-backward)", "silent")
+	-- omap("J", "<Plug>(leap-forward)", "silent")
+	-- omap("K", "<Plug>(leap-backward)", "silent")
+	-- vmap("J", "<Plug>(leap-forward)", "silent")
+	-- vmap("K", "<Plug>(leap-backward)", "silent")
+
 	local function set_leap_repeat_keys(repeat_key, revert_key)
 		local sk = require("leap").opts.special_keys
 
