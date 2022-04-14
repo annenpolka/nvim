@@ -454,6 +454,11 @@ require("packer").startup({
 				require("plugins-config.abbrevman").config()
 			end,
 		})
+		-- better blockwise visual mode bindings
+		use({
+			"kana/vim-niceblock",
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          themes                          │
 		-- ╰──────────────────────────────────────────────────────────╯
