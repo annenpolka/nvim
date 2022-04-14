@@ -13,7 +13,7 @@ local d = ls.d
 local types = require("luasnip.util.types")
 
 ls.config.set_config({
-	history = true,
+	history = false,
 	-- Update more often, :h events for more info.
 	update_events = "TextChanged,TextChangedI",
 	-- Snippets aren't automatically removed if their text is deleted.
