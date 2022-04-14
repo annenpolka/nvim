@@ -144,13 +144,20 @@ function M.config()
 		sources = {
 			{ name = "cmdline" },
 		},
+		mapping = cmp.mapping.preset.cmdline({
+			-- Your configuration here.
+		}),
 	})
+
 	-- search completion
 	require("cmp").setup.cmdline("/", {
 		sources = {
 			{ name = "nvim_lsp_document_symbol" },
 			{ name = "buffer" },
 		},
+		mapping = cmp.mapping.preset.cmdline({
+			-- Your configuration here.
+		}),
 	})
 
 	-- autopairs integration
