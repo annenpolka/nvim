@@ -689,6 +689,15 @@ require("packer").startup({
 				require("plugins-config.treesitter-unit").config()
 			end,
 		})
+		-- syntax-based surfing
+		use({
+			"ziontee113/syntax-tree-surfer",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+			after = { "nvim-treesitter" },
+			setup = function()
+				require("plugins-config.syntax-tree-surfer").map()
+			end,
+		})
 		-- select textobject with hints
 		use({
 			"mfussenegger/nvim-treehopper",
