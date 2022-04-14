@@ -953,7 +953,8 @@ require("packer").startup({
 			end,
 		})
 		use({
-			"folke/todo-comments.nvim",
+			-- "folke/todo-comments.nvim",
+			"robertgzr/todo-comments.nvim", -- PR of commandline window error
 			setup = function()
 				require("plugins-config.todo-comments").map()
 			end,
