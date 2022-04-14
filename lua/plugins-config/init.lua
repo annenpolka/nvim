@@ -229,6 +229,14 @@ require("packer").startup({
 				require("plugins-config.gitsigns").config()
 			end,
 		})
+		-- conflict resolve helper
+		use({
+			"akinsho/git-conflict.nvim",
+			config = function()
+				require("plugins-config.git-conflict").config()
+			end,
+			event = "BufRead",
+		})
 		-- Github editor
 		use({
 			"pwntester/octo.nvim",
