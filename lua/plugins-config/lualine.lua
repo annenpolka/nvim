@@ -2,6 +2,16 @@ local M = {}
 
 function M.config()
 	local gps = require("nvim-gps")
+	-- Override 'encoding': Don't display if encoding is UTF-8.
+	local encoding = function()
+		local ret, _ = (vim.bo.fenc or vim.go.enc):gsub("^utf%-8$", "")
+		return ret
+	end
+	-- fileformat: Don't display if &ff is unix.
+	local fileformat = function()
+		local ret, _ = vim.bo.fileformat:gsub("^unix$", "")
+		return ret
+	end
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
@@ -42,8 +52,8 @@ function M.config()
 				-- 		-- inactive = "lualine_{section}_inactive", -- Color for inactive buffer.
 				-- 	},
 				-- },
-				"encoding",
-				"fileformat",
+				encoding,
+				fileformat,
 				"filetype",
 			},
 			lualine_y = { "progress" },
