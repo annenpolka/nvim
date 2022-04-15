@@ -264,15 +264,15 @@ require("packer").startup({
 		-- UI to select things (files, grep results, open buffers...)
 		use({
 			"nvim-telescope/telescope.nvim",
+			requires = {
+				"echasnovski/mini.nvim", -- for fuzzy sorter
+			},
 			setup = function()
 				require("plugins-config.telescope").map()
 			end,
 			config = function()
 				require("plugins-config.telescope").config()
 			end,
-			requires = {
-				"echasnovski/mini.nvim", -- for fuzzy sorter
-			},
 		})
 		use({
 			"nvim-telescope/telescope-fzy-native.nvim",
