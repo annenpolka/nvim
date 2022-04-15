@@ -1098,14 +1098,6 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		-- show inline git blame
-		use({
-			"APZelos/blamer.nvim",
-			config = function()
-				require("plugins-config.blamer").config()
-			end,
-			event = "BufRead",
-		})
 		-- json viewer
 		use({
 			"gennaro-tedesco/nvim-jqx",
