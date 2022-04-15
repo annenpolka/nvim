@@ -43,7 +43,7 @@ function M.config()
 			enable = false,
 		},
 	})
-	vim.cmd([[hi GitSignsCurrentLineBlame guifg=#00a000]])
+	vim.cmd([[hi GitSignsCurrentLineBlame guifg=#09703a]])
 end
 
 return M
