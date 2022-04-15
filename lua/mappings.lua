@@ -24,9 +24,9 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = t
 -- vim.keymap.set("n", "H", "<C-o>", { noremap = true, silent = true })
 -- vim.keymap.set("n", "L", "<C-i>", { noremap = true, silent = true })
 
--- Shift + J/K moves selected lines down/up in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+-- <C-j>/<C-k> moves selected lines down/up in visual mode
+vim.keymap.set("x", "<C-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("x", "<C-K>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- Open VSCode
 -- vim.keymap.set("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
@@ -43,7 +43,12 @@ vim.keymap.set("n", "-", ":bprev<CR>", { noremap = true, silent = true })
 
 -- noautocmd on macro execution
 vim.keymap.set("n", "@", [[<cmd>execute "noautocmd norm! " . v:count1 . "@" . getcharstr()<cr>]], { noremap = true })
-vim.keymap.set("x", "@", [[:<C-U>execute "noautocmd '<,'>norm! " . v:count1 . "@" . getcharstr()<cr>]], { noremap = true })
+vim.keymap.set(
+	"x",
+	"@",
+	[[:<C-U>execute "noautocmd '<,'>norm! " . v:count1 . "@" . getcharstr()<cr>]],
+	{ noremap = true }
+)
 
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function

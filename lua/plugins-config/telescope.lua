@@ -81,7 +81,7 @@ function M.map()
 	-- )
 	vim.keymap.set(
 		"n",
-		"R",
+		"<C-a>",
 		[[<cmd>lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true })<CR>]],
 		{ noremap = true, silent = true }
 	)
