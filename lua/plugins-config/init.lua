@@ -195,6 +195,15 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- readme viewer
+		use({
+			"4513ECHO/vim-readme-viewer",
+			-- cm = "PackerReadme",
+			event = "CmdlineEnter",
+			config = function()
+				vim.g["readme_viewer#plugin_manager"] = "packer.nvim"
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
