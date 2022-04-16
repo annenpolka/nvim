@@ -562,6 +562,13 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- dedicated statusline with global one
+		use({
+			"b0o/incline.nvim",
+			config = function()
+				require("plugins-config.incline").config()
+			end,
+		})
 		-- scrollbar with search info
 		use({
 			"petertriho/nvim-scrollbar",
