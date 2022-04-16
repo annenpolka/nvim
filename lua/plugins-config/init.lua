@@ -478,6 +478,10 @@ require("packer").startup({
 			"kana/vim-niceblock",
 			event = "BufRead",
 		})
+		use({
+			"lfilho/cosco.vim",
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          themes                          │
 		-- ╰──────────────────────────────────────────────────────────╯
