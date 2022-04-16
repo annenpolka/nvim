@@ -346,6 +346,16 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- yank cycle
+		use({
+			"gbprod/yanky.nvim",
+			setup = function()
+				require("plugins-config.yanky").map()
+			end,
+			config = function()
+				require("plugins-config.yanky").config()
+			end,
+		})
 		-- comment eyecandies
 		use({
 			"LudoPinelli/comment-box.nvim",
