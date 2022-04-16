@@ -73,6 +73,10 @@ function M.config()
 				max_item_count = 5,
 			},
 			{
+				name = "copilot",
+				priority = -1,
+			},
+			{
 				name = "rg",
 				max_item_count = 5,
 				keyword_length = 4,
@@ -83,7 +87,7 @@ function M.config()
 				name = "look",
 				keyword_length = 2,
 				max_item_count = 5,
-				priority = -2,
+				priority = -3,
 				option = {
 					convert_case = true,
 					loud = true,
@@ -105,6 +109,7 @@ function M.config()
 					rg = "[rg]",
 					path = "[path]",
 					treesitter = "[TS]",
+					copilot = "[Copilot]",
 				},
 			}),
 			-- avoid duplicates

@@ -830,6 +830,7 @@ require("packer").startup({
 				"hrsh7th/cmp-nvim-lua",
 				"lukas-reineke/cmp-rg",
 				"lukas-reineke/cmp-under-comparator",
+				"hrsh7th/cmp-copilot",
 			},
 			event = { "BufRead" },
 		})
