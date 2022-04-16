@@ -20,6 +20,10 @@ function M.config()
 			["<C-f>"] = cmp.mapping.scroll_docs(4),
 			["<C-l>"] = cmp.mapping.complete(),
 			["<C-e>"] = cmp.mapping.close(),
+			["<C-j>"] = cmp.mapping.confirm({
+				behavior = cmp.ConfirmBehavior.Replace,
+				select = true,
+			}),
 			["<CR>"] = cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
