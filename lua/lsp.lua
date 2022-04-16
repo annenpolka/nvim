@@ -23,8 +23,15 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
 	vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
 	-- lsp_signature initialize
+	require("lsp_signature").on_attach() -- Note: add in lsp client on-attach
 	-- -- format before saving
-	vim.api.nvim_command([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		desc = "Format buffer before saving",
+		callback = function()
+			vim.lsp.buf.formatting_sync()
+		end,
+		buffer = bufnr,
+	})
 	-- attach aerial
 	require("aerial").on_attach(client, bufnr)
 end
