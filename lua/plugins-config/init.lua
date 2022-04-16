@@ -355,6 +355,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.yanky").config()
 			end,
+			event = "BufRead",
 		})
 		-- comment eyecandies
 		use({

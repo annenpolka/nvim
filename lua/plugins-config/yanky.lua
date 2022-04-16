@@ -33,8 +33,8 @@ function M.map()
 	vim.keymap.set("x", "gp", "<Plug>(YankyGPutAfter)", {})
 	vim.keymap.set("x", "gP", "<Plug>(YankyGPutBefore)", {})
 	-- cycle key
-	vim.keymap.set("n", "<C-h>", "<Plug>(YankyCycleForward)", {})
-	vim.keymap.set("n", "<C-g>", "<Plug>(YankyCycleBackward)", {})
+	vim.keymap.set("n", "<A-j>", "<Plug>(YankyCycleForward)", {})
+	vim.keymap.set("n", "<A-k>", "<Plug>(YankyCycleBackward)", {})
 end
 
 return M
