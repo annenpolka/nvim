@@ -275,3 +275,9 @@ netrw
 vimball
 fileformat
 nocombine
+yanky
+endl
+wintypes
+zindex
+ipairs
+local
