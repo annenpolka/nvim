@@ -68,7 +68,7 @@ lsp_installer.on_server_ready(function(server)
 
 	opts.capabilities = capabilities
 	if server.name == "rust_analyzer" then
-		-- Initialize the LSP via rust-tools instead
+		-- Integrate rust-tools.nvim
 		require("rust-tools").setup({
 			-- The "server" property provided in rust-tools setup function are the
 			-- settings rust-tools will provide to lspconfig during init.            --
@@ -78,6 +78,7 @@ lsp_installer.on_server_ready(function(server)
 		})
 		server:attach_buffers()
 	elseif server.name == "clangd" then
+		-- Integrate clangd_extensions.nvim
 		require("clangd_extensions").setup({
 			server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
 			extensions = {
@@ -117,6 +118,29 @@ lsp_installer.on_server_ready(function(server)
 			},
 		})
 	else
+		if server.name == "sumneko_lua" then
+			-- set custom configuration
+			opts.settings = {
+				Lua = {
+					runtime = {
+						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+						version = "LuaJIT",
+					},
+					diagnostics = {
+						-- Get the language server to recognize the `vim` global
+						globals = { "vim" },
+					},
+					workspace = {
+						-- Make the server aware of Neovim runtime files
+						library = vim.api.nvim_get_runtime_file("", true),
+					},
+					-- Do not send telemetry data containing a randomized but unique identifier
+					telemetry = {
+						enable = false,
+					},
+				},
+			}
+		end
 		server:setup(opts)
 	end
 end)
