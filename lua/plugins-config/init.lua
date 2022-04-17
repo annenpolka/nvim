@@ -811,7 +811,7 @@ require("packer").startup({
 		use({
 			"j-hui/fidget.nvim",
 			config = function()
-				require("fidget").setup()
+				require("plugins-config.fidget").config()
 			end,
 			event = "BufRead",
 		})
