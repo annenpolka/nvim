@@ -46,4 +46,7 @@ function M.config()
 	vim.cmd([[hi GitSignsCurrentLineBlame guifg=#09703a]])
 end
 
+function M.map()
+	vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+end
 return M

@@ -234,6 +234,9 @@ require("packer").startup({
 		-- Add git related info in the signs columns and popups
 		use({
 			"lewis6991/gitsigns.nvim",
+			setup = function()
+				require("plugins-config.gitsigns").map()
+			end,
 			config = function()
 				require("plugins-config.gitsigns").config()
 			end,
