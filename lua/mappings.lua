@@ -30,6 +30,7 @@ vim.keymap.set("x", "<C-K>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true
 
 -- Open VSCode
 -- vim.keymap.set("n", "<F5>", ":!code .<CR>", { noremap = true, silent = true })
+vim.api.nvim_create_user_command("OpenVSCode", "!code .", {})
 
 -- disable default <C-c> behaviour
 nnoremap("<C-c>", "<Nop>")
