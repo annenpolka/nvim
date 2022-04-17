@@ -109,6 +109,7 @@ require("packer").startup({
 		-- Close buffer/window/vim wisely
 		use({
 			"mhinz/vim-sayonara",
+			requires = { { "AndrewRadev/undoquit.vim", event = "BufRead" } },
 			setup = function()
 				require("plugins-config.sayonara").map()
 			end,
