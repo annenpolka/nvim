@@ -807,6 +807,14 @@ require("packer").startup({
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
 		use({ "PlatyPew/format-installer.nvim" })
+		-- show lsp progress
+		use({
+			"j-hui/fidget.nvim",
+			config = function()
+				require("fidget").setup()
+			end,
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
 		-- ╰──────────────────────────────────────────────────────────╯
