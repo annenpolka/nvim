@@ -26,7 +26,7 @@ function M.config()
 		},
 		select = {
 			-- Priority list of preferred vim.select implementations
-			backend = { "telescope", "fzf", "builtin", "nui" },
+			backend = { "builtin", "nui", "fzf", "telescope" },
 
 			-- Options for telescope selector
 			telescope = "ivy",
