@@ -62,9 +62,11 @@ function M.config()
 			{
 				name = "buffer",
 				max_item_count = 10,
+				indexing_interval = 500,
+				indexing_batch_size = 1500,
 				option = {
 					keyword_pattern = [[\k\+]], -- isKeyword
-					get_bufnrs = function()
+					get_bufnrs = function() -- all buffers
 						return vim.api.nvim_list_bufs()
 					end,
 				},
