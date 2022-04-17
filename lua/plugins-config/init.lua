@@ -199,7 +199,7 @@ require("packer").startup({
 		-- readme viewer
 		use({
 			"4513ECHO/vim-readme-viewer",
-			-- cm = "PackerReadme",
+			-- cmd = "PackerReadme",
 			event = "CmdlineEnter",
 			config = function()
 				vim.g["readme_viewer#plugin_manager"] = "packer.nvim"
