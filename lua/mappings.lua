@@ -51,6 +51,17 @@ vim.keymap.set(
 	{ noremap = true }
 )
 
+-- tab manipulation
+vim.keymap.set("n", "<C-t>", ":$tabnew<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { noremap = true })
+vim.keymap.set("n", "L", ":tabn<CR>", { noremap = true })
+vim.keymap.set("n", "H", ":tabp<CR>", { noremap = true })
+-- move current tab to previous position
+vim.keymap.set("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
+-- move current tab to next position
+vim.keymap.set("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
+
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function
 local m = function(name)
