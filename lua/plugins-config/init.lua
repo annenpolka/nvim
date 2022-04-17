@@ -1155,6 +1155,12 @@ require("packer").startup({
 			end,
 			ft = "json",
 		})
+		-- cargo package manager helper
+		use({
+			"saecki/crates.nvim",
+			requires = { "nvim-lua/plenary.nvim" },
+			ft = "toml",
+		})
 		-- sql keyword uppercased
 		use({
 			"jsborjesson/vim-uppercase-sql",
