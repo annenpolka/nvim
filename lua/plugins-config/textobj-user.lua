@@ -1,6 +1,9 @@
 local M = {}
 
 function M.map()
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │       chainmember (method chain member textobject)       │
+	-- ╰──────────────────────────────────────────────────────────╯
 	vim.g.textobj_chainmember_no_default_key_mappings = 0
 	-- TODO: create keymaps for chainmember
 	xmap("im", "<Plug>(textobj-chainmember-i)", "silent")
