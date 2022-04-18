@@ -58,8 +58,8 @@ lsp_installer.on_server_ready(function(server)
 	opts.on_attach = function(client, bufnr)
 		for _, value in ipairs(disable_lsp_formatter_list) do
 			if value == server.name then
-				client.resolved_capabilities.document_formatting = false
-				client.resolved_capabilities.document_range_formatting = false
+				client.server_capabilities.documentFormattingProvider = false
+				client.server_capabilities.documentRangeFormattingProvider = false
 				break
 			end
 		end
