@@ -3,17 +3,14 @@
 -- ╰──────────────────────────────────────────────────────────╯
 local lspconfig = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-require("lsp-format").setup({})
-
-local function attach_lsp_format()
-  require("lsp_signature").on_attach({
-    lua = {
-      -- exclude = { "sumneko_lua" },
-      order = { "sumneko_lua", "null-ls" },
-    },
-  }) -- Note: add in lsp client on-attach
-  vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
-end
+-- setting format option by lsp-format
+require("lsp-format").setup({
+	lua = {
+		exclude = { "sumneko_lua" },
+		order = { "null-ls" },
+	},
+})
+vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
 
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
