@@ -1,8 +1,11 @@
 local M = {}
 
 function M.config()
-	-- Treesitter configuration
-	-- Parsers must be installed manually via :TSInstall
+	-- workaround for `ts_utils.get_node_text` deprecation
+	local ts_utils = require("nvim-treesitter.ts_utils")
+	ts_utils.get_node_text = vim.treesitter.query.get_node_text
+
+	-- treesitter configration
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
 			"lua",
