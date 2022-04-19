@@ -805,7 +805,6 @@ require("packer").startup({
 		-- code outline
 		use({
 			"stevearc/aerial.nvim",
-			disable = true,
 			config = function()
 				require("plugins-config.aerial").config()
 			end,
