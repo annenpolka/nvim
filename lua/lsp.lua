@@ -3,7 +3,7 @@
 -- ╰──────────────────────────────────────────────────────────╯
 local lspconfig = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
--- setting format option by lsp-format
+-- setting format option by lsp-format.nvim
 require("lsp-format").setup({
 	lua = {
 		exclude = { "sumneko_lua" },

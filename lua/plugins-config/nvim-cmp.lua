@@ -89,7 +89,7 @@ function M.config()
 			{
 				name = "rg",
 				max_item_count = 5,
-				keyword_length = 4,
+				keyword_length = 3,
 				priority = -1,
 				option = { additional_arguments = "--smart-case --max-depth 3" },
 			},
