@@ -785,6 +785,11 @@ require("packer").startup({
     use({ "neovim/nvim-lspconfig" })
     --  To Install LSP Automatically with LspInstall
     use({ "williamboman/nvim-lsp-installer" })
+
+    -- async formatting
+    use({
+      "lukas-reineke/lsp-format.nvim",
+    })
     -- rust lsp tools
     use({
       "simrat39/rust-tools.nvim",
