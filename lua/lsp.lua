@@ -10,7 +10,7 @@ require("lsp-format").setup({
 		order = { "null-ls" },
 	},
 })
-vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]])
+vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]]) -- format on exit
 
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
