@@ -4,7 +4,23 @@ function M.config()
 	-- Treesitter configuration
 	-- Parsers must be installed manually via :TSInstall
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = "all",
+		ensure_installed = {
+			"lua",
+			"cpp",
+			"rust",
+			"javascript",
+			"typescript",
+			"tsx",
+			"python",
+			"html",
+			"css",
+			"json",
+			"toml",
+			"ocaml",
+			"regex",
+			"make",
+			"bash",
+		},
 		highlight = {
 			enable = true, -- false will disable the whole extension
 		},
