@@ -34,7 +34,7 @@ local on_attach = function(client, bufnr)
 		buffer = bufnr,
 	})
 	-- attach aerial
-	-- require("aerial").on_attach(client, bufnr)
+	require("aerial").on_attach(client, bufnr)
 end
 
 -- Lsp diagnostic symbols
