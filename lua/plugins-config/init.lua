@@ -516,7 +516,7 @@ require("packer").startup({
 		-- catppuccin theme
 		-- use({ "catppuccin/nvim", as = "catppuccin" })
 		-- tokyonight theme
-		-- use({ "folke/tokyonight.nvim" })
+		use({ "folke/tokyonight.nvim" })
 		-- nightfox theme
 		use({
 			"EdenEast/nightfox.nvim",
