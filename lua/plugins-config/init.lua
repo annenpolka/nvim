@@ -762,7 +762,6 @@ require("packer").startup({
 		-- Bracket Lens-like plugin
 		use({
 			"haringsrob/nvim_context_vt",
-			disable = true,
 			after = { "nvim-treesitter" },
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			config = function()
