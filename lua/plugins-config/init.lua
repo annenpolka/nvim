@@ -510,13 +510,13 @@ require("packer").startup({
 		-- │                          themes                          │
 		-- ╰──────────────────────────────────────────────────────────╯
 		-- Theme inspired by Atom
-		use({ "joshdick/onedark.vim" })
+		-- use({ "joshdick/onedark.vim" })
 		-- github theme
 		-- use{ "projekt0n/github-nvim-theme" },
 		-- catppuccin theme
 		-- use({ "catppuccin/nvim", as = "catppuccin" })
 		-- tokyonight theme
-		use({ "folke/tokyonight.nvim" })
+		-- use({ "folke/tokyonight.nvim" })
 		-- nightfox theme
 		use({
 			"EdenEast/nightfox.nvim",
