@@ -438,6 +438,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.leap").config()
 			end,
+			event = "BufRead",
 		})
 		-- custom textobjects
 		use({
@@ -470,6 +471,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.substitute").config()
 			end,
+			event = "BufRead",
 		})
 		-- commenting
 		use({
@@ -596,6 +598,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.incline").config()
 			end,
+			event = "BufRead",
 		})
 		-- scrollbar with search info
 		use({
@@ -1086,6 +1089,7 @@ require("packer").startup({
 		-- Better quickfix
 		use({
 			"kevinhwang91/nvim-bqf",
+			event = "BufRead",
 		})
 		use({
 			"stevearc/qf_helper.nvim",
@@ -1095,6 +1099,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.qf_helper").config()
 			end,
+			event = "BufRead",
 		})
 		-- Batch editing quickfix
 		use({
