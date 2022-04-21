@@ -68,6 +68,7 @@ function M.config()
 			["p"] = action.toggle_preview,
 			["q"] = action.quit,
 			["<C-e>"] = action.quit,
+			["<C-q>"] = action.quit,
 			["r"] = action.rename,
 			["s"] = action.open_by_split,
 			["t"] = action.open_by_tabpage,
