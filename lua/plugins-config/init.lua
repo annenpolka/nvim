@@ -329,6 +329,9 @@ require("packer").startup({
 		-- 2-panes file explorer
 		use({
 			"obaland/vfiler.vim",
+			requires = {
+				"obaland/vfiler-column-devicons",
+			},
 			setup = function()
 				require("plugins-config.vfiler").map()
 			end,
