@@ -18,6 +18,9 @@ function M.config()
 			-- filetypes that you want to prevent from adding to the harpoon list menu.
 			excluded_filetypes = { "harpoon" },
 		},
+		menu = {
+			width = vim.api.nvim_win_get_width(0) - 20,
+		},
 	})
 end
 
