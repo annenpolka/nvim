@@ -8,6 +8,7 @@ function M.map()
 	vim.g.undoquit_mapping = ""
 	vim.g.undoquit_tab_mapping = ""
 	nnoremap("<C-w>u", "<Cmd>Undoquit<CR><C-w>L", { silent = true })
+	nnoremap("<C-w><C-u>", "<Cmd>Undoquit<CR><C-w>L", { silent = true })
 end
 
 return M
