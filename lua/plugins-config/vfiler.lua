@@ -67,12 +67,13 @@ function M.config()
 			["mm"] = action.move_to_filer,
 			["p"] = action.toggle_preview,
 			["q"] = action.quit,
+			["<C-e>"] = action.quit,
 			["r"] = action.rename,
 			["s"] = action.open_by_split,
 			["t"] = action.open_by_tabpage,
 			["v"] = action.open_by_vsplit,
 			["x"] = action.execute_file,
-			["f"] = require("telescope.builtin").find_files,
+			["f"] = require("telescope.builtin").fd,
 			["yy"] = action.yank_path,
 			["B"] = action.add_bookmark,
 			["C"] = action.copy,
@@ -80,7 +81,7 @@ function M.config()
 			["G"] = action.move_cursor_bottom,
 			["J"] = action.jump_to_directory,
 			["K"] = action.new_directory,
-			["L"] = action.switch_to_drive,
+			-- ["L"] = action.switch_to_drive,
 			["M"] = action.move,
 			["N"] = action.new_file,
 			["P"] = action.paste,
@@ -89,6 +90,7 @@ function M.config()
 			["YY"] = action.yank_name,
 		},
 	})
+	require("vfiler/config").unmap("L")
 end
 
 function M.map()
