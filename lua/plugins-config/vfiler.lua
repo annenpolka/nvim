@@ -93,7 +93,7 @@ end
 function M.map()
 	nnoremap(
 		"<C-e>",
-		":VFiler -auto-cd -keep -layout=left -width=30 -columns=indent,devicons,name<CR>",
+		":VFiler -auto-cd -keep -layout=left -width=30 -columns=indent,icon,devicons,name<CR>",
 		{ noremap = true, silent = true }
 	)
 end
