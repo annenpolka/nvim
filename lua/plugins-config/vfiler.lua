@@ -6,7 +6,7 @@ function M.config()
 		options = {
 			auto_cd = true,
 			auto_resize = true,
-			columns = "indent,icon,devicons,name,mode,size,time",
+			columns = "indent,icon,devicons,name,git,mode,size,time",
 			header = true,
 			keep = false,
 			listed = true,
@@ -26,7 +26,7 @@ function M.config()
 			zindex = 200,
 			git = {
 				enabled = true,
-				ignored = true,
+				ignored = false,
 				untracked = true,
 			},
 			preview = {
@@ -94,7 +94,7 @@ end
 function M.map()
 	nnoremap(
 		"<C-e>",
-		":VFiler -auto-cd -keep -layout=left -width=30 -columns=indent,icon,devicons,name<CR>",
+		":VFiler -auto-cd -keep -layout=left -width=30 -columns=indent,icon,devicons,name,git<CR>",
 		{ noremap = true, silent = true }
 	)
 end
