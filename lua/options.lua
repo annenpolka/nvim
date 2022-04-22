@@ -36,7 +36,7 @@ vim.o.smartcase = true
 
 --Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = "yes"
+-- vim.wo.signcolumn = "yes"
 
 -- folding settings
 vim.wo.foldenable = false -- no auto folding

@@ -2,6 +2,7 @@ local M = {}
 
 function M.config()
 	local focus = require("focus")
+	vim.wo.signcolumn = "number" -- set before focus loaded
 	focus.setup({
 		excluded_filetypes = { "toggleterm", "harpoon", "ctrlspace", "TelescopePrompt" },
 		excluded_buftypes = { "acwrite", "prompt", "nofile", "terminal" },
