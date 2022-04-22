@@ -20,7 +20,7 @@ function M.map()
 	vim.keymap.set("n", "<leader>j", ":FocusSplitDown<CR>", { silent = true })
 	vim.keymap.set("n", "<leader>k", ":FocusSplitUp<CR>", { silent = true })
 	vim.keymap.set("n", "<leader>l", ":FocusSplitRight<CR>", { silent = true })
-	vim.keymap.set("n", "<leader>a", ":FocusMaxOrEqual<CR>", { silent = true })
+	vim.keymap.set("n", "<CR>", ":FocusMaxOrEqual<CR>", { silent = true })
 end
 
 return M
