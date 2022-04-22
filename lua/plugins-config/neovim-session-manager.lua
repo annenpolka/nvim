@@ -14,6 +14,11 @@ function M.config()
 		},
 		autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
 	})
+
+	-- attach gitsigns on load
+	vim.api.nvim_create_autocmd({ "SessionLoadPost" }, {
+		command = "Gitsigns attach",
+	})
 end
 
 return M
