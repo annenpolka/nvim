@@ -44,6 +44,10 @@ function M.config()
 			["<C-r>"] = action.sync_with_current_filer,
 			["<C-s>"] = action.toggle_sort,
 			["<CR>"] = action.open,
+			-- ["<CR>"] = function(vfiler, context, view)
+			-- 	action.open(vfiler, context, view)
+			-- 	action.quit(vfiler, context, view)
+			-- end,
 			["<S-Space>"] = function(vfiler, context, view)
 				action.toggle_select(vfiler, context, view)
 				action.move_cursor_up(vfiler, context, view)
@@ -83,6 +87,7 @@ function M.config()
 			["J"] = action.jump_to_directory,
 			["K"] = action.new_directory,
 			-- ["L"] = action.switch_to_drive,
+			require("vfiler/config").unmap("L"),
 			["M"] = action.move,
 			["N"] = action.new_file,
 			["P"] = action.paste,
@@ -91,7 +96,6 @@ function M.config()
 			["YY"] = action.yank_name,
 		},
 	})
-	require("vfiler/config").unmap("L")
 end
 
 function M.map()
