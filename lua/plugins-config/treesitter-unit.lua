@@ -2,15 +2,17 @@ local M = {}
 
 function M.config()
 	-- toggle highlight by event
-	vim.cmd([[
-	augroup AutoUnitHighlight
-	  autocmd!
-	  autocmd CursorMoved,CursorMovedI,WinLeave * highlight clear ColorColumn
-	  autocmd CursorHold * highlight ColorColumn guibg=#35354A
-	augroup END
-	]])
-	vim.cmd([[highlight ColorColumn guibg=#35354A]])
-	require("treesitter-unit").toggle_highlighting("ColorColumn")
+	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "WinLeave" }, {
+		callback = function()
+			require("treesitter-unit").disable_highlighting("TSUnit")
+		end,
+	})
+	vim.api.nvim_create_autocmd({ "CursorHold" }, {
+		callback = function()
+			require("treesitter-unit").enable_highlighting("TSUnit")
+		end,
+	})
+	vim.cmd([[highlight TSUnit guibg=#35354A]])
 
 	-- text objects
 	vim.keymap.set("x", "iu", ':lua require"treesitter-unit".select()<CR>', { noremap = true })
