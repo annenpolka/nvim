@@ -79,6 +79,7 @@ function M.config()
 			["v"] = action.open_by_vsplit,
 			["x"] = action.execute_file,
 			["f"] = require("telescope.builtin").fd,
+			["F"] = require("telescope.builtin").live_grep,
 			["yy"] = action.yank_path,
 			["B"] = action.add_bookmark,
 			["C"] = action.copy,

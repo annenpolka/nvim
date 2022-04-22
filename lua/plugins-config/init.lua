@@ -405,6 +405,7 @@ require("packer").startup({
 			"unblevable/quick-scope",
 			opt = true,
 			setup = function()
+				vim.g.qs_buftype_blacklist = { "terminal", "nofile" }
 				Lazyload_timer("quick-scope")
 			end,
 		})
