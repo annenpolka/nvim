@@ -1022,7 +1022,10 @@ require("packer").startup({
 			end,
 		})
 		-- code action modal
-		use({ "weilbith/nvim-code-action-menu" })
+		use({
+			disable = true,
+			"weilbith/nvim-code-action-menu",
+		})
 		-- Show matched information in search
 		use({
 			"kevinhwang91/nvim-hlslens",
