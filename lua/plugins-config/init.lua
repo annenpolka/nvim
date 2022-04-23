@@ -163,7 +163,7 @@ require("packer").startup({
 				"NeoRootSwitchMode",
 			},
 		})
-		-- redirect command output
+		-- redirect command output to dedicated buffer
 		use({
 			"sbulav/nredir.nvim",
 			setup = function()

@@ -83,6 +83,17 @@ lsp_installer.on_server_ready(function(server)
 	opts.capabilities = capabilities
 	if server.name == "rust_analyzer" then
 		-- Integrate rust-tools.nvim
+
+		-- use clippy linter
+		opts.settings = {
+			["rust-analyzer"] = {
+				checkOnSave = {
+					overrideCommand = {
+						"clippy",
+					},
+				},
+			},
+		}
 		require("rust-tools").setup({
 			-- The "server" property provided in rust-tools setup function are the
 			-- settings rust-tools will provide to lspconfig during init.            --
