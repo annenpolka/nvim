@@ -84,9 +84,9 @@ lsp_installer.on_server_ready(function(server)
 	if server.name == "rust_analyzer" then
 		-- Integrate rust-tools.nvim
 
-		-- use clippy linter
 		opts.settings = {
 			["rust-analyzer"] = {
+				-- use clippy linter
 				checkOnSave = {
 					allFeatures = true,
 					overrideCommand = {

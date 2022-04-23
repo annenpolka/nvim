@@ -62,6 +62,11 @@ vim.keymap.set("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
 -- move current tab to next position
 vim.keymap.set("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
 
+-- open help for subject under cursor
+vim.keymap.set("n", "<C-h>", "K", { noremap = true })
+vim.keymap.set("x", "<C-h>", "K", { noremap = true })
+vim.o.keywordprg = ":help"
+
 --Plugin Keybindings-----------------------------------------------------------------------
 -- require plugin's mappings function
 local m = function(name)
