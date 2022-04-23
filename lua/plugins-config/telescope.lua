@@ -45,7 +45,9 @@ function M.config()
 				-- theme = "dropdown",
 				initial_mode = "insert",
 			},
-			tags = { theme = "ivy" },
+			tags = {
+				-- theme = "ivy",
+			},
 			buffers = {
 				initial_mode = "insert",
 				-- theme = "ivy",
