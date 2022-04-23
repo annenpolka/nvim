@@ -21,9 +21,9 @@ function M.config()
 				vertical = {
 					height = vim.o.lines, -- maximally available lines
 					width = vim.o.columns, -- maximally available columns
-					prompt_position = "top",
+					prompt_position = "bottom",
 					preview_height = 0.6, -- 60% of available lines
-					mirror = true,
+					mirror = false,
 				},
 				-- width = 0.87,
 				-- height = 0.80,
@@ -48,7 +48,7 @@ function M.config()
 			tags = { theme = "ivy" },
 			buffers = {
 				initial_mode = "insert",
-				theme = "ivy",
+				-- theme = "ivy",
 				mappings = {
 					n = {
 						["<c-d>"] = require("telescope.actions").delete_buffer,
