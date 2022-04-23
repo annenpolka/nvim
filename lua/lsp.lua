@@ -30,6 +30,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 	-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", opts)
+	vim.keymap.set("v", "<Leader>ca", ":<C-u>lua vim.lsp.buf.range_code_action()<CR>", { silent = true })
 	vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
 	-- diagnostic keymap
 	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
