@@ -11,17 +11,25 @@ function M.config()
 				},
 				i = {},
 			},
+			layout_strategy = "vertical",
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
 					preview_width = 0.55,
+					preview_cutoff = 120,
 				},
 				vertical = {
-					mirror = false,
+					height = vim.o.lines, -- maximally available lines
+					width = vim.o.columns, -- maximally available columns
+					prompt_position = "top",
+					preview_height = 0.6, -- 60% of available lines
+					mirror = true,
 				},
-				width = 0.87,
-				height = 0.80,
-				preview_cutoff = 120,
+				-- width = 0.87,
+				-- height = 0.80,
+				flex = {
+					preview_cutoff = 120,
+				},
 			},
 			initial_mode = "normal",
 			path_display = { "truncate" },
@@ -34,7 +42,7 @@ function M.config()
 				initial_mode = "insert",
 			},
 			fd = {
-				theme = "dropdown",
+				-- theme = "dropdown",
 				initial_mode = "insert",
 			},
 			tags = { theme = "ivy" },
@@ -51,8 +59,8 @@ function M.config()
 				},
 			},
 			live_grep = {
-				layout_strategy = "flex",
-				theme = "ivy",
+				-- layout_strategy = "flex",
+				-- theme = "ivy",
 				initial_mode = "insert",
 			},
 			spell_suggest = {
