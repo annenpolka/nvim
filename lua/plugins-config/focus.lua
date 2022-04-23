@@ -16,11 +16,12 @@ function M.config()
 end
 
 function M.map()
-	vim.keymap.set("n", "<leader>h", ":FocusSplitLeft<CR>", { silent = true })
-	vim.keymap.set("n", "<leader>j", ":FocusSplitDown<CR>", { silent = true })
-	vim.keymap.set("n", "<leader>k", ":FocusSplitUp<CR>", { silent = true })
-	vim.keymap.set("n", "<leader>l", ":FocusSplitRight<CR>", { silent = true })
-	vim.keymap.set("n", "<CR>", ":FocusMaxOrEqual<CR>", { silent = true })
+	nnoremap("<leader>h", ":FocusSplitLeft<CR>", { silent = true })
+	nnoremap("<leader>j", ":FocusSplitDown<CR>", { silent = true })
+	nnoremap("<leader>k", ":FocusSplitUp<CR>", { silent = true })
+	nnoremap("<leader>l", ":FocusSplitRight<CR>", { silent = true })
+	nnoremap("<CR>", ":FocusMaxOrEqual<CR>", { silent = true })
+	nnoremap("<CR>", "<CR>", { ft = "vim" }) -- avoid overding vim's <CR> in commandline mode
 end
 
 return M
