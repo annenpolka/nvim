@@ -31,6 +31,11 @@ local on_attach = function(client, bufnr)
 	-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "<leader>ca", "<cmd>CodeActionMenu<CR>", opts)
 	vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
+	-- diagnostic keymap
+	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+	vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+	vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 	-- lsp_signature initialize
 	-- -- format before saving
 	vim.api.nvim_create_user_command("FormatBuiltin", vim.lsp.buf.formatting_seq_sync, {})
