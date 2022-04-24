@@ -90,12 +90,12 @@ end
 
 ---------------------------------------------------------------------------
 -- Highlight on yank
-vim.cmd([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]])
+vim.api.nvim_create_autocmd("TextYankPost", {
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ timeout = 250 })
+	end,
+})
 
 -- quickfix autocmd
 vim.cmd([[
