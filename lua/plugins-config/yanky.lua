@@ -14,7 +14,7 @@ function M.config()
 		highlight = {
 			on_put = true,
 			on_yank = true,
-			timer = 400,
+			timer = 300,
 		},
 		preserve_cursor_position = {
 			enabled = true,
@@ -37,6 +37,11 @@ function M.config()
 	})
 	-- integrate with telescope
 	require("telescope").load_extension("yank_history")
+	-- highlight colors
+	vim.cmd([[
+    hi link YankyPut Search
+    hi link YankyYanked IncSearch
+	]])
 end
 
 function M.map()
