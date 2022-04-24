@@ -46,13 +46,16 @@ function M.map()
 	vim.keymap.set("n", "P", "<Plug>(YankyPutBefore)", {})
 	vim.keymap.set("x", "p", "<Plug>(YankyPutAfter)", {})
 	vim.keymap.set("x", "P", "<Plug>(YankyPutBefore)", {})
-	vim.keymap.set("n", "gp", "<Plug>(YankyGPutAfter)", {})
-	vim.keymap.set("n", "gP", "<Plug>(YankyGPutBefore)", {})
-	vim.keymap.set("x", "gp", "<Plug>(YankyGPutAfter)", {})
-	vim.keymap.set("x", "gP", "<Plug>(YankyGPutBefore)", {})
+	-- vim.keymap.set("n", "gp", "<Plug>(YankyGPutAfter)", {})
+	-- vim.keymap.set("n", "gP", "<Plug>(YankyGPutBefore)", {})
+	-- vim.keymap.set("x", "gp", "<Plug>(YankyGPutAfter)", {})
+	-- vim.keymap.set("x", "gP", "<Plug>(YankyGPutBefore)", {})
+
 	-- cycle key
-	vim.keymap.set("n", "<A-j>", "<Plug>(YankyCycleForward)", {})
-	vim.keymap.set("n", "<A-k>", "<Plug>(YankyCycleBackward)", {})
+	vim.keymap.set("n", "gn", "<Plug>(YankyCycleForward)", {})
+	vim.keymap.set("n", "gp", "<Plug>(YankyCycleBackward)", {})
+	-- open yank_history with telescope
+	vim.keymap.set("n", "R", "<Cmd>Telescope yank_history<CR>", {})
 end
 
 return M
