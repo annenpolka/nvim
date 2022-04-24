@@ -515,6 +515,7 @@ require("packer").startup({
 			"kana/vim-niceblock",
 			event = "BufRead",
 		})
+		-- insert comma or semi-colon
 		use({
 			"lfilho/cosco.vim",
 			event = "BufRead",

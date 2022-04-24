@@ -24,6 +24,8 @@ function M.config()
 end
 
 function M.map()
+	vim.keymap.set("n", "y", "<Plug>(YankyYank)", {})
+	vim.keymap.set("x", "y", "<Plug>(YankyYank)", {})
 	vim.keymap.set("n", "p", "<Plug>(YankyPutAfter)", {})
 	vim.keymap.set("n", "P", "<Plug>(YankyPutBefore)", {})
 	vim.keymap.set("x", "p", "<Plug>(YankyPutAfter)", {})
