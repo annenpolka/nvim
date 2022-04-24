@@ -237,11 +237,13 @@ local formatter_predefined = {
 	-- stylua
 	null_ls.builtins.formatting.stylua,
 	-- rust
-	null_ls.builtins.formatting.rustfmt,
+	-- null_ls.builtins.formatting.rustfmt, -- rust_analyzer runs this
 	-- spellcheck by cspell
 	-- null_ls.builtins.diagnostics.cspell,
 	-- spellsuggest completion
 	-- null_ls.builtins.completion.spell,
+	-- gitsigns integration
+	null_ls.builtins.code_actions.gitsigns,
 }
 for _, v in pairs(formatter_predefined) do
 	table.insert(formatter_managed, v)
