@@ -202,7 +202,15 @@ end
 local formatter_install = require("format-installer")
 
 -- ensure_install by format-installer
-local ensure_install_formatter_list = { "stylua", "black", "prettierd", "eslint_d", "codespell" }
+local ensure_install_formatter_list = {
+	"stylua",
+	"black",
+	"prettierd",
+	"eslint_d",
+	"rustywind",
+	"cppcheck",
+	"codespell",
+}
 for _, v in pairs(ensure_install_formatter_list) do
 	local is_installed = require("format-installer").is_installed(v)
 	if not is_installed then
