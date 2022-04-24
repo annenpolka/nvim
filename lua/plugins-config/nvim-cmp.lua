@@ -160,7 +160,14 @@ function M.config()
 		sources = {
 			{ name = "cmdline" },
 		},
-		mapping = cmp.mapping.preset.cmdline({}),
+		mapping = cmp.mapping.preset.cmdline({
+			["<C-p>"] = function(fallback)
+				fallback()
+			end,
+			["<C-n>"] = function(fallback)
+				fallback()
+			end,
+		}),
 	})
 
 	-- search completion
