@@ -60,7 +60,7 @@ function M.map()
 	vim.keymap.set("n", "gn", "<Plug>(YankyCycleForward)", {})
 	vim.keymap.set("n", "gp", "<Plug>(YankyCycleBackward)", {})
 	-- open yank_history with telescope
-	vim.keymap.set("n", "R", "<Cmd>Telescope yank_history<CR>", {})
+	-- vim.keymap.set("n", "R", "<Cmd>Telescope yank_history<CR>", {})
 end
 
 return M

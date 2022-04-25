@@ -52,7 +52,12 @@ function M.config()
 				action.toggle_select(vfiler, context, view)
 				action.move_cursor_up(vfiler, context, view)
 			end,
-			["<Space>"] = function(vfiler, context, view)
+			-- ["<Space>"] = function(vfiler, context, view)
+			-- 	action.toggle_select(vfiler, context, view)
+			-- 	action.move_cursor_down(vfiler, context, view)
+			-- end,
+			require("vfiler/config").unmap("<Space>"),
+			["<C-n>"] = function(vfiler, context, view)
 				action.toggle_select(vfiler, context, view)
 				action.move_cursor_down(vfiler, context, view)
 			end,
