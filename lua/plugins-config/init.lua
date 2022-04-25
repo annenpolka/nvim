@@ -656,6 +656,11 @@ require("packer").startup({
 			},
 			event = "BufRead",
 		})
+		-- code action modal
+		use({
+			disable = true,
+			"weilbith/nvim-code-action-menu",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -1021,11 +1026,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.lightbulb").config()
 			end,
-		})
-		-- code action modal
-		use({
-			disable = true,
-			"weilbith/nvim-code-action-menu",
 		})
 		-- Show matched information in search
 		use({
