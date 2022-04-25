@@ -99,6 +99,12 @@ require("packer").startup({
 			"lambdalisue/suda.vim",
 			cmd = { "SudaWrite", "SudaRead" },
 		})
+		-- programming dictionary
+		use({
+			"psliwka/vim-dirtytalk",
+			run = ":DirtytalkUpdate",
+			cmd = "DirtytalkUpdate",
+		})
 		-- Session manager
 		use({
 			"Shatur/neovim-session-manager",

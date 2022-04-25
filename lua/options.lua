@@ -55,7 +55,7 @@ vim.o.completeopt = "menuone,noselect"
 
 -- spellsuggest
 -- vim.opt.spell = true
--- vim.opt.spelllang = { "en_us" }
+vim.opt.spelllang = { "en_us", "programming" }
 
 -- color terminal
 vim.o.termguicolors = true
