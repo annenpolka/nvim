@@ -510,6 +510,22 @@ require("packer").startup({
 				require("plugins-config.abbrevman").config()
 			end,
 		})
+		-- spellcheck
+		use({
+			"kamykn/spelunker.vim",
+			config = function()
+				require("plugins-config.spelunker").config()
+			end,
+			event = "BufRead",
+		})
+		-- tabout
+		use({
+			"abecodes/tabout.nvim",
+			config = function()
+				require("plugins-config.tabout").config()
+			end,
+			event = "InsertEnter",
+		})
 		-- better blockwise visual mode bindings
 		use({
 			"kana/vim-niceblock",
@@ -982,22 +998,6 @@ require("packer").startup({
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           Misc                           │
 		-- ╰──────────────────────────────────────────────────────────╯
-		-- spellcheck
-		use({
-			"kamykn/spelunker.vim",
-			config = function()
-				require("plugins-config.spelunker").config()
-			end,
-			event = "BufRead",
-		})
-		-- tabout
-		use({
-			"abecodes/tabout.nvim",
-			config = function()
-				require("plugins-config.tabout").config()
-			end,
-			event = "InsertEnter",
-		})
 		-- Notification balloon
 		use({
 			"rcarriga/nvim-notify",
