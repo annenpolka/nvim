@@ -208,7 +208,6 @@ local ensure_install_formatter_list = {
 	"prettierd",
 	"eslint_d",
 	"rustywind",
-	"cppcheck",
 	"codespell",
 }
 for _, v in pairs(ensure_install_formatter_list) do
