@@ -553,6 +553,14 @@ require("packer").startup({
 			"lfilho/cosco.vim",
 			event = "BufRead",
 		})
+		use({
+			disable = true,
+			"AckslD/nvim-anywise-reg.lua",
+			config = function()
+				require("plugins-config.anywise-reg").config()
+			end,
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          themes                          │
 		-- ╰──────────────────────────────────────────────────────────╯
