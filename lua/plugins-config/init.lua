@@ -157,6 +157,17 @@ require("packer").startup({
 			"tpope/vim-rsi",
 			event = "InsertEnter",
 		})
+		-- better gf
+		use({
+			"notomo/curstr.nvim",
+			setup = function()
+				require("plugins-config.curstr").map()
+			end,
+			config = function()
+				require("plugins-config.curstr").config()
+			end,
+			event = "BufRead",
+		})
 		-- switch working directory
 		use({
 			"nyngwang/NeoRoot.lua",
