@@ -106,7 +106,7 @@ vim.cmd([[
   augroup end]])
 
 -- disable auto commentout on line break
-vim.cmd([[au BufWinEnter * set formatoptions-=ro]])
+vim.cmd([[au BufWinEnter * setlocal formatoptions-=ro]])
 
 -- save cursor position
 -- -- now using harpoon's store offset
