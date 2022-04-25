@@ -289,13 +289,6 @@ require("packer").startup({
 			end,
 			event = "BufWinEnter",
 		})
-		-- fzf UI
-		use({
-			disable = true,
-			"ibhagwan/fzf-lua",
-			-- optional for icon support
-			requires = { "kyazdani42/nvim-web-devicons" },
-		})
 		-- Automatic tags management
 		-- use{ "ludovicchabant/vim-gutentags" },
 		-- UI to select things (files, grep results, open buffers...)
@@ -349,6 +342,13 @@ require("packer").startup({
 				"Shougo/ddu-kind-word",
 			},
 			after = "denops.vim",
+		})
+		-- fzf UI
+		use({
+			disable = true,
+			"ibhagwan/fzf-lua",
+			-- optional for icon support
+			requires = { "kyazdani42/nvim-web-devicons" },
 		})
 		-- 2-panes file explorer
 		use({
