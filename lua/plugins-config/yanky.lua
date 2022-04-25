@@ -40,7 +40,7 @@ function M.config()
 	-- highlight colors
 	vim.cmd([[
     hi link YankyPut Search
-    hi link YankyYanked IncSearch
+    hi link YankyYanked MatchParen
 	]])
 end
 
