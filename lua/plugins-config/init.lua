@@ -121,6 +121,17 @@ require("packer").startup({
 			end,
 			cmd = { "Sayonara", "Sayonara!" },
 		})
+		-- automatic split management
+		use({
+			"beauwilliams/focus.nvim",
+			setup = function()
+				require("plugins-config.focus").map()
+			end,
+			config = function()
+				require("plugins-config.focus").config()
+			end,
+			event = "BufRead",
+		})
 		-- automatic indent detection
 		use({ "tpope/vim-sleuth" })
 		-- Better Escape
@@ -1162,17 +1173,6 @@ require("packer").startup({
 				require("plugins-config.toggleterm").config()
 			end,
 			event = "BufWinEnter",
-		})
-		-- automatic split management
-		use({
-			"beauwilliams/focus.nvim",
-			setup = function()
-				require("plugins-config.focus").map()
-			end,
-			config = function()
-				require("plugins-config.focus").config()
-			end,
-			event = "BufRead",
 		})
 		-- Zen mode
 		use({
