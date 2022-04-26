@@ -80,7 +80,7 @@ function M.config()
 	-- require("telescope").load_extension("fzy_native")
 	require("telescope").load_extension("file_browser")
 	require("telescope").load_extension("refactoring")
-	require("project_nvim").setup({ manual_mode = true })
+	require("project_nvim").setup({ manual_mode = false })
 	require("telescope").load_extension("projects")
 	require("telescope").load_extension("frecency")
 end
