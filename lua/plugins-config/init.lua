@@ -121,6 +121,14 @@ require("packer").startup({
 			end,
 			cmd = { "Sayonara", "Sayonara!" },
 		})
+		-- stabilize open/close window behavior
+		use({
+			"luukvbaal/stabilize.nvim",
+			config = function()
+				require("stabilize").setup()
+			end,
+			event = "BufRead",
+		})
 		-- automatic split management
 		use({
 			"beauwilliams/focus.nvim",
