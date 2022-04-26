@@ -39,6 +39,7 @@ function M.config()
 		indent = {
 			enable = true,
 		},
+		yati = { enable = true },
 		textobjects = {
 			select = {
 				enable = true,

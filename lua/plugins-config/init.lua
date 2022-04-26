@@ -719,6 +719,12 @@ require("packer").startup({
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
 		})
+		-- fix indent
+		use({
+			"yioneko/nvim-yati",
+			requires = "nvim-treesitter/nvim-treesitter",
+			after = "nvim-treesitter",
+		})
 		-- Colorize brackets
 		use({
 			"p00f/nvim-ts-rainbow",
