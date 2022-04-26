@@ -94,6 +94,15 @@ require("packer").startup({
 			end,
 			requires = "nvim-telescope/telescope.nvim",
 		})
+		-- UI for code action, rename
+		use({
+			"CosmicNvim/cosmic-ui",
+			requires = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+			config = function()
+				require("cosmic-ui").setup()
+			end,
+			event = "BufRead",
+		})
 		-- sudo
 		use({
 			"lambdalisue/suda.vim",
