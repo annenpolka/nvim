@@ -12,6 +12,7 @@ function M.config()
 				["imprto"] = "import",
 				["requier"] = "require",
 				["diasble"] = "disable",
+				["ture"] = "true",
 			},
 		},
 		programming_dictionaries = {
