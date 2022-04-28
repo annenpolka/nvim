@@ -67,125 +67,80 @@ capabilities.offsetEncoding = { "utf-16" }
 -- nvim-cmp supports additional completion capabilities
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
+-- ╭──────────────────────────────────────────────────────────╮
+-- │          nvim-lspconfig with nvim-lsp-installer          │
+-- ╰──────────────────────────────────────────────────────────╯
 local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.on_server_ready(function(server)
-	local opts = {}
-	local disable_lsp_formatter_list = { "sumneko_lua", "rust_analyzer", "html" }
-	-- disable lsp's formatting on the list
-	opts.on_attach = function(client, bufnr)
-		for _, value in ipairs(disable_lsp_formatter_list) do
-			if value == server.name then
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentRangeFormattingProvider = false
-				break
-			end
-		end
-		on_attach(client, bufnr)
-	end
+lsp_installer.setup({})
+local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
-	opts.capabilities = capabilities
-	if server.name == "rust_analyzer" then
-		-- Integrate rust-tools.nvim
-
-		opts.settings = {
-			["rust-analyzer"] = {
-				-- use clippy linter
-				checkOnSave = {
-					allFeatures = true,
-					overrideCommand = {
-						"cargo",
-						"clippy",
-						"--workspace",
-						"--message-format=json",
-						"--all-targets",
-						"--all-features",
-					},
-				},
-			},
-		}
-		require("rust-tools").setup({
-			-- The "server" property provided in rust-tools setup function are the
-			-- settings rust-tools will provide to lspconfig during init.            --
-			-- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
-			-- with the user's own settings (opts).
-			server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
-		})
-		server:attach_buffers()
-	elseif server.name == "clangd" then
-		-- Integrate clangd_extensions.nvim
-		require("clangd_extensions").setup({
-			server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
-			extensions = {
-				-- defaults:
-				-- Automatically set inlay hints (type hints)
-				autoSetHints = true,
-				-- Whether to show hover actions inside the hover window
-				-- This overrides the default hover handler
-				hover_with_actions = true,
-				-- These apply to the default ClangdSetInlayHints command
-				inlay_hints = {
-					-- Only show inlay hints for the current line
-					only_current_line = false,
-					-- Event which triggers a refersh of the inlay hints.
-					-- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
-					-- not that this may cause  higher CPU usage.
-					-- This option is only respected when only_current_line and
-					-- autoSetHints both are true.
-					only_current_line_autocmd = "CursorHold",
-					-- whether to show parameter hints with the inlay hints or not
-					show_parameter_hints = true,
-					-- prefix for parameter hints
-					parameter_hints_prefix = "<- ",
-					-- prefix for all the other hints (type, chaining)
-					other_hints_prefix = "=> ",
-					-- whether to align to the length of the longest line in the file
-					max_len_align = false,
-					-- padding from the left if max_len_align is true
-					max_len_align_padding = 1,
-					-- whether to align to the extreme right or not
-					right_align = false,
-					-- padding from the right if right_align is true
-					right_align_padding = 7,
-					-- The color of the hints
-					highlight = "Comment",
-				},
-			},
-		})
-	else
-		if server.name == "sumneko_lua" then
-			-- set custom configuration
-			opts.settings = {
-				Lua = {
-					runtime = {
-						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-						version = "LuaJIT",
-					},
-					diagnostics = {
-						-- Get the language server to recognize the `vim` global
-						globals = { "vim" },
-					},
-					workspace = {
-						-- Make the server aware of Neovim runtime files
-						-- library = vim.api.nvim_get_runtime_file("", true),
-					},
-					-- Do not send telemetry data containing a randomized but unique identifier
-					telemetry = {
-						enable = false,
-					},
-				},
-			}
-		end
-		server:setup(opts)
-	end
-end)
--- Enable the following language servers manually
-local servers = {}
+-- Enable the following language servers with common_opts
+local servers = { "sumneko_lua" }
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
+	lspconfig[lsp].setup(common_opts)
 end
+
+-- rust-analyzer config
+local rust_opts = { on_attach = on_attach, capabilities = capabilities }
+rust_opts.settings = {
+	["rust-analyzer"] = {
+		-- use clippy linter
+		checkOnSave = {
+			allFeatures = true,
+			overrideCommand = {
+				"cargo",
+				"clippy",
+				"--workspace",
+				"--message-format=json",
+				"--all-targets",
+				"--all-features",
+			},
+		},
+	},
+}
+require("rust-tools").setup({
+	server = rust_opts,
+})
+
+-- clangd config
+require("clangd_extensions").setup({
+	server = common_opts,
+	extensions = {
+		-- defaults:
+		-- Automatically set inlay hints (type hints)
+		autoSetHints = true,
+		-- Whether to show hover actions inside the hover window
+		-- This overrides the default hover handler
+		hover_with_actions = true,
+		-- These apply to the default ClangdSetInlayHints command
+		inlay_hints = {
+			-- Only show inlay hints for the current line
+			only_current_line = false,
+			-- Event which triggers a refersh of the inlay hints.
+			-- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
+			-- not that this may cause  higher CPU usage.
+			-- This option is only respected when only_current_line and
+			-- autoSetHints both are true.
+			only_current_line_autocmd = "CursorHold",
+			-- whether to show parameter hints with the inlay hints or not
+			show_parameter_hints = true,
+			-- prefix for parameter hints
+			parameter_hints_prefix = "<- ",
+			-- prefix for all the other hints (type, chaining)
+			other_hints_prefix = "=> ",
+			-- whether to align to the length of the longest line in the file
+			max_len_align = false,
+			-- padding from the left if max_len_align is true
+			max_len_align_padding = 1,
+			-- whether to align to the extreme right or not
+			right_align = false,
+			-- padding from the right if right_align is true
+			right_align_padding = 7,
+			-- The color of the hints
+			highlight = "Comment",
+		},
+	},
+})
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                  null-ls configuration                   │
