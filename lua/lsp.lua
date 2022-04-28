@@ -75,7 +75,7 @@ lsp_installer.setup({})
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
 -- Enable the following language servers with common_opts
-local servers = { "sumneko_lua" }
+local servers = { "sumneko_lua", "omnisharp", "html", "tsserver", "volar", "emmet_ls" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup(common_opts)
 end
