@@ -71,7 +71,17 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 -- │          nvim-lspconfig with nvim-lsp-installer          │
 -- ╰──────────────────────────────────────────────────────────╯
 local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.setup({})
+local ensure_installed = {
+	"sumneko_lua",
+	"rust_analyzer",
+	"clangd",
+	"omnisharp",
+	"html",
+	"tsserver",
+	"volar",
+	"emmet_ls",
+}
+lsp_installer.setup({ ensure_installed = ensure_installed })
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
 -- Enable the following language servers with common_opts
