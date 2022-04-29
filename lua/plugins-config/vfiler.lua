@@ -77,7 +77,10 @@ function M.config()
 			["p"] = action.toggle_preview,
 			["q"] = action.quit,
 			["<C-e>"] = action.quit,
-			["<C-q>"] = action.quit,
+			["<C-q>"] = function(vfiler, context, view)
+				action.quit(vfiler, context, view)
+				require("project_nvim.project").on_buf_enter() -- set cwd to ProjectRoot
+			end,
 			["r"] = action.rename,
 			["s"] = action.open_by_split,
 			["t"] = action.open_by_tabpage,
