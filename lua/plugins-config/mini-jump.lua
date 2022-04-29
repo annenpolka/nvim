@@ -26,7 +26,7 @@ function M.config()
 		},
 	})
 	-- define MiniJump highlight color
-	vim.cmd([[highlight link MiniJump Sneak]])
+	-- vim.cmd([[highlight link MiniJump Sneak]])
 end
 
 return M
