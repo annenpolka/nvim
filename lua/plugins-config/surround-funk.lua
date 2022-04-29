@@ -22,9 +22,9 @@ function M.map()
 	xmap("an", "<Plug>(SelectFunctionNAME)", "silent")
 	omap("an", "<Plug>(SelectFunctionNAME)", "silent")
 
-	vmap("gs", "<Plug>(GripSurroundObject)", "silent")
-	nmap("gs", "<Plug>(GripSurroundObject)", "silent")
-	nmap("gS", "<Plug>(GripSurroundObjectNoPaste)", "silent")
-	vmap("gS", "<Plug>(GripSurroundObjectNoPaste)", "silent")
+	-- vmap("gs", "<Plug>(GripSurroundObject)", "silent")
+	-- nmap("gs", "<Plug>(GripSurroundObject)", "silent")
+	nmap("gs", "<Plug>(GripSurroundObjectNoPaste)", "silent")
+	vmap("gs", "<Plug>(GripSurroundObjectNoPaste)", "silent")
 end
 return M
