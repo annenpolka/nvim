@@ -30,7 +30,15 @@ function M.config()
 			for line in diag.message:gmatch("[^\n]+") do
 				line = line:gsub("[ \t]+%f[\r\n%z]", "")
 				-- remove "on by default" message
-				if not string.find(line, "on by default") then
+				local exclude_str_list = { "on by default" }
+				local is_excluded = false
+				for _, exclude_str in ipairs(exclude_str_list) do
+					if line:find(exclude_str) then
+						is_excluded = true
+						break
+					end
+				end
+				if not is_excluded then
 					table.insert(diag_lines, line)
 				end
 			end
@@ -43,7 +51,7 @@ function M.config()
 			return lines
 		end,
 	})
-	vim.diagnostic.config({ virtual_text = false }) -- disable builtin virtual text
+	vim.diagnostic.config({ virtual_text = false }) -- disable builtin virtual_text
 end
 
 return M
