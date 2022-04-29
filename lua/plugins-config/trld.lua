@@ -29,7 +29,7 @@ function M.config()
 
 			for line in diag.message:gmatch("[^\n]+") do
 				line = line:gsub("[ \t]+%f[\r\n%z]", "")
-				-- remove "on by default" message
+				-- exclude unnecessary messages
 				local exclude_str_list = { "on by default" }
 				local is_excluded = false
 				for _, exclude_str in ipairs(exclude_str_list) do
