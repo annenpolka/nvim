@@ -920,6 +920,13 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- show lsp diagnostics on top or bottom
+		use({
+			"Mofiqul/trld.nvim",
+			config = function()
+				require("plugins-config.trld").config()
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
 		-- ╰──────────────────────────────────────────────────────────╯
