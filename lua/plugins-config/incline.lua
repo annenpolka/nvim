@@ -2,36 +2,65 @@ local M = {}
 
 function M.config()
 	require("incline").setup({
-		render = function(props)
-			local bufname = vim.api.nvim_buf_get_name(props.buf)
-			if bufname == "" then
-				return "[No name]"
-			else
-				bufname = vim.fn.fnamemodify(bufname, ":t")
-			end
-			return bufname
-		end,
-		debounce_threshold = { rising = 10, falling = 10 },
-		window = {
-			width = "fit",
-			placement = { horizontal = "right", vertical = "bottom" },
-			margin = {
-				horizontal = { left = 1, right = 0 },
-				vertical = { bottom = 0, top = 1 },
-			},
-			padding = { left = 1, right = 1 },
-			padding_char = " ",
-			zindex = 50,
-		},
-		ignore = {
-			floating_wins = true,
-			unlisted_buffers = true,
-			filetypes = {},
-			buftypes = "special",
-			wintypes = "special",
+		render = "basic",
+		debounce_threshold = {
+			falling = 50,
+			rising = 10,
 		},
 		hide = {
 			focused_win = false,
+		},
+		highlight = {
+			groups = {
+				InclineNormal = "NormalFloat",
+				InclineNormalNC = "NormalFloat",
+			},
+		},
+		ignore = {
+			buftypes = "special",
+			filetypes = {},
+			floating_wins = true,
+			unlisted_buffers = true,
+			wintypes = "special",
+		},
+		window = {
+			margin = {
+				horizontal = {
+					left = 1,
+					right = 1,
+				},
+				vertical = {
+					bottom = 0,
+					top = 1,
+				},
+			},
+			options = {
+				signcolumn = "no",
+				wrap = false,
+			},
+			padding = {
+				left = 1,
+				right = 1,
+			},
+			padding_char = " ",
+			placement = {
+				horizontal = "right",
+				vertical = "top",
+			},
+			width = "fit",
+			winhighlight = {
+				active = {
+					EndOfBuffer = "None",
+					Normal = "InclineNormal",
+					Search = "None",
+				},
+				inactive = {
+					EndOfBuffer = "None",
+					Normal = "InclineNormalNC",
+					Search = "None",
+				},
+			},
+			zindex = 50,
 		},
 	})
 end

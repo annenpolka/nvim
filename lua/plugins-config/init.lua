@@ -685,7 +685,6 @@ require("packer").startup({
 		})
 		-- dedicated statusline with global one
 		use({
-			disable = true,
 			"b0o/incline.nvim",
 			config = function()
 				require("plugins-config.incline").config()
