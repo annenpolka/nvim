@@ -80,14 +80,19 @@ local ensure_installed = {
 	"tsserver",
 	"volar",
 	"emmet_ls",
+	"prosemd_lsp",
 }
 lsp_installer.setup({ ensure_installed = ensure_installed })
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
 -- Enable the following language servers with common_opts
-local servers = { "sumneko_lua", "omnisharp", "html", "tsserver", "volar", "emmet_ls" }
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup(common_opts)
+for _, lsp in ipairs(ensure_installed) do
+	local ignore_server_list = { "rust_analyzer", "clangd" } -- setup with dedicated plugins
+	for _, ignore_server in ipairs(ignore_server_list) do
+		if lsp ~= ignore_server then
+			lspconfig[lsp].setup(common_opts)
+		end
+	end
 end
 
 -- rust-analyzer config
