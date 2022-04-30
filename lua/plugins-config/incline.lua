@@ -45,7 +45,7 @@ function M.config()
 			padding_char = " ",
 			placement = {
 				horizontal = "right",
-				vertical = "top",
+				vertical = "bottom",
 			},
 			width = "fit",
 			winhighlight = {
