@@ -213,16 +213,14 @@ local formatter_predefined = {
 	null_ls.builtins.formatting.prettier.with({
 		prefer_local = "node_modules/.bin",
 	}),
-	-- stylua
+	-- stylua for lua
 	null_ls.builtins.formatting.stylua,
-	-- rust
-	-- null_ls.builtins.formatting.rustfmt, -- rust_analyzer runs this
-	-- spellcheck by cspell
-	-- null_ls.builtins.diagnostics.cspell,
-	-- spellsuggest completion
-	-- null_ls.builtins.completion.spell,
 	-- gitsigns integration
 	null_ls.builtins.code_actions.gitsigns,
+	-- markdown tools
+	null_ls.builtins.code_actions.proselint, -- english prose linter
+	null_ls.builtins.diagnostics.write_good, -- also english prose linter
+	null_ls.builtins.diagnostics.alex, -- polite writing diagnostics
 }
 for _, v in pairs(formatter_predefined) do
 	table.insert(formatter_managed, v)
