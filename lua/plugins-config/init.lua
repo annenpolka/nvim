@@ -308,7 +308,7 @@ require("packer").startup({
 			"ruifm/gitlinker.nvim",
 			requires = "nvim-lua/plenary.nvim",
 			config = function()
-				require("gitlinker").setup()
+				require("plugins-config.gitlinker").config()
 			end,
 			event = "BufRead",
 		})
