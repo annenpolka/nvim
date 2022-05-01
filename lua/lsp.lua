@@ -87,13 +87,45 @@ local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
 -- Enable the following language servers with common_opts
 for _, lsp in ipairs(ensure_installed) do
-	local ignore_server_list = { "rust_analyzer", "clangd" } -- setup with dedicated plugins
+	local ignore_server_list = { "rust_analyzer", "clangd", "sumneko_lua" } -- setup with dedicated settings
 	for _, ignore_server in ipairs(ignore_server_list) do
 		if lsp ~= ignore_server then
 			lspconfig[lsp].setup(common_opts)
 		end
 	end
 end
+
+-- sumneko_lua config
+-- Make runtime files discoverable to the server
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+lspconfig.sumneko_lua.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+				version = "LuaJIT",
+				-- Setup your lua path
+				path = runtime_path,
+			},
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			workspace = {
+				-- Make the server aware of Neovim runtime files
+				-- library = vim.api.nvim_get_runtime_file("", true),
+			},
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+})
 
 -- rust-analyzer config
 local rust_opts = { on_attach = on_attach, capabilities = capabilities }
