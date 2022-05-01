@@ -101,7 +101,7 @@ require("packer").startup({
 			config = function()
 				require("cosmic-ui").setup()
 			end,
-			event = "BufRead",
+			module = "cosmic-ui",
 		})
 		-- sudo
 		use({
@@ -1021,7 +1021,7 @@ require("packer").startup({
 		use({
 			"L3MON4D3/LuaSnip",
 			requires = { "hrsh7th/nvim-cmp" },
-			after = "nvim-cmp",
+			module = "luasnip",
 		})
 		-- snippets bundle
 		use({
