@@ -998,11 +998,21 @@ require("packer").startup({
 		--------------------------------------------------------------------------------
 		-- github copilot
 		use({
+			disable = true,
 			"github/copilot.vim",
 			setup = function()
 				require("plugins-config.copilot").config()
 			end,
 			event = "BufRead",
+		})
+		use({
+			"zbirenbaum/copilot.lua",
+			event = "BufRead",
+			config = function()
+				vim.schedule(function()
+					require("copilot").setup()
+				end)
+			end,
 		})
 		-- Snippets plugin
 		use({
