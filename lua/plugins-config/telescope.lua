@@ -87,6 +87,7 @@ function M.config()
 	require("project_nvim").setup({ manual_mode = true })
 	require("telescope").load_extension("projects")
 	require("telescope").load_extension("frecency")
+	require("telescope").load_extension("luasnip")
 end
 
 function M.map()

@@ -358,6 +358,10 @@ require("packer").startup({
 			"ahmedkhalf/project.nvim",
 			requires = "nvim-telescope/telescope.nvim",
 		})
+		use({
+			"benfowler/telescope-luasnip.nvim",
+			module = "telescope._extensions.luasnip", -- if you wish to lazy-load
+		})
 		-- fuzzy find many things
 		use({
 			disable = true,
