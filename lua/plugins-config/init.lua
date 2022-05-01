@@ -514,13 +514,14 @@ require("packer").startup({
 			"kana/vim-textobj-user",
 			requires = {
 				-- method chaining
-				"D4KU/vim-textobj-chainmember",
+				{ "D4KU/vim-textobj-chainmember", after = "vim-textobj-user" },
 				-- punctuation
 				-- "beloglazov/vim-textobj-punctuation",
 			},
 			setup = function()
 				require("plugins-config.textobj-user").map()
 			end,
+			event = "BufRead",
 		})
 
 		-- surrounding plugin
@@ -938,6 +939,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.trld").config()
 			end,
+			event = "BufRead",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
@@ -949,20 +951,21 @@ require("packer").startup({
 			end,
 			requires = {
 				-- -- cmp devicons appearance dependency
-				"onsails/lspkind-nvim",
+				{ "onsails/lspkind-nvim" },
 				-- -- cmp plugins
-				"hrsh7th/cmp-nvim-lsp",
-				"saadparwaiz1/cmp_luasnip",
-				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-nvim-lsp-document-symbol",
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-cmdline",
-				"ray-x/cmp-treesitter",
-				"octaltree/cmp-look",
-				"hrsh7th/cmp-nvim-lua",
-				"lukas-reineke/cmp-rg",
-				"lukas-reineke/cmp-under-comparator",
-				"hrsh7th/cmp-copilot",
+				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
+				{ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
+				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+				{ "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+				{ "ray-x/cmp-treesitter", after = "nvim-cmp" },
+				{ "octaltree/cmp-look", after = "nvim-cmp" },
+				{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+				{ "lukas-reineke/cmp-rg", after = "nvim-cmp" },
+				{ "lukas-reineke/cmp-under-comparator" },
+				-- "hrsh7th/cmp-copilot",
+				{ "zbirenbaum/copilot-cmp", after = "nvim-cmp" },
 			},
 			event = { "BufRead" },
 		})
