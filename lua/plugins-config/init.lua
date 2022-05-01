@@ -578,7 +578,7 @@ require("packer").startup({
 		})
 		-- tabout
 		use({
-			"abecodes/tabout.nvim",
+			"annenpolka/tabout.nvim",
 			config = function()
 				require("plugins-config.tabout").config()
 			end,
