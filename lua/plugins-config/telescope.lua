@@ -9,7 +9,13 @@ function M.config()
 				n = {
 					["l"] = "select_default",
 				},
-				i = {},
+				i = {
+					["<c-q>"] = function(prompt_bufnr) -- back to normal mode when qflist is opened
+						require("telescope.actions").smart_send_to_qflist(prompt_bufnr)
+						require("telescope.actions").open_qflist(prompt_bufnr)
+						vim.api.nvim_input("<esc>")
+					end,
+				},
 			},
 			layout_strategy = "vertical",
 			layout_config = {
