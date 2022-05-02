@@ -1164,14 +1164,6 @@ require("packer").startup({
 				require("plugins-config.todo-comments").config()
 			end,
 		})
-		-- highlighting the word under cursor
-		use({
-			"RRethy/vim-illuminate",
-			disable = true,
-			setup = function()
-				require("plugins-config.vim-illuminate").config()
-			end,
-		})
 		-- Autopair
 		use({
 			"windwp/nvim-autopairs",
