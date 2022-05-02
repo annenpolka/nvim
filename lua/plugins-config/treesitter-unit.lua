@@ -2,12 +2,15 @@ local M = {}
 
 function M.config()
 	-- toggle highlight by event
+	local group = vim.api.nvim_create_augroup("TSUnitToggle", { clear = true })
 	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "WinLeave" }, {
+		group = group,
 		callback = function()
 			require("treesitter-unit").disable_highlighting("TSUnit")
 		end,
 	})
 	vim.api.nvim_create_autocmd({ "CursorHold" }, {
+		group = group,
 		callback = function()
 			require("treesitter-unit").enable_highlighting("TSUnit")
 		end,
