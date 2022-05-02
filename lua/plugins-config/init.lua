@@ -924,6 +924,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.aerial").config()
 			end,
+			module = "aerial",
 		})
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
@@ -1205,6 +1206,7 @@ require("packer").startup({
 		-- Batch editing quickfix
 		use({
 			"gabrielpoca/replacer.nvim",
+			module = "replacer",
 		})
 		-- terminal integration
 		use({

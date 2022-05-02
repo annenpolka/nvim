@@ -3,8 +3,8 @@ function M.config()
 	-- Telescope
 	require("telescope").setup({
 		defaults = {
-			-- generic_sorter = require("telescope.sorters").get_fzy_sorter,
-			generic_sorter = require("mini.fuzzy").get_telescope_sorter,
+			-- generic_sorter = require("telescope.sorters").get_fzf_sorter,
+			-- generic_sorter = require("mini.fuzzy").get_telescope_sorter,
 			mappings = {
 				n = {
 					["l"] = "select_default",
@@ -87,7 +87,7 @@ function M.config()
 			},
 		},
 	})
-	-- require("telescope").load_extension("fzy_native")
+	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("file_browser")
 	require("telescope").load_extension("refactoring")
 	require("project_nvim").setup({ manual_mode = true })
