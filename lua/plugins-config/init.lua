@@ -214,7 +214,7 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.nredir").map()
 			end,
-			event = "BufRead",
+			cmd = "Nredir",
 		})
 		-- mkdir on save
 		use({
@@ -239,7 +239,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.sort").config()
 			end,
-			event = "BufRead",
+			cmd = "Sort",
 		})
 		-- readme viewer
 		use({
@@ -256,7 +256,7 @@ require("packer").startup({
 		-- git diff viewer
 		use({
 			"sindrets/diffview.nvim",
-			after = "neogit",
+			module = "diffview",
 		})
 		-- Magit-like git plugin
 		use({
@@ -324,7 +324,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.spectre").config()
 			end,
-			event = "BufWinEnter",
+			module = "spectre",
 		})
 		-- Automatic tags management
 		-- use{ "ludovicchabant/vim-gutentags" },
@@ -349,10 +349,12 @@ require("packer").startup({
 		use({
 			"nvim-telescope/telescope-file-browser.nvim",
 			requires = "nvim-telescope/telescope.nvim",
+			module = "telescope._extensions.file_browser",
 		})
 		use({
 			"nvim-telescope/telescope-frecency.nvim",
 			requires = { "nvim-telescope/telescope.nvim", "tami5/sqlite.lua" },
+			module = "telescope._extensions.frecency",
 		})
 		use({
 			"ahmedkhalf/project.nvim",
@@ -403,7 +405,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.vfiler").config()
 			end,
-			event = "BufRead",
+			cmd = "VFiler",
 		})
 		-- text-based filesystem edit
 		use({
@@ -436,16 +438,15 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.yanky").config()
 			end,
-			event = "BufRead",
+			after = "registers.nvim",
 		})
 		-- comment eyecandies
 		use({
 			"LudoPinelli/comment-box.nvim",
-			opt = true,
 			setup = function()
-				Lazyload_timer("comment-box.nvim")
 				require("plugins-config.comment-box").map()
 			end,
+			module = "comment-box",
 		})
 		-- buffer bookmarks
 		use({
@@ -859,6 +860,7 @@ require("packer").startup({
 		use({
 			"ThePrimeagen/refactoring.nvim",
 			requires = { "nvim-treesitter/nvim-treesitter" },
+			module = "telescope._extensions.refactoring",
 		})
 		-- Generate annotation
 		use({
@@ -1002,12 +1004,11 @@ require("packer").startup({
 		--------------------------------------------------------------------------------
 		-- github copilot
 		use({
-			disable = true,
 			"github/copilot.vim",
 			setup = function()
 				require("plugins-config.copilot").config()
 			end,
-			event = "BufRead",
+			cmd = "Copilot",
 		})
 		use({
 			"zbirenbaum/copilot.lua",
