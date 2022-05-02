@@ -342,9 +342,10 @@ require("packer").startup({
 			end,
 		})
 		use({
-			"nvim-telescope/telescope-fzy-native.nvim",
+			"nvim-telescope/telescope-fzf-native.nvim",
+			run = "make",
 			requires = "nvim-telescope/telescope.nvim",
-			disable = true,
+			module = "telescope._extensions.fzf",
 		})
 		use({
 			"nvim-telescope/telescope-file-browser.nvim",
