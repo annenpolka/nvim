@@ -1156,6 +1156,7 @@ require("packer").startup({
 				require("plugins-config.trouble").config()
 			end,
 		})
+		-- todo highlight
 		use({
 			-- "folke/todo-comments.nvim",
 			"robertgzr/todo-comments.nvim", -- PR of commandline window error
