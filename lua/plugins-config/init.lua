@@ -799,6 +799,7 @@ require("packer").startup({
 		})
 		-- treesitter-based context viewer
 		use({
+			disable = true,
 			"lewis6991/nvim-treesitter-context",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
