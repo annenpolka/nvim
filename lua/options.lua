@@ -1,5 +1,5 @@
 -- Copy to system clipboard
--- vim.o.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
 
 -- autoread
 vim.g.autoread = true
