@@ -1204,6 +1204,14 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- prettier quickfix
+		use({
+			"https://gitlab.com/yorickpeterse/nvim-pqf",
+			config = function()
+				require("pqf").setup()
+			end,
+			event = "BufRead",
+		})
 		-- Batch editing quickfix
 		use({
 			"gabrielpoca/replacer.nvim",
