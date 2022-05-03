@@ -51,6 +51,9 @@ function M.config()
 				-- theme = "dropdown",
 				initial_mode = "insert",
 			},
+			help_tags = {
+				initial_mode = "insert",
+			},
 			tags = {
 				-- theme = "ivy",
 			},
