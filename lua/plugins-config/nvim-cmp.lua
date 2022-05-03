@@ -84,7 +84,7 @@ function M.config()
 			},
 			{
 				name = "copilot",
-				priority = 10,
+				priority = 100,
 			},
 			{
 				name = "rg",
