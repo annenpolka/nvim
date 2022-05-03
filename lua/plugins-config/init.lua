@@ -1257,6 +1257,17 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- translator
+		use({
+			"voldikss/vim-translator",
+			setup = function()
+				require("plugins-config.translator").map()
+			end,
+			config = function()
+				require("plugins-config.translator").config()
+			end,
+			cmd = { "TranslateW", "TranslateH" },
+		})
 		-- json viewer
 		use({
 			"gennaro-tedesco/nvim-jqx",
