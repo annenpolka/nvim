@@ -159,14 +159,6 @@ require("packer").startup({
 			end,
 			event = "InsertEnter",
 		})
-		-- Better line number jump with peek
-		use({
-			"nacro90/numb.nvim",
-			config = function()
-				require("plugins-config.numb").config()
-			end,
-			event = "CmdlineEnter",
-		})
 		-- mouse gestures
 		use({
 			disable = true,
