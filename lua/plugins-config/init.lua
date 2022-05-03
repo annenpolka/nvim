@@ -525,7 +525,14 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-
+		-- go to scope's edge
+		use({
+			"haya14busa/vim-edgemotion",
+			setup = function()
+				require("plugins-config.edgemotion").map()
+			end,
+			event = "BufRead",
+		})
 		-- surrounding plugin
 		use({
 			"machakann/vim-sandwich",
