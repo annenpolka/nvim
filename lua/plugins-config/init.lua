@@ -647,7 +647,8 @@ require("packer").startup({
 			"FrenzyExists/aquarium-vim",
 			disable = true,
 			config = function()
-				-- require("plugins-config.aquarium").config()
+				require("plugins-config.aquarium").config()
+				-- vim.cmd([[colorscheme aquarium]])
 			end,
 		})
 		-- low-contrast themes
