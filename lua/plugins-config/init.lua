@@ -92,7 +92,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.dressing").config()
 			end,
-			requires = "nvim-telescope/telescope.nvim",
 		})
 		-- UI for code action, rename
 		use({
@@ -325,6 +324,33 @@ require("packer").startup({
 			"nvim-telescope/telescope.nvim",
 			requires = {
 				"echasnovski/mini.nvim", -- for fuzzy sorter
+				-- sorter
+				{
+					"nvim-telescope/telescope-fzf-native.nvim",
+					run = "make",
+					module = "telescope._extensions.fzf",
+				},
+				-- file browser
+				{
+					"nvim-telescope/telescope-file-browser.nvim",
+					module = "telescope._extensions.file_browser",
+				},
+				-- frecency (frequency/recent)
+				{
+					"nvim-telescope/telescope-frecency.nvim",
+					requires = { "nvim-telescope/telescope.nvim", "tami5/sqlite.lua" },
+					module = "telescope._extensions.frecency",
+				},
+				-- luasnip snippet viewer
+				{
+					"benfowler/telescope-luasnip.nvim",
+					module = "telescope._extensions.luasnip", -- if you wish to lazy-load
+				},
+				-- refactoring support
+				{
+					"ThePrimeagen/refactoring.nvim",
+					module = "telescope._extensions.refactoring",
+				},
 			},
 			setup = function()
 				require("plugins-config.telescope").map()
@@ -332,30 +358,12 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.telescope").config()
 			end,
+			event = "BufRead",
 		})
-		use({
-			"nvim-telescope/telescope-fzf-native.nvim",
-			run = "make",
-			requires = "nvim-telescope/telescope.nvim",
-			module = "telescope._extensions.fzf",
-		})
-		use({
-			"nvim-telescope/telescope-file-browser.nvim",
-			requires = "nvim-telescope/telescope.nvim",
-			module = "telescope._extensions.file_browser",
-		})
-		use({
-			"nvim-telescope/telescope-frecency.nvim",
-			requires = { "nvim-telescope/telescope.nvim", "tami5/sqlite.lua" },
-			module = "telescope._extensions.frecency",
-		})
+		-- project manager
 		use({
 			"ahmedkhalf/project.nvim",
-			requires = "nvim-telescope/telescope.nvim",
-		})
-		use({
-			"benfowler/telescope-luasnip.nvim",
-			module = "telescope._extensions.luasnip", -- if you wish to lazy-load
+			requires = { "nvim-telescope/telescope.nvim", opt = 1 },
 		})
 		-- fuzzy find many things
 		use({
@@ -856,12 +864,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.nvim-treehopper").config()
 			end,
-		})
-		-- refactoring support
-		use({
-			"ThePrimeagen/refactoring.nvim",
-			requires = { "nvim-treesitter/nvim-treesitter" },
-			module = "telescope._extensions.refactoring",
 		})
 		-- Generate annotation
 		use({
