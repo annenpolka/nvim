@@ -1269,6 +1269,14 @@ require("packer").startup({
 			end,
 			cmd = { "TranslateW", "TranslateH" },
 		})
+		-- open url / search in browser,
+		use({
+			"tyru/open-browser.vim",
+			setup = function()
+				require("plugins-config.open-browser").map()
+			end,
+			event = "BufRead",
+		})
 		-- json viewer
 		use({
 			"gennaro-tedesco/nvim-jqx",
