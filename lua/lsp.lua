@@ -73,6 +73,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 local lsp_installer = require("nvim-lsp-installer")
 local ensure_installed = {
 	"sumneko_lua",
+	"vimls",
 	"rust_analyzer",
 	"clangd",
 	"omnisharp",
