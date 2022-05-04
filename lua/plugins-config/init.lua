@@ -1013,6 +1013,7 @@ require("packer").startup({
 				{ "zbirenbaum/copilot-cmp", after = "nvim-cmp" },
 			},
 			event = { "BufRead" },
+			commit = "bba6fb6",
 		})
 		--------------------------------------------------------------------------------
 		-- ddc.vim, denops-based completion
