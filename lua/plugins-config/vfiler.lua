@@ -8,7 +8,9 @@ function M.config()
 			filter_choose_window = function(winids)
 				return vim.tbl_filter(function(winid)
 					local buffer = vim.api.nvim_win_get_buf(winid)
-					return vim.api.nvim_buf_get_option(buffer, "filetype") ~= "incline"
+					-- don't include incline's window
+					local is_choosable = vim.api.nvim_buf_get_option(buffer, "filetype") ~= "incline"
+					return is_choosable
 				end, winids)
 			end,
 		},
