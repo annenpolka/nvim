@@ -2,6 +2,18 @@ local M = {}
 
 function M.config()
 	local action = require("vfiler/action")
+	-- window picker hook filter
+	require("vfiler/action").setup({
+		hook = {
+			filter_choose_window = function(winids)
+				return vim.tbl_filter(function(winid)
+					local buffer = vim.api.nvim_win_get_buf(winid)
+					return vim.api.nvim_buf_get_option(buffer, "filetype") ~= "incline"
+				end, winids)
+			end,
+		},
+	})
+	-- options
 	require("vfiler/config").setup({
 		options = {
 			auto_cd = true,
