@@ -4,7 +4,7 @@ function M.config()
 	require("mini.indentscope").setup({
 		draw = {
 			delay = 100,
-			animation = require("mini.indentscope").gen_animation("quadraticOut", { duration = 5, unit = "step" }),
+			animation = require("mini.indentscope").gen_animation("quadraticInOut", { duration = 5, unit = "step" }),
 			-- animation = require("mini.indentscope").gen_animation("none"),
 		},
 		-- Module mappings. Use `''` (empty string) to disable one.
@@ -26,7 +26,7 @@ function M.config()
 		-- symbol = "",
 	})
 
-	--- highlight
+	-- highlight
 	local h = function(...)
 		vim.api.nvim_set_hl(0, ...)
 	end
