@@ -441,6 +441,17 @@ require("packer").startup({
 			end,
 			after = "registers.nvim",
 		})
+		-- Autopair
+		use({
+			"windwp/nvim-autopairs",
+			opt = true,
+			setup = function()
+				Lazyload_timer("nvim-autopairs", 100)
+			end,
+			config = function()
+				require("plugins-config.autopairs").config()
+			end,
+		})
 		-- comment eyecandies
 		use({
 			"LudoPinelli/comment-box.nvim",
@@ -594,6 +605,31 @@ require("packer").startup({
 			end,
 			event = "InsertEnter",
 		})
+		-- Zen mode
+		use({
+			"folke/zen-mode.nvim",
+			setup = function()
+				require("plugins-config.zen-mode").map()
+			end,
+			config = function()
+				require("plugins-config.zen-mode").config()
+			end,
+			cmd = "ZenMode",
+		})
+		-- region buffer window
+		use({
+			"hoschi/yode-nvim",
+			require = {
+				"nvim-lua/plenary.nvim",
+			},
+			setup = function()
+				require("plugins-config.yode").map()
+			end,
+			config = function()
+				require("plugins-config.yode").config()
+			end,
+			event = "BufRead",
+		})
 		-- better blockwise visual mode bindings
 		use({
 			"kana/vim-niceblock",
@@ -604,6 +640,7 @@ require("packer").startup({
 			"lfilho/cosco.vim",
 			event = "BufRead",
 		})
+		-- wiser paste
 		use({
 			disable = true,
 			"AckslD/nvim-anywise-reg.lua",
@@ -1170,17 +1207,6 @@ require("packer").startup({
 				require("plugins-config.todo-comments").config()
 			end,
 		})
-		-- Autopair
-		use({
-			"windwp/nvim-autopairs",
-			opt = true,
-			setup = function()
-				Lazyload_timer("nvim-autopairs", 100)
-			end,
-			config = function()
-				require("plugins-config.autopairs").config()
-			end,
-		})
 		-- project file anchor
 		use({
 			"ThePrimeagen/harpoon",
@@ -1231,31 +1257,6 @@ require("packer").startup({
 				require("plugins-config.toggleterm").config()
 			end,
 			event = "BufWinEnter",
-		})
-		-- Zen mode
-		use({
-			"folke/zen-mode.nvim",
-			setup = function()
-				require("plugins-config.zen-mode").map()
-			end,
-			config = function()
-				require("plugins-config.zen-mode").config()
-			end,
-			cmd = "ZenMode",
-		})
-		-- region buffer window
-		use({
-			"hoschi/yode-nvim",
-			require = {
-				"nvim-lua/plenary.nvim",
-			},
-			setup = function()
-				require("plugins-config.yode").map()
-			end,
-			config = function()
-				require("plugins-config.yode").config()
-			end,
-			event = "BufRead",
 		})
 		-- translator
 		use({
