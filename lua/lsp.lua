@@ -14,7 +14,7 @@ vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]]) -- format on exit
 
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	local opts = { noremap = true, silent = true }
+	local opts = { buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
