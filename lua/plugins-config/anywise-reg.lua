@@ -5,11 +5,11 @@ function M.config()
 		operators = { "y", "d", "c" },
 		textobjects = {
 			{ "i", "a" },
-			{ "w", "W", "f", "F", "c", "m", "b" },
+			{ "w", "W", "f", "F", "s", "m", "b", "i", "{", '"' },
 		},
 		paste_keys = {
-			["x"] = "p",
-			["X"] = "P",
+			["P"] = "p",
+			-- ["X"] = "P",
 		},
 		register_print_cmd = true,
 	})
