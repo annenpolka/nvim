@@ -55,10 +55,20 @@ local palettes = {
 		fg = terafox_palette.fg0,
 		fg_sec = terafox_palette.fg3,
 	},
+	sherbet = {
+		-- TODO: set sherbet palette
+		accent = "#d4d4d4",
+		accent_sec = "#89DCEB",
+		bg = "#13151b",
+		bg_sec = "#13151b",
+		bg_third = "#201D31",
+		fg = "#D9E0EE",
+		fg_sec = "#C3BAC6",
+	},
 }
 
 function M.config()
-	local palette = palettes.terafox
+	local palette = palettes.sherbet
 	local filename = require("tabby.filename")
 	local util = require("tabby.util")
 	local cwd = function()
@@ -78,14 +88,17 @@ function M.config()
 		hl = { fg = palette.fg, bg = palette.bg },
 		layout = "active_wins_at_tail",
 		head = {
-			{ cwd, hl = { fg = palette.bg_sec, bg = palette.accent } },
-			{ "", hl = { fg = palette.accent, bg = palette.bg } },
+			{ cwd, hl = { fg = palette.accent, bg = palette.bg } },
+			-- { cwd, hl = { fg = palette.bg_sec, bg = palette.accent } },
+			{ "", hl = { fg = palette.bg, bg = palette.bg } },
+			-- { "", hl = { fg = palette.accent, bg = palette.bg } },
 		},
 		active_tab = {
 			label = function(tabid)
 				return {
 					" " .. tabname(tabid) .. " ",
-					hl = { fg = palette.fg, bg = palette.bg_third, style = "bold" },
+					hl = { fg = palette.accent_sec, bg = palette.bg_third, style = "bold" },
+					-- hl = { fg = palette.fg, bg = palette.bg_third, style = "bold" },
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
@@ -105,7 +118,8 @@ function M.config()
 			label = function(winid)
 				return {
 					"  " .. filename.unique(winid) .. " ",
-					hl = { fg = palette.fg, bg = palette.bg_third },
+					hl = { fg = palette.accent_sec, bg = palette.bg_third },
+					-- hl = { fg = palette.fg, bg = palette.bg_third },
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
@@ -122,8 +136,10 @@ function M.config()
 			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		tail = {
-			{ "", hl = { fg = palette.accent, bg = palette.bg } },
-			{ "  ", hl = { fg = palette.bg, bg = palette.accent } },
+			{ "", hl = { fg = palette.bg, bg = palette.bg } },
+			-- { "", hl = { fg = palette.accent, bg = palette.bg } },
+			{ "  ", hl = { fg = palette.accent, bg = palette.bg } },
+			-- { "  ", hl = { fg = palette.bg, bg = palette.accent } },
 		},
 	}
 	require("tabby").setup({ tabline = line })
