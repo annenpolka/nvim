@@ -37,16 +37,8 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 	vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 	vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
-	-- lsp_signature initialize
-	-- -- format before saving
 	vim.api.nvim_create_user_command("FormatBuiltin", vim.lsp.buf.formatting_seq_sync, {})
-	-- vim.api.nvim_create_autocmd("BufWritePre", {
-	-- 	desc = "Format buffer before saving",
-	-- 	callback = function()
-	-- 		vim.lsp.buf.formatting_sync()
-	-- 	end,
-	-- 	buffer = bufnr,
-	-- })
+	-- attach lsp-format.nvim
 	require("lsp-format").on_attach(client)
 	-- attach aerial
 	require("aerial").on_attach(client, bufnr)
