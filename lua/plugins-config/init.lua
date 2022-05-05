@@ -93,15 +93,6 @@ require("packer").startup({
 				require("plugins-config.dressing").config()
 			end,
 		})
-		-- UI for code action, rename
-		use({
-			"CosmicNvim/cosmic-ui",
-			requires = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-			config = function()
-				require("cosmic-ui").setup()
-			end,
-			module = "cosmic-ui",
-		})
 		-- sudo
 		use({
 			"lambdalisue/suda.vim",
