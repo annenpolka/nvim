@@ -67,8 +67,39 @@ vim.keymap.set("n", "<C-h>", "K", { noremap = true })
 vim.keymap.set("x", "<C-h>", "K", { noremap = true })
 vim.o.keywordprg = ":help"
 
---Plugin Keybindings-----------------------------------------------------------------------
--- require plugin's mappings function
-local m = function(name)
-	return string.format("plugins-config.%s", name)
+-- ╭──────────────────────────────────────────────────────────╮
+-- │                   textobject mappings                    │
+-- ╰──────────────────────────────────────────────────────────╯
+local function basic_text_objects()
+	local chars = {
+		"_",
+		".",
+		":", --[[ ",", ]]
+		";",
+		"|",
+		"/",
+		"\\",
+		"*",
+		"+",
+		"%",
+		"`",
+		"?",
+	}
+	for _, char in ipairs(chars) do
+		for _, mode in ipairs({ "x", "o" }) do
+			vim.keymap.set(
+				mode,
+				"i" .. char,
+				string.format(":<C-u>normal! T%svt%s<CR>", char, char),
+				{ noremap = true, silent = true }
+			)
+			vim.keymap.set(
+				mode,
+				"a" .. char,
+				string.format(":<C-u>normal! F%svf%s<CR>", char, char),
+				{ noremap = true, silent = true }
+			)
+		end
+	end
 end
+basic_text_objects()
