@@ -667,7 +667,7 @@ require("packer").startup({
 			"EdenEast/nightfox.nvim",
 			config = function()
 				require("plugins-config.nightfox").config()
-				vim.cmd([[colorscheme terafox]])
+				-- vim.cmd([[colorscheme terafox]])
 			end,
 		})
 		-- Everforest theme
@@ -711,8 +711,8 @@ require("packer").startup({
 		use({
 			"lewpoly/sherbet.nvim",
 			config = function()
-				-- vim.cmd([[colorscheme sherbet]])
-				-- vim.cmd("hi TabLine gui=NONE")
+				vim.cmd([[colorscheme sherbet]])
+				vim.cmd("hi TabLine gui=NONE")
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
