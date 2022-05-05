@@ -14,7 +14,7 @@ vim.cmd([[cabbrev wq execute "Format sync" <bar> wq]]) -- format on exit
 
 local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-	local opts = { noremap = true, silent = true }
+	local opts = { buffer = bufnr }
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 	vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
@@ -29,26 +29,16 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 	-- vim.keymap.set("n", "<leader>rn", "<Cmd>lua require('cosmic-ui').rename()<CR>", opts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-	-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-	-- vim.keymap.set("v", "<Leader>ca", ":<C-u>lua vim.lsp.buf.range_code_action()<CR>", { silent = true })
-	vim.keymap.set("n", "<leader>ca", '<cmd>lua require("cosmic-ui").code_actions()<cr>')
-	vim.keymap.set("v", "<leader>ca", ':<C-u>lua require("cosmic-ui").range_code_actions()<cr>')
+	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+	vim.keymap.set("v", "<Leader>ca", ":<C-u>lua vim.lsp.buf.range_code_action()<CR>", { silent = true })
 	vim.keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, opts)
 	-- diagnostic keymap
 	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 	vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 	vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
-	-- lsp_signature initialize
-	-- -- format before saving
 	vim.api.nvim_create_user_command("FormatBuiltin", vim.lsp.buf.formatting_seq_sync, {})
-	-- vim.api.nvim_create_autocmd("BufWritePre", {
-	-- 	desc = "Format buffer before saving",
-	-- 	callback = function()
-	-- 		vim.lsp.buf.formatting_sync()
-	-- 	end,
-	-- 	buffer = bufnr,
-	-- })
+	-- attach lsp-format.nvim
 	require("lsp-format").on_attach(client)
 	-- attach aerial
 	require("aerial").on_attach(client, bufnr)

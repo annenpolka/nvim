@@ -84,7 +84,7 @@ function M.config()
 			},
 			{
 				name = "copilot",
-				priority = 100,
+				priority = 1000,
 			},
 			{
 				name = "rg",
@@ -138,10 +138,10 @@ function M.config()
 				function(...)
 					return cmp_buffer:compare_locality(...)
 				end,
-				cmp.config.compare.offset,
-				cmp.config.compare.locality,
 				cmp.config.compare.recently_used,
 				cmp.config.compare.score,
+				cmp.config.compare.offset,
+				cmp.config.compare.locality,
 				cmp.config.compare.exact,
 				require("cmp-under-comparator").under,
 				cmp.config.compare.kind,

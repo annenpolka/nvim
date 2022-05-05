@@ -93,15 +93,6 @@ require("packer").startup({
 				require("plugins-config.dressing").config()
 			end,
 		})
-		-- UI for code action, rename
-		use({
-			"CosmicNvim/cosmic-ui",
-			requires = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-			config = function()
-				require("cosmic-ui").setup()
-			end,
-			module = "cosmic-ui",
-		})
 		-- sudo
 		use({
 			"lambdalisue/suda.vim",
@@ -505,11 +496,11 @@ require("packer").startup({
 		})
 		-- Faster f/f
 		use({
-			disable = true,
 			"ggandor/lightspeed.nvim",
 			setup = function()
 				require("plugins-config.lightspeed").map()
 			end,
+			event = "BufRead",
 		})
 		-- easymotion next-level
 		use({
@@ -774,6 +765,9 @@ require("packer").startup({
 		-- small modules package
 		use({
 			"echasnovski/mini.nvim",
+			setup = function()
+				require("plugins-config.mini-starter").map()
+			end,
 			config = function()
 				-- greeter
 				require("plugins-config.mini-starter").config()
@@ -782,7 +776,7 @@ require("packer").startup({
 				-- cursorword highlighting
 				require("plugins-config.mini-cursorword").config()
 				-- clever-f
-				require("plugins-config.mini-jump").config()
+				-- require("plugins-config.mini-jump").config()
 				-- require("plugins-config.mini-surround").config()
 			end,
 		})
