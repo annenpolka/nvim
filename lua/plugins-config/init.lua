@@ -509,6 +509,7 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.lightspeed").map()
 			end,
+			event = "BufRead",
 		})
 		-- easymotion next-level
 		use({
