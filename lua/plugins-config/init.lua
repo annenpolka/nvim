@@ -651,6 +651,7 @@ require("packer").startup({
 		})
 		-- wiser paste
 		use({
+			disable = true,
 			"AckslD/nvim-anywise-reg.lua",
 			setup = function()
 				require("plugins-config.anywise-reg").map()
