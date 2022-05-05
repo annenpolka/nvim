@@ -73,8 +73,9 @@ vim.o.keywordprg = ":help"
 local function basic_text_objects()
 	local chars = {
 		"_",
-		".",
-		":", --[[ ",", ]]
+		-- ".",
+		":",
+		",",
 		";",
 		"|",
 		"/",
@@ -90,13 +91,13 @@ local function basic_text_objects()
 			vim.keymap.set(
 				mode,
 				"i" .. char,
-				string.format(":<C-u>normal! T%svt%s<CR>", char, char),
+				string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char),
 				{ noremap = true, silent = true }
 			)
 			vim.keymap.set(
 				mode,
 				"a" .. char,
-				string.format(":<C-u>normal! F%svf%s<CR>", char, char),
+				string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char),
 				{ noremap = true, silent = true }
 			)
 		end
