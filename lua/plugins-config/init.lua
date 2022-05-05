@@ -605,6 +605,15 @@ require("packer").startup({
 			end,
 			event = "InsertEnter",
 		})
+		use({
+			"monaqa/dial.nvim",
+			setup = function()
+				require("plugins-config.dial").map()
+			end,
+			config = function()
+				require("plugins-config.dial").config()
+			end,
+		})
 		-- Zen mode
 		use({
 			"folke/zen-mode.nvim",
