@@ -765,6 +765,9 @@ require("packer").startup({
 		-- small modules package
 		use({
 			"echasnovski/mini.nvim",
+			setup = function()
+				require("plugins-config.mini-starter").map()
+			end,
 			config = function()
 				-- greeter
 				require("plugins-config.mini-starter").config()
