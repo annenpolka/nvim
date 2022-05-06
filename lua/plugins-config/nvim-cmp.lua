@@ -15,7 +15,7 @@ function M.config()
 		},
 		window = {
 			-- completion = cmp.config.window.bordered(),
-			-- documentation = cmp.config.window.bordered(),
+			documentation = cmp.config.window.bordered(),
 		},
 		mapping = {
 			["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -76,7 +76,10 @@ function M.config()
 				},
 			},
 			{ name = "path" },
-			{ name = "luasnip" },
+			{
+				name = "luasnip",
+				priority = 10,
+			},
 			{ name = "nvim_lua" },
 			{
 				name = "treesitter",
