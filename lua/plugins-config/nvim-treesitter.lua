@@ -86,7 +86,7 @@ function M.config()
 			enable = true,
 			-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
 			extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-			max_file_lines = 300, -- Do not enable for files with more than n lines, int
+			max_file_lines = 2000, -- Do not enable for files with more than n lines, int
 			-- colors = {}, -- table of hex strings
 			-- termcolors = {} -- table of colour name strings
 		},
@@ -95,7 +95,7 @@ function M.config()
 			enable = true,
 		},
 		matchup = {
-			enable = true, -- mandatory, false will disable the whole extension
+			enable = false, -- mandatory, false will disable the whole extension
 			-- disable = { "c", "ruby" }, -- optional, list of language that will be disabled
 			-- [options]
 		},
