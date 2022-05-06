@@ -81,6 +81,13 @@ require("packer").startup({
 		})
 		-- mapping helper functions
 		use({ "b0o/mapx.nvim" })
+		-- submode mapping
+		use({
+			"kana/vim-submode",
+			setup = function()
+				vim.g.submode_keep_leaving_key = true
+			end,
+		})
 		-- extended dot repeat
 		use({ "tpope/vim-repeat" })
 		---------------------------------------------------------------------------------
@@ -430,6 +437,7 @@ require("packer").startup({
 			end,
 			config = function()
 				require("plugins-config.yanky").config()
+				require("plugins-config.yanky").cycle_mode()
 			end,
 			after = "registers.nvim",
 		})
