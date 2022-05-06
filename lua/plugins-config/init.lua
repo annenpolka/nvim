@@ -46,6 +46,7 @@ require("packer").startup({
 		})
 		-- faster matchparen
 		use({
+			-- disable = true, -- won't work with vim-matchup
 			"monkoose/matchparen.nvim",
 			config = function()
 				require("plugins-config.matchparen").config()
