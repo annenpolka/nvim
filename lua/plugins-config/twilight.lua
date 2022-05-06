@@ -23,7 +23,7 @@ function M.config()
 end
 
 function M.map()
-	nnoremap("<C-z>", ":Twilight<CR>")
+	-- nnoremap("<C-z>", ":Twilight<CR>")
 end
 
 return M
