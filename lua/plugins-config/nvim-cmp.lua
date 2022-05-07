@@ -111,8 +111,17 @@ function M.config()
 		formatting = {
 			-- devicons by lspkind
 			format = lspkind.cmp_format({
-				with_text = true, -- do not show text alongside icons
+				mode = "symbol_text",
 				maxwidth = 50,
+				-- avoid duplicates
+				before = function(entry, vim_item)
+					vim_item.dup = ({
+						buffer = 0,
+						path = 1,
+						nvim_lsp = 0,
+					})[entry.source.name] or 0
+					return vim_item
+				end,
 				menu = {
 					buffer = "[Buf]",
 					nvim_lsp = "[LSP]",
@@ -124,15 +133,6 @@ function M.config()
 					treesitter = "[TS]",
 					copilot = "[Copilot]",
 				},
-				-- avoid duplicates
-				before = function(entry, vim_item)
-					vim_item.dup = ({
-						buffer = 0,
-						path = 1,
-						nvim_lsp = 0,
-					})[entry.source.name] or 0
-					return vim_item
-				end,
 			}),
 		},
 
