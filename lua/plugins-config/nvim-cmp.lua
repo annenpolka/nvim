@@ -2,6 +2,8 @@ local M = {}
 
 function M.config()
 	local cmp = require("cmp")
+	local types = require("cmp.types")
+	local str = require("cmp.utils.str")
 	local cmp_buffer = require("cmp_buffer")
 	local luasnip = require("luasnip")
 	local lspkind = require("lspkind")
@@ -113,13 +115,30 @@ function M.config()
 			format = lspkind.cmp_format({
 				mode = "symbol_text",
 				maxwidth = 50,
-				-- avoid duplicates
+				-- preset = "codicons",
+
 				before = function(entry, vim_item)
+					-- avoid duplicates
 					vim_item.dup = ({
 						buffer = 0,
 						path = 1,
 						nvim_lsp = 0,
 					})[entry.source.name] or 0
+
+					-- Get the full snippet (and only keep first line)
+					local word = entry:get_insert_text()
+					if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet then
+						word = vim.lsp.util.parse_snippet(word)
+					end
+					word = str.oneline(word)
+					if
+						entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet
+						and string.sub(vim_item.abbr, -1, -1) == "~"
+					then
+						word = word .. "~"
+					end
+					vim_item.abbr = word
+
 					return vim_item
 				end,
 				menu = {
