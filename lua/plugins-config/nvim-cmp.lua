@@ -121,16 +121,16 @@ function M.config()
 					treesitter = "[TS]",
 					copilot = "[Copilot]",
 				},
+				-- avoid duplicates
+				before = function(entry, vim_item)
+					vim_item.dup = ({
+						buffer = 0,
+						path = 1,
+						nvim_lsp = 0,
+					})[entry.source.name] or 0
+					return vim_item
+				end,
 			}),
-			-- avoid duplicates
-			function(entry, vim_item)
-				vim_item.dup = ({
-					buffer = 0,
-					path = 1,
-					nvim_lsp = 0,
-				})[entry.source.name] or 0
-				return vim_item
-			end,
 		},
 
 		sorting = {
