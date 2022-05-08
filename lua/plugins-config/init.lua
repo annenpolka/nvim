@@ -722,7 +722,7 @@ require("packer").startup({
 			"lewpoly/sherbet.nvim",
 			config = function()
 				vim.cmd([[colorscheme sherbet]])
-				vim.cmd("hi TabLine gui=NONE")
+				require("plugins-config.sherbet").config()
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
