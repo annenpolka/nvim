@@ -36,14 +36,6 @@ require("packer").startup({
 		use({ "lewis6991/impatient.nvim" })
 		-- faster filetype
 		use({ "nathom/filetype.nvim" })
-		-- improved matchit
-		use({
-			disable = true,
-			"andymass/vim-matchup",
-			setup = function()
-				require("plugins-config.matchup").config()
-			end,
-		})
 		-- faster matchparen
 		use({
 			-- disable = true, -- won't work with vim-matchup
@@ -157,19 +149,6 @@ require("packer").startup({
 			end,
 			event = "InsertEnter",
 		})
-		-- mouse gestures
-		use({
-			disable = true,
-			"notomo/gesture.nvim",
-			opt = true,
-			setup = function()
-				require("plugins-config.gesture").map()
-				Lazyload_timer("gesture.nvim")
-			end,
-			config = function()
-				require("plugins-config.gesture").config()
-			end,
-		})
 		-- readline keybindings in insert mode
 		use({
 			"tpope/vim-rsi",
@@ -258,14 +237,6 @@ require("packer").startup({
 				require("plugins-config.neogit").config()
 			end,
 			cmd = "Neogit",
-		})
-		-- full-featured git plugin
-		use({
-			"lambdalisue/gin.vim",
-			requires = {
-				"vim-denops/denops.vim",
-			},
-			after = { "denops.vim" },
 		})
 		-- Add git related info in the signs columns and popups
 		use({
@@ -385,13 +356,6 @@ require("packer").startup({
 				"Shougo/ddu-kind-word",
 			},
 			after = "denops.vim",
-		})
-		-- fzf UI
-		use({
-			disable = true,
-			"ibhagwan/fzf-lua",
-			-- optional for icon support
-			requires = { "kyazdani42/nvim-web-devicons" },
 		})
 		-- 2-panes file explorer
 		use({
@@ -605,6 +569,7 @@ require("packer").startup({
 			end,
 			event = "InsertEnter",
 		})
+		-- increment/decrement improved
 		use({
 			"monaqa/dial.nvim",
 			setup = function()
@@ -647,18 +612,6 @@ require("packer").startup({
 		-- insert comma or semi-colon
 		use({
 			"lfilho/cosco.vim",
-			event = "BufRead",
-		})
-		-- wiser paste
-		use({
-			disable = true,
-			"AckslD/nvim-anywise-reg.lua",
-			setup = function()
-				require("plugins-config.anywise-reg").map()
-			end,
-			config = function()
-				require("plugins-config.anywise-reg").config()
-			end,
 			event = "BufRead",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
@@ -737,7 +690,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.tabby").config()
 			end,
-			after = "nightfox.nvim",
 		})
 		-- Fancier statusline
 		use({
@@ -953,9 +905,7 @@ require("packer").startup({
 		use({ "williamboman/nvim-lsp-installer" })
 
 		-- async formatting
-		use({
-			"lukas-reineke/lsp-format.nvim",
-		})
+		use({ "lukas-reineke/lsp-format.nvim" })
 		-- rust lsp tools
 		use({
 			"simrat39/rust-tools.nvim",
@@ -1023,39 +973,10 @@ require("packer").startup({
 				{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
 				{ "lukas-reineke/cmp-rg", after = "nvim-cmp" },
 				{ "lukas-reineke/cmp-under-comparator" },
-				-- "hrsh7th/cmp-copilot",
+				-- { "hrsh7th/cmp-copilot" },
 				{ "zbirenbaum/copilot-cmp", after = "nvim-cmp" },
 			},
 			event = { "BufRead" },
-		})
-		--------------------------------------------------------------------------------
-		-- ddc.vim, denops-based completion
-		use({
-			disable = true, -- enable when ddc is ready
-			"Shougo/ddc.vim",
-			requires = {
-				"vim-denops/denops.vim",
-				-- non-native completion menu
-				"Shougo/pum.vim",
-				-- show candidates' docs with floating window
-				"matsui54/denops-popup-preview.vim",
-				-- matchers
-				"tani/ddc-fuzzy",
-				-- sources
-				"Shougo/ddc-nvim-lsp",
-				"Shougo/ddc-around",
-				"matsui54/ddc-buffer",
-				"LumaKernel/ddc-file",
-				-- snippets
-				"hrsh7th/vim-vsnip",
-				"hrsh7th/vim-vsnip-integ",
-			},
-			setup = function()
-				require("plugins-config.ddc").map()
-			end,
-			config = function()
-				require("plugins-config.ddc").config()
-			end,
 		})
 		--------------------------------------------------------------------------------
 		-- github copilot
