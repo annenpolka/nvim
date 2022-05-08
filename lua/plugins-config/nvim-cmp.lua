@@ -34,14 +34,14 @@ function M.config()
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
 			}),
-			["<C-k>"] = function(fallback)
+			["<C-k>"] = cmp.mapping(function(fallback)
 				if luasnip.expand_or_jumpable() then
 					luasnip.expand_or_jump()
 				else
 					fallback()
 				end
-			end,
-			["<Tab>"] = function(fallback)
+			end, { "i", "c", "s" }),
+			["<Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
 				elseif luasnip.expand_or_jumpable() then
@@ -49,8 +49,8 @@ function M.config()
 				else
 					fallback()
 				end
-			end,
-			["<S-Tab>"] = function(fallback)
+			end, { "i", "c", "s" }),
+			["<S-Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
 				elseif luasnip.jumpable(-1) then
@@ -58,7 +58,7 @@ function M.config()
 				else
 					fallback()
 				end
-			end,
+			end, { "i", "c", "s" }),
 		},
 		sources = {
 			{
