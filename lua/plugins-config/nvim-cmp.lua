@@ -98,7 +98,7 @@ function M.config()
 				indexing_interval = 500,
 				indexing_batch_size = 1500,
 				option = {
-					keyword_pattern = [[\k\+]], -- isKeyword
+					keyword_pattern = [[\k\+]], -- iskeyword
 					get_bufnrs = function() -- all buffers
 						return vim.api.nvim_list_bufs()
 					end,
