@@ -1046,6 +1046,18 @@ require("packer").startup({
 			requires = { "skywind3000/asyncrun.vim" },
 			after = "asyncrun.vim",
 		})
+		-- vscode-like task runner
+		use({
+			"jedrzejboczar/toggletasks.nvim",
+			requires = {
+				{ "nvim-lua/plenary.nvim", opt = 1 },
+				{ "akinsho/toggleterm.nvim", opt = 1 },
+				{ "nvim-telescope/telescope.nvim", opt = 1 },
+			},
+			config = function()
+				require("plugins-config.toggletasks").config()
+			end,
+		})
 		-- block code snippet runner
 		use({
 			"michaelb/sniprun",
