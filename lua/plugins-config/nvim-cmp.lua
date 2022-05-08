@@ -1,12 +1,39 @@
 local M = {}
 
+local icons = {
+	Text = "",
+	Method = "",
+	Function = "",
+	Constructor = "⌘",
+	Field = "ﰠ",
+	Variable = "",
+	Class = "ﴯ",
+	Interface = "",
+	Module = "",
+	Property = "ﰠ",
+	Unit = "塞",
+	Value = "",
+	Enum = "",
+	Keyword = "廓",
+	Snippet = "",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "",
+	EnumMember = "",
+	Constant = "",
+	Struct = "פּ",
+	Event = "",
+	Operator = "",
+	TypeParameter = "",
+}
+
 function M.config()
 	local cmp = require("cmp")
 	local types = require("cmp.types")
 	local str = require("cmp.utils.str")
 	local cmp_buffer = require("cmp_buffer")
 	local luasnip = require("luasnip")
-	local lspkind = require("lspkind")
 	require("snippets") -- load snippets
 
 	cmp.setup({
@@ -116,50 +143,54 @@ function M.config()
 			keyword_length = 1,
 		},
 		formatting = {
-			-- devicons by lspkind
-			format = lspkind.cmp_format({
-				mode = "symbol_text",
-				maxwidth = 50,
-				-- preset = "codicons",
+			fields = { "kind", "abbr", "menu" },
+			format = function(entry, vim_item)
+				-- menu formatting with `kind` and `source name`
+				vim_item.menu = string.format(
+					"%s %s",
+					-- item kind text
+					vim_item.kind,
+					-- source name
+					({
+						buffer = "[Buf]",
+						nvim_lsp = "[LSP]",
+						look = "[Look]",
+						luasnip = "[LuaSnip]",
+						nvim_lua = "[neovim]",
+						rg = "[rg]",
+						path = "[path]",
+						treesitter = "[TS]",
+						copilot = "[Cop]",
+					})[entry.source.name] or ""
+				)
 
-				before = function(entry, vim_item)
-					-- avoid duplicates
-					vim_item.dup = ({
-						buffer = 0,
-						path = 1,
-						nvim_lsp = 0,
-					})[entry.source.name] or 0
+				-- show icon as kind
+				vim_item.kind = icons[vim_item.kind]
 
-					-- Get the full snippet (and only keep first line)
-					local word = entry:get_insert_text()
-					if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet then
-						word = vim.lsp.util.parse_snippet(word)
-					end
-					word = str.oneline(word)
-					if
-						entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet
-						and string.sub(vim_item.abbr, -1, -1) == "~"
-					then
-						word = word .. "~"
-					end
-					vim_item.abbr = word
+				-- Get the full snippet (and only keep first line)
+				local word = entry:get_insert_text()
+				if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet then
+					word = vim.lsp.util.parse_snippet(word)
+				end
+				word = str.oneline(word)
+				if
+					entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet
+					and string.sub(vim_item.abbr, -1, -1) == "~"
+				then
+					word = word .. "~"
+				end
+				vim_item.abbr = word
 
-					return vim_item
-				end,
-				menu = {
-					buffer = "[Buf]",
-					nvim_lsp = "[LSP]",
-					look = "[Look]",
-					luasnip = "[LuaSnip]",
-					nvim_lua = "[Neovim]",
-					rg = "[rg]",
-					path = "[path]",
-					treesitter = "[TS]",
-					copilot = "[Copilot]",
-				},
-			}),
+				-- avoid duplicates
+				vim_item.dup = ({
+					buffer = 0,
+					path = 1,
+					nvim_lsp = 0,
+				})[entry.source.name] or 0
+
+				return vim_item
+			end,
 		},
-
 		sorting = {
 			comparators = {
 				function(...)
