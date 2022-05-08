@@ -110,6 +110,11 @@ function M.config()
 				},
 			},
 		},
+		completion = {
+			-- completeopt = "menu,menuone,noinsert",
+			keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
+			keyword_length = 1,
+		},
 		formatting = {
 			-- devicons by lspkind
 			format = lspkind.cmp_format({
