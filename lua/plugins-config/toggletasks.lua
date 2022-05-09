@@ -18,7 +18,7 @@ function M.config()
 			tab_cwd = true, -- vim.fn.getcwd(-1, tab)
 			win_cwd = true, -- vim.fn.getcwd(win)
 			lsp_root = true, -- root_dir for first LSP available for the buffer
-			dirs = { "~/.config/nvim" }, -- explicit list of directories to search
+			dirs = { vim.fn.stdpath("config") }, -- explicit list of directories to search
 		},
 		-- Language server priorities when selecting lsp_root (default is 0)
 		lsp_priorities = {
