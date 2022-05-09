@@ -1,12 +1,12 @@
 local M = {}
 
 function M.config()
-	vim.g.CtrlSpaceDefaultMappingKey = "<leader>z "
+	vim.g.CtrlSpaceDefaultMappingKey = "<leader>Z "
 	vim.g.CtrlSpaceUseTabline = 0
 	vim.g.CtrlSpaceSearchTiming = 50
-	vim.g.CtrlSpaceSaveWorkspaceOnExit = 0
+	vim.g.CtrlSpaceSaveWorkspaceOnExit = 1
 	vim.g.CtrlSpaceLoadLastWorkspaceOnStart = 0
-	vim.g.CtrlSpaceSaveWorkspaceOnSwitch = 0
+	vim.g.CtrlSpaceSaveWorkspaceOnSwitch = 1
 end
 
 function M.map()

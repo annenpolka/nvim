@@ -330,6 +330,15 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- tab workspace
+		use({
+			disable = true,
+			"vim-ctrlspace/vim-ctrlspace",
+			setup = function()
+				require("plugins-config.vim-ctrlspace").map()
+				require("plugins-config.vim-ctrlspace").config()
+			end,
+		})
 		-- project manager
 		use({
 			"ahmedkhalf/project.nvim",
