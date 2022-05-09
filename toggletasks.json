@@ -1,0 +1,14 @@
+{
+    "tasks": [
+        {
+            "name": "Echo example",
+            "cmd": "echo 'Current file = ${file}'"
+        },
+        {
+            "name": "build file",
+            "cmd": "clang++ -std=c++14 -g -Wall '${file}' -o '${file_noext}' -lstdc++ -lm -msse3",
+            "cwd": "${global_cwd}",
+            "tags": ["cpp"]
+        }
+    ]
+}

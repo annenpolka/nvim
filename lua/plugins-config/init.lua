@@ -1066,6 +1066,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.toggletasks").config()
 			end,
+			event = "BufRead",
 		})
 		-- block code snippet runner
 		use({
