@@ -141,8 +141,24 @@ require("rust-tools").setup({
 })
 
 -- clangd config
+local clangd_opts = { on_attach = on_attach, capabilities = capabilities }
+clangd_opts.cmd = {
+	-- see clangd --help-hidden
+	"clangd",
+	"--background-index",
+	"--pch-storage=memory",
+	"--enable-config", -- clangd 11+ supports reading from .clangd configuration file
+	"--fallback-style=Google",
+	"--clang-tidy",
+	-- "--clang-tidy-checks=*", deprecated, use `.clang-tidy` file for project, `~/.config/clangd/config.yaml` for global
+	"--all-scopes-completion",
+	"--completion-style=bundled",
+	"--cross-file-rename",
+	"--header-insertion=iwyu",
+}
+
 require("clangd_extensions").setup({
-	server = common_opts,
+	server = clangd_opts,
 	extensions = {
 		-- defaults:
 		-- Automatically set inlay hints (type hints)
