@@ -156,7 +156,6 @@ clangd_opts.cmd = {
 	"--cross-file-rename",
 	"--header-insertion=iwyu",
 }
-
 require("clangd_extensions").setup({
 	server = clangd_opts,
 	extensions = {
