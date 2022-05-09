@@ -6,6 +6,7 @@ end
 function M.config()
 	require("toggleterm").setup({
 		open_mapping = [[<c-Space>]],
+		direction = "float",
 	})
 	-- lazygit terminal
 	local Terminal = require("toggleterm.terminal").Terminal
