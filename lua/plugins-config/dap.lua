@@ -26,6 +26,9 @@ function M.config()
 	-- ╰──────────────────────────────────────────────────────────╯
 	-- open quickfix automatically
 	vim.g.asyncrun_open = 6
+	vim.g.asynctasks_extra_config = {
+		vim.fn.stdpath("config") .. "/tasks.ini",
+	}
 
 	-- execute compile task on save
 	vim.api.nvim_command([[autocmd BufWritePost * silent! AsyncTask file-build]])
