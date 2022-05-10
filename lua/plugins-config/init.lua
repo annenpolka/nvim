@@ -1053,6 +1053,9 @@ require("packer").startup({
 		use({
 			"skywind3000/asynctasks.vim",
 			requires = { "skywind3000/asyncrun.vim" },
+			setup = function()
+				require("plugins-config.asynctasks").config()
+			end,
 			after = "asyncrun.vim",
 		})
 		-- vscode-like task runner
