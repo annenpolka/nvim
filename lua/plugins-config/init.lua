@@ -326,7 +326,9 @@ require("packer").startup({
 					"jvgrootveld/telescope-zoxide",
 					module = "telescope._extensions.zoxide",
 					requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
-					config = require("plugins-config.telescope-zoxide").config(),
+					config = function()
+						require("plugins-config.telescope-zoxide").config()
+					end,
 				},
 			},
 			setup = function()
