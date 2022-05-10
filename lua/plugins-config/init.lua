@@ -1065,6 +1065,14 @@ require("packer").startup({
 			end,
 			after = "asyncrun.vim",
 		})
+		use({
+			"GustavoKatel/telescope-asynctasks.nvim",
+			requires = {
+				{ "nvim-telescope/telescope.nvim", opt = 1 },
+				{ "skywind3000/asynctasks.vim", opt = 1 },
+			},
+			module = "telescope._extensions.asynctasks",
+		})
 		-- vscode-like task runner
 		use({
 			"jedrzejboczar/toggletasks.nvim",

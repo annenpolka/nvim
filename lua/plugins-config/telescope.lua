@@ -98,6 +98,7 @@ function M.config()
 	require("telescope").load_extension("projects")
 	require("telescope").load_extension("frecency")
 	require("telescope").load_extension("luasnip")
+	require("telescope").load_extension("asynctasks")
 end
 
 function M.map()
