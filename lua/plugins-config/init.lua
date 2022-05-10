@@ -389,7 +389,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.dirbuf").config()
 			end,
-			cmd = "Dirbuf",
+			-- cmd = "Dirbuf",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                       text editing                       │
