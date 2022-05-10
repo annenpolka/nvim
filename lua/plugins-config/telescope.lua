@@ -157,6 +157,12 @@ function M.map()
 	)
 	vim.keymap.set(
 		"n",
+		"<leader>sz",
+		[[<cmd>Telescope zoxide list initial_mode=insert<CR>]],
+		{ noremap = true, silent = true }
+	)
+	vim.keymap.set(
+		"n",
 		"<leader>?",
 		[[<cmd>lua require('telescope.builtin').oldfiles()<CR>]],
 		{ noremap = true, silent = true }

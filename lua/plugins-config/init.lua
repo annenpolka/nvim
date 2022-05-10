@@ -321,6 +321,13 @@ require("packer").startup({
 					"ThePrimeagen/refactoring.nvim",
 					module = "telescope._extensions.refactoring",
 				},
+				-- zoxide integration
+				{
+					"jvgrootveld/telescope-zoxide",
+					module = "telescope._extensions.zoxide",
+					requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
+					config = require("plugins-config.telescope-zoxide").config(),
+				},
 			},
 			setup = function()
 				require("plugins-config.telescope").map()
