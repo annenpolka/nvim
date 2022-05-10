@@ -1268,6 +1268,14 @@ require("packer").startup({
 			requires = "vim-denops/denops.vim",
 			after = "denops.vim",
 		})
+		-- launch vscode with current workspace
+		use({
+			"elijahmanor/export-to-vscode.nvim",
+			module = "export-to-vscode",
+			setup = function()
+				vim.api.nvim_create_user_command("Code", "lua require('export-to-vscode').launch()", {})
+			end,
+		})
 		-- cpbooster, competitive programming cli tool
 		use({
 			"searleser97/cpbooster.vim",
