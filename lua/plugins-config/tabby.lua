@@ -108,7 +108,7 @@ function M.config()
 			label = function(tabid)
 				return {
 					" " .. tabname(tabid) .. " ",
-					hl = { fg = palette.fg_sec, bg = palette.bg_sec, style = "" },
+					hl = { fg = palette.fg_sec, bg = palette.bg_sec, style = "none" },
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
