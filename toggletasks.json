@@ -6,7 +6,7 @@
         },
         {
             "name": "build file",
-            "cmd": "clang++ -std=c++14 -g -Wall '${file}' -o '${file_noext}' -lstdc++ -lm -msse3",
+            "cmd": "clang++ -std=c++14 -g -Wall '${file}' -o '${file:t:r}' -lstdc++ -lm -msse3",
             "cwd": "${global_cwd}",
             "tags": ["cpp"]
         }
