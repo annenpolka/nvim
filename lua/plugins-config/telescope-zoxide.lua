@@ -22,7 +22,6 @@ function M.config()
 			["<C-v>"] = { action = z_utils.create_basic_command("vsplit") },
 			-- ["<C-e>"] = { action = z_utils.create_basic_command("edit") },
 			["<C-e>"] = {
-				keepinsert = true,
 				action = function(selection)
 					vim.cmd("VFiler" .. " " .. selection.path .. " " .. "-layout=floating")
 				end,
@@ -30,7 +29,7 @@ function M.config()
 			["<CR>"] = {
 				keepinsert = true,
 				action = function(selection)
-					builtin.find_files({ cwd = selection.path })
+					builtin.fd({ cwd = selection.path })
 				end,
 			},
 		},
