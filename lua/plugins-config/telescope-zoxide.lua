@@ -20,14 +20,14 @@ function M.config()
 			},
 			["<C-s>"] = { action = z_utils.create_basic_command("split") },
 			["<C-v>"] = { action = z_utils.create_basic_command("vsplit") },
-			["<C-e>"] = { action = z_utils.create_basic_command("edit") },
-			["<C-b>"] = {
+			-- ["<C-e>"] = { action = z_utils.create_basic_command("edit") },
+			["<C-e>"] = {
 				keepinsert = true,
 				action = function(selection)
-					builtin.file_browser({ cwd = selection.path[0] })
+					vim.cmd("VFiler" .. " " .. selection.path .. " " .. "-layout=floating")
 				end,
 			},
-			["<C-f>"] = {
+			["<CR>"] = {
 				keepinsert = true,
 				action = function(selection)
 					builtin.find_files({ cwd = selection.path })
