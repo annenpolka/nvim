@@ -26,8 +26,6 @@ Lazyload_timer = function(plugin, timer)
 	end
 end
 
--- enable luarocks
-require("packer.luarocks").install_commands()
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                      plugins loading                     │
 -- ╰──────────────────────────────────────────────────────────╯
