@@ -26,6 +26,8 @@ Lazyload_timer = function(plugin, timer)
 	end
 end
 
+-- enable luarocks
+require("packer.luarocks").install_commands()
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                      plugins loading                     │
 -- ╰──────────────────────────────────────────────────────────╯
@@ -1066,6 +1068,7 @@ require("packer").startup({
 				{ "akinsho/toggleterm.nvim", opt = 1 },
 				{ "nvim-telescope/telescope.nvim", opt = 1 },
 			},
+			rocks = "lyaml",
 			config = function()
 				require("plugins-config.toggletasks").config()
 			end,
