@@ -67,6 +67,7 @@ local ensure_installed = {
 	"rust_analyzer",
 	"clangd",
 	"omnisharp",
+	"pyright",
 	"html",
 	"tsserver",
 	"volar",
