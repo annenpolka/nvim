@@ -91,10 +91,12 @@ function M.config()
 			{
 				name = "nvim_lsp",
 				max_item_count = 30,
+				priority = 1,
 			},
 			{
 				name = "buffer",
 				max_item_count = 10,
+				priority = -1,
 				indexing_interval = 500,
 				indexing_batch_size = 1500,
 				option = {
@@ -112,6 +114,7 @@ function M.config()
 			{ name = "nvim_lua" },
 			{
 				name = "treesitter",
+				priority = -1,
 				max_item_count = 10,
 			},
 			{
