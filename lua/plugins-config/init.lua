@@ -120,6 +120,14 @@ require("packer").startup({
 			end,
 			cmd = { "Sayonara", "Sayonara!" },
 		})
+		-- locking a buffer to specific window
+		use({
+			"stevearc/stickybuf.nvim",
+			config = function()
+				require("plugins-config.stickybuf").config()
+			end,
+			event = "BufRead",
+		})
 		-- stabilize open/close window behavior
 		use({
 			"luukvbaal/stabilize.nvim",
