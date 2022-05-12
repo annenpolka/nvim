@@ -14,6 +14,7 @@ function M.config()
 			quickfix = "buftype",
 			terminal = false,
 			prompt = "bufnr",
+			incline = "bufnr",
 		},
 		wintype = {
 			autocmd = false,
