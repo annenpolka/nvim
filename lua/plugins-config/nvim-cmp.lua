@@ -145,11 +145,20 @@ function M.config()
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
 			format = function(entry, vim_item)
+				-- return type if available, otherwise return item kind
+				local function get_kind()
+					local item = entry:get_completion_item()
+					if item.detail then
+						return item.detail
+					else
+						return vim_item.kind
+					end
+				end
 				-- menu formatting with `kind` and `source name`
 				vim_item.menu = string.format(
 					"%s %s",
 					-- item kind text
-					vim_item.kind,
+					get_kind(),
 					-- source name
 					({
 						buffer = "[Buf]",
