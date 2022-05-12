@@ -72,7 +72,7 @@ function M.config()
 	local filename = require("tabby.filename")
 	local util = require("tabby.util")
 	local cwd = function()
-		return "  " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
+		return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
 	end
 	local webicon = function(name)
 		local icon = require("nvim-web-devicons").get_icon(name) or ""
@@ -88,7 +88,7 @@ function M.config()
 		hl = { fg = palette.fg, bg = palette.bg },
 		layout = "active_wins_at_tail",
 		head = {
-			{ cwd, hl = { fg = palette.accent, bg = palette.bg } },
+			{ cwd, hl = { fg = palette.accent, bg = palette.bg, style = "italic" } },
 			-- { cwd, hl = { fg = palette.bg_sec, bg = palette.accent } },
 			{ "", hl = { fg = palette.bg, bg = palette.bg } },
 			-- { "", hl = { fg = palette.accent, bg = palette.bg } },
