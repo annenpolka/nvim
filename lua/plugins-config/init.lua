@@ -147,6 +147,19 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- scratch buffer
+		use({
+			"mtth/scratch.vim",
+			setup = function()
+				require("plugins-config.scratch").config()
+				require("plugins-config.scratch").map()
+			end,
+			cmd = {
+				"Scratch",
+				"ScratchSelection",
+				"ScratchInsert",
+			},
+		})
 		-- automatic indent detection
 		use({ "tpope/vim-sleuth" })
 		-- Better Escape
