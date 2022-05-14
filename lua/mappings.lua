@@ -36,7 +36,7 @@ vim.keymap.set("x", "<C-K>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true
 nnoremap("<C-c>", "<Nop>")
 
 -- open commandline buffer
-nnoremap("<leader>cc", "q:")
+-- nnoremap("<leader>cc", "q:")
 
 -- bnext/bprev
 vim.keymap.set("n", "^", ":bnext<CR>", { noremap = true, silent = true })

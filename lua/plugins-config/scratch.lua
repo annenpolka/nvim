@@ -14,10 +14,10 @@ function M.config()
 end
 
 function M.map()
-	nmap("<leader>gs", ":Scratch<CR>")
-	nmap("<leader>gS", ":Scratch!<CR>")
-	xmap("<leader>gs", ":ScratchSelection<CR>")
-	xmap("<leader>gS", ":ScratchSelection!<CR>")
+	nmap("<leader>cc", ":Scratch<CR>")
+	nmap("<leader>C", ":Scratch!<CR>")
+	xmap("<leader>cc", ":ScratchSelection<CR>")
+	xmap("<leader>C", ":ScratchSelection!<CR>")
 end
 
 return M
