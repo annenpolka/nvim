@@ -141,7 +141,7 @@ function M.config()
 			},
 		},
 		completion = {
-			completeopt = "menu,menuone,noinsert",
+			completeopt = "menu,menuone,noinsert,noselect",
 			keyword_pattern = [[\%(-\?\d\+\%(\.\d\+\)\?\|\h\w*\%(-\w*\)*\)]],
 			keyword_length = 1,
 		},
