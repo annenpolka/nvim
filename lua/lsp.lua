@@ -66,6 +66,7 @@ local ensure_installed = {
 	"vimls",
 	"rust_analyzer",
 	"clangd",
+	"gopls",
 	"omnisharp",
 	"pyright",
 	"html",
