@@ -130,17 +130,17 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 -- )
 
 -- load project local settings
-vim.cmd([[
-  function! Vimrc_local(loc)
-    let files = findfile('vimrc.lua', escape(a:loc, ' ') . ';', -1)
-    for i in reverse(filter(files, 'filereadable(v:val)'))
-      source `=i`
-    endfor
-  endfunction
- ]])
-vim.cmd([[
-  augroup vimrcLocal
-    autocmd!
-    autocmd BufNewFile,BufReadPost * call Vimrc_local(expand('<afile>:p:h'))
-  augroup END
-]])
+-- vim.cmd([[
+--   function! Vimrc_local(loc)
+--     let files = findfile('vimrc.lua', escape(a:loc, ' ') . ';', -1)
+--     for i in reverse(filter(files, 'filereadable(v:val)'))
+--       source `=i`
+--     endfor
+--   endfunction
+--  ]])
+-- vim.cmd([[
+--   augroup vimrcLocal
+--     autocmd!
+--     autocmd BufNewFile,BufReadPost * call Vimrc_local(expand('<afile>:p:h'))
+--   augroup END
+-- ]])
