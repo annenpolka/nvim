@@ -74,6 +74,7 @@ local ensure_installed = {
 	"volar",
 	"emmet_ls",
 	"prosemd_lsp",
+	"dockerls",
 }
 lsp_installer.setup({ ensure_installed = ensure_installed })
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
