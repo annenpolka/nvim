@@ -421,6 +421,29 @@ require("packer").startup({
 			end,
 			-- cmd = "Dirbuf",
 		})
+		-- buffer/tabpage/marker/colorscheme picker
+		use({
+			"toppair/reach.nvim",
+			setup = function()
+				require("plugins-config.reach").map()
+			end,
+			config = function()
+				require("plugins-config.reach").config()
+			end,
+			event = "BufRead",
+		})
+		-- project file anchor
+		use({
+			"ThePrimeagen/harpoon",
+			opt = true,
+			setup = function()
+				require("plugins-config.harpoon").map()
+				Lazyload_timer("harpoon", 0)
+			end,
+			config = function()
+				require("plugins-config.harpoon").config()
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                       text editing                       │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -1204,18 +1227,6 @@ require("packer").startup({
 			end,
 			config = function()
 				require("plugins-config.todo-comments").config()
-			end,
-		})
-		-- project file anchor
-		use({
-			"ThePrimeagen/harpoon",
-			opt = true,
-			setup = function()
-				require("plugins-config.harpoon").map()
-				Lazyload_timer("harpoon", 0)
-			end,
-			config = function()
-				require("plugins-config.harpoon").config()
 			end,
 		})
 		-- Better quickfix
