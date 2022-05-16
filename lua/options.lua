@@ -123,6 +123,14 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	end,
 })
 
+-- workaround dockerfile's filetype problem (set to `Dockerfile` by default)
+vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
+	pattern = "dockerfile",
+	callback = function()
+		vim.cmd("setfiletype dockerfile")
+	end,
+})
+
 -- save cursor position
 -- -- now using harpoon's store offset
 -- vim.cmd(
