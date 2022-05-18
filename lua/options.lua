@@ -131,24 +131,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
 	end,
 })
 
--- save cursor position
--- -- now using harpoon's store offset
--- vim.cmd(
--- [[autocmd BufReadPost * if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]]
--- )
-
--- load project local settings
--- vim.cmd([[
---   function! Vimrc_local(loc)
---     let files = findfile('vimrc.lua', escape(a:loc, ' ') . ';', -1)
---     for i in reverse(filter(files, 'filereadable(v:val)'))
---       source `=i`
---     endfor
---   endfunction
---  ]])
--- vim.cmd([[
---   augroup vimrcLocal
---     autocmd!
---     autocmd BufNewFile,BufReadPost * call Vimrc_local(expand('<afile>:p:h'))
---   augroup END
--- ]])
+-- start insert mode automatically when TermOpen
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
+	pattern = "*",
+	callback = function()
+		vim.cmd("startinsert")
+	end,
+})
