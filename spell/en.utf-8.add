@@ -310,3 +310,5 @@ buftype
 zoxide
 stickybuf
 devcontainer
+submode
+repl

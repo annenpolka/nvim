@@ -4,6 +4,9 @@ vim.o.clipboard = "unnamedplus"
 -- autoread
 vim.g.autoread = true
 
+-- virtualedit
+vim.b.virtualedit = "block"
+
 -- Show cursorline
 vim.wo.cursorline = true
 vim.wo.cursorcolumn = false
