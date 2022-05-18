@@ -1051,11 +1051,11 @@ require("packer").startup({
 		})
 		use({
 			"zbirenbaum/copilot.lua",
-			event = "BufRead",
+			event = "VimEnter",
 			config = function()
 				vim.schedule(function()
 					require("copilot").setup()
-				end)
+				end, 100)
 			end,
 		})
 		-- Snippets plugin
