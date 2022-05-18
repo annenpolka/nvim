@@ -67,6 +67,9 @@ vim.keymap.set("n", "<C-h>", "K", { noremap = true })
 vim.keymap.set("x", "<C-h>", "K", { noremap = true })
 vim.o.keywordprg = ":help"
 
+-- terminal mode leave insert
+vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
+
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                   textobject mappings                    │
 -- ╰──────────────────────────────────────────────────────────╯
