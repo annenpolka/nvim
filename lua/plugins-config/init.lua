@@ -1152,6 +1152,13 @@ require("packer").startup({
 				"TestLast",
 			},
 		})
+		-- interactive REPL for various filetypes
+		use({
+			"hkupty/iron.nvim",
+			config = function()
+				require("plugins-config.iron").config()
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           Misc                           │
 		-- ╰──────────────────────────────────────────────────────────╯
