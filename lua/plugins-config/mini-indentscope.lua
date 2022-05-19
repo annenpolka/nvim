@@ -4,7 +4,7 @@ function M.config()
 	require("mini.indentscope").setup({
 		draw = {
 			delay = 100,
-			animation = require("mini.indentscope").gen_animation("quadraticInOut", { duration = 5, unit = "step" }),
+			animation = require("mini.indentscope").gen_animation("quadraticInOut", { duration = 10, unit = "step" }),
 			-- animation = require("mini.indentscope").gen_animation("none"),
 		},
 		-- Module mappings. Use `''` (empty string) to disable one.
@@ -22,18 +22,23 @@ function M.config()
 			indent_at_cursor = false,
 			try_as_border = true,
 		},
-		symbol = "╎",
-		-- symbol = "",
+		-- symbol = "╎",
+		symbol = "",
 	})
 
 	-- highlight
 	local h = function(...)
 		vim.api.nvim_set_hl(0, ...)
 	end
-	-- Sync highlight color to indent_blankline
-	h("MiniIndentscopeSymbol", { link = "IndentBlanklineContextChar" })
-	-- space highlight
-	-- h("MiniIndentscopePrefix", { link = "PMenuSel" })
+	vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
+		pattern = "*",
+		callback = function()
+			-- Sync highlight color to indent_blankline
+			h("MiniIndentscopeSymbol", { link = "IndentBlanklineContextChar" })
+			-- space highlight
+			h("MiniIndentscopePrefix", { link = "PMenuSel" })
+		end,
+	})
 end
 
 return M
