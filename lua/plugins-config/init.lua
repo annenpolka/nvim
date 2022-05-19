@@ -246,7 +246,7 @@ require("packer").startup({
 		-- git diff viewer
 		use({
 			"sindrets/diffview.nvim",
-			module = "diffview",
+			event = "BufRead",
 		})
 		-- Magit-like git plugin
 		use({
