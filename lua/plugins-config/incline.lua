@@ -2,18 +2,25 @@ local M = {}
 
 function M.config()
 	require("incline").setup({
-		render = "basic",
 		debounce_threshold = {
 			falling = 50,
 			rising = 10,
 		},
 		hide = {
+			cursorline = false,
 			focused_win = false,
+			only_win = false,
 		},
 		highlight = {
 			groups = {
-				InclineNormal = "NormalFloat",
-				InclineNormalNC = "NormalFloat",
+				InclineNormal = {
+					default = true,
+					group = "NormalFloat",
+				},
+				InclineNormalNC = {
+					default = true,
+					group = "NormalFloat",
+				},
 			},
 		},
 		ignore = {
@@ -23,11 +30,21 @@ function M.config()
 			unlisted_buffers = true,
 			wintypes = "special",
 		},
+		render = function(props)
+			local bufname = vim.api.nvim_buf_get_name(props.buf)
+			local icon = require("nvim-web-devicons").get_icon(bufname) or ""
+			if bufname == "" then
+				return "[No name]"
+			else
+				bufname = icon .. " " .. vim.fn.fnamemodify(bufname, ":t")
+			end
+			return bufname
+		end,
 		window = {
 			margin = {
 				horizontal = {
-					left = 1,
-					right = 1,
+					left = 0,
+					right = 0,
 				},
 				vertical = {
 					bottom = 0,
