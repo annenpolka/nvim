@@ -141,3 +141,11 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
 		vim.cmd("startinsert")
 	end,
 })
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │                     global function                      │
+-- ╰──────────────────────────────────────────────────────────╯
+-- highlight
+_G.set_highlight = function(...)
+	vim.api.nvim_set_hl(0, ...)
+end

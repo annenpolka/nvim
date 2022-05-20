@@ -26,10 +26,6 @@ function M.config()
 		symbol = "",
 	})
 
-	-- highlight
-	local h = function(...)
-		vim.api.nvim_set_hl(0, ...)
-	end
 	vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
 		pattern = "*",
 		callback = function()
