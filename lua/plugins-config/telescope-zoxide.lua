@@ -26,6 +26,12 @@ function M.config()
 					vim.cmd("VFiler" .. " " .. selection.path .. " " .. "-layout=floating")
 				end,
 			},
+			["<C-f>"] = {
+				keepinsert = true,
+				action = function(selection)
+					builtin.live_grep({ cwd = selection.path })
+				end,
+			},
 			["<CR>"] = {
 				keepinsert = true,
 				action = function(selection)
