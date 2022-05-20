@@ -1325,6 +1325,15 @@ require("packer").startup({
 			requires = "vim-denops/denops.vim",
 			after = "denops.vim",
 		})
+		-- devcontainer emulation
+		use({
+			disable = true, -- wait till the plugin become stable
+			"esensar/nvim-dev-container",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+			config = function()
+				require("devcontainer").setup({})
+			end,
+		})
 		-- launch vscode with current workspace
 		use({
 			"elijahmanor/export-to-vscode.nvim",
