@@ -44,7 +44,7 @@ function M.config()
 			margin = {
 				horizontal = {
 					left = 0,
-					right = 0,
+					right = 1,
 				},
 				vertical = {
 					bottom = 0,
