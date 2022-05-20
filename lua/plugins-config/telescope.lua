@@ -33,7 +33,7 @@ function M.config()
 			},
 			initial_mode = "normal",
 			path_display = { "truncate" },
-			selection_strategy = "follow",
+			selection_strategy = "reset",
 			border = {},
 		},
 		pickers = {
