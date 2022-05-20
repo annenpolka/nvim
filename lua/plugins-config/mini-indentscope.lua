@@ -30,9 +30,9 @@ function M.config()
 		pattern = "*",
 		callback = function()
 			-- Sync highlight color to indent_blankline
-			h("MiniIndentscopeSymbol", { link = "IndentBlanklineContextChar" })
+			set_highlight("MiniIndentscopeSymbol", { link = "IndentBlanklineContextChar" })
 			-- space highlight
-			h("MiniIndentscopePrefix", { link = "PMenuSel" })
+			set_highlight("MiniIndentscopePrefix", { link = "PMenuSel" })
 		end,
 	})
 end
