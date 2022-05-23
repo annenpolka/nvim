@@ -10,7 +10,17 @@ function M.config()
 					local buffer = vim.api.nvim_win_get_buf(winid)
 					-- don't include incline's window
 					local buffer_filetype = vim.api.nvim_buf_get_option(buffer, "filetype")
-					local is_choosable = buffer_filetype ~= "incline"
+					local exclude_filetypes = {
+						"incline",
+						"vfiler",
+					}
+					local is_choosable = true
+					for _, exclude_filetype in pairs(exclude_filetypes) do
+						is_choosable = exclude_filetype ~= buffer_filetype
+						if not is_choosable then
+							break
+						end
+					end
 					return is_choosable
 				end, winids)
 			end,
