@@ -172,8 +172,16 @@ require("packer").startup({
 		})
 		-- readline keybindings in insert mode
 		use({
+			disable = true,
 			"tpope/vim-rsi",
 			event = "InsertEnter",
+		})
+		use({
+			"linty-org/readline.nvim",
+			config = function()
+				require("plugins-config.readline").map()
+			end,
+			event = "BufRead",
 		})
 		-- better gf
 		use({
