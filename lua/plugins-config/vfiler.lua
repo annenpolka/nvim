@@ -8,7 +8,6 @@ function M.config()
 			filter_choose_window = function(winids)
 				return vim.tbl_filter(function(winid)
 					local buffer = vim.api.nvim_win_get_buf(winid)
-					-- don't include incline's window
 					local buffer_filetype = vim.api.nvim_buf_get_option(buffer, "filetype")
 					local exclude_filetypes = {
 						"incline",
@@ -16,6 +15,7 @@ function M.config()
 					}
 					local is_choosable = true
 					for _, exclude_filetype in pairs(exclude_filetypes) do
+						-- don't include exclude_filetypes' window
 						is_choosable = exclude_filetype ~= buffer_filetype
 						if not is_choosable then
 							break
