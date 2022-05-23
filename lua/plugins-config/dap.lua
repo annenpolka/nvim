@@ -25,7 +25,7 @@ function M.config()
 	-- │                        asynctasks                        │
 	-- ╰──────────────────────────────────────────────────────────╯
 	-- execute compile task on save
-	vim.api.nvim_command([[autocmd BufWritePost * silent! AsyncTask file-build]])
+	-- vim.api.nvim_command([[autocmd BufWritePost * silent! AsyncTask file-build]])
 end
 
 function M.map()
@@ -47,6 +47,7 @@ function M.map()
 	nnoremap("<leader>dr", ":lua require'dap'.repl.open()<CR>", { silent = true })
 	nnoremap("<leader>dl", ":lua require'dap'.run_last()<CR>", { silent = true })
 	nnoremap("<leader>dd", ":lua require'dapui'.toggle()<CR>", { silent = true })
+	nnoremap("<leader>dc", "<Cmd>AsyncTask file-build<CR>", { silent = true })
 end
 
 return M
