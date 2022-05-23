@@ -35,7 +35,7 @@ require("packer").startup({
 		-- lua loading optimizer
 		use({ "lewis6991/impatient.nvim" })
 		-- faster filetype
-		use({ "nathom/filetype.nvim" })
+		-- use({ "nathom/filetype.nvim" })
 		-- faster matchparen
 		use({
 			-- disable = true, -- won't work with vim-matchup
