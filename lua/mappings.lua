@@ -39,8 +39,9 @@ nnoremap("<C-c>", "<Nop>")
 -- nnoremap("<leader>cc", "q:")
 
 -- bnext/bprev
-vim.keymap.set("n", "^", ":bnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "-", ":bprev<CR>", { noremap = true, silent = true })
+-- now using cybu.nvim
+-- vim.keymap.set("n", "^", ":bnext<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "-", ":bprev<CR>", { noremap = true, silent = true })
 
 -- noautocmd on macro execution
 vim.keymap.set("n", "@", [[<cmd>execute "noautocmd norm! " . v:count1 . "@" . getcharstr()<cr>]], { noremap = true })

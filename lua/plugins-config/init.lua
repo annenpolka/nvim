@@ -440,6 +440,18 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- buffer cycler
+		use({
+			"ghillb/cybu.nvim",
+			requires = { "kyazdani42/nvim-web-devicons" }, --optional
+			setup = function()
+				require("plugins-config.cybu").map()
+			end,
+			config = function()
+				require("plugins-config.cybu").config()
+			end,
+			event = "BufRead",
+		})
 		-- project file anchor
 		use({
 			"ThePrimeagen/harpoon",
