@@ -11,6 +11,9 @@ function M.config()
 			"table_constructor",
 			"function",
 			"if_statement",
+			"if_expression",
+			"if_let_expression",
+			"if_expression",
 			"else_clause",
 			"else_statement",
 			"elseif_statement",
@@ -22,6 +25,8 @@ function M.config()
 		right_hand_side = "jkl;oiu.,mpy/n",
 		icon_dictionary = {
 			["if_statement"] = "",
+			["if_expression"] = "",
+			["if_let_expression"] = "",
 			["else_clause"] = "",
 			["else_statement"] = "",
 			["elseif_statement"] = "",
@@ -51,7 +56,7 @@ function M.map()
 		stf.targeted_jump({ "function" })
 	end, opts)
 	vim.keymap.set("n", "gif", function() -- only jump to if_statements
-		stf.targeted_jump({ "if_statement" })
+		stf.targeted_jump({ "if_statement", "if_expression", "if_let_expression" })
 	end, opts)
 	vim.keymap.set("n", "gfo", function() -- only jump to for_statements
 		stf.targeted_jump({ "for_statement" })
@@ -61,6 +66,8 @@ function M.map()
 			"function",
 			"function_call",
 			"if_statement",
+			"if_expression",
+			"if_let_expression",
 			"else_clause",
 			"else_statement",
 			"elseif_statement",
@@ -99,7 +106,7 @@ function M.map()
 	-- end, opts)
 	-- vim.keymap.set("n", "your_keymap", function()
 	-- 	stf.filtered_jump({
-	-- 		"if_statement",
+	-- 		"if_statement","if_expression","if_let_expression",
 	-- 		"else_clause",
 	-- 		"else_statement",
 	-- 	}, false) --> false means jump backwards
@@ -111,18 +118,26 @@ function M.map()
 	vim.keymap.set("n", "-", function()
 		stf.filtered_jump({
 			"if_statement",
+			"if_expression",
+			"if_let_expression",
 			"else_clause",
 			"else_statement",
 		}, false, { destination = "siblings" })
 	end, opts)
 	vim.keymap.set("n", "=", function()
-		stf.filtered_jump({ "if_statement", "else_clause", "else_statement" }, true, { destination = "siblings" })
+		stf.filtered_jump(
+			{ "if_statement", "if_expression", "if_let_expression", "else_clause", "else_statement" },
+			true,
+			{ destination = "siblings" }
+		)
 	end, opts)
 
 	-- jump to parent or child nodes only
 	vim.keymap.set("n", "_", function()
 		stf.filtered_jump({
 			"if_statement",
+			"if_expression",
+			"if_let_expression",
 			"else_clause",
 			"else_statement",
 		}, false, { destination = "parent" })
@@ -130,6 +145,8 @@ function M.map()
 	vim.keymap.set("n", "+", function()
 		stf.filtered_jump({
 			"if_statement",
+			"if_expression",
+			"if_let_expression",
 			"else_clause",
 			"else_statement",
 		}, true, { destination = "children" })
