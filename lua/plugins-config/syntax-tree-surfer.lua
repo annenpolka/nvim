@@ -10,6 +10,9 @@ function M.config()
 			"variable_declaration",
 			"table_constructor",
 			"function",
+			"function_item",
+			"express_statement",
+			"macro_invocation",
 			"if_statement",
 			"if_expression",
 			"if_let_expression",
@@ -34,7 +37,10 @@ function M.config()
 			["while_statement"] = "ﯩ",
 			["switch_statement"] = "ﳟ",
 			["function"] = "",
+			["function_item"] = "",
 			["function_call"] = "",
+			["express_statement"] = "",
+			["macro_invocation"] = "",
 			["variable_declaration"] = "",
 			["arguments"] = "ﰠ",
 			["parameters"] = "ﰠ",
@@ -54,7 +60,7 @@ function M.map()
 		stf.targeted_jump({ "variable_declaration" })
 	end, opts)
 	vim.keymap.set("n", "gfu", function() -- only jump to functions
-		stf.targeted_jump({ "function" })
+		stf.targeted_jump({ "function", "function_item" })
 	end, opts)
 	vim.keymap.set("n", "gif", function() -- only jump to if_statements
 		stf.targeted_jump({ "if_statement", "if_expression", "if_let_expression" })
@@ -65,7 +71,10 @@ function M.map()
 	vim.keymap.set("n", "gj", function() -- jump to all that you specify
 		stf.targeted_jump({
 			"function",
+			"function_item",
 			"function_call",
+			"express_statement",
+			"macro_invocation",
 			"if_statement",
 			"if_expression",
 			"if_let_expression",
