@@ -115,22 +115,22 @@ function M.map()
 	-------------------------------
 	-- jump with limited targets --
 	-- jump to sibling nodes only
-	vim.keymap.set("n", "-", function()
-		stf.filtered_jump({
-			"if_statement",
-			"if_expression",
-			"if_let_expression",
-			"else_clause",
-			"else_statement",
-		}, false, { destination = "siblings" })
-	end, opts)
-	vim.keymap.set("n", "=", function()
-		stf.filtered_jump(
-			{ "if_statement", "if_expression", "if_let_expression", "else_clause", "else_statement" },
-			true,
-			{ destination = "siblings" }
-		)
-	end, opts)
+	-- vim.keymap.set("n", "-", function()
+	-- 	stf.filtered_jump({
+	-- 		"if_statement",
+	-- 		"if_expression",
+	-- 		"if_let_expression",
+	-- 		"else_clause",
+	-- 		"else_statement",
+	-- 	}, false, { destination = "siblings" })
+	-- end, opts)
+	-- vim.keymap.set("n", "=", function()
+	-- 	stf.filtered_jump(
+	-- 		{ "if_statement", "if_expression", "if_let_expression", "else_clause", "else_statement" },
+	-- 		true,
+	-- 		{ destination = "siblings" }
+	-- 	)
+	-- end, opts)
 
 	-- jump to parent or child nodes only
 	vim.keymap.set("n", "_", function()
