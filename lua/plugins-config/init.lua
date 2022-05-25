@@ -923,8 +923,9 @@ require("packer").startup({
 			"ziontee113/syntax-tree-surfer",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
-			setup = function()
+			config = function()
 				require("plugins-config.syntax-tree-surfer").map()
+				require("plugins-config.syntax-tree-surfer").config()
 			end,
 		})
 		-- select textobject with hints
