@@ -6,7 +6,7 @@ function M.config()
 		disable_no_instance_found_report = false,
 		default_desired_types = {
 			-- "arguments",
-			-- "function_call",
+			"function_call",
 			"variable_declaration",
 			"table_constructor",
 			"function",
@@ -29,12 +29,14 @@ function M.config()
 			["while_statement"] = "ﯩ",
 			["switch_statement"] = "ﳟ",
 			["function"] = "",
+			["function_call"] = "",
 			["variable_declaration"] = "",
 			["arguments"] = "",
-			["function_call"] = "",
 			["table_constructor"] = "",
+			["field"] = "",
 		},
 	})
+	set_highlight("STS_highlight", { fg = "#A999FF", bg = "#292F4F" })
 end
 
 function M.map()
@@ -57,6 +59,7 @@ function M.map()
 	vim.keymap.set("n", "gj", function() -- jump to all that you specify
 		stf.targeted_jump({
 			"function",
+			"function_call",
 			"if_statement",
 			"else_clause",
 			"else_statement",
@@ -65,6 +68,14 @@ function M.map()
 			"while_statement",
 			"switch_statement",
 		})
+	end, opts)
+
+	vim.keymap.set("n", "ga", function()
+		stf.targeted_jump({
+			"table_constructor",
+			"arguments",
+			-- "field",
+		}) --> true means jump forward
 	end, opts)
 
 	-------------------------------
@@ -78,11 +89,12 @@ function M.map()
 	end, opts)
 
 	-- non-default jump --> custom desired_types
-	-- vim.keymap.set("n", "your_keymap", function()
+	-- parameters jump
+	-- vim.keymap.set("n", "ga", function()
 	-- 	stf.filtered_jump({
-	-- 		"if_statement",
-	-- 		"else_clause",
-	-- 		"else_statement",
+	-- 		"table_constructor",
+	-- 		"arguments",
+	-- 		"field",
 	-- 	}, true) --> true means jump forward
 	-- end, opts)
 	-- vim.keymap.set("n", "your_keymap", function()
