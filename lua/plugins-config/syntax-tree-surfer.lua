@@ -36,9 +36,10 @@ function M.config()
 			["function"] = "",
 			["function_call"] = "",
 			["variable_declaration"] = "",
-			["arguments"] = "",
-			["table_constructor"] = "",
-			["field"] = "",
+			["arguments"] = "ﰠ",
+			["parameters"] = "ﰠ",
+			["table_constructor"] = "ﰠ",
+			["field"] = "ﰠ",
 		},
 	})
 	set_highlight("STS_highlight", { fg = "#A999FF", bg = "#292F4F" })
@@ -82,6 +83,7 @@ function M.map()
 			"table_constructor",
 			"arguments",
 			-- "field",
+			"parameters",
 		}) --> true means jump forward
 	end, opts)
 
