@@ -1352,8 +1352,9 @@ require("packer").startup({
 			"esensar/nvim-dev-container",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			config = function()
-				require("devcontainer").setup({})
+				require("plugins-config.nvim-dev-container").config()
 			end,
+			event = "BufRead",
 		})
 		-- launch vscode with current workspace
 		use({
