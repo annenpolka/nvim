@@ -80,9 +80,13 @@ function M.config()
 	end
 	local tabname = function(tabid)
 		local number = vim.api.nvim_tabpage_get_number(tabid)
-		-- local ctrlspace_bufnum = vim.fn["ctrlspace#api#TabBuffersNumber"](number)
 		local name = util.get_tab_name(tabid)
-		return string.format("%d %s %s", number, name, webicon(name))
+		-- return string.format("%d %s %s", number, name, webicon(name))
+		return string.format("%d", number)
+	end
+	local bufname = function(winid)
+		local name = filename.unique(winid)
+		return string.format("%s %s", webicon(name), name)
 	end
 	local line = {
 		hl = { fg = palette.fg, bg = palette.bg },
@@ -102,7 +106,8 @@ function M.config()
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
+			-- right_sep = { "", hl = { fg = palette.bg_third, bg = palette.bg } },
 		},
 		inactive_tab = {
 			label = function(tabid)
@@ -112,12 +117,13 @@ function M.config()
 				}
 			end,
 			left_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
-			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
+			-- right_sep = { "", hl = { fg = palette.bg_sec, bg = palette.bg } },
 		},
 		top_win = {
 			label = function(winid)
 				return {
-					"  " .. filename.unique(winid) .. " ",
+					bufname(winid) .. " ",
 					hl = { fg = palette.accent_sec, bg = palette.bg_third },
 					-- hl = { fg = palette.fg, bg = palette.bg_third },
 				}
@@ -128,7 +134,7 @@ function M.config()
 		win = {
 			label = function(winid)
 				return {
-					"  " .. filename.unique(winid) .. " ",
+					bufname(winid) .. " ",
 					hl = { fg = palette.fg_sec, bg = palette.bg_sec },
 				}
 			end,
@@ -137,8 +143,6 @@ function M.config()
 		},
 		tail = {
 			{ "", hl = { fg = palette.bg, bg = palette.bg } },
-			-- { "", hl = { fg = palette.accent, bg = palette.bg } },
-			{ "  ", hl = { fg = palette.accent, bg = palette.bg } },
 			-- { "  ", hl = { fg = palette.bg, bg = palette.accent } },
 		},
 	}
