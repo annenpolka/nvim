@@ -14,7 +14,7 @@ function M.config()
 			-- float for relative to win/editor width
 		},
 		style = {
-			path = "relative", -- absolute, relative, tail (filename only)
+			path = "tail", -- absolute, relative, tail (filename only)
 			border = "rounded", -- single, double, rounded, none
 			separator = " ", -- string used as separator
 			prefix = "…", -- string used as prefix for truncated paths
