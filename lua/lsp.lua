@@ -69,6 +69,7 @@ local ensure_installed = {
 	"gopls",
 	"omnisharp",
 	"pyright",
+	"hls",
 	"html",
 	"tsserver",
 	"volar",
