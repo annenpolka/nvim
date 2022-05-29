@@ -80,9 +80,9 @@ function M.config()
 	end
 	local tabname = function(tabid)
 		local number = vim.api.nvim_tabpage_get_number(tabid)
-		local name = util.get_tab_name(tabid)
-		-- return string.format("%d %s %s", number, name, webicon(name))
-		return string.format("%d", number)
+		local name = vim.fn.fnamemodify(util.get_tab_name(tabid), ":r")
+		return string.format("%s", name)
+		-- return string.format("%d", number)
 	end
 	local bufname = function(winid)
 		local name = filename.unique(winid)
