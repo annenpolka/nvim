@@ -26,10 +26,10 @@ function M.config()
 		},
 		select = {
 			-- Priority list of preferred vim.select implementations
-			backend = { "builtin", "telescope", "nui", "fzf" },
+			backend = { "telescope", "builtin", "nui", "fzf" },
 
 			-- Options for telescope selector
-			telescope = require("telescope.themes").get_ivy({}),
+			telescope = require("telescope.themes").get_cursor({}),
 
 			-- Options for fzf selector
 			fzf = {
