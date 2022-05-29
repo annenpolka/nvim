@@ -13,7 +13,7 @@ function M.config()
 		snippet_context_lines = 4, -- number or lines around commented lines
 		file_panel = {
 			size = 10, -- changed files panel rows
-			use_icons = true,                       -- use web-devicons in file panel
+			use_icons = true, -- use web-devicons in file panel
 		},
 		mappings = {
 			issue = {
