@@ -496,10 +496,6 @@ require("packer").startup({
 		-- Autopair
 		use({
 			"windwp/nvim-autopairs",
-			opt = true,
-			setup = function()
-				Lazyload_timer("nvim-autopairs", 100)
-			end,
 			config = function()
 				require("plugins-config.autopairs").config()
 			end,
@@ -1053,7 +1049,7 @@ require("packer").startup({
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
-				{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+				{ "hrsh7th/cmp-buffer", module = "cmp_buffer" },
 				{ "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
 				{ "ray-x/cmp-treesitter", after = "nvim-cmp" },
 				{ "octaltree/cmp-look", after = "nvim-cmp" },
