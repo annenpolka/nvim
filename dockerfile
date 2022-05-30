@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
   python3 \
   python3-pip \
   nodejs \
+  npm \
   sqlite3 \
   && rm -rf /var/lib/apt/lists/*
 RUN curl -fsSL https://deno.land/install.sh | sh
