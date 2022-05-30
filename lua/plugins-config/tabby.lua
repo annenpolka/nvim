@@ -82,7 +82,6 @@ function M.config()
 		local number = vim.api.nvim_tabpage_get_number(tabid)
 		local name = util.get_tab_name(tabid)
 		return string.format("%s", name)
-		-- return string.format("%d", number)
 	end
 	local bufname = function(winid)
 		local name = filename.unique(winid)
