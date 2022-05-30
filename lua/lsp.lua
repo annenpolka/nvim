@@ -61,7 +61,7 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 -- │          nvim-lspconfig with nvim-lsp-installer          │
 -- ╰──────────────────────────────────────────────────────────╯
 local lsp_installer = require("nvim-lsp-installer")
-local ensure_installed = {
+local server_list = {
 	"sumneko_lua",
 	"vimls",
 	"rust_analyzer",
@@ -77,11 +77,14 @@ local ensure_installed = {
 	"prosemd_lsp",
 	"dockerls",
 }
-lsp_installer.setup({ ensure_installed = ensure_installed })
+lsp_installer.setup({
+	-- ensure_installed = server_list,
+	automatic_installation = true,
+})
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
 -- Enable the following language servers with common_opts
-for _, lsp in ipairs(ensure_installed) do
+for _, lsp in ipairs(server_list) do
 	local ignore_server_list = { "rust_analyzer", "clangd", "sumneko_lua" } -- setup with dedicated settings
 	for _, ignore_server in ipairs(ignore_server_list) do
 		if lsp ~= ignore_server then
