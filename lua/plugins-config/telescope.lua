@@ -96,7 +96,6 @@ function M.config()
 	require("telescope").load_extension("refactoring")
 	require("project_nvim").setup({ manual_mode = true })
 	require("telescope").load_extension("projects")
-	require("telescope").load_extension("frecency")
 	require("telescope").load_extension("luasnip")
 	require("telescope").load_extension("asynctasks")
 end
