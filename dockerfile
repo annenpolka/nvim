@@ -33,11 +33,11 @@ RUN apt-get update && apt-get install -y \
   unzip \
   python3 \
   python3-pip \
+  virtualenv \
   nodejs \
   npm \
   sqlite3 \
   && rm -rf /var/lib/apt/lists/*
-RUN curl -fsSL https://deno.land/install.sh | sh
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Copy neovim files from neovim-base
@@ -51,6 +51,11 @@ RUN useradd -m dev
 
 # work with nonroot user temporarily
 USER dev
+
+# install deno on user
+RUN curl -fsSL https://deno.land/install.sh | sh
+RUN echo 'export DENO_INSTALL="/home/dev/.deno"' >> /home/dev/.bashrc
+RUN echo 'export PATH="$DENO_INSTALL/bin:$PATH"' >> /home/dev/.bashrc
 
 # copy neovim config
 COPY --chown=dev:dev ./ /home/dev/.config/nvim
