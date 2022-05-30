@@ -96,6 +96,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.dressing").config()
 			end,
+			event = "BufRead",
 		})
 		-- sudo
 		use({
@@ -371,6 +372,7 @@ require("packer").startup({
 				require("plugins-config.telescope").config()
 			end,
 			event = "BufRead",
+			module = "telescope",
 		})
 		-- tab workspace
 		use({
@@ -1047,7 +1049,7 @@ require("packer").startup({
 				-- -- cmp devicons appearance dependency
 				{ "onsails/lspkind-nvim" },
 				-- -- cmp plugins
-				{ "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
+				{ "hrsh7th/cmp-nvim-lsp" },
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
@@ -1059,9 +1061,9 @@ require("packer").startup({
 				{ "lukas-reineke/cmp-rg", after = "nvim-cmp" },
 				{ "lukas-reineke/cmp-under-comparator" },
 				-- { "hrsh7th/cmp-copilot" },
-				{ "zbirenbaum/copilot-cmp", after = "nvim-cmp" },
+				{ "zbirenbaum/copilot-cmp", after = "copilot.lua" },
 			},
-			event = { "BufRead" },
+			-- event = { "BufRead" },
 		})
 		--------------------------------------------------------------------------------
 		-- github copilot
@@ -1225,6 +1227,7 @@ require("packer").startup({
 				require("plugins-config.hlslens").config()
 			end,
 			event = "BufRead",
+			module = "hlslens",
 		})
 		-- Show keybindings
 		use({
