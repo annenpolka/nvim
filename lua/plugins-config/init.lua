@@ -339,12 +339,6 @@ require("packer").startup({
 					"nvim-telescope/telescope-file-browser.nvim",
 					module = "telescope._extensions.file_browser",
 				},
-				-- frecency (frequency/recent)
-				{
-					"nvim-telescope/telescope-frecency.nvim",
-					requires = { "nvim-telescope/telescope.nvim", "tami5/sqlite.lua" },
-					module = "telescope._extensions.frecency",
-				},
 				-- luasnip snippet viewer
 				{
 					"benfowler/telescope-luasnip.nvim",
