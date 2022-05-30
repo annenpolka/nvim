@@ -658,11 +658,9 @@ require("packer").startup({
 		-- increment/decrement improved
 		use({
 			"monaqa/dial.nvim",
-			setup = function()
-				require("plugins-config.dial").map()
-			end,
 			config = function()
 				require("plugins-config.dial").config()
+				require("plugins-config.dial").map()
 			end,
 		})
 		-- Zen mode
