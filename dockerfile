@@ -21,7 +21,7 @@ ARG VERSION=master
 RUN cd neovim && git checkout ${VERSION} && make CMAKE_BUILD_TYPE=RelWithDebInfo install
 
 # working environment
-FROM debian:unstable-slim
+FROM debian:unstable-slim AS result
 
 # dependencies
 RUN apt-get update && apt-get install -y \
@@ -45,7 +45,6 @@ COPY --from=neovim-base /usr/local/lib/nvim /usr/local/lib/nvim
 COPY --from=neovim-base /usr/local/bin/nvim /usr/local/bin/nvim
 COPY --from=neovim-base /usr/local/share/nvim /usr/local/share/nvim
 
-
 # add nonroot user
 RUN useradd -m dev
 
@@ -64,6 +63,9 @@ RUN rm -r /home/dev/.config/nvim/plugin
 # bootstrap packer.nvim
 RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
   ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# PackerSync
+RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # back to root
 USER root
