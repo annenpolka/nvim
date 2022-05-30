@@ -26,8 +26,10 @@ FROM debian:unstable-slim
 # dependencies
 RUN apt-get update && apt-get install -y \
   curl \
+  tar \
   git \
   wget \
+  gzip \
   unzip \
   python3 \
   python3-pip \
