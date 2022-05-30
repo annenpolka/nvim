@@ -229,12 +229,12 @@ local ensure_install_formatter_list = {
 	"eslint_d",
 	"rustywind",
 }
-for _, v in pairs(ensure_install_formatter_list) do
-	local is_installed = require("format-installer").is_installed(v)
-	if not is_installed then
-		require("format-installer").install_formatter(v)
-	end
-end
+-- for _, v in pairs(ensure_install_formatter_list) do
+-- 	local is_installed = require("format-installer").is_installed(v)
+-- 	if not is_installed then
+-- 		require("format-installer").install_formatter(v)
+-- 	end
+-- end
 
 -- add sources managed by format-installer.nvim
 local formatter_managed = {}
