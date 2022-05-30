@@ -1049,7 +1049,7 @@ require("packer").startup({
 				-- -- cmp devicons appearance dependency
 				{ "onsails/lspkind-nvim" },
 				-- -- cmp plugins
-				{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+				{ "hrsh7th/cmp-nvim-lsp", module = "cmp_nvim_lsp" },
 				{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 				{ "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp" },
@@ -1115,13 +1115,13 @@ require("packer").startup({
 		use({
 			"rcarriga/nvim-dap-ui",
 			requires = { "mfussenegger/nvim-dap" },
-			after = "nvim-dap",
+			module = "dapui",
 		})
 		-- vitrual text
 		use({
 			"theHamsta/nvim-dap-virtual-text",
 			requires = { "mfussenegger/nvim-dap" },
-			after = "nvim-dap",
+			module = "nvim-dap-virtual-text",
 		})
 		-- async task runners
 		use({
