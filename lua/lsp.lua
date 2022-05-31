@@ -79,7 +79,7 @@ local server_list = {
 }
 lsp_installer.setup({
 	-- ensure_installed = server_list,
-	automatic_installation = { exclude = { "hls" } },
+	automatic_installation = { exclude = { "hls", "omnisharp" } },
 })
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
