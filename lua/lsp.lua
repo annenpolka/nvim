@@ -79,7 +79,7 @@ local server_list = {
 }
 lsp_installer.setup({
 	-- ensure_installed = server_list,
-	automatic_installation = { exclude = { "hls", "rust_analyzer" } },
+	automatic_installation = { exclude = { "hls" } },
 })
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
