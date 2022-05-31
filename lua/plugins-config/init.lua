@@ -1,8 +1,8 @@
 -- optimize loading
 local has_impatient = pcall(require, "impatient")
-if has_impatient then
-	require("impatient").enable_profile()
-end
+-- if has_impatient then
+-- require("impatient").enable_profile()
+-- end
 
 -- initialize packer
 local fn = vim.fn
