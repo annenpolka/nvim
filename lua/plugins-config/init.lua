@@ -633,7 +633,7 @@ require("packer").startup({
 		-- spellcheck
 		use({
 			"kamykn/spelunker.vim",
-			requires = "kamykn/popup-menu.nvim",
+			requires = { "kamykn/popup-menu.nvim", event = "BufRead" },
 			config = function()
 				require("plugins-config.spelunker").config()
 			end,
