@@ -85,6 +85,8 @@ require("packer").startup({
 		})
 		-- extended dot repeat
 		use({ "tpope/vim-repeat" })
+		-- lua documentation help
+		use({ "milisims/nvim-luaref" })
 		---------------------------------------------------------------------------------
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          Utility                         │
