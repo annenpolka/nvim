@@ -67,7 +67,6 @@ require("packer").startup({
 		use({ "kyazdani42/nvim-web-devicons" })
 		use({ "nvim-lua/plenary.nvim" })
 		use({ "MunifTanjim/nui.nvim" })
-		use({ "kamykn/popup-menu.nvim" })
 		-- fzf
 		use({
 			"junegunn/fzf",
@@ -634,6 +633,7 @@ require("packer").startup({
 		-- spellcheck
 		use({
 			"kamykn/spelunker.vim",
+			requires = "kamykn/popup-menu.nvim",
 			config = function()
 				require("plugins-config.spelunker").config()
 			end,
