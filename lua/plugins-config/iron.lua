@@ -25,10 +25,10 @@ function M.config()
 			send_motion = "<space>sc",
 			visual_send = "<space>sc",
 			send_line = "<space>sl",
-			send_mark = "<space>sm",
-			mark_motion = "<space>mc",
-			mark_visual = "<space>mc",
-			remove_mark = "<space>md>",
+			-- send_mark = "<space>sm",
+			-- mark_motion = "<space>mc",
+			-- mark_visual = "<space>mc",
+			-- remove_mark = "<space>md",
 			cr = "<space>s<cr>",
 			interrupt = "<space>s<space>",
 			exit = "<space>sq",
@@ -40,6 +40,11 @@ function M.config()
 			italic = true,
 		},
 	})
+end
+
+function M.map()
+	vim.keymap.set("n", "<leader>if", "<Cmd>IronFocus<CR>", {})
+	vim.keymap.set("n", "<leader>ir", "<Cmd>IronRepl<CR>", {})
 end
 
 return M

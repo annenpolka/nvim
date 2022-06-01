@@ -1172,6 +1172,9 @@ require("packer").startup({
 		-- interactive REPL for various filetypes
 		use({
 			"hkupty/iron.nvim",
+			setup = function()
+				require("plugins-config.iron").map()
+			end,
 			config = function()
 				require("plugins-config.iron").config()
 			end,
