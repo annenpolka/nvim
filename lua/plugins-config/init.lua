@@ -1175,6 +1175,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.iron").config()
 			end,
+			event = "BufRead",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           Misc                           │
