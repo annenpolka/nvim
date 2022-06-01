@@ -8,8 +8,12 @@ function M.config()
 			mappings = {
 				n = {
 					["l"] = "select_default",
+					["<Space><Space>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
 				},
-				i = {},
+				i = {
+					["<C-s>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
+					-- ["<Space><Space>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
+				},
 			},
 			layout_strategy = "vertical",
 			layout_config = {
