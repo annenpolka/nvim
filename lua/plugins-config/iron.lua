@@ -15,8 +15,9 @@ function M.config()
 					command = { "zsh" },
 				},
 			},
-			-- Repl position. Check `iron.view` for more options
-			repl_open_cmd = require("iron.view").curry.right(90),
+			repl_open_cmd = require("iron.view").curry.right(80),
+			-- how the REPL window will be opened, the default is opening
+			-- a float window of height 40 at the bottom.
 		},
 		-- Iron doesn't set keymaps by default anymore. Set them here
 		-- or use `should_map_plug = true` and map from you vim files
@@ -24,11 +25,19 @@ function M.config()
 			send_motion = "<space>sc",
 			visual_send = "<space>sc",
 			send_line = "<space>sl",
-			repeat_cmd = "<space>s.",
+			send_mark = "<space>sm",
+			mark_motion = "<space>mc",
+			mark_visual = "<space>mc",
+			remove_mark = "<space>md>",
 			cr = "<space>s<cr>",
 			interrupt = "<space>s<space>",
 			exit = "<space>sq",
 			clear = "<space>cl",
+		},
+		-- If the highlight is on, you can change how it looks
+		-- For the available options, check nvim_set_hl
+		highlight = {
+			italic = true,
 		},
 	})
 end
