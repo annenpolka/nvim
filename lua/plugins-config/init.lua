@@ -1245,7 +1245,7 @@ require("packer").startup({
 		-- todo highlight
 		use({
 			-- "folke/todo-comments.nvim",
-			"robertgzr/todo-comments.nvim", -- PR of commandline window error
+			"annenpolka/todo-comments.nvim", -- PR of commandline window error
 			setup = function()
 				require("plugins-config.todo-comments").map()
 			end,
