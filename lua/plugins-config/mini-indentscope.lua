@@ -32,7 +32,7 @@ function M.config()
 			-- Sync highlight color to indent_blankline
 			set_highlight("MiniIndentscopeSymbol", { link = "IndentBlanklineContextChar" })
 			-- space highlight
-			set_highlight("MiniIndentscopePrefix", { link = "PMenuSel" })
+			set_highlight("MiniIndentscopePrefix", { link = "PMenu" })
 		end,
 	})
 end

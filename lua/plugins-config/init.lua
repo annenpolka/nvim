@@ -692,7 +692,12 @@ require("packer").startup({
 		-- Theme inspired by Atom
 		-- use({ "joshdick/onedark.vim" })
 		-- github theme
-		-- use{ "projekt0n/github-nvim-theme" },
+		use({
+			"projekt0n/github-nvim-theme",
+			config = function()
+				require("plugins-config.github-nvim-theme").config()
+			end,
+		})
 		-- catppuccin theme
 		-- use({ "catppuccin/nvim", as = "catppuccin" })
 		-- tokyonight theme
@@ -746,8 +751,8 @@ require("packer").startup({
 		use({
 			"lewpoly/sherbet.nvim",
 			config = function()
-				vim.cmd([[colorscheme sherbet]])
 				require("plugins-config.sherbet").config()
+				-- vim.cmd([[colorscheme sherbet]])
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
