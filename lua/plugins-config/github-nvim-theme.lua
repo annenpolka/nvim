@@ -2,7 +2,7 @@ local M = {}
 
 function M.config()
 	require("github-theme").setup({
-		theme_style = "dimmed",
+		theme_style = "dark",
 		comment_style = "NONE",
 		keyword_style = "italic",
 		function_style = "italic",
