@@ -15,7 +15,7 @@ function M.config()
 			require("treesitter-unit").enable_highlighting("TSUnit")
 		end,
 	})
-	vim.cmd([[highlight TSUnit guibg=#35354A]])
+	set_highlight("TSUnit", { bg = "#35354A" })
 
 	-- text objects
 	vim.keymap.set("x", "iu", ':lua require"treesitter-unit".select()<CR>', { noremap = true })
