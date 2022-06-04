@@ -1316,6 +1316,14 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- haskell syntax highlighting
+		use({
+			"neovimhaskell/haskell-vim",
+			setup = function()
+				require("plugins-config.haskell-vim").config()
+			end,
+			ft = "haskell",
+		})
 		-- json viewer
 		use({
 			"gennaro-tedesco/nvim-jqx",

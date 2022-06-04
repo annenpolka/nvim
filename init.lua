@@ -5,7 +5,7 @@ if has_impatient then
 end
 
 if not vim.g.vscode then
-	vim.cmd([[syntax enable]]) -- workaround to null-ls WARN
+	vim.cmd([[syntax on]]) -- workaround to null-ls WARN
 	require("options")
 	require("plugins-config")
 	require("lsp")
