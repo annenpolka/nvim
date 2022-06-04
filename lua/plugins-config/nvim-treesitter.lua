@@ -1,6 +1,17 @@
 local M = {}
 
 function M.config()
+	-- treesitter-based folding
+	require("nvim-treesitter").define_modules({
+		fold = {
+			attach = function()
+				vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+				vim.opt.foldmethod = "expr"
+				vim.cmd("normal zx") -- recompute folds
+			end,
+			detach = function() end,
+		},
+	})
 	-- treesitter configuration
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = {
@@ -34,6 +45,10 @@ function M.config()
 		},
 		indent = {
 			enable = true,
+		},
+		fold = {
+			enable = true,
+			disable = { "rst", "make" },
 		},
 		yati = { enable = true },
 		textobjects = {

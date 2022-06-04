@@ -49,9 +49,6 @@ vim.wo.foldnestmax = 5
 vim.wo.foldminlines = 2
 vim.wo.foldtext =
 	[[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
--- treesitter expr based folding
-vim.wo.foldmethod = "expr"
-vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
