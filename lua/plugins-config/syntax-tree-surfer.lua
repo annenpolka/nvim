@@ -59,15 +59,15 @@ function M.map()
 	vim.keymap.set("n", "gv", function() -- only jump to variable_declarations
 		stf.targeted_jump({ "variable_declaration" })
 	end, opts)
-	vim.keymap.set("n", "gfu", function() -- only jump to functions
-		stf.targeted_jump({ "function", "function_item" })
-	end, opts)
-	vim.keymap.set("n", "gif", function() -- only jump to if_statements
-		stf.targeted_jump({ "if_statement", "if_expression", "if_let_expression" })
-	end, opts)
-	vim.keymap.set("n", "gfo", function() -- only jump to for_statements
-		stf.targeted_jump({ "for_statement" })
-	end, opts)
+	-- vim.keymap.set("n", "gfu", function() -- only jump to functions
+	-- 	stf.targeted_jump({ "function", "function_item" })
+	-- end, opts)
+	-- vim.keymap.set("n", "gif", function() -- only jump to if_statements
+	-- 	stf.targeted_jump({ "if_statement", "if_expression", "if_let_expression" })
+	-- end, opts)
+	-- vim.keymap.set("n", "gfo", function() -- only jump to for_statements
+	-- 	stf.targeted_jump({ "for_statement" })
+	-- end, opts)
 	vim.keymap.set("n", "gj", function() -- jump to all that you specify
 		stf.targeted_jump({
 			"function",
