@@ -315,3 +315,6 @@ repl
 winbar
 tabid
 ccall
+signcolumn
+bufhidden
+dropdown
