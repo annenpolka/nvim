@@ -251,11 +251,6 @@ require("packer").startup({
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
-		-- git diff viewer
-		use({
-			"sindrets/diffview.nvim",
-			event = "BufRead",
-		})
 		-- Magit-like git plugin
 		use({
 			"TimUntersberger/neogit",
@@ -266,6 +261,19 @@ require("packer").startup({
 				require("plugins-config.neogit").config()
 			end,
 			cmd = "Neogit",
+		})
+		-- git diff viewer
+		use({
+			"sindrets/diffview.nvim",
+			event = "BufRead",
+		})
+		-- colorful blame/time_machine git files
+		use({
+			"emmanueltouzery/agitator.nvim",
+			requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+			setup = function()
+				require("plugins-config.agitator").map()
+			end,
 		})
 		-- Add git related info in the signs columns and popups
 		use({
