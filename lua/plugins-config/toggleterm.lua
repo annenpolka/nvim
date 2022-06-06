@@ -1,6 +1,6 @@
 local M = {}
 function M.map()
-	vim.keymap.set("n", "<leader>G", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<leader>Gg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 end
 
 function M.config()
@@ -24,7 +24,7 @@ function M.config()
 		end,
 		-- function to run on closing the terminal
 		on_close = function(term)
-			vim.cmd("Closing terminal")
+			-- vim.cmd("Closing terminal")
 		end,
 	})
 
