@@ -274,6 +274,7 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.agitator").map()
 			end,
+			module = "agitator",
 		})
 		-- Add git related info in the signs columns and popups
 		use({
