@@ -91,7 +91,7 @@ function M.config()
 			{
 				name = "nvim_lsp",
 				max_item_count = 30,
-				priority = 1,
+				priority = 10,
 			},
 			{
 				name = "buffer",
@@ -109,7 +109,7 @@ function M.config()
 			{ name = "path" },
 			{
 				name = "luasnip",
-				priority = 10,
+				priority = 20,
 			},
 			{ name = "nvim_lua" },
 			{
@@ -205,12 +205,12 @@ function M.config()
 		},
 		sorting = {
 			comparators = {
-				function(...)
-					return cmp_buffer:compare_locality(...)
-				end,
 				cmp.config.compare.recently_used,
 				cmp.config.compare.score,
 				cmp.config.compare.offset,
+				function(...)
+					return cmp_buffer:compare_locality(...)
+				end,
 				-- cmp.config.compare.locality,
 				cmp.config.compare.exact,
 				require("cmp-under-comparator").under,
