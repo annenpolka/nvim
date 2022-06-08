@@ -353,6 +353,15 @@ require("packer").startup({
 					"ThePrimeagen/refactoring.nvim",
 					module = "telescope._extensions.refactoring",
 				},
+				-- howdoi
+				{
+					"zane-/howdoi.nvim",
+					module = "telescope._extensions.howdoi",
+				},
+				{
+					"zane-/cder.nvim",
+					module = "telescope._extensions.cder",
+				},
 				-- zoxide integration
 				{
 					"jvgrootveld/telescope-zoxide",
