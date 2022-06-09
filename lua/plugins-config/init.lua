@@ -311,6 +311,12 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- gitignore generator
+		use({
+			"kalvinpearce/gitignore-gen.nvim",
+			requires = { { "nvim-lua/plenary.nvim" } },
+			cmd = "GitignoreGenerate",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           files                          │
 		-- ╰──────────────────────────────────────────────────────────╯
