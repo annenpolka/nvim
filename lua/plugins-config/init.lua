@@ -1334,6 +1334,11 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- cht.sh cheetsheet
+		use({
+			"Djancyp/cheat-sheet",
+			cmd = "CheatSH",
+		})
 		-- haskell syntax highlighting
 		use({
 			"neovimhaskell/haskell-vim",
