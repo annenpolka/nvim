@@ -1181,16 +1181,20 @@ require("packer").startup({
 		})
 		-- test framework runner
 		use({
-			"klen/nvim-test",
-			config = function()
-				require("plugins-config.nvim-test").config()
-			end,
-			cmd = {
-				"TestNearest",
-				"TestFile",
-				"TestSuite",
-				"TestLast",
+			"rcarriga/neotest",
+			requires = {
+				-- dependencies
+				"nvim-lua/plenary.nvim",
+				"nvim-treesitter/nvim-treesitter",
+				"vim-test/vim-test",
+				-- runners
+				"rcarriga/neotest-python",
+				"rcarriga/neotest-plenary",
+				"rcarriga/neotest-vim-test",
 			},
+			config = function()
+				require("plugins-config.neotest").config()
+			end,
 		})
 		-- interactive REPL for various filetypes
 		use({
