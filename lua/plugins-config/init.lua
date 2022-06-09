@@ -1184,17 +1184,21 @@ require("packer").startup({
 			"rcarriga/neotest",
 			requires = {
 				-- dependencies
-				"nvim-lua/plenary.nvim",
-				"nvim-treesitter/nvim-treesitter",
-				"vim-test/vim-test",
+				{ "nvim-lua/plenary.nvim" },
+				{ "nvim-treesitter/nvim-treesitter" },
+				{ "vim-test/vim-test" },
 				-- runners
-				"rcarriga/neotest-python",
-				"rcarriga/neotest-plenary",
-				"rcarriga/neotest-vim-test",
+				{ "rcarriga/neotest-python", module = "neotest-python" },
+				{ "rcarriga/neotest-plenary", module = "neotest-plenary" },
+				{ "rcarriga/neotest-vim-test", module = "neotest-vim-test" },
 			},
+			setup = function()
+				require("plugins-config.neotest").map()
+			end,
 			config = function()
 				require("plugins-config.neotest").config()
 			end,
+			event = "BufRead",
 		})
 		-- interactive REPL for various filetypes
 		use({
