@@ -60,8 +60,8 @@ function M.config()
 				lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
 				keymaps = {
 					-- You can use the capture groups defined in textobjects.scm
-					["aF"] = "@function.outer",
-					["iF"] = "@function.inner",
+					["af"] = "@function.outer",
+					["if"] = "@function.inner",
 					["ac"] = "@class.outer",
 					["ic"] = "@class.inner",
 					["ia"] = "@parameter.inner",
