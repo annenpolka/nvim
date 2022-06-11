@@ -934,6 +934,12 @@ require("packer").startup({
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
 		})
+		-- wisely add `end` of block
+		use({
+			"RRethy/nvim-treesitter-endwise",
+			requires = { "nvim-treesitter/nvim-treesitter" },
+			after = { "nvim-treesitter" },
+		})
 		-- html autotag
 		use({
 			"windwp/nvim-ts-autotag",

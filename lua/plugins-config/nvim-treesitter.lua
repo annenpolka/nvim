@@ -50,6 +50,9 @@ function M.config()
 			enable = true,
 			disable = { "rst", "make" },
 		},
+		endwise = {
+			enable = true,
+		},
 		yati = { enable = true },
 		textobjects = {
 			select = {
