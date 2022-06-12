@@ -43,6 +43,8 @@ local on_attach = function(client, bufnr)
 	require("lsp-format").on_attach(client)
 	-- attach aerial
 	require("aerial").on_attach(client, bufnr)
+	-- attach nvim-navic breadcrumb
+	require("nvim-navic").attach(client, bufnr)
 end
 
 -- Lsp diagnostic symbols

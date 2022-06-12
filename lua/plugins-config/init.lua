@@ -919,15 +919,6 @@ require("packer").startup({
 				require("plugins-config.treesitter-context").config()
 			end,
 		})
-		-- breadcrumb
-		use({
-			"SmiteshP/nvim-gps",
-			requires = { "nvim-treesitter/nvim-treesitter" },
-			after = { "nvim-treesitter" },
-			config = function()
-				require("plugins-config.nvim-gps").config()
-			end,
-		})
 		-- Additional textobjects for treesitter
 		use({
 			"nvim-treesitter/nvim-treesitter-textobjects",
@@ -1042,6 +1033,14 @@ require("packer").startup({
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
 		use({ "PlatyPew/format-installer.nvim" })
+		-- breadcrumb
+		use({
+			"SmiteshP/nvim-navic",
+			requires = { "neovim/nvim-lspconfig" },
+			config = function()
+				require("plugins-config.nvim-navic").config()
+			end,
+		})
 		-- show lsp progress
 		use({
 			"j-hui/fidget.nvim",
@@ -1058,6 +1057,7 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
 		-- ╰──────────────────────────────────────────────────────────╯

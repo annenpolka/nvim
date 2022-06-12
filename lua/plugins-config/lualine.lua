@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-	local gps = require("nvim-gps")
+	local navic = require("nvim-navic")
 	-- Override 'encoding': Don't display if encoding is UTF-8.
 	local encoding = function()
 		local ret, _ = (vim.bo.fenc or vim.go.enc):gsub("^utf%-8$", "")
@@ -26,7 +26,7 @@ function M.config()
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
 			-- nvim-gps breadcrumb section
-			lualine_c = { { gps.get_location, cond = gps.is_available } },
+			lualine_c = { { navic.get_location, cond = navic.is_available } },
 			lualine_x = {
 				encoding,
 				fileformat,
