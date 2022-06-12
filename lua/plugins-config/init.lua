@@ -1040,6 +1040,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.nvim-navic").config()
 			end,
+			module = "nvim-navic",
 		})
 		-- show lsp progress
 		use({
