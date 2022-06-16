@@ -26,15 +26,15 @@ function M.config()
 		symbol = "",
 	})
 
-	vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
-		pattern = "*",
-		callback = function()
-			-- Sync highlight color to indent_blankline
-			set_highlight("MiniIndentscopeSymbol", { link = "IndentBlanklineContextChar" })
-			-- space highlight
-			set_highlight("MiniIndentscopePrefix", { link = "PMenu" })
-		end,
-	})
+	-- vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
+	-- 	pattern = "*",
+	-- 	callback = function()
+	-- 		-- Sync highlight color to indent_blankline
+	-- 		set_highlight("MiniIndentscopeSymbol", { link = "IndentBlanklineContextChar" })
+	-- 		-- space highlight
+	-- 		set_highlight("MiniIndentscopePrefix", { link = "PMenu" })
+	-- 	end,
+	-- })
 end
 
 return M
