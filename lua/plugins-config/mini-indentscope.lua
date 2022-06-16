@@ -3,9 +3,9 @@ local M = {}
 function M.config()
 	require("mini.indentscope").setup({
 		draw = {
-			delay = 100,
-			animation = require("mini.indentscope").gen_animation("quadraticInOut", { duration = 10, unit = "step" }),
-			-- animation = require("mini.indentscope").gen_animation("none"),
+			delay = 1000000,
+			-- animation = require("mini.indentscope").gen_animation("quadraticInOut", { duration = 10, unit = "step" }),
+			animation = require("mini.indentscope").gen_animation("none"),
 		},
 		-- Module mappings. Use `''` (empty string) to disable one.
 		mappings = {
