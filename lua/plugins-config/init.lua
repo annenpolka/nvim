@@ -172,11 +172,6 @@ require("packer").startup({
 		})
 		-- readline keybindings in insert mode
 		use({
-			disable = true,
-			"tpope/vim-rsi",
-			event = "InsertEnter",
-		})
-		use({
 			"linty-org/readline.nvim",
 			config = function()
 				require("plugins-config.readline").map()
@@ -1158,20 +1153,6 @@ require("packer").startup({
 			},
 			module = "telescope._extensions.asynctasks",
 		})
-		-- vscode-like task runner
-		use({
-			"jedrzejboczar/toggletasks.nvim",
-			requires = {
-				{ "nvim-lua/plenary.nvim", opt = 1 },
-				{ "akinsho/toggleterm.nvim", opt = 1 },
-				{ "nvim-telescope/telescope.nvim", opt = 1 },
-			},
-			rocks = "lyaml",
-			config = function()
-				require("plugins-config.toggletasks").config()
-			end,
-			event = "BufRead",
-		})
 		-- block code snippet runner
 		use({
 			"michaelb/sniprun",
@@ -1327,17 +1308,6 @@ require("packer").startup({
 				require("plugins-config.toggleterm").config()
 			end,
 			event = "BufWinEnter",
-		})
-		-- translator
-		use({
-			"voldikss/vim-translator",
-			setup = function()
-				require("plugins-config.translator").map()
-			end,
-			config = function()
-				require("plugins-config.translator").config()
-			end,
-			cmd = { "TranslateW", "TranslateH" },
 		})
 		-- open url / search in browser,
 		use({
