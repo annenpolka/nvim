@@ -924,15 +924,6 @@ require("packer").startup({
 				require("plugins-config.neogen").config()
 			end,
 		})
-		-- Bracket Lens-like plugin
-		use({
-			"haringsrob/nvim_context_vt",
-			after = { "nvim-treesitter" },
-			requires = { "nvim-treesitter/nvim-treesitter" },
-			config = function()
-				require("plugins-config.context_vt").config()
-			end,
-		})
 		-- dim unused variables and functions
 		use({
 			"narutoxy/dim.lua",
