@@ -4,7 +4,7 @@ function M.config()
 	vim.g.indent_blankline_char = "┊"
 	vim.g.indent_blankline_filetype_exclude = { "help", "packer" }
 	vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
-	-- vim.g.indent_blankline_show_trailing_blankline_indent = false
+	vim.g.indent_blankline_show_trailing_blankline_indent = false
 
 	vim.cmd([[highlight IndentBlanklineContextStart guisp=#FA6A88 guibg=#181222 gui=underline]])
 	vim.cmd([[highlight IndentBlanklineContextChar guifg=#F0EAAE gui=nocombine]])
