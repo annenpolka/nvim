@@ -354,15 +354,6 @@ require("packer").startup({
 					"ThePrimeagen/refactoring.nvim",
 					module = "telescope._extensions.refactoring",
 				},
-				-- howdoi
-				{
-					"zane-/howdoi.nvim",
-					module = "telescope._extensions.howdoi",
-				},
-				{
-					"zane-/cder.nvim",
-					module = "telescope._extensions.cder",
-				},
 				-- zoxide integration
 				{
 					"jvgrootveld/telescope-zoxide",
@@ -382,41 +373,10 @@ require("packer").startup({
 			event = "BufRead",
 			module = "telescope",
 		})
-		-- tab workspace
-		use({
-			disable = true,
-			"vim-ctrlspace/vim-ctrlspace",
-			setup = function()
-				require("plugins-config.vim-ctrlspace").map()
-				require("plugins-config.vim-ctrlspace").config()
-			end,
-		})
 		-- project manager
 		use({
 			"ahmedkhalf/project.nvim",
 			requires = { "nvim-telescope/telescope.nvim", opt = 1 },
-		})
-		-- fuzzy find many things
-		use({
-			disable = true,
-			"Shougo/ddu.vim",
-			config = function()
-				require("plugins-config.ddu").config()
-			end,
-			requires = {
-				"vim-denops/denops.vim",
-				"Shougo/ddu-commands.vim",
-				"Shougo/ddu-ui-ff",
-				"Shougo/ddu-source-file_rec",
-				"shun/ddu-source-buffer",
-				"shun/ddu-source-rg",
-				"Shougo/ddu-source-action",
-				"yuki-yano/ddu-filter-fzf",
-				"Shougo/ddu-filter-matcher_substring",
-				"Shougo/ddu-kind-file",
-				"Shougo/ddu-kind-word",
-			},
-			after = "denops.vim",
 		})
 		-- 2-panes file explorer
 		use({
