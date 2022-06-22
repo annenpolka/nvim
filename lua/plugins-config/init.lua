@@ -1021,13 +1021,14 @@ require("packer").startup({
 				{ "lukas-reineke/cmp-rg", after = "nvim-cmp" },
 				{ "lukas-reineke/cmp-under-comparator" },
 				-- { "hrsh7th/cmp-copilot" },
-				{ "zbirenbaum/copilot-cmp", after = "copilot.lua" },
+				-- { "zbirenbaum/copilot-cmp", after = "copilot.lua" },
 			},
 			-- event = { "BufRead" },
 		})
 		--------------------------------------------------------------------------------
 		-- github copilot
 		use({
+			disable = true,
 			"github/copilot.vim",
 			setup = function()
 				require("plugins-config.copilot").config()
@@ -1035,6 +1036,7 @@ require("packer").startup({
 			cmd = "Copilot",
 		})
 		use({
+			disable = true,
 			"zbirenbaum/copilot.lua",
 			event = "VimEnter",
 			config = function()
