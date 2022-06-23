@@ -7,7 +7,7 @@ function M.git_mode()
 	local hint = [[
  _J_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
  _K_: prev hunk   _u_: undo stage hunk   _p_: preview hunk   _B_: blame show full 
- ^ ^              _S_: stage buffer      ^ ^                 _/_: show base file
+ _r_: reset hunk  _S_: stage buffer      ^ ^                 _/_: show base file
  ^
  ^ ^              _<Enter>_: Neogit              _q_: exit
 ]]
@@ -64,6 +64,15 @@ function M.git_mode()
 			},
 			{ "s", ":Gitsigns stage_hunk<CR>", { silent = true } },
 			{ "u", gitsigns.undo_stage_hunk },
+			{
+				"r",
+				function()
+					vim.bo.modifiable = true -- set temporarily to use reset_hunk
+					gitsigns.reset_hunk()
+					vim.bo.modifiable = false
+				end,
+				{ silent = true },
+			},
 			{ "S", gitsigns.stage_buffer },
 			{ "p", gitsigns.preview_hunk },
 			{ "d", gitsigns.toggle_deleted, { nowait = true } },
