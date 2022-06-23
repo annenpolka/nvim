@@ -36,6 +36,7 @@ function M.config()
 				},
 			},
 			initial_mode = "normal",
+			sorting_strategy = "ascending",
 			path_display = { "truncate" },
 			selection_strategy = "reset",
 			border = {},
@@ -84,7 +85,6 @@ function M.config()
 				tiebreak = function(current_entry, existing_entry, prompt)
 					return false
 				end,
-				sorting_strategy = "ascending",
 				initial_mode = "insert",
 			},
 		},
