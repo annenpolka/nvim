@@ -13,7 +13,7 @@ function M.config()
 end
 
 function M.map()
-	vim.keymap.set("n", "<leader>g", "<cmd>Neogit<CR>", { noremap = true })
+	-- vim.keymap.set("n", "<leader>g", "<cmd>Neogit<CR>", { noremap = true })
 	nnoremap("<C-c><C-c>", ":wq<CR>", { ft = "NeogitCommitMessage" })
 end
 

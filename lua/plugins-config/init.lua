@@ -77,6 +77,14 @@ require("packer").startup({
 				vim.g.submode_keep_leaving_key = true
 			end,
 		})
+		use({
+			"anuvyklack/hydra.nvim",
+			requires = { "anuvyklack/keymap-layer.nvim", module = "keymap-layer" }, -- needed only for pink hydras
+			config = function()
+				require("plugins-config.hydra").git_mode()
+			end,
+			event = "BufRead",
+		})
 		-- extended dot repeat
 		use({ "tpope/vim-repeat" })
 		-- lua documentation help
