@@ -85,6 +85,7 @@ function M.config()
 					return false
 				end,
 				sorting_strategy = "ascending",
+				initial_mode = "insert",
 			},
 		},
 		extensions = {
@@ -132,7 +133,7 @@ function M.map()
 	-- end, { noremap = true, silent = true })
 	vim.keymap.set(
 		"n",
-		"<leader>sb",
+		"<C-f>",
 		[[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]],
 		{ noremap = true, silent = true }
 	)
