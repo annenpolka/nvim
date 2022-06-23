@@ -9,6 +9,29 @@ function M.config()
 		integrations = {
 			diffview = true, -- set diffview.nvim integration
 		},
+		sections = {
+			untracked = {
+				folded = false,
+			},
+			unstaged = {
+				folded = false,
+			},
+			staged = {
+				folded = false,
+			},
+			stashes = {
+				folded = true,
+			},
+			unpulled = {
+				folded = true,
+			},
+			unmerged = {
+				folded = false,
+			},
+			recent = {
+				folded = true,
+			},
+		},
 	})
 end
 
