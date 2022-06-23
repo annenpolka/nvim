@@ -82,6 +82,7 @@ require("packer").startup({
 			requires = { "anuvyklack/keymap-layer.nvim", module = "keymap-layer" }, -- needed only for pink hydras
 			config = function()
 				require("plugins-config.hydra").git_mode()
+				require("plugins-config.hydra").quickfix_mode()
 			end,
 			event = "BufRead",
 		})

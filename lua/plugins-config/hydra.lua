@@ -89,4 +89,35 @@ function M.git_mode()
 	})
 end
 
+function M.quickfix_mode()
+	local Hydra = require("hydra")
+
+	local hint = [[_Q_: Toggle Quickfix _L_: Toggle Loclist _n_: QFNext _p_: QFPrev _q_: exit]]
+
+	Hydra({
+		hint = hint,
+		config = {
+			color = "pink",
+			invoke_on_body = true,
+			hint = {
+				position = "bottom",
+				border = "rounded",
+			},
+			on_enter = function()
+				-- vim.cmd("QFOpen")
+			end,
+			on_exit = function() end,
+		},
+		mode = { "n", "x" },
+		body = "Q",
+		heads = {
+			{ "Q", ":QFToggle<CR>", { silent = true } },
+			{ "L", ":LLToggle<CR>", { silent = true } },
+			{ "n", ":QFNext<CR>", { silent = true } },
+			{ "p", ":QFPrev<CR>", { silent = true } },
+			{ "q", nil, { exit = true, nowait = true } },
+		},
+	})
+end
+
 return M
