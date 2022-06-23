@@ -79,6 +79,13 @@ function M.config()
 			spell_suggest = {
 				theme = "ivy",
 			},
+			current_buffer_fuzzy_find = {
+				-- order same score results by line number
+				tiebreak = function(current_entry, existing_entry, prompt)
+					return false
+				end,
+				sorting_strategy = "ascending",
+			},
 		},
 		extensions = {
 			file_browser = {
