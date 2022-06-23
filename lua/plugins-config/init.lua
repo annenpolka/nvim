@@ -1004,7 +1004,14 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-
+		-- show lsp diagnostics inside code
+		use({
+			"Maan2003/lsp_lines.nvim",
+			config = function()
+				require("plugins-config.lsp_lines").config()
+			end,
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                      Autocompletion                      │
 		-- ╰──────────────────────────────────────────────────────────╯
