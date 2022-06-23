@@ -113,8 +113,8 @@ function M.quickfix_mode()
 		heads = {
 			{ "Q", ":QFToggle<CR>", { silent = true } },
 			{ "L", ":LLToggle<CR>", { silent = true } },
-			{ "n", ":QFNext<CR>", { silent = true } },
-			{ "p", ":QFPrev<CR>", { silent = true } },
+			{ "n", ":QNext<CR>", { silent = true } },
+			{ "p", ":QPrev<CR>", { silent = true } },
 			{ "q", nil, { exit = true, nowait = true } },
 		},
 	})
