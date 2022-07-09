@@ -60,13 +60,10 @@ vim.opt.spelllang = { "en_us", "programming" }
 -- color terminal
 vim.o.termguicolors = true
 
--- opt-in filetype.lua
-vim.g.do_filetype_lua = true
-
 -- disable built-in plugins
 local disabled_built_ins = {
 	"2html_plugin",
-	"filetypes",
+	-- "filetypes",
 	"getscript",
 	"getscriptPlugin",
 	"gzip",
