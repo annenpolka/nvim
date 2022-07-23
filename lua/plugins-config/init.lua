@@ -1012,7 +1012,7 @@ require("packer").startup({
 		})
 		-- show lsp diagnostics inside code
 		use({
-			"Maan2003/lsp_lines.nvim",
+			"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 			config = function()
 				require("plugins-config.lsp_lines").config()
 			end,
