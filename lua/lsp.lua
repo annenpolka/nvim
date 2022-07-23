@@ -234,7 +234,7 @@ end
 
 -- -- add predefined sources
 local mason_path = vim.fn.stdpath("data") .. "/mason/bin/"
-local formatter_predefined = {
+local sources = {
 	-- eslint, prettier
 	null_ls.builtins.code_actions.eslint_d.with({
 		condition = has_eslint_config,
@@ -266,14 +266,11 @@ local formatter_predefined = {
 	null_ls.builtins.diagnostics.write_good, -- also english prose linter
 	null_ls.builtins.diagnostics.alex, -- polite writing diagnostics
 }
-for _, v in pairs(formatter_predefined) do
-	table.insert(formatter_managed, v)
-end
 
 -- -- setup
 require("null-ls").setup({
 	debug = false,
-	sources = formatter_managed,
+	sources = sources,
 	on_attach = function(client)
 		require("lsp-format").on_attach(client)
 	end,
