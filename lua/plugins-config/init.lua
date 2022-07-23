@@ -948,7 +948,12 @@ require("packer").startup({
 		-- Collection of configurations for built-in LSP client
 		use({ "neovim/nvim-lspconfig" })
 		--  To Install LSP Automatically with LspInstall
-		use({ "williamboman/nvim-lsp-installer" })
+		-- use({ "williamboman/nvim-lsp-installer" })
+		use({
+			"williamboman/mason.nvim",
+			branch = "alpha",
+			requires = { "neovim/nvim-lspconfig", "williamboman/mason-lspconfig.nvim" },
+		})
 
 		-- async formatting
 		use({ "lukas-reineke/lsp-format.nvim" })
@@ -979,7 +984,7 @@ require("packer").startup({
 		})
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
-		use({ "PlatyPew/format-installer.nvim" })
+		-- use({ "PlatyPew/format-installer.nvim" })
 		-- breadcrumb
 		use({
 			"SmiteshP/nvim-navic",

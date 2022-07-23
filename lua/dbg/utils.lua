@@ -1,5 +1,7 @@
 local M = {}
 
+M.exec_path = table.concat({ vim.fn.stdpath("data"), "/mason/bin/" })
+
 function M.file_exists(name)
 	local f = io.open(name, "r")
 	if f ~= nil then

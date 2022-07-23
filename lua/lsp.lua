@@ -63,7 +63,8 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 -- ╭──────────────────────────────────────────────────────────╮
 -- │          nvim-lspconfig with nvim-lsp-installer          │
 -- ╰──────────────────────────────────────────────────────────╯
-local lsp_installer = require("nvim-lsp-installer")
+require("mason").setup()
+local lsp_installer = require("mason-lspconfig") -- require("nvim-lsp-installer")
 local server_list = {
 	"sumneko_lua",
 	"vimls",
@@ -82,7 +83,7 @@ local server_list = {
 }
 lsp_installer.setup({
 	-- ensure_installed = server_list,
-	automatic_installation = { exclude = { "hls", "omnisharp" } },
+	automatic_installation = { exclude = { "hls", "omnisharp", "clangd" } },
 })
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
@@ -151,6 +152,12 @@ rust_opts.settings = {
 		},
 	},
 }
+-- local extension_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/"
+-- local codelldb_path = extension_path .. "adapter/codelldb"
+-- local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+-- rust_opts.dap = {
+-- 	adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+-- }
 require("rust-tools").setup({
 	server = rust_opts,
 })
@@ -224,50 +231,34 @@ local has_eslint_config = function(u)
 		or u.root_has_file(".eslintrc.yaml")
 		or u.root_has_file(".eslintrc.yml")
 end
--- -- format-installer configuration
-local formatter_install = require("format-installer")
 
--- ensure_install by format-installer
-local ensure_install_formatter_list = {
-	"stylua",
-	"black",
-	"prettierd",
-	"eslint_d",
-	"rustywind",
-}
--- for _, v in pairs(ensure_install_formatter_list) do
--- 	local is_installed = require("format-installer").is_installed(v)
--- 	if not is_installed then
--- 		require("format-installer").install_formatter(v)
--- 	end
--- end
-
--- add sources managed by format-installer.nvim
-local formatter_managed = {}
-for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
-	local config = { command = formatter.cmd }
-	table.insert(formatter_managed, null_ls.builtins.formatting[formatter.name].with(config))
-end
 -- -- add predefined sources
+local mason_path = vim.fn.stdpath("data") .. "/mason/bin/"
 local formatter_predefined = {
 	-- eslint, prettier
 	null_ls.builtins.code_actions.eslint_d.with({
 		condition = has_eslint_config,
+		command = mason_path .. "eslint_d",
 		prefer_local = "node_modules/.bin",
 	}),
 	null_ls.builtins.diagnostics.eslint_d.with({
 		condition = has_eslint_config,
+		command = mason_path .. "eslint_d",
 		prefer_local = "node_modules/.bin",
 	}),
 	null_ls.builtins.formatting.eslint_d.with({
 		condition = has_eslint_config,
+		command = mason_path .. "eslint_d",
 		prefer_local = "node_modules/.bin",
 	}),
 	null_ls.builtins.formatting.prettier.with({
+		command = mason_path .. "prettier",
 		prefer_local = "node_modules/.bin",
 	}),
 	-- stylua for lua
-	null_ls.builtins.formatting.stylua,
+	null_ls.builtins.formatting.stylua.with({
+		command = mason_path .. "stylua",
+	}),
 	-- gitsigns integration
 	null_ls.builtins.code_actions.gitsigns,
 	-- markdown tools
