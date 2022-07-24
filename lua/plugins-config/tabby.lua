@@ -56,7 +56,6 @@ local palettes = {
 		fg_sec = terafox_palette.fg3,
 	},
 	sherbet = {
-		-- TODO: set sherbet palette
 		accent = "#d4d4d4",
 		accent_sec = "#89DCEB",
 		bg = "#13151b",

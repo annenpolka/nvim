@@ -13,6 +13,7 @@ function M.config()
 	-- auto open dap-ui
 	dap.listeners.after.event_initialized["dapui_config"] = function()
 		dapui.open()
+		require("focus").focus_disable()
 	end
 
 	-- dap virtual text annotation
