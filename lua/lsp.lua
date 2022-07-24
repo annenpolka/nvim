@@ -1,7 +1,11 @@
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                       LSP setting                        │
 -- ╰──────────────────────────────────────────────────────────╯
-local lspconfig = require("lspconfig")
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+	vim.notify("Couldn't load LSP-Config" .. lspconfig, "error")
+	return
+end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- setting format option by lsp-format.nvim
 require("lsp-format").setup({
@@ -61,10 +65,10 @@ capabilities.offsetEncoding = { "utf-16" }
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- ╭──────────────────────────────────────────────────────────╮
--- │          nvim-lspconfig with nvim-lsp-installer          │
+-- │          nvim-lspconfig with mason-lspconfig             │
 -- ╰──────────────────────────────────────────────────────────╯
 require("mason").setup()
-local lsp_installer = require("mason-lspconfig") -- require("nvim-lsp-installer")
+local mason_lspconfig = require("mason-lspconfig") -- require("nvim-lsp-installer")
 local server_list = {
 	"sumneko_lua",
 	"vimls",
@@ -81,86 +85,104 @@ local server_list = {
 	"prosemd_lsp",
 	"dockerls",
 }
-lsp_installer.setup({
+local server_manual_list = { "hls", "omnisharp", "clangd" }
+mason_lspconfig.setup({
 	-- ensure_installed = server_list,
-	automatic_installation = { exclude = { "hls", "omnisharp", "clangd" } },
+	automatic_installation = { exclude = server_manual_list },
 })
-local common_opts = { on_attach = on_attach, capabilities = capabilities }
 
--- Enable the following language servers with common_opts
-for _, lsp in ipairs(server_list) do
-	local ignore_server_list = { "rust_analyzer", "clangd", "sumneko_lua" } -- setup with dedicated settings
+local common_opts = { on_attach = on_attach, capabilities = capabilities }
+mason_lspconfig.setup_handlers({
+	-- The first entry (without a key) will be the default handler
+	-- and will be called for each installed server that doesn't have
+	-- a dedicated handler.
+	function(server_name) -- Default handler (optional)
+		lspconfig[server_name].setup({
+			on_attach = common_opts.on_attach,
+			capabilities = common_opts.capabilities,
+		})
+	end,
+
+	-- Next, you can provide targeted overrides for specific servers.
+	-- For example, a handler override for the `rust_analyzer`:
+	["rust_analyzer"] = function()
+		-- rust-analyzer config
+		local rust_opts = { on_attach = common_opts.on_attach, capabilities = common_opts.capabilities }
+		rust_opts.settings = {
+			["rust-analyzer"] = {
+				-- use clippy linter
+				checkOnSave = {
+					allFeatures = true,
+					overrideCommand = {
+						"cargo",
+						"clippy",
+						"--workspace",
+						"--message-format=json",
+						"--all-targets",
+						"--all-features",
+					},
+				},
+			},
+		}
+		-- local extension_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/"
+		-- local codelldb_path = extension_path .. "adapter/codelldb"
+		-- local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+		-- rust_opts.dap = {
+		-- 	adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+		-- }
+		require("rust-tools").setup({
+			server = rust_opts,
+		})
+	end,
+
+	["sumneko_lua"] = function()
+		-- Make runtime files discoverable to the server
+		local runtime_path = vim.split(package.path, ";")
+		table.insert(runtime_path, "lua/?.lua")
+		table.insert(runtime_path, "lua/?/init.lua")
+		lspconfig.sumneko_lua.setup({
+			on_attach = common_opts.on_attach,
+			capabilities = common_opts.capabilities,
+			settings = {
+				Lua = {
+					runtime = {
+						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+						version = "LuaJIT",
+						-- Setup your lua path
+						path = runtime_path,
+					},
+					diagnostics = {
+						-- Get the language server to recognize the `vim` global
+						globals = { "vim" },
+					},
+					completion = {
+						keywordSnippet = "Replace",
+						-- arguments completion
+						callSnippet = "Replace",
+					},
+					workspace = {
+						-- Make the server aware of Neovim runtime files
+						-- library = vim.api.nvim_get_runtime_file("", true),
+					},
+					-- Do not send telemetry data containing a randomized but unique identifier
+					telemetry = {
+						enable = false,
+					},
+				},
+			},
+		})
+	end,
+})
+
+-- enable server_manual_list LSPs
+for _, lsp in ipairs(server_manual_list) do
+	local ignore_server_list = { "clangd" } -- setup with dedicated settings
 	for _, ignore_server in ipairs(ignore_server_list) do
 		if lsp ~= ignore_server then
 			lspconfig[lsp].setup(common_opts)
 		end
 	end
 end
-
--- sumneko_lua config
--- Make runtime files discoverable to the server
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-lspconfig.sumneko_lua.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-				version = "LuaJIT",
-				-- Setup your lua path
-				path = runtime_path,
-			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-			},
-			completion = {
-				keywordSnippet = "Replace",
-				-- arguments completion
-				callSnippet = "Replace",
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				-- library = vim.api.nvim_get_runtime_file("", true),
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-})
-
--- rust-analyzer config
-local rust_opts = { on_attach = on_attach, capabilities = capabilities }
-rust_opts.settings = {
-	["rust-analyzer"] = {
-		-- use clippy linter
-		checkOnSave = {
-			allFeatures = true,
-			overrideCommand = {
-				"cargo",
-				"clippy",
-				"--workspace",
-				"--message-format=json",
-				"--all-targets",
-				"--all-features",
-			},
-		},
-	},
-}
--- local extension_path = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/"
--- local codelldb_path = extension_path .. "adapter/codelldb"
--- local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
--- rust_opts.dap = {
--- 	adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
--- }
-require("rust-tools").setup({
-	server = rust_opts,
-})
 
 -- clangd config
 local clangd_opts = { on_attach = on_attach, capabilities = capabilities }
@@ -234,7 +256,7 @@ end
 
 -- -- add predefined sources
 local mason_path = vim.fn.stdpath("data") .. "/mason/bin/"
-local sources = {
+local null_ls_sources = {
 	-- eslint, prettier
 	null_ls.builtins.code_actions.eslint_d.with({
 		condition = has_eslint_config,
@@ -270,7 +292,7 @@ local sources = {
 -- -- setup
 require("null-ls").setup({
 	debug = false,
-	sources = sources,
+	sources = null_ls_sources,
 	on_attach = function(client)
 		require("lsp-format").on_attach(client)
 	end,
