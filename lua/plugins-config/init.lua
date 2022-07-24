@@ -401,6 +401,17 @@ require("packer").startup({
 			end,
 			cmd = "VFiler",
 		})
+		-- incremental narrowing filer
+		use({
+			"conweller/findr.vim",
+			setup = function()
+				require("plugins-config.findr").map()
+			end,
+			config = function()
+				require("plugins-config.findr").config()
+			end,
+			cmd = { "Findr", "FindrBuffers", "FinderLocList", "FindQFList" },
+		})
 		-- text-based filesystem edit
 		use({
 			"elihunter173/dirbuf.nvim",
