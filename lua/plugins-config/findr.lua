@@ -11,7 +11,7 @@ function M.config()
 end
 
 function M.map()
-	nnoremap("<C-e>", "Findr", { noremap = true, silent = true })
+	nnoremap("<C-e>", "<Cmd>Findr<CR>", { noremap = true, silent = true })
 end
 
 return M
