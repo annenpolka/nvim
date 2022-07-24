@@ -8,6 +8,7 @@ function M.config()
 			mappings = {
 				n = {
 					["l"] = "select_default",
+					["<c-g>"] = require("telescope.actions").close,
 					["<Space><Space>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
 				},
 				i = {
