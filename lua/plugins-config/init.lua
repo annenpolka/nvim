@@ -952,7 +952,11 @@ require("packer").startup({
 		use({
 			"williamboman/mason.nvim",
 			branch = "alpha",
-			requires = { "neovim/nvim-lspconfig", "williamboman/mason-lspconfig.nvim" },
+			requires = {
+				"neovim/nvim-lspconfig",
+				"williamboman/mason-lspconfig.nvim",
+				"WhoIsSethDaniel/mason-tool-installer.nvim",
+			},
 		})
 
 		-- async formatting

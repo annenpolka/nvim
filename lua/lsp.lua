@@ -254,8 +254,19 @@ local has_eslint_config = function(u)
 		or u.root_has_file(".eslintrc.yml")
 end
 
--- -- add predefined sources
+-- ensure formatters installed
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		"stylua",
+		"eslint_d",
+		"prettier",
+	},
+	auto_update = true,
+	run_on_start = true,
+})
 local mason_path = vim.fn.stdpath("data") .. "/mason/bin/"
+
+-- sources configuration
 local null_ls_sources = {
 	-- eslint, prettier
 	null_ls.builtins.code_actions.eslint_d.with({
@@ -284,9 +295,9 @@ local null_ls_sources = {
 	-- gitsigns integration
 	null_ls.builtins.code_actions.gitsigns,
 	-- markdown tools
-	null_ls.builtins.code_actions.proselint, -- english prose linter
-	null_ls.builtins.diagnostics.write_good, -- also english prose linter
-	null_ls.builtins.diagnostics.alex, -- polite writing diagnostics
+	-- null_ls.builtins.code_actions.proselint, -- english prose linter
+	-- null_ls.builtins.diagnostics.write_good, -- also english prose linter
+	-- null_ls.builtins.diagnostics.alex, -- polite writing diagnostics
 }
 
 -- -- setup
