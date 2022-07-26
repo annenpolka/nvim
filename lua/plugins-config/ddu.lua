@@ -4,9 +4,10 @@ function M.config()
 		ui = "ff",
 		sources = {
 			{ name = "file_rec", params = {} },
+			{ name = "file_old", params = {} },
 			{ name = "buffer", params = {} },
-			{ name = "rg", params = {} },
-			{ name = "line", params = {} },
+			-- { name = "rg", params = {} },
+			-- { name = "line", params = {} },
 		},
 		sourceParams = {
 			file_rec = {
@@ -23,6 +24,7 @@ function M.config()
 		sourceOptions = {
 			["_"] = {
 				matchers = { "matcher_fzf" },
+				-- columns = { "filename" },
 			},
 		},
 		kindOptions = {
@@ -66,7 +68,9 @@ function M.config()
 	})
 end
 
-function M.map() end
+function M.map()
+	-- vim.keymap.set("n", "<C-e>", "<Cmd>Ddu<CR>")
+end
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │           --- Settings in ddu-ff-filter buffer           │
@@ -108,10 +112,10 @@ end
 --- Settings in ddu-ff-filter buffer
 function M.ftplugin_ddu_ff_filter()
 	local opts = { silent = true, buffer = true }
-	vim.keymap.set("i", "<CR>", "<Esc><Cmd>close<CR>", opts)
-	vim.keymap.set("i", "jj", "<Esc><Cmd>close<CR>", opts)
-	vim.keymap.set("n", "<CR>", "<Cmd>close<CR>", opts)
-	vim.keymap.set("n", "q", "<Cmd>close<CR>", opts)
+	vim.keymap.set("i", "<CR>", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
+	vim.keymap.set("i", "jj", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
+	vim.keymap.set("n", "<CR>", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
+	vim.keymap.set("n", "q", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
 end
 
 --- Settings in ddu-filer buffer

@@ -423,6 +423,33 @@ require("packer").startup({
 			end,
 			-- cmd = "Dirbuf",
 		})
+		use({
+			"Shougo/ddu.vim",
+			setup = function()
+				require("plugins-config.ddu").map()
+			end,
+			config = function()
+				require("plugins-config.ddu").config()
+			end,
+			requires = {
+				"vim-denops/denops.vim",
+				"Shougo/ddu-commands.vim",
+				"Shougo/ddu-ui-ff",
+				"Shougo/ddu-ui-filer",
+				"Shougo/ddu-source-file_rec",
+				"Shougo/ddu-source-file_old",
+				"shun/ddu-source-buffer",
+				"shun/ddu-source-rg",
+				"Shougo/ddu-source-action",
+				"yuki-yano/ddu-filter-fzf",
+				"Shougo/ddu-filter-matcher_substring",
+				"Shougo/ddu-kind-file",
+				"Shougo/ddu-kind-word",
+				"Shougo/ddu-column-filename",
+				"ryota2357/ddu-column-icon_filename",
+			},
+			after = "denops.vim",
+		})
 		-- buffer/tabpage/marker/colorscheme picker
 		use({
 			"toppair/reach.nvim",
