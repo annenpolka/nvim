@@ -2,16 +2,18 @@ local M = {}
 function M.config()
 	vim.fn["ddu#custom#patch_global"]({
 		ui = "ff",
+		volatile = true,
 		uiParams = {
 			ff = {
 				startFilter = true,
+				autoAction = { name = "preview" },
 			},
 		},
 		sources = {
 			{ name = "file_rec", params = {} },
 			{ name = "file_old", params = {} },
 			{ name = "buffer", params = {} },
-			-- { name = "rg", params = {} },
+			-- { name = "rg", params = { matchers = {} } },
 			-- { name = "line", params = {} },
 		},
 		sourceParams = {
@@ -23,12 +25,13 @@ function M.config()
 				},
 			},
 			rg = {
-				args = { "--column", "--no-heading", "--color", "never" },
+				args = { "--column", "--no-heading", "--color", "never", "--json" },
 			},
 		},
 		sourceOptions = {
 			["_"] = {
 				matchers = { "matcher_fzf" },
+				ignoreCase = true,
 				-- columns = { "filename" },
 			},
 		},
@@ -90,6 +93,8 @@ function M.ftplugin_ddu_ff()
 	vim.keymap.set("n", "i", "<Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>", opts)
 	vim.keymap.set("n", "p", "<Cmd>call ddu#ui#ff#do_action('preview')<CR>", opts)
 	vim.keymap.set("n", "q", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
+	vim.keymap.set("n", "<C-q>", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
+	vim.keymap.set("n", "<C-g>", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 	-- vim.keymap.set("n", "c", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'cd'})<CR>", opts)
 	-- vim.keymap.set("n", "d", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'delete'})<CR>", opts)
 	vim.keymap.set("n", "e", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'edit'})<CR>", opts)
@@ -119,9 +124,12 @@ end
 function M.ftplugin_ddu_ff_filter()
 	local opts = { silent = true, buffer = true }
 	vim.keymap.set("i", "<CR>", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
-	vim.keymap.set("i", "jj", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
+	-- vim.keymap.set("i", "jj", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
+	vim.keymap.set("i", "<C-q>", "<Esc><Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 	vim.keymap.set("n", "<CR>", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
 	vim.keymap.set("n", "q", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
+	vim.keymap.set("n", "<C-q>", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
+	vim.keymap.set("n", "<C-g>", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 end
 
 --- Settings in ddu-filer buffer
