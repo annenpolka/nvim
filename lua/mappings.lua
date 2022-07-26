@@ -2,7 +2,7 @@
 -- Map Escape
 -- now using better-escape.nvim to jk
 -- vim.keymap.set("i", "jk", "<esc>", { noremap = true })
-vim.keymap.set({ "i", "v", "x", "o" }, "<C-g>", "<esc>", { noremap = false })
+vim.keymap.set({ "n", "i", "v", "x", "o" }, "<C-g>", "<esc>", { noremap = false })
 
 --Save with <c-s>
 vim.keymap.set("n", "<c-s>", "<cmd>w<CR>", { noremap = true, silent = true })

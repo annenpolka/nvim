@@ -47,7 +47,7 @@ function M.config()
 end
 
 function M.map()
-	vim.keymap.set({ "n" }, "<C-g>", ":<C-U>Gitsigns next_hunk<CR>")
+	-- vim.keymap.set({ "n" }, "<C-g>", ":<C-U>Gitsigns next_hunk<CR>")
 	vim.keymap.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 end
 return M
