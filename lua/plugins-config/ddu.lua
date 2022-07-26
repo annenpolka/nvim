@@ -2,6 +2,11 @@ local M = {}
 function M.config()
 	vim.fn["ddu#custom#patch_global"]({
 		ui = "ff",
+		uiParams = {
+			ff = {
+				startFilter = true,
+			},
+		},
 		sources = {
 			{ name = "file_rec", params = {} },
 			{ name = "file_old", params = {} },
@@ -54,13 +59,14 @@ function M.config()
 		pattern = "ddu-ff-filter",
 		callback = function()
 			require("plugins-config.ddu").ftplugin_ddu_ff_filter()
+			require("cmp").setup.buffer({ enabled = false })
 		end,
 		desc = "Set key mappings in ddu-ff-filter buffers",
 	})
 
 	vim.api.nvim_create_autocmd("FileType", {
 		group = group,
-		pattern = "ddu-filter",
+		pattern = "ddu-filer",
 		callback = function()
 			require("plugins-config.ddu").ftplugin_ddu_filer()
 		end,
@@ -69,7 +75,7 @@ function M.config()
 end
 
 function M.map()
-	-- vim.keymap.set("n", "<C-e>", "<Cmd>Ddu<CR>")
+	vim.keymap.set("n", "<leader><space>", "<Cmd>Ddu<CR>")
 end
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -84,8 +90,8 @@ function M.ftplugin_ddu_ff()
 	vim.keymap.set("n", "i", "<Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>", opts)
 	vim.keymap.set("n", "p", "<Cmd>call ddu#ui#ff#do_action('preview')<CR>", opts)
 	vim.keymap.set("n", "q", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
-	vim.keymap.set("n", "c", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'cd'})<CR>", opts)
-	vim.keymap.set("n", "d", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'delete'})<CR>", opts)
+	-- vim.keymap.set("n", "c", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'cd'})<CR>", opts)
+	-- vim.keymap.set("n", "d", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'delete'})<CR>", opts)
 	vim.keymap.set("n", "e", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'edit'})<CR>", opts)
 	vim.keymap.set(
 		"n",

@@ -34,7 +34,7 @@ function M.map()
 	)
 	vim.keymap.set(
 		"n",
-		"<leader><Space>",
+		"<leader>M",
 		":lua require('harpoon.ui').toggle_quick_menu()<CR>",
 		{ noremap = true, silent = true }
 	)
