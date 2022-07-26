@@ -962,7 +962,6 @@ require("packer").startup({
 		-- use({ "williamboman/nvim-lsp-installer" })
 		use({
 			"williamboman/mason.nvim",
-			branch = "alpha",
 			requires = {
 				"neovim/nvim-lspconfig",
 				"williamboman/mason-lspconfig.nvim",

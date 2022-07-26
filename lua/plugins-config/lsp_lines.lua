@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-	require("lsp_lines").register_lsp_virtual_lines()
+	require("lsp_lines").setup()
 end
 
 return M
