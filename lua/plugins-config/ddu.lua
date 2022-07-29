@@ -13,6 +13,7 @@ function M.config()
 			{ name = "buffer", params = {} },
 			{ name = "file_rec", params = {} },
 			{ name = "rg", params = { matchers = {} } },
+			{ name = "mr", params = { kind = "mrr" } },
 			{ name = "file_old", params = {} },
 			-- { name = "line", params = {} },
 		},
@@ -97,7 +98,7 @@ function M.ftplugin_ddu_ff()
 	vim.keymap.set("n", "<C-g>", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 	-- vim.keymap.set("n", "c", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'cd'})<CR>", opts)
 	-- vim.keymap.set("n", "d", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'delete'})<CR>", opts)
-	vim.keymap.set("n", "e", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'edit'})<CR>", opts)
+	-- vim.keymap.set("n", "e", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'edit'})<CR>", opts)
 	vim.keymap.set(
 		"n",
 		"E",
@@ -111,11 +112,11 @@ function M.ftplugin_ddu_ff()
 		opts
 	)
 	vim.keymap.set("n", "N", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'new'})<CR>", opts)
-	vim.keymap.set("n", "r", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'quickfix'})<CR>", opts)
+	-- vim.keymap.set("n", "r", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'quickfix'})<CR>", opts)
 	vim.keymap.set(
 		"n",
 		"u",
-		"<Cmd>call ddu#ui#ff#do_action('updateOptions', {'sourceOptions': {'_': {'matchers': []}}})<CR>",
+		"<Cmd>call ddu#ui#ff#do_action('updateOptions', {'sourceOptions': {'_': {'matchers': }}})<CR>",
 		opts
 	)
 end
