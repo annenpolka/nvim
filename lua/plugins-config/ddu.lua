@@ -10,10 +10,10 @@ function M.config()
 			},
 		},
 		sources = {
-			{ name = "file_rec", params = {} },
-			{ name = "file_old", params = {} },
 			{ name = "buffer", params = {} },
-			-- { name = "rg", params = { matchers = {} } },
+			{ name = "file_rec", params = {} },
+			{ name = "rg", params = { matchers = {} } },
+			{ name = "file_old", params = {} },
 			-- { name = "line", params = {} },
 		},
 		sourceParams = {
