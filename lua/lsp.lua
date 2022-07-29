@@ -264,34 +264,27 @@ require("mason-tool-installer").setup({
 	auto_update = true,
 	run_on_start = true,
 })
-local mason_path = vim.fn.stdpath("data") .. "/mason/bin/"
 
 -- sources configuration
 local null_ls_sources = {
 	-- eslint, prettier
 	null_ls.builtins.code_actions.eslint_d.with({
 		condition = has_eslint_config,
-		command = mason_path .. "eslint_d",
 		prefer_local = "node_modules/.bin",
 	}),
 	null_ls.builtins.diagnostics.eslint_d.with({
 		condition = has_eslint_config,
-		command = mason_path .. "eslint_d",
 		prefer_local = "node_modules/.bin",
 	}),
 	null_ls.builtins.formatting.eslint_d.with({
 		condition = has_eslint_config,
-		command = mason_path .. "eslint_d",
 		prefer_local = "node_modules/.bin",
 	}),
 	null_ls.builtins.formatting.prettier.with({
-		command = mason_path .. "prettier",
 		prefer_local = "node_modules/.bin",
 	}),
 	-- stylua for lua
-	null_ls.builtins.formatting.stylua.with({
-		command = mason_path .. "stylua",
-	}),
+	null_ls.builtins.formatting.stylua.with({}),
 	-- gitsigns integration
 	null_ls.builtins.code_actions.gitsigns,
 	-- markdown tools
