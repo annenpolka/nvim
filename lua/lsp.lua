@@ -254,9 +254,10 @@ local has_eslint_config = function(u)
 		or u.root_has_file(".eslintrc.yml")
 end
 
--- ensure formatters installed
+-- ensure tools installed
 require("mason-tool-installer").setup({
 	ensure_installed = {
+		"deno",
 		"stylua",
 		"eslint_d",
 		"prettier",
@@ -286,7 +287,7 @@ local null_ls_sources = {
 	-- stylua for lua
 	null_ls.builtins.formatting.stylua.with({}),
 	-- gitsigns integration
-	null_ls.builtins.code_actions.gitsigns,
+	-- null_ls.builtins.code_actions.gitsigns,
 	-- markdown tools
 	-- null_ls.builtins.code_actions.proselint, -- english prose linter
 	-- null_ls.builtins.diagnostics.write_good, -- also english prose linter
