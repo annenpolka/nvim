@@ -110,6 +110,12 @@ function M.ftplugin_ddu_ff()
 	)
 	vim.keymap.set(
 		"n",
+		"s",
+		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>",
+		opts
+	)
+	vim.keymap.set(
+		"n",
 		"v",
 		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>",
 		opts
