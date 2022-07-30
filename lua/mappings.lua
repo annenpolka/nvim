@@ -57,6 +57,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<C-t>", ":$tabnew<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { noremap = true })
+vim.keymap.set("n", "<c-i>", "<c-i>", { noremap = true }) -- to avoid overridden by <Tab> map
 vim.keymap.set("n", "<Tab>", ":tabn<CR>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", ":tabp<CR>", { noremap = true })
 -- move current tab to previous position
