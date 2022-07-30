@@ -1262,6 +1262,7 @@ require("packer").startup({
 			setup = function()
 				Lazyload_timer("which-key.nvim")
 			end,
+			disable = true,
 		})
 		-- Problem view
 		use({
