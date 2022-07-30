@@ -832,6 +832,8 @@ require("packer").startup({
 				require("plugins-config.mini-indentscope").config()
 				-- cursorword highlighting
 				require("plugins-config.mini-cursorword").config()
+				-- targets.vim like textobjects
+				require("plugins-config.mini-ai").config()
 				-- clever-f
 				-- require("plugins-config.mini-jump").config()
 				-- require("plugins-config.mini-surround").config()
@@ -1262,6 +1264,7 @@ require("packer").startup({
 			setup = function()
 				Lazyload_timer("which-key.nvim")
 			end,
+			disable = true,
 		})
 		-- Problem view
 		use({
