@@ -6,14 +6,14 @@ function M.config()
 		uiParams = {
 			ff = {
 				startFilter = true,
-				autoAction = { name = "preview" },
+				-- autoAction = { name = "preview" },
 			},
 		},
 		sources = {
-			{ name = "buffer", params = {} },
 			{ name = "file_rec", params = {} },
-			{ name = "rg", params = { matchers = {} } },
 			{ name = "mr", params = { kind = "mrr" } },
+			{ name = "rg", params = { matchers = {} } },
+			{ name = "buffer", params = {} },
 			{ name = "file_old", params = {} },
 			-- { name = "line", params = {} },
 		},
@@ -35,6 +35,9 @@ function M.config()
 				ignoreCase = true,
 				-- columns = { "filename" },
 			},
+			-- mr = {
+			-- 	columns = { "filename" },
+			-- },
 		},
 		kindOptions = {
 			file = {
