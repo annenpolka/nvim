@@ -252,6 +252,18 @@ require("packer").startup({
 				vim.g["readme_viewer#plugin_manager"] = "packer.nvim"
 			end,
 		})
+		-- live norm command
+		use({
+			"smjonas/live-command.nvim",
+			config = function()
+				require("live_command").setup({
+					commands = {
+						Norm = { cmd = "norm" },
+					},
+				})
+			end,
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -715,6 +727,14 @@ require("packer").startup({
 			"projekt0n/github-nvim-theme",
 			config = function()
 				require("plugins-config.github-nvim-theme").config()
+			end,
+		})
+		use({
+			"luisiacc/gruvbox-baby",
+			config = function()
+				require("plugins-config.gruvbox-baby").config()
+				-- Load the colorscheme
+				-- vim.cmd([[colorscheme gruvbox-baby]])
 			end,
 		})
 		-- catppuccin theme
