@@ -565,12 +565,23 @@ require("packer").startup({
 			end,
 		})
 		-- split/join lines
+		-- use({
+		-- 	"AndrewRadev/splitjoin.vim",
+		-- 	opt = true,
+		-- 	setup = function()
+		-- 		Lazyload_timer("splitjoin.vim")
+		-- 	end,
+		-- })
 		use({
-			"AndrewRadev/splitjoin.vim",
-			opt = true,
-			setup = function()
-				Lazyload_timer("splitjoin.vim")
-			end,
+			use({
+				"AckslD/nvim-trevJ.lua",
+				setup = function()
+					require("plugins-config.nvim-trevJ").map()
+				end,
+				config = function()
+					require("plugins-config.nvim-trevJ").config()
+				end,
+			}),
 		})
 		-- non-lsp formatter
 		use({
