@@ -10,14 +10,26 @@ function M.config()
 			},
 		},
 		sources = {
-			{ name = "file_rec", params = {} },
+			-- { name = "file_rec", params = {} },
+			{ name = "file_external", params = {} },
 			{ name = "mr", params = { kind = "mrr" } },
 			{ name = "rg", params = { matchers = {} } },
 			{ name = "buffer", params = {} },
-			{ name = "file_old", params = {} },
+			{ name = "mr", params = { kind = "mrw" } },
 			-- { name = "line", params = {} },
 		},
 		sourceParams = {
+			file_external = {
+				cmd = {
+					"fd",
+					".",
+					"-H",
+					"-E",
+					".git/",
+					"-t",
+					"f",
+				},
+			},
 			file_rec = {
 				ignoredDirectories = {
 					".git",

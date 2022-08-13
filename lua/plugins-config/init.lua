@@ -450,6 +450,7 @@ require("packer").startup({
 				{ "Shougo/ddu-ui-filer", after = "ddu.vim" },
 				{ "Shougo/ddu-source-file_rec", after = "ddu.vim" },
 				{ "Shougo/ddu-source-file_old", after = "ddu.vim" },
+				{ "matsui54/ddu-source-file_external", after = "ddu.vim" },
 				{ "kuuote/ddu-source-mr", requires = "lambdalisue/mr.vim", after = "ddu.vim" },
 				{ "shun/ddu-source-buffer", after = "ddu.vim" },
 				{ "shun/ddu-source-rg", after = "ddu.vim" },
