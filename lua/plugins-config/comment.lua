@@ -62,8 +62,17 @@ function M.config()
 end
 
 function M.map()
-	vim.keymap.set("n", "<C-_>", "<Cmd>lua require('Comment.api').toggle_current_linewise(false)<CR>", {})
-	vim.keymap.set("x", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', {})
+	-- # NORMAL mode
+	-- Linewise toggle current line using C-/
+	vim.keymap.set("n", "<C-_>", '<CMD>lua require("Comment.api").toggle.linewise.current()<CR>')
+	-- Blockwise toggle current line using C-\
+	vim.keymap.set("n", "<C-\\>", '<CMD>lua require("Comment.api").toggle.blockwise.current()<CR>')
+
+	-- # VISUAL mode
+	-- Linewise toggle using C-/
+	vim.keymap.set("x", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
+	-- Blockwise toggle using <leader>gb
+	vim.keymap.set("x", "<leader>gb", '<ESC><CMD>lua require("Comment.api").toggle.blockwise(vim.fn.visualmode())<CR>')
 end
 
 return M
