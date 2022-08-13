@@ -997,11 +997,10 @@ require("packer").startup({
 		})
 		-- dim unused variables and functions
 		use({
-			"narutoxy/dim.lua",
-			requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
-			after = { "nvim-treesitter" },
+			"zbirenbaum/neodim",
+			event = "LspAttach",
 			config = function()
-				require("dim").setup({})
+				require("plugins-config.neodim").config()
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
