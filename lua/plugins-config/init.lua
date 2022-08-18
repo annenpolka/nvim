@@ -573,15 +573,13 @@ require("packer").startup({
 		-- 	end,
 		-- })
 		use({
-			use({
-				"AckslD/nvim-trevJ.lua",
-				setup = function()
-					require("plugins-config.nvim-trevJ").map()
-				end,
-				config = function()
-					require("plugins-config.nvim-trevJ").config()
-				end,
-			}),
+			"AckslD/nvim-trevJ.lua",
+			setup = function()
+				require("plugins-config.nvim-trevJ").map()
+			end,
+			config = function()
+				require("plugins-config.nvim-trevJ").config()
+			end,
 		})
 		-- non-lsp formatter
 		use({
