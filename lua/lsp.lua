@@ -85,10 +85,10 @@ local server_list = {
 	"prosemd_lsp",
 	"dockerls",
 }
-local server_manual_list = { "hls", "omnisharp", "clangd" }
+local servers_installed_manually = { "hls", "omnisharp", "clangd" }
 mason_lspconfig.setup({
 	-- ensure_installed = server_list,
-	automatic_installation = { exclude = server_manual_list },
+	automatic_installation = { exclude = servers_installed_manually },
 })
 
 local common_opts = { on_attach = on_attach, capabilities = capabilities }
@@ -175,7 +175,7 @@ mason_lspconfig.setup_handlers({
 })
 
 -- enable server_manual_list LSPs
-for _, lsp in ipairs(server_manual_list) do
+for _, lsp in ipairs(servers_installed_manually) do
 	local ignore_server_list = { "clangd" } -- setup with dedicated settings
 	for _, ignore_server in ipairs(ignore_server_list) do
 		if lsp ~= ignore_server then
