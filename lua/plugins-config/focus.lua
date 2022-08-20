@@ -17,10 +17,10 @@ function M.config()
 end
 
 function M.map()
-	nnoremap("<leader>h", ":FocusSplitLeft<CR>", { silent = true })
-	nnoremap("<leader>j", ":FocusSplitDown<CR>", { silent = true })
-	nnoremap("<leader>k", ":FocusSplitUp<CR>", { silent = true })
-	nnoremap("<leader>l", ":FocusSplitRight<CR>", { silent = true })
+	nnoremap("<leader>wh", ":FocusSplitLeft<CR>", { silent = true })
+	nnoremap("<leader>wj", ":FocusSplitDown<CR>", { silent = true })
+	nnoremap("<leader>wk", ":FocusSplitUp<CR>", { silent = true })
+	nnoremap("<leader>wl", ":FocusSplitRight<CR>", { silent = true })
 	nnoremap("<CR>", ":FocusMaxOrEqual<CR>", { silent = true })
 	nnoremap("<CR>", "<CR>", { ft = "vim" }) -- avoid overding vim's <CR> in commandline mode
 end

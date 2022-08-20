@@ -261,6 +261,7 @@ require("mason-tool-installer").setup({
 		"stylua",
 		"eslint_d",
 		"prettier",
+		"black",
 	},
 	auto_update = true,
 	run_on_start = true,
