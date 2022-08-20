@@ -849,6 +849,13 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		use({
+			"RRethy/vim-illuminate",
+			config = function()
+				require("plugins-config.vim-illuminate").config()
+			end,
+			event = "BufRead",
+		})
 		-- small modules package
 		use({
 			"echasnovski/mini.nvim",
@@ -861,7 +868,7 @@ require("packer").startup({
 				-- animated indent guides
 				require("plugins-config.mini-indentscope").config()
 				-- cursorword highlighting
-				require("plugins-config.mini-cursorword").config()
+				-- require("plugins-config.mini-cursorword").config()
 				-- targets.vim like textobjects
 				require("plugins-config.mini-ai").config()
 				-- clever-f
@@ -1229,6 +1236,7 @@ require("packer").startup({
 		})
 		-- interactive REPL for various filetypes
 		use({
+			disable = true,
 			"hkupty/iron.nvim",
 			setup = function()
 				require("plugins-config.iron").map()
