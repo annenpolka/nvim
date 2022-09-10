@@ -132,6 +132,12 @@ function M.ftplugin_ddu_ff()
 		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>",
 		opts
 	)
+	vim.keymap.set(
+		"n",
+		"<C-t>",
+		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'tabnew'}})<CR>",
+		opts
+	)
 	vim.keymap.set("n", "N", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'new'})<CR>", opts)
 	-- vim.keymap.set("n", "r", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'quickfix'})<CR>", opts)
 	vim.keymap.set(
