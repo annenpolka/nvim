@@ -93,7 +93,8 @@ function M.config()
 			file_browser = {
 				layout_strategy = "flex",
 				theme = "ivy",
-				depth = 2,
+				depth = 1,
+				hijack_netrw = true,
 			},
 			fzf = {
 				fuzzy = true, -- false will only do exact matching

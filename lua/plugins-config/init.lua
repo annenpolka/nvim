@@ -427,6 +427,7 @@ require("packer").startup({
 		-- text-based filesystem edit
 		use({
 			"elihunter173/dirbuf.nvim",
+			disable = true,
 			setup = function()
 				require("plugins-config.dirbuf").map()
 			end,
