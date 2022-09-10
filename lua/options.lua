@@ -17,6 +17,9 @@ vim.o.hlsearch = true
 --Make line numbers default
 vim.wo.number = true
 
+-- show gutter signs on number column
+vim.wo.signcolumn = "number"
+
 --Enable mouse mode
 vim.o.mouse = "a"
 
@@ -39,7 +42,6 @@ vim.o.smartcase = true
 
 --Decrease update time
 vim.o.updatetime = 250
--- vim.wo.signcolumn = "yes"
 
 -- folding settings
 vim.wo.foldenable = false -- no auto folding
