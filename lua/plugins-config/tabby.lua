@@ -84,11 +84,11 @@ function M.config()
 	end
 	local bufname = function(winid)
 		local name = filename.unique(winid)
-		return string.format("%s %s", webicon(name), name)
+		return string.format("%s %s", name, webicon(name))
 	end
 	local line = {
 		hl = { fg = palette.fg, bg = palette.bg },
-		layout = "active_wins_at_tail",
+		layout = "tab_only",
 		head = {
 			{ cwd, hl = { fg = palette.accent, bg = palette.bg, style = "italic" } },
 			-- { cwd, hl = { fg = palette.bg_sec, bg = palette.accent } },
