@@ -18,7 +18,7 @@ function M.config()
 		},
 		wintype = {
 			autocmd = false,
-			popup = "bufnr",
+			popup = false,
 			preview = false,
 			command = false,
 			[""] = false,
@@ -28,6 +28,8 @@ function M.config()
 		filetype = {
 			aerial = "filetype",
 			nerdtree = "filetype",
+			["harpoon"] = false,
+			["ddu-ff"] = false,
 		},
 		bufname = {
 			["Neogit.*Popup"] = "bufnr",
