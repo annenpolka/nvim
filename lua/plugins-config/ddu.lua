@@ -124,13 +124,13 @@ function M.ftplugin_ddu_ff()
 	)
 	vim.keymap.set(
 		"n",
-		"s",
+		"<C-s>",
 		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>",
 		opts
 	)
 	vim.keymap.set(
 		"n",
-		"v",
+		"<C-v>",
 		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>",
 		opts
 	)
@@ -155,9 +155,9 @@ function M.ftplugin_ddu_ff_filter()
 	local opts = { silent = true, buffer = true }
 	vim.keymap.set("i", "<CR>", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
 	-- vim.keymap.set("i", "jj", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
-	vim.keymap.set("i", "<C-q>", "<Esc><Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 	vim.keymap.set("n", "<CR>", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
 	vim.keymap.set("n", "q", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
+	vim.keymap.set("i", "<C-q>", "<Cmd>call ddu#ui#ff#close()<CR><Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 	vim.keymap.set("n", "<C-q>", "<Cmd>call ddu#ui#ff#close()<CR><Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 	vim.keymap.set("n", "<C-g>", "<Cmd>call ddu#ui#ff#close()<CR><Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 end
