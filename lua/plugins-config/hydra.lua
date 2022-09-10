@@ -81,7 +81,7 @@ function M.git_mode()
 					gitsigns.blame_line({ full = true })
 				end,
 			},
-			{ "C", "<cmd>Neogit commit<CR>", { exit = true } },
+			{ "C", "<cmd>Neogit<CR><cmd>Neogit commit<CR>", { exit = true } },
 			{ "/", gitsigns.show, { exit = true } }, -- show the base of the file
 			{ "<Enter>", "<cmd>Neogit<CR>", { exit = true } },
 			{ "q", nil, { exit = true, nowait = true } },
