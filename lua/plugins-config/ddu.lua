@@ -6,7 +6,9 @@ function M.config()
 		uiParams = {
 			ff = {
 				startFilter = true,
-				-- autoAction = { name = "preview" },
+				autoAction = { name = "preview" },
+				winHeight = 15,
+				previewHeight = 20,
 			},
 		},
 		sources = {
@@ -156,8 +158,8 @@ function M.ftplugin_ddu_ff_filter()
 	vim.keymap.set("i", "<C-q>", "<Esc><Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 	vim.keymap.set("n", "<CR>", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
 	vim.keymap.set("n", "q", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
-	vim.keymap.set("n", "<C-q>", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
-	vim.keymap.set("n", "<C-g>", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
+	vim.keymap.set("n", "<C-q>", "<Cmd>call ddu#ui#ff#close()<CR><Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
+	vim.keymap.set("n", "<C-g>", "<Cmd>call ddu#ui#ff#close()<CR><Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 end
 
 --- Settings in ddu-filer buffer
