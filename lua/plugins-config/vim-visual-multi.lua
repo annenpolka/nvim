@@ -1,6 +1,6 @@
 local M = {}
 
-function M.config()
+function M.map()
 	vim.g.VM_maps = {
 		Exit = "<C-g>",
 	}
