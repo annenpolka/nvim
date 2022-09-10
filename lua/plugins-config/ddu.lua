@@ -7,8 +7,10 @@ function M.config()
 			ff = {
 				startFilter = true,
 				autoAction = { name = "preview" },
-				winHeight = 15,
-				previewHeight = 20,
+				winHeight = 20,
+				-- previewHeight = 20,
+				previewWidth = 80,
+				previewVertical = true,
 			},
 		},
 		sources = {
