@@ -4,6 +4,7 @@ function M.config()
 	local focus = require("focus")
 	-- vim.wo.signcolumn = "number" -- set before focus loaded
 	focus.setup({
+		autoresize = false,
 		excluded_filetypes = { "toggleterm", "harpoon", "ctrlspace", "TelescopePrompt", "ddu-ff", "ddu-ff-filter" },
 		excluded_buftypes = { "acwrite", "prompt", "nofile", "terminal" },
 		winhighlight = true,
