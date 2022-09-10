@@ -1317,8 +1317,7 @@ require("packer").startup({
 		})
 		-- todo highlight
 		use({
-			-- "folke/todo-comments.nvim",
-			"B4mbus/todo-comments.nvim",
+			"folke/todo-comments.nvim",
 			setup = function()
 				require("plugins-config.todo-comments").map()
 			end,
