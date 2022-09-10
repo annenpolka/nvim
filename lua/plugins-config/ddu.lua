@@ -2,7 +2,7 @@ local M = {}
 function M.config()
 	vim.fn["ddu#custom#patch_global"]({
 		ui = "ff",
-		volatile = true,
+		volatile = false,
 		uiParams = {
 			ff = {
 				startFilter = true,
@@ -13,8 +13,8 @@ function M.config()
 			-- { name = "file_rec", params = {} },
 			{ name = "file_external", params = {} },
 			{ name = "mr", params = { kind = "mrr" } },
-			{ name = "rg", params = { matchers = {} } },
-			{ name = "buffer", params = {} },
+			-- { name = "rg", params = { matchers = {} } },
+			-- { name = "buffer", params = {} },
 			{ name = "mr", params = { kind = "mrw" } },
 			-- { name = "line", params = {} },
 		},
