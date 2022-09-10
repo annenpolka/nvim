@@ -138,6 +138,6 @@ function M.map()
 	-- 	":VFiler -auto-cd -keep -layout=left -width=30 -columns=indent,icon,devicons,name,git<CR>",
 	-- 	{ noremap = true, silent = true }
 	-- )
-	nnoremap("R", ":VFiler -auto-cd -keep -layout=none -session=buffer<CR>", { noremap = true, silent = true })
+	nnoremap("R", ":VFiler -auto-cd -layout=none -session=buffer<CR>", { noremap = true, silent = true })
 end
 return M

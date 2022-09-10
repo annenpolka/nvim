@@ -15,6 +15,8 @@ function M.config()
 		filetypes_denylist = {
 			"dirvish",
 			"fugitive",
+			"ddu-ff",
+			"NeogitStatus",
 		},
 		-- filetypes_allowlist: filetypes to illuminate, this is overriden by filetypes_denylist
 		filetypes_allowlist = {},

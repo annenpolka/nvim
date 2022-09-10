@@ -55,11 +55,13 @@ vim.wo.foldtext =
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 
--- spellsuggest
+-- spellsuggest  of code
+-- test: spell codeSpell CodeSpall
 -- vim.opt.spell = true
-vim.opt.spelllang = { "en_us", "programming" }
+-- vim.opt.spelllang = { "en_us", "programming" }
+-- vim.opt.spelloptions = vim.opt.spelloptions + "camel"
 
--- color terminal
+-- color terminal termiguicolors
 vim.o.termguicolors = true
 
 -- disable built-in plugins
@@ -71,10 +73,10 @@ local disabled_built_ins = {
 	"gzip",
 	"logipat",
 	"matchparen",
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
+	-- "netrw",
+	-- "netrwPlugin",
+	-- "netrwSettings",
+	-- "netrwFileHandlers",
 	-- "matchit",
 	"tar",
 	"tarPlugin",
