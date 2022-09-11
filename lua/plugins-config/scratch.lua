@@ -9,6 +9,7 @@ function M.config()
 		pattern = "__Scratch__",
 		callback = function()
 			vim.keymap.set("n", "<C-q>", "<C-w>j", { buffer = 0 })
+			vim.keymap.set("n", "<C-g>", "<C-w>j", { buffer = 0 })
 		end,
 	})
 end
