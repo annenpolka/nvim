@@ -162,7 +162,7 @@ function M.map()
 	-- 	{ noremap = true, silent = true }
 	-- )
 	-- vim.keymap.set("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
-	vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
+	-- vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<leader>sf", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	-- vim.keymap.set("n", "<C-z>", function()
 	-- 	require("telescope.builtin").spell_suggest()

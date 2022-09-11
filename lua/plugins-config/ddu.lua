@@ -98,7 +98,7 @@ function M.config()
 end
 
 function M.map()
-	vim.keymap.set("n", "<leader><space>", "<Cmd>Ddu<CR>")
+	vim.keymap.set("n", "<C-p>", "<Cmd>Ddu<CR>")
 end
 
 -- ╭──────────────────────────────────────────────────────────╮

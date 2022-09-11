@@ -34,7 +34,7 @@ function M.map()
 	)
 	vim.keymap.set(
 		"n",
-		"<leader>M",
+		"<leader><Space>",
 		":lua require('harpoon.ui').toggle_quick_menu()<CR>",
 		{ noremap = true, silent = true }
 	)
@@ -43,8 +43,11 @@ function M.map()
 	for i = 1, 9 do
 		nnoremap("g" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", { silent = true })
 	end
-	-- ╰──────────────────────────────────────────────────────────╯
 	-- append current buffer parent path
+	-- ╭──────────────────────────────────────────────────────────╮
+	-- │                   -- harpoon local map                   │
+	-- ╰──────────────────────────────────────────────────────────╯
+	-- add new file with current working buffer's parent path
 	local function get_active_buffer_path()
 		return vim.fn.fnamemodify(vim.fn.expand("#:p:h"), ":~:.") .. "/"
 	end
@@ -55,6 +58,9 @@ function M.map()
 		append_to_buffer_last_line(get_active_buffer_path())
 		vim.api.nvim_feedkeys("A", "n", true)
 	end, { ft = "harpoon" })
+
+	-- escape with <C-g>
+	nnoremap("<C-g>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { ft = "harpoon" })
 end
 
 return M
