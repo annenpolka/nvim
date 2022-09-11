@@ -751,10 +751,16 @@ require("packer").startup({
 			end,
 		})
 		use({
+			"sam4llis/nvim-tundra",
+			config = function()
+				require("plugins-config.nvim-tundra").config()
+				-- vim.cmd("colorscheme tundra")
+			end,
+		})
+		use({
 			"luisiacc/gruvbox-baby",
 			config = function()
 				require("plugins-config.gruvbox-baby").config()
-				-- Load the colorscheme
 				-- vim.cmd([[colorscheme gruvbox-baby]])
 			end,
 		})
