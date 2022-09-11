@@ -500,6 +500,15 @@ require("packer").startup({
 				require("plugins-config.harpoon").config()
 			end,
 		})
+		-- tab-scoped buffers
+		use({
+			"tiagovla/scope.nvim",
+			disable = true,
+			config = function()
+				require("scope").setup()
+			end,
+			event = "BufRead",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                       text editing                       │
 		-- ╰──────────────────────────────────────────────────────────╯
