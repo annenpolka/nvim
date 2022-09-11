@@ -110,7 +110,7 @@ local function basic_text_objects()
 		end
 	end
 end
-basic_text_objects()
+-- basic_text_objects()
 -- whole line
-vim.keymap.set({ "x", "o" }, "il", ":<C-u>silent! normal! $v^<CR>", { noremap = true, silent = true })
-vim.keymap.set({ "x", "o" }, "al", ":<C-u>silent! normal! $v0<CR>", { noremap = true, silent = true })
+-- vim.keymap.set({ "x", "o" }, "il", ":<C-u>silent! normal! $v^<CR>", { noremap = true, silent = true })
+-- vim.keymap.set({ "x", "o" }, "al", ":<C-u>silent! normal! $v0<CR>", { noremap = true, silent = true })
