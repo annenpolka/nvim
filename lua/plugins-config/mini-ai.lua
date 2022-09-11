@@ -1,10 +1,18 @@
 local M = {}
 
 function M.config()
+	local spec_treesitter = require("mini.ai").gen_spec.treesitter
+	local gen_spec = require("mini.ai").gen_spec
 	require("mini.ai").setup({
 		-- Table with textobject id as fields, textobject specification as values.
 		-- Also use this to disable builtin textobjects. See |MiniAi.config|.
-		custom_textobjects = nil,
+		custom_textobjects = {
+			f = spec_treesitter({ a = "@function.outer", i = "@function.inner" }),
+			a = spec_treesitter({ a = "@parameter.outer", i = "@parameter.inner" }),
+			x = spec_treesitter({ a = "@swappable", i = "@swappable" }),
+			c = gen_spec.function_call({ name_pattern = "[%w_]" }),
+			b = { { "%b()", "%b[]", "%b{}", "%b''", '%b""' }, "^.().*().$" },
+		},
 
 		-- Module mappings. Use `''` (empty string) to disable one.
 		mappings = {
