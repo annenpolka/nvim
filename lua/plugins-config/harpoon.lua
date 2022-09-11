@@ -29,17 +29,19 @@ function M.map()
 	vim.keymap.set(
 		"n",
 		"<leader>m",
+		-- "M",
 		":lua require('harpoon.mark').toggle_file()<CR>",
 		{ noremap = true, silent = true }
 	)
 	vim.keymap.set(
 		"n",
-		"<leader><Space>",
+		"M",
+		-- "<leader>m",
 		":lua require('harpoon.ui').toggle_quick_menu()<CR>",
 		{ noremap = true, silent = true }
 	)
 	vim.keymap.set("n", "m", ":lua require('harpoon.ui').nav_next()<CR>", { noremap = true, silent = true })
-	vim.keymap.set("n", "M", ":lua require('harpoon.ui').nav_prev()<CR>", { noremap = true, silent = true })
+	-- vim.keymap.set("n", "M", ":lua require('harpoon.ui').nav_prev()<CR>", { noremap = true, silent = true })
 	for i = 1, 9 do
 		nnoremap("g" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", { silent = true })
 	end
