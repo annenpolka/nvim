@@ -621,6 +621,7 @@ require("packer").startup({
 		-- custom textobjects
 		use({
 			"kana/vim-textobj-user",
+			disable = true, -- replaced with mini-ai
 			requires = {
 				-- method chaining
 				{ "D4KU/vim-textobj-chainmember", after = "vim-textobj-user" },
@@ -1048,8 +1049,8 @@ require("packer").startup({
 			"williamboman/mason.nvim",
 			requires = {
 				"neovim/nvim-lspconfig",
-				"williamboman/mason-lspconfig.nvim",
-				"WhoIsSethDaniel/mason-tool-installer.nvim",
+				{ "williamboman/mason-lspconfig.nvim" },
+				{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 			},
 		})
 
