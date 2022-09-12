@@ -479,6 +479,7 @@ require("packer").startup({
 		-- buffer cycler
 		use({
 			"ghillb/cybu.nvim",
+			disable = true,
 			requires = { "kyazdani42/nvim-web-devicons" }, --optional
 			setup = function()
 				require("plugins-config.cybu").map()
@@ -559,6 +560,7 @@ require("packer").startup({
 		-- grip function and its name
 		use({
 			"Matt-A-Bennett/vim-surround-funk",
+			disable = true,
 			opt = true,
 			setup = function()
 				require("plugins-config.surround-funk").map()
@@ -636,11 +638,19 @@ require("packer").startup({
 		-- surrounding plugin
 		use({
 			"machakann/vim-sandwich",
+			disable = true, -- replaced with nvim-surround and mini-ai
 			setup = function()
 				require("plugins-config.sandwich").map()
 			end,
 			config = function()
 				require("plugins-config.sandwich").config()
+			end,
+			event = "BufRead",
+		})
+		use({
+			"kylechui/nvim-surround",
+			config = function()
+				require("plugins-config.nvim-surround").config()
 			end,
 			event = "BufRead",
 		})
