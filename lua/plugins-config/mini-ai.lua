@@ -8,10 +8,13 @@ function M.config()
 		-- Also use this to disable builtin textobjects. See |MiniAi.config|.
 		custom_textobjects = {
 			f = spec_treesitter({ a = "@function.outer", i = "@function.inner" }),
-			a = spec_treesitter({ a = "@parameter.outer", i = "@parameter.inner" }),
+			a = spec_treesitter({
+				a = { "@parameter.outer", "@field.outer" },
+				i = { "@parameter.inner", "@field.inner" },
+			}),
 			x = spec_treesitter({ a = "@swappable", i = "@swappable" }),
 			c = gen_spec.function_call({ name_pattern = "[%w_]" }),
-			b = { { "%b()", "%b[]", "%b{}", "%b''", '%b""' }, "^.().*().$" },
+			s = { { "%b()", "%b[]", "%b{}", "%b''", '%b""' }, "^.().*().$" },
 		},
 
 		-- Module mappings. Use `''` (empty string) to disable one.
