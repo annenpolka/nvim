@@ -36,7 +36,7 @@ function M.config()
 					preview_cutoff = 120,
 				},
 			},
-			initial_mode = "normal",
+			initial_mode = "insert",
 			sorting_strategy = "ascending",
 			path_display = { "truncate" },
 			selection_strategy = "reset",
@@ -91,6 +91,7 @@ function M.config()
 		},
 		extensions = {
 			file_browser = {
+				initial_mode = "normal",
 				layout_strategy = "flex",
 				theme = "ivy",
 				depth = 1,
@@ -162,7 +163,7 @@ function M.map()
 	-- 	{ noremap = true, silent = true }
 	-- )
 	-- vim.keymap.set("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true, silent = true })
-	-- vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<leader>sf", ":Telescope find_files<CR>", { noremap = true, silent = true })
 	-- vim.keymap.set("n", "<C-z>", function()
 	-- 	require("telescope.builtin").spell_suggest()
