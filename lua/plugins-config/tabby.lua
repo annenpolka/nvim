@@ -147,15 +147,15 @@ function M.config()
 	require("tabby").setup({ tabline = line })
 
 	-- set tabname to ProjectRoot/filename
-	vim.api.nvim_create_autocmd("BufEnter", {
-		pattern = "*",
-		callback = function()
-			---@diagnostic disable-next-line: unbalanced-assignments
-			local project_root, _ = require("project_nvim.project").get_project_root()
-			project_root = vim.fn.fnamemodify(project_root, ":t")
-			require("tabby.tab").set_current_name(project_root)
-		end,
-	})
+	-- vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter" }, {
+	-- 	pattern = "*",
+	-- 	callback = function()
+	-- 		---@diagnostic disable-next-line: unbalanced-assignments
+	-- 		local project_root, _ = require("project_nvim.project").get_project_root()
+	-- 		project_root = vim.fn.fnamemodify(project_root, ":t")
+	-- 		require("tabby.tab").set_current_name(project_root)
+	-- 	end,
+	-- })
 end
 
 function M.map() end
