@@ -468,6 +468,7 @@ require("packer").startup({
 		-- buffer/tabpage/marker/colorscheme picker
 		use({
 			"toppair/reach.nvim",
+			disable = true,
 			setup = function()
 				require("plugins-config.reach").map()
 			end,
