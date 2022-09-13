@@ -23,6 +23,14 @@ function M.config()
 		},
 	})
 	require("telescope").load_extension("harpoon")
+
+	-- set harpoon window transparency
+	vim.api.nvim_create_autocmd({ "FileType" }, {
+		pattern = "harpoon",
+		callback = function()
+			vim.opt.winblend = 20 -- 0 ~ 100
+		end,
+	})
 end
 
 function M.map()
