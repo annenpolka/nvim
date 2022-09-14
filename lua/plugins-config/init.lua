@@ -1237,6 +1237,14 @@ require("packer").startup({
 			},
 			module = "telescope._extensions.asynctasks",
 		})
+		-- task runner and job management
+		-- TODO: migrate from asyncrun/asynctasks
+		use({
+			"stevearc/overseer.nvim",
+			config = function()
+				require("plugins-config.overseer").config()
+			end,
+		})
 		-- block code snippet runner
 		use({
 			"michaelb/sniprun",
