@@ -1,3 +1,14 @@
+-- ╭──────────────────────────────────────────────────────────╮
+-- │                     global function                      │
+-- ╰──────────────────────────────────────────────────────────╯
+-- highlight
+_G.set_highlight = function(...)
+	vim.api.nvim_set_hl(0, ...)
+end
+
+--  ╭──────────────────────────────────────────────────────────╮
+--  │                         options                          │
+--  ╰──────────────────────────────────────────────────────────╯
 -- Copy to system clipboard
 vim.o.clipboard = "unnamedplus"
 
@@ -57,9 +68,10 @@ vim.o.completeopt = "menuone,noselect"
 
 -- spellsuggest  of code
 -- test: spell codeSpell CodeSpall
--- vim.opt.spell = true
--- vim.opt.spelllang = { "en_us", "programming" }
--- vim.opt.spelloptions = vim.opt.spelloptions + "camel"
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us", "programming" }
+vim.opt.spelloptions = vim.opt.spelloptions + "camel"
+vim.opt.spellsuggest = { "best", 5 }
 
 -- color terminal termiguicolors
 vim.o.termguicolors = true
@@ -142,11 +154,3 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
 		vim.cmd("startinsert")
 	end,
 })
-
--- ╭──────────────────────────────────────────────────────────╮
--- │                     global function                      │
--- ╰──────────────────────────────────────────────────────────╯
--- highlight
-_G.set_highlight = function(...)
-	vim.api.nvim_set_hl(0, ...)
-end
