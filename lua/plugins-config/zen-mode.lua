@@ -5,7 +5,7 @@ function M.config()
 end
 
 function M.map()
-	nnoremap("<leader>z", ":ZenMode<CR>", { silent = true })
+	nnoremap("<leader>Z", ":ZenMode<CR>", { silent = true })
 end
 
 return M

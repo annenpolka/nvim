@@ -17,6 +17,7 @@ function M.config()
 			"fugitive",
 			"ddu-ff",
 			"NeogitStatus",
+			"TelescopePrompt",
 		},
 		-- filetypes_allowlist: filetypes to illuminate, this is overriden by filetypes_denylist
 		filetypes_allowlist = {},
@@ -35,23 +36,10 @@ function M.config()
 		-- under_cursor: whether or not to illuminate under the cursor
 		under_cursor = true,
 	})
-	local autocmd = vim.api.nvim_create_autocmd
-	local group = vim.api.nvim_create_augroup("IlluminateHighlight", { clear = true })
-	autocmd("VimEnter", {
-		desc = "vim-illuminate",
-		command = "hi def IlluminatedWordText cterm=underline gui=underline guibg=#362639",
-		group = group,
-	})
-	autocmd("VimEnter", {
-		desc = "vim-illuminate",
-		command = "hi def IlluminatedWordRead cterm=underline gui=underline guibg=#362639",
-		group = group,
-	})
-	autocmd("VimEnter", {
-		desc = "vim-illuminate",
-		command = "hi def IlluminatedWordWrite cterm=underline gui=underline guibg=#362639",
-		group = group,
-	})
+
+	set_highlight("IlluminatedWordText", { bg = "#362659", bold = true, underline = true })
+	set_highlight("IlluminatedWordRead", { bg = "#362659", bold = true, underline = true })
+	set_highlight("IlluminatedWordWrite", { bg = "#362659", bold = true, underline = true })
 end
 
 return M

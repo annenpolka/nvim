@@ -879,12 +879,13 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- cursorword highlighting
 		use({
 			"RRethy/vim-illuminate",
 			config = function()
 				require("plugins-config.vim-illuminate").config()
 			end,
-			event = "BufRead",
+			-- event = "BufRead",
 		})
 		-- small modules package
 		use({

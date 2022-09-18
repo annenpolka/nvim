@@ -26,6 +26,9 @@ end
 function M.map()
 	vim.keymap.set({ "n", "v", "o" }, "J", "<Plug>(leap-forward)", { silent = true })
 	vim.keymap.set({ "n", "v", "o" }, "K", "<Plug>(leap-backward)", { silent = true })
+	vim.keymap.set({ "n", "v", "o" }, "S", function()
+		require("leap").leap({ target_windows = { vim.fn.win_getid() } })
+	end, { silent = true })
 end
 
 return M

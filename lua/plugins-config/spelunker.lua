@@ -4,7 +4,7 @@ function M.config()
 	-- Enable spelunker.vim. (default: 1)
 	-- 1: enable
 	-- 0: disable
-	vim.g.enable_spelunker_vim = 1
+	vim.g.enable_spelunker_vim = 0
 
 	-- Enable spelunker.vim on readonly files or buffer. (default: 0)
 	-- 1: enable
