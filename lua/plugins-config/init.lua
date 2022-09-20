@@ -776,6 +776,7 @@ require("packer").startup({
 		})
 		use({
 			"sam4llis/nvim-tundra",
+			disable = true,
 			config = function()
 				require("plugins-config.nvim-tundra").config()
 				-- vim.cmd("colorscheme tundra")
@@ -783,13 +784,18 @@ require("packer").startup({
 		})
 		use({
 			"luisiacc/gruvbox-baby",
+			disable = true,
 			config = function()
 				require("plugins-config.gruvbox-baby").config()
 				-- vim.cmd([[colorscheme gruvbox-baby]])
 			end,
 		})
 		-- catppuccin theme
-		-- use({ "catppuccin/nvim", as = "catppuccin" })
+		use({
+			"catppuccin/nvim",
+			as = "catppuccin",
+			disable = true,
+		})
 		-- tokyonight theme
 		use({ "folke/tokyonight.nvim" })
 		-- nightfox theme
@@ -803,6 +809,7 @@ require("packer").startup({
 		-- Everforest theme
 		use({
 			"sainnhe/everforest",
+			disable = true,
 			config = function()
 				require("plugins-config.everforest").config()
 				-- vim.cmd([[colorscheme everforest]])
