@@ -156,6 +156,18 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- auto split width with animation
+		use({
+			"anuvyklack/windows.nvim",
+			disable = true,
+			requires = {
+				"anuvyklack/middleclass",
+				"anuvyklack/animation.nvim",
+			},
+			config = function()
+				require("plugins-config.windows").config()
+			end,
+		})
 		-- scratch buffer
 		use({
 			"mtth/scratch.vim",
