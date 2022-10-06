@@ -97,6 +97,7 @@ function M.config()
 					"alpha",
 					"lir",
 					"ddu-ff",
+					"ddu-ff-filter",
 					"Outline",
 					"spectre_panel",
 					"toggleterm",

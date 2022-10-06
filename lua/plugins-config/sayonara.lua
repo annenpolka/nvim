@@ -1,7 +1,7 @@
 local M = {}
 
 function M.map()
-	vim.g.sayonara_confirm_quit = true
+	vim.g.sayonara_confirm_quit = false
 	nnoremap("<C-q>", "<Cmd>call undoquit#SaveWindowQuitHistory()<CR>:Sayonara<CR>", { silent = true })
 	-- ╭──────────────────────────────────────────────────────────╮
 	-- │           -- undoquit.vim's restore window/tab           │
