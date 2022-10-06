@@ -3,7 +3,9 @@
 -- now using better-escape.nvim to jk
 -- vim.keymap.set("i", "jk", "<esc>", { noremap = true })
 vim.keymap.set({ "n", "i", "v", "x", "o" }, "<C-g>", "<esc>", { noremap = true })
-vim.keymap.set({ "c" }, "<C-g>", "<C-e><C-u><BS>", { noremap = true }) -- workaround since <Esc> will execute command
+-- workaround since <Esc> will execute command
+-- now using noice
+-- vim.keymap.set({ "c" }, "<C-g>", "<C-e><C-u><BS>", { noremap = true })
 
 --Save with <c-s>
 vim.keymap.set("n", "<c-s>", "<cmd>w<CR>", { noremap = true, silent = true })

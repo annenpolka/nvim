@@ -42,8 +42,8 @@ function M.map()
 		pattern = "MiniStarterOpened",
 
 		callback = function()
-			vim.keymap.set("n", "J", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", { buffer = 0 })
-			vim.keymap.set("n", "K", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", { buffer = 0 })
+			-- vim.keymap.set("n", "J", "<Cmd>lua MiniStarter.update_current_item('next')<CR>", { buffer = 0 })
+			-- vim.keymap.set("n", "K", "<Cmd>lua MiniStarter.update_current_item('prev')<CR>", { buffer = 0 })
 		end,
 	})
 end
