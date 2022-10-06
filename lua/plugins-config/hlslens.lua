@@ -5,6 +5,23 @@ function M.config()
 end
 
 function M.map()
+	local keymap = vim.keymap
+	local hlslens = require("hlslens")
+	keymap.set("n", "*", "", {
+		callback = function()
+			vim.fn.execute("normal! *N")
+			hlslens.start()
+		end,
+	})
+	keymap.set("n", "#", "", {
+		callback = function()
+			vim.fn.execute("normal! #N")
+			hlslens.start()
+		end,
+	})
+end
+
+function M.map_with_vim_asterisk()
 	vim.keymap.set("n", "n", [[n<Cmd>lua require('hlslens').start()<CR>zzzv]], { noremap = true, silent = true })
 	vim.keymap.set("n", "N", [[N<Cmd>lua require('hlslens').start()<CR>zzzv]], { noremap = true, silent = true })
 	vim.keymap.set(
