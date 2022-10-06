@@ -102,6 +102,19 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
+		-- commandline/notification frontend
+		use({
+			"folke/noice.nvim",
+			event = "VimEnter",
+			config = function()
+				require("plugins-config.noice").config()
+			end,
+			requires = {
+				-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+				"MunifTanjim/nui.nvim",
+				"rcarriga/nvim-notify",
+			},
+		})
 		-- sudo
 		use({
 			"lambdalisue/suda.vim",
