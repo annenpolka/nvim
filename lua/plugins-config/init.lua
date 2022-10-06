@@ -1512,6 +1512,14 @@ require("packer").startup({
 				Lazyload_timer("cpbooster.vim", 500)
 			end,
 		})
+		-- competitive programming helper
+		use({
+			"xeluxee/competitest.nvim",
+			requires = "MunifTanjim/nui.nvim",
+			config = function()
+				require("plugins-config.competitest").config()
+			end,
+		})
 		if packer_bootstrap then
 			require("packer").sync()
 		end
