@@ -105,6 +105,7 @@ require("packer").startup({
 		-- commandline/notification frontend
 		use({
 			"folke/noice.nvim",
+			disable = true,
 			event = "VimEnter",
 			config = function()
 				require("plugins-config.noice").config()
