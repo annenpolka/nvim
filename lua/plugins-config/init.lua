@@ -170,6 +170,9 @@ require("packer").startup({
 				"anuvyklack/middleclass",
 				"anuvyklack/animation.nvim",
 			},
+			setup = function()
+				require("plugins-config.windows").map()
+			end,
 			config = function()
 				require("plugins-config.windows").config()
 			end,
