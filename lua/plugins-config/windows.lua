@@ -23,6 +23,7 @@ function M.config()
 				"ddu-ff-filter",
 				"harpoon",
 				"TelescopePrompt",
+				"OverseerList",
 			},
 		},
 		animation = {
