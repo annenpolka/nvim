@@ -1,7 +1,9 @@
 local M = {}
 
 function M.config()
-	require("overseer").setup()
+	require("overseer").setup({
+		templates = { "builtin", "user" },
+	})
 end
 
 function M.map()
