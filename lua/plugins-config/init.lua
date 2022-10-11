@@ -151,14 +151,6 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		-- stabilize open/close window behavior
-		use({
-			"luukvbaal/stabilize.nvim",
-			config = function()
-				require("stabilize").setup()
-			end,
-			event = "BufRead",
-		})
 		-- automatic split management
 		use({
 			"beauwilliams/focus.nvim",
@@ -282,7 +274,7 @@ require("packer").startup({
 		use({
 			"smjonas/live-command.nvim",
 			config = function()
-				require("live_command").setup({
+				require("live-command").setup({
 					commands = {
 						Norm = { cmd = "norm" },
 					},

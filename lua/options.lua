@@ -15,6 +15,9 @@ vim.o.clipboard = "unnamedplus"
 -- autoread
 vim.g.autoread = true
 
+-- split window behavior
+vim.g.splitkeep = "screen"
+
 -- virtualedit
 vim.b.virtualedit = "block"
 
