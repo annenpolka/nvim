@@ -1,6 +1,8 @@
 local M = {}
 function M.config()
 	-- Telescope
+	local actions = require("telescope.actions")
+	local fb_actions = require("telescope._extensions.file_browser.actions")
 	require("telescope").setup({
 		defaults = {
 			-- generic_sorter = require("telescope.sorters").get_fzf_sorter,
@@ -9,7 +11,7 @@ function M.config()
 				n = {
 					["l"] = "select_default",
 					["<C-h>"] = "which_key",
-					["<c-g>"] = require("telescope.actions").close,
+					["<c-g>"] = actions.close,
 					-- ["<Space><Space>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
 				},
 				i = {
@@ -64,10 +66,10 @@ function M.config()
 				-- theme = "ivy",
 				mappings = {
 					n = {
-						["<c-d>"] = require("telescope.actions").delete_buffer,
+						["<c-d>"] = actions.delete_buffer,
 					},
 					i = {
-						["<c-d>"] = require("telescope.actions").delete_buffer,
+						["<c-d>"] = actions.delete_buffer,
 					},
 				},
 			},
@@ -93,11 +95,23 @@ function M.config()
 		},
 		extensions = {
 			file_browser = {
-				initial_mode = "normal",
-				layout_strategy = "flex",
-				theme = "ivy",
-				depth = 1,
+				initial_mode = "insert",
+				layout_strategy = "vertical",
+				-- theme = "ivy",
+				depth = 3,
 				hijack_netrw = true,
+				mappings = {
+					i = {
+						["<C-g>"] = false,
+						["<C-h>"] = fb_actions.goto_parent_dir,
+						["<C-n>"] = actions.move_selection_next,
+						["<C-p>"] = actions.move_selection_previous,
+					},
+					n = {
+						["h"] = fb_actions.goto_parent_dir,
+						["<C-h>"] = fb_actions.toggle_hidden,
+					},
+				},
 			},
 			fzf = {
 				fuzzy = true, -- false will only do exact matching
