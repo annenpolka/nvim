@@ -9,7 +9,7 @@ function M.config()
 				n = {
 					["l"] = "select_default",
 					["<c-g>"] = require("telescope.actions").close,
-					["<Space><Space>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
+					-- ["<Space><Space>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
 				},
 				i = {
 					-- ["<C-s>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
@@ -155,6 +155,12 @@ function M.map()
 	-- "<leader><space>",
 	-- [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 	-- { noremap = true, silent = true }
+	-- )
+	-- vim.api.nvim_set_keymap(
+	-- 	"n",
+	-- 	"<Leader><Space>",
+	-- 	[[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
+	-- 	{ noremap = true, silent = true }
 	-- )
 	vim.keymap.set(
 		"n",
