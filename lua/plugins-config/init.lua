@@ -404,8 +404,9 @@ require("packer").startup({
 				},
 				-- recent files
 				{
-					"smartpde/telescope-recent-files",
-					module = "telescope._extensions.recent_files",
+					"nvim-telescope/telescope-frecency.nvim",
+					requires = { "kkharji/sqlite.lua" },
+					-- module = "telescope._extensions.frecency",
 				},
 			},
 			setup = function()
@@ -1273,7 +1274,7 @@ require("packer").startup({
 		use({
 			"stevearc/overseer.nvim",
 			setup = function()
-				require("plugins-config.overseer").setup()
+				require("plugins-config.overseer").map()
 			end,
 			config = function()
 				require("plugins-config.overseer").config()

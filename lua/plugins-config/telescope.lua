@@ -8,10 +8,12 @@ function M.config()
 			mappings = {
 				n = {
 					["l"] = "select_default",
+					["<C-h>"] = "which_key",
 					["<c-g>"] = require("telescope.actions").close,
 					-- ["<Space><Space>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
 				},
 				i = {
+					["<C-h>"] = "which_key",
 					-- ["<C-s>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
 					-- ["<Space><Space>"] = { "<cmd>Telescope harpoon marks<cr>", type = "command" },
 				},
@@ -146,7 +148,7 @@ function M.config()
 	require("telescope").load_extension("projects")
 	require("telescope").load_extension("luasnip")
 	require("telescope").load_extension("asynctasks")
-	require("telescope").load_extension("recent_files")
+	require("telescope").load_extension("frecency")
 end
 
 function M.map()
