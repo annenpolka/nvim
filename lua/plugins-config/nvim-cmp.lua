@@ -37,6 +37,28 @@ function M.config()
 	require("snippets") -- load snippets
 
 	cmp.setup({
+		enabled = function()
+			-- disable nvim-cmp on specific filetypes
+			local is_enabled = true
+			local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+			local ignored_filetypes = { "OverseerForm" }
+			for _, ignored in ipairs(ignored_filetypes) do
+				if filetype == ignored then
+					is_enabled = false
+				end
+			end
+
+			-- disable nvim-cmp on specific buftypes
+			local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+			local ignored_buftypes = { "prompt" }
+			for _, ignored in ipairs(ignored_buftypes) do
+				if buftype == ignored then
+					is_enabled = false
+				end
+			end
+
+			return is_enabled
+		end,
 		snippet = {
 			expand = function(args)
 				luasnip.lsp_expand(args.body)
