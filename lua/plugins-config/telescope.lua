@@ -39,7 +39,7 @@ function M.config()
 				},
 			},
 			initial_mode = "insert",
-			sorting_strategy = "ascending",
+			sorting_strategy = "ascending", -- "descending"
 			path_display = { "truncate" },
 			selection_strategy = "reset",
 			border = {},
