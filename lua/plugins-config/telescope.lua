@@ -179,6 +179,7 @@ function M.map()
 	-- 	[[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
 	-- 	{ noremap = true, silent = true }
 	-- )
+	vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true })
 	vim.keymap.set(
 		"n",
 		"<C-z>",
