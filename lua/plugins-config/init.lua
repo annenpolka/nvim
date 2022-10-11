@@ -1272,6 +1272,9 @@ require("packer").startup({
 		-- TODO: migrate from asyncrun/asynctasks
 		use({
 			"stevearc/overseer.nvim",
+			setup = function()
+				require("plugins-config.overseer").setup()
+			end,
 			config = function()
 				require("plugins-config.overseer").config()
 			end,
