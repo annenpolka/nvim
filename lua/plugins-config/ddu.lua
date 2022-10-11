@@ -7,10 +7,12 @@ function M.config()
 			ff = {
 				startFilter = true,
 				autoAction = { name = "preview" },
-				winHeight = 20,
+				winHeight = 25,
 				-- previewHeight = 20,
 				previewWidth = 80,
 				previewVertical = true,
+				-- split = "floating",
+				-- floatingBorder = "single",
 			},
 		},
 		sources = {
@@ -98,7 +100,7 @@ function M.config()
 end
 
 function M.map()
-	-- vim.keymap.set("n", "<leader><space>", "<Cmd>Ddu<CR>")
+	vim.keymap.set("n", "<leader><space>", "<Cmd>Ddu<CR>")
 end
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -110,7 +112,7 @@ function M.ftplugin_ddu_ff()
 	vim.keymap.set("n", "<Space>", "<Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>", opts)
 	vim.keymap.set("n", "<Tab>", "<Cmd>call ddu#ui#ff#do_action('chooseAction')<CR>", opts)
 	vim.keymap.set("n", "<C-l>", "<Cmd>call ddu#ui#ff#do_action('refreshItems')<CR>", opts)
-	vim.keymap.set("n", "i", "<Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>", opts)
+	-- vim.keymap.set("n", "i", "<Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>", opts)
 	vim.keymap.set("n", "p", "<Cmd>call ddu#ui#ff#do_action('preview')<CR>", opts)
 	vim.keymap.set("n", "q", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
 	vim.keymap.set("n", "<C-q>", "<Cmd>call ddu#ui#ff#do_action('quit')<CR>", opts)
@@ -118,38 +120,38 @@ function M.ftplugin_ddu_ff()
 	-- vim.keymap.set("n", "c", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'cd'})<CR>", opts)
 	-- vim.keymap.set("n", "d", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'delete'})<CR>", opts)
 	-- vim.keymap.set("n", "e", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'edit'})<CR>", opts)
+	-- vim.keymap.set(
+	-- 	"n",
+	-- 	"E",
+	-- 	"<Cmd>call ddu#ui#ff#do_action('itemAction', {'params': eval(input('params: '))})<CR>",
+	-- 	opts
+	-- )
 	vim.keymap.set(
 		"n",
-		"E",
-		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'params': eval(input('params: '))})<CR>",
-		opts
-	)
-	vim.keymap.set(
-		"n",
-		"<C-s>",
+		"s",
 		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>",
 		opts
 	)
 	vim.keymap.set(
 		"n",
-		"<C-v>",
+		"v",
 		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>",
 		opts
 	)
 	vim.keymap.set(
 		"n",
-		"<C-t>",
+		"t",
 		"<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'tabnew'}})<CR>",
 		opts
 	)
-	vim.keymap.set("n", "N", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'new'})<CR>", opts)
+	-- vim.keymap.set("n", "N", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'new'})<CR>", opts)
 	-- vim.keymap.set("n", "r", "<Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'quickfix'})<CR>", opts)
-	vim.keymap.set(
-		"n",
-		"u",
-		"<Cmd>call ddu#ui#ff#do_action('updateOptions', {'sourceOptions': {'_': {'matchers': }}})<CR>",
-		opts
-	)
+	-- vim.keymap.set(
+	-- 	"n",
+	-- 	"u",
+	-- 	"<Cmd>call ddu#ui#ff#do_action('updateOptions', {'sourceOptions': {'_': {'matchers': }}})<CR>",
+	-- 	opts
+	-- )
 end
 
 --- Settings in ddu-ff-filter buffer
@@ -159,6 +161,8 @@ function M.ftplugin_ddu_ff_filter()
 	-- vim.keymap.set("i", "jj", "<Esc><Cmd>call ddu#ui#ff#close()<CR>", opts)
 	vim.keymap.set("n", "<CR>", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
 	vim.keymap.set("n", "q", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
+	vim.keymap.set("n", "j", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
+	vim.keymap.set("n", "k", "<Cmd>call ddu#ui#ff#close()<CR>", opts)
 	vim.keymap.set(
 		{ "i", "n" },
 		"<C-q>",
