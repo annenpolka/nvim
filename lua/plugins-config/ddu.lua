@@ -100,7 +100,8 @@ function M.config()
 end
 
 function M.map()
-	vim.keymap.set("n", "<leader><space>", "<Cmd>Ddu<CR>")
+	-- HACK: workaround focus.nvim visual problem with toggling mode
+	vim.keymap.set("n", "<leader><space>", "<Cmd>FocusDisable<CR>" .. "<Cmd>Ddu<CR>" .. "<Cmd>FocusEnable<CR>")
 end
 
 -- ╭──────────────────────────────────────────────────────────╮

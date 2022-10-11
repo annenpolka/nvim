@@ -34,6 +34,15 @@ function M.config()
 end
 
 function M.map()
+	-- HACK: workaround focus.nvim visual problem with toggling mode
+	vim.keymap.set(
+		"n",
+		"M",
+		-- "<leader>m",
+		":FocusDisable<CR>" .. ":lua require('harpoon.ui').toggle_quick_menu()<CR>" .. ":FocusEnable<CR>",
+		{ noremap = true, silent = true }
+	)
+
 	vim.keymap.set(
 		"n",
 		"<leader>m",
@@ -41,17 +50,11 @@ function M.map()
 		":lua require('harpoon.mark').toggle_file()<CR>",
 		{ noremap = true, silent = true }
 	)
-	vim.keymap.set(
-		"n",
-		"M",
-		-- "<leader>m",
-		":lua require('harpoon.ui').toggle_quick_menu()<CR>",
-		{ noremap = true, silent = true }
-	)
+
 	vim.keymap.set("n", "m", ":lua require('harpoon.ui').nav_next()<CR>", { noremap = true, silent = true })
 	-- vim.keymap.set("n", "M", ":lua require('harpoon.ui').nav_prev()<CR>", { noremap = true, silent = true })
 	for i = 1, 9 do
-		nnoremap("g" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", { silent = true })
+		vim.keymap.set("n", "g" .. i, ":lua require('harpoon.ui').nav_file(" .. i .. ")<CR>", { silent = true })
 	end
 	-- append current buffer parent path
 	-- ╭──────────────────────────────────────────────────────────╮
