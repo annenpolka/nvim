@@ -101,6 +101,7 @@ function M.config()
 					"Outline",
 					"spectre_panel",
 					"toggleterm",
+					"OverseerList",
 				},
 			},
 			always_divide_middle = true,
