@@ -410,6 +410,11 @@ require("packer").startup({
 						require("plugins-config.telescope-zoxide").config()
 					end,
 				},
+				-- recent files
+				{
+					"smartpde/telescope-recent-files",
+					module = "telescope._extensions.recent_files",
+				},
 			},
 			setup = function()
 				require("plugins-config.telescope").map()
