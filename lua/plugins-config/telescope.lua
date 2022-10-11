@@ -103,7 +103,8 @@ function M.config()
 				mappings = {
 					i = {
 						["<C-g>"] = false,
-						["<C-h>"] = fb_actions.goto_parent_dir,
+						["<C-b>"] = fb_actions.goto_parent_dir,
+						["<C-h>"] = fb_actions.toggle_hidden,
 						["<C-n>"] = actions.move_selection_next,
 						["<C-p>"] = actions.move_selection_previous,
 					},
@@ -179,7 +180,13 @@ function M.map()
 	-- 	[[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
 	-- 	{ noremap = true, silent = true }
 	-- )
-	vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true })
+	-- vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true })
+	vim.api.nvim_set_keymap(
+		"n",
+		"<C-e>",
+		[[:lua require "telescope".extensions.file_browser.file_browser()<CR>]],
+		{ noremap = true }
+	)
 	vim.keymap.set(
 		"n",
 		"<C-z>",
