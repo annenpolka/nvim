@@ -1,5 +1,10 @@
 local M = {}
 
+function M.config()
+	M.git_mode()
+	-- M.quickfix_mode()
+end
+
 function M.git_mode()
 	local Hydra = require("hydra")
 	local gitsigns = require("gitsigns")

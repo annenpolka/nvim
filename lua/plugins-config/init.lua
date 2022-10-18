@@ -81,7 +81,7 @@ require("packer").startup({
 			"anuvyklack/hydra.nvim",
 			requires = { "anuvyklack/keymap-layer.nvim", module = "keymap-layer" }, -- needed only for pink hydras
 			config = function()
-				require("plugins-config.hydra").git_mode()
+				require("plugins-config.hydra").config()
 				-- require("plugins-config.hydra").quickfix_mode()
 			end,
 			event = "BufRead",
@@ -176,19 +176,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.windows").config()
 			end,
-		})
-		-- scratch buffer
-		use({
-			"mtth/scratch.vim",
-			setup = function()
-				require("plugins-config.scratch").config()
-				require("plugins-config.scratch").map()
-			end,
-			cmd = {
-				"Scratch",
-				"ScratchSelection",
-				"ScratchInsert",
-			},
 		})
 		-- automatic indent detection
 		use({ "tpope/vim-sleuth" })
@@ -303,15 +290,6 @@ require("packer").startup({
 		use({
 			"sindrets/diffview.nvim",
 			event = "BufRead",
-		})
-		-- colorful blame/time_machine git files
-		use({
-			"emmanueltouzery/agitator.nvim",
-			requires = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-			setup = function()
-				require("plugins-config.agitator").map()
-			end,
-			module = "agitator",
 		})
 		-- Add git related info in the signs columns and popups
 		use({
@@ -463,6 +441,7 @@ require("packer").startup({
 			end,
 			-- cmd = "Dirbuf",
 		})
+		-- anything.el in vim
 		use({
 			"Shougo/ddu.vim",
 			setup = function()
@@ -492,31 +471,6 @@ require("packer").startup({
 			},
 			after = "denops.vim",
 		})
-		-- buffer/tabpage/marker/colorscheme picker
-		use({
-			"toppair/reach.nvim",
-			disable = true,
-			setup = function()
-				require("plugins-config.reach").map()
-			end,
-			config = function()
-				require("plugins-config.reach").config()
-			end,
-			event = "BufRead",
-		})
-		-- buffer cycler
-		use({
-			"ghillb/cybu.nvim",
-			disable = true,
-			requires = { "kyazdani42/nvim-web-devicons" }, --optional
-			setup = function()
-				require("plugins-config.cybu").map()
-			end,
-			config = function()
-				require("plugins-config.cybu").config()
-			end,
-			event = "BufRead",
-		})
 		-- project file anchor
 		use({
 			"ThePrimeagen/harpoon",
@@ -528,15 +482,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.harpoon").config()
 			end,
-		})
-		-- tab-scoped buffers
-		use({
-			"tiagovla/scope.nvim",
-			disable = true,
-			config = function()
-				require("scope").setup()
-			end,
-			event = "BufRead",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                       text editing                       │
@@ -568,7 +513,7 @@ require("packer").startup({
 				require("plugins-config.autopairs").config()
 			end,
 		})
-		-- comment eyecandies
+		-- comment box decorator
 		use({
 			"LudoPinelli/comment-box.nvim",
 			setup = function()
@@ -584,16 +529,6 @@ require("packer").startup({
 				require("plugins-config.vim-bookmarks").config() -- options should set before loading
 			end,
 			event = "BufRead",
-		})
-		-- grip function and its name
-		use({
-			"Matt-A-Bennett/vim-surround-funk",
-			disable = true,
-			opt = true,
-			setup = function()
-				require("plugins-config.surround-funk").map()
-				Lazyload_timer("vim-surround-funk")
-			end,
 		})
 		-- find a unique character in each word
 		use({
@@ -612,6 +547,7 @@ require("packer").startup({
 		-- 		Lazyload_timer("splitjoin.vim")
 		-- 	end,
 		-- })
+		-- join lines with treesitter
 		use({
 			"AckslD/nvim-trevJ.lua",
 			setup = function()
