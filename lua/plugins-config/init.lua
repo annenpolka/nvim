@@ -584,33 +584,7 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		-- custom textobjects
-		use({
-			"kana/vim-textobj-user",
-			disable = true, -- replaced with mini-ai
-			requires = {
-				-- method chaining
-				{ "D4KU/vim-textobj-chainmember", after = "vim-textobj-user" },
-				-- punctuation
-				-- "beloglazov/vim-textobj-punctuation",
-			},
-			setup = function()
-				require("plugins-config.textobj-user").map()
-			end,
-			event = "BufRead",
-		})
 		-- surrounding plugin
-		use({
-			"machakann/vim-sandwich",
-			disable = true, -- replaced with nvim-surround and mini-ai
-			setup = function()
-				require("plugins-config.sandwich").map()
-			end,
-			config = function()
-				require("plugins-config.sandwich").config()
-			end,
-			event = "BufRead",
-		})
 		use({
 			"kylechui/nvim-surround",
 			config = function()
@@ -653,15 +627,6 @@ require("packer").startup({
 				require("plugins-config.abbrevman").config()
 			end,
 		})
-		-- spellcheck
-		use({
-			"kamykn/spelunker.vim",
-			requires = { "kamykn/popup-menu.nvim", event = "BufRead" },
-			config = function()
-				require("plugins-config.spelunker").config()
-			end,
-			event = "BufRead",
-		})
 		-- tabout
 		use({
 			"abecodes/tabout.nvim",
@@ -689,28 +654,9 @@ require("packer").startup({
 			end,
 			cmd = "ZenMode",
 		})
-		-- region buffer window
-		use({
-			"hoschi/yode-nvim",
-			require = {
-				"nvim-lua/plenary.nvim",
-			},
-			setup = function()
-				require("plugins-config.yode").map()
-			end,
-			config = function()
-				require("plugins-config.yode").config()
-			end,
-			event = "BufRead",
-		})
 		-- better blockwise visual mode bindings
 		use({
 			"kana/vim-niceblock",
-			event = "BufRead",
-		})
-		-- insert comma or semi-colon
-		use({
-			"lfilho/cosco.vim",
 			event = "BufRead",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
@@ -824,15 +770,6 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		-- dedicated statusline with global one
-		use({
-			"b0o/incline.nvim",
-			disable = true,
-			config = function()
-				require("plugins-config.incline").config()
-			end,
-			event = "BufRead",
-		})
 		-- scrollbar with search info
 		use({
 			"petertriho/nvim-scrollbar",
@@ -884,15 +821,16 @@ require("packer").startup({
 				require("plugins-config.regexplainer").config()
 			end,
 			requires = {
-				"nvim-lua/plenary.nvim",
+				"nvim-treesitter/nvim-treesitter",
 				"MunifTanjim/nui.nvim",
 			},
 			event = "BufRead",
 		})
 		-- code action modal
 		use({
-			disable = true,
 			"weilbith/nvim-code-action-menu",
+			disable = true,
+			cmd = "CodeActionMenu",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
@@ -911,7 +849,7 @@ require("packer").startup({
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
 		})
-		-- fix indent
+		-- fix treesitter indent
 		use({
 			"yioneko/nvim-yati",
 			requires = "nvim-treesitter/nvim-treesitter",
@@ -946,7 +884,6 @@ require("packer").startup({
 		})
 		-- treesitter-based context viewer
 		use({
-			disable = true,
 			"lewis6991/nvim-treesitter-context",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
@@ -972,7 +909,7 @@ require("packer").startup({
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
 		})
-		-- textobject unit helper
+		-- textobject unit-wise highlighter/textobject
 		use({
 			"David-Kunz/treesitter-unit",
 			requires = { "nvim-treesitter/nvim-treesitter" },
@@ -1036,7 +973,7 @@ require("packer").startup({
 			},
 		})
 
-		-- async formatting
+		-- async formatting with LSP
 		use({ "lukas-reineke/lsp-format.nvim" })
 		-- rust lsp tools
 		use({
@@ -1128,25 +1065,6 @@ require("packer").startup({
 			-- event = { "BufRead" },
 		})
 		--------------------------------------------------------------------------------
-		-- github copilot
-		use({
-			disable = true,
-			"github/copilot.vim",
-			setup = function()
-				require("plugins-config.copilot").config()
-			end,
-			cmd = "Copilot",
-		})
-		use({
-			disable = true,
-			"zbirenbaum/copilot.lua",
-			event = "VimEnter",
-			config = function()
-				vim.schedule(function()
-					require("copilot").setup()
-				end, 100)
-			end,
-		})
 		-- Snippets plugin
 		use({
 			"L3MON4D3/LuaSnip",
@@ -1181,7 +1099,7 @@ require("packer").startup({
 			requires = { "mfussenegger/nvim-dap" },
 			module = "dapui",
 		})
-		-- vitrual text
+		-- DAP vitrual text
 		use({
 			"theHamsta/nvim-dap-virtual-text",
 			requires = { "mfussenegger/nvim-dap" },
@@ -1199,14 +1117,6 @@ require("packer").startup({
 				require("plugins-config.asynctasks").config()
 			end,
 			after = "asyncrun.vim",
-		})
-		use({
-			"GustavoKatel/telescope-asynctasks.nvim",
-			requires = {
-				{ "nvim-telescope/telescope.nvim", opt = 1 },
-				{ "skywind3000/asynctasks.vim", opt = 1 },
-			},
-			module = "telescope._extensions.asynctasks",
 		})
 		-- task runner and job management
 		-- TODO: migrate from asyncrun/asynctasks
@@ -1410,13 +1320,13 @@ require("packer").startup({
 			end,
 			ft = "json",
 		})
-		-- cargo package manager helper
+		-- cargo (Rust's package manager) file editing
 		use({
 			"saecki/crates.nvim",
 			requires = { "nvim-lua/plenary.nvim" },
 			ft = "toml",
 		})
-		-- sql keyword uppercased
+		-- SQL keyword uppercased
 		use({
 			"jsborjesson/vim-uppercase-sql",
 			ft = "sql",
@@ -1437,7 +1347,7 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		-- launch vscode with current workspace
+		-- launch VSCode with current workspace
 		use({
 			"elijahmanor/export-to-vscode.nvim",
 			module = "export-to-vscode",
