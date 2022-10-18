@@ -35,7 +35,7 @@ function M.multi_normal()
 
 	local function paranormal(targets)
 		-- Get the :normal sequence to be executed.
-		local input = vim.fn.input("normal! ")
+		local input = vim.fn.input("normal ")
 		if #input < 1 then
 			return
 		end
@@ -74,10 +74,10 @@ end
 function M.map()
 	vim.keymap.set({ "n", "v", "o" }, "J", "<Plug>(leap-forward)", { silent = true })
 	vim.keymap.set({ "n", "v", "o" }, "K", "<Plug>(leap-backward)", { silent = true })
-	vim.keymap.set({ "n", "v", "o" }, "S", function()
-		require("leap").leap({ target_windows = { vim.fn.win_getid() } })
-	end, { silent = true })
-	-- vim.keymap.set({ "n", "v", "o" }, "<C-n>", M.multi_normal, { silent = true })
+	-- vim.keymap.set({ "n", "v", "o" }, "S", function()
+	-- 	require("leap").leap({ target_windows = { vim.fn.win_getid() } })
+	-- end, { silent = true })
+	vim.keymap.set({ "n", "v", "o" }, "S", M.multi_normal, { silent = true })
 end
 
 return M
