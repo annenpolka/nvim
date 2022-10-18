@@ -21,6 +21,8 @@ function M.config()
 			prev_match = { ",", "<tab>" },
 			next_group = "<space>",
 			prev_group = "<tab>",
+			multi_accept = "<enter>",
+			multi_revert = "<backspace>",
 		},
 	})
 	-- require("leap").set_default_keymaps()
