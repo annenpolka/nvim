@@ -31,7 +31,7 @@ function M.map()
 	vim.keymap.set("n", "<leader>wk", ":FocusSplitUp<CR>", { silent = true })
 	vim.keymap.set("n", "<leader>wl", ":FocusSplitRight<CR>", { silent = true })
 	vim.keymap.set("n", "<CR>", ":FocusMaxOrEqual<CR>", { silent = true })
-	nnoremap("n", "<CR>", "<CR>", { ft = "vim" }) -- avoid overding vim's <CR> in commandline mode
+	nnoremap("<CR>", "<CR>", { ft = "vim" }) -- avoid overding vim's <CR> in commandline mode
 end
 
 return M
