@@ -62,7 +62,7 @@ end
 capabilities.offsetEncoding = { "utf-16" }
 
 -- nvim-cmp supports additional completion capabilities
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │          nvim-lspconfig with mason-lspconfig             │
