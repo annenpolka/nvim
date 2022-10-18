@@ -99,6 +99,15 @@ function M.config()
 				layout_strategy = "vertical",
 				-- theme = "ivy",
 				depth = 3,
+				layout_config = {
+					vertical = {
+						height = vim.o.lines, -- maximally available lines
+						width = vim.o.columns, -- maximally available columns
+						prompt_position = "bottom",
+						preview_height = 0.4,
+						mirror = false,
+					},
+				},
 				hijack_netrw = true,
 				mappings = {
 					i = {
@@ -110,7 +119,8 @@ function M.config()
 					},
 					n = {
 						["h"] = fb_actions.goto_parent_dir,
-						["<C-h>"] = fb_actions.toggle_hidden,
+						["<C-h>"] = "which_key",
+						-- ["<C-h>"] = fb_actions.toggle_hidden,
 					},
 				},
 			},
