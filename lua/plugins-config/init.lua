@@ -133,6 +133,13 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.neovim-session-manager").config()
 			end,
+			disable = true,
+		})
+		use({
+			"stevearc/resession.nvim",
+			config = function()
+				require("plugins-config.resession").config()
+			end,
 		})
 		-- Close buffer/window/vim wisely
 		use({

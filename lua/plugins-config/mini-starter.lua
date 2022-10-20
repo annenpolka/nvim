@@ -7,7 +7,7 @@ function M.config()
 		-- Whether to write current session before quitting Neovim
 		autowrite = false,
 		-- Directory where global sessions are stored (use `''` to disable)
-		directory = "~/.local/share/nvim/sessions", --<"session" subdir of user data directory from |stdpath()|>,
+		directory = "~/.local/share/nvim/tabsession", --<"session" subdir of user data directory from |stdpath()|>,
 		-- File for local session (use `''` to disable)
 		file = "", -- 'Session.vim',
 	})
@@ -16,12 +16,18 @@ function M.config()
 	starter.setup({
 		query_updaters = [[abcdefghijklmnopqrstuvwxyz0123456789_-.]],
 		items = {
+			-- {
+			-- 	name = [[current dir session]],
+			-- 	action = [[SessionManager load_current_dir_session]],
+			-- 	section = "Sessions",
+			-- },
 			{
-				name = [[current dir session]],
-				action = [[SessionManager load_current_dir_session]],
+
+				name = "load current directory session",
+				action = [[lua require"resession".load(vim.fn.getcwd(), { dir = "session", silence_errors = true })]],
 				section = "Sessions",
 			},
-			starter.sections.sessions(5, true),
+			-- starter.sections.sessions(5, true),
 			starter.sections.recent_files(),
 			starter.sections.telescope(),
 			{
