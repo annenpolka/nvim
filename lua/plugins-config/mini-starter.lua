@@ -16,18 +16,18 @@ function M.config()
 	starter.setup({
 		query_updaters = [[abcdefghijklmnopqrstuvwxyz0123456789_-.]],
 		items = {
-			-- {
-			-- 	name = [[current dir session]],
-			-- 	action = [[SessionManager load_current_dir_session]],
-			-- 	section = "Sessions",
-			-- },
 			{
-
-				name = "load current directory session",
-				action = [[lua require"resession".load(vim.fn.getcwd(), { dir = "session", silence_errors = true })]],
+				name = [[load current dir session]],
+				action = [[SessionManager load_current_dir_session]],
 				section = "Sessions",
 			},
 			-- starter.sections.sessions(5, true),
+			-- {
+			--
+			-- 	name = "load current directory session",
+			-- 	action = [[lua require"resession".load(vim.fn.getcwd(), { dir = "session", silence_errors = true })]],
+			-- 	section = "Sessions",
+			-- },
 			starter.sections.recent_files(),
 			starter.sections.telescope(),
 			{

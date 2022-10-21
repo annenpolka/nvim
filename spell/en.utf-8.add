@@ -339,3 +339,6 @@ ddu
 formatter
 VSCode
 workspace
+resession
+nvim
+config

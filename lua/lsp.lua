@@ -285,7 +285,7 @@ local null_ls_sources = {
 	null_ls.builtins.formatting.prettier.with({
 		prefer_local = "node_modules/.bin",
 	}),
-	-- stylua for lua
+	-- formatter for lua
 	null_ls.builtins.formatting.stylua.with({}),
 	-- gitsigns integration
 	-- null_ls.builtins.code_actions.gitsigns,
