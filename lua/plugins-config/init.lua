@@ -129,16 +129,9 @@ require("packer").startup({
 		})
 		-- Session manager
 		use({
-			"Shatur/neovim-session-manager",
+			"olimorris/persisted.nvim",
 			config = function()
-				require("plugins-config.neovim-session-manager").config()
-			end,
-		})
-		use({
-			"stevearc/resession.nvim",
-			disable = true,
-			config = function()
-				require("plugins-config.resession").config()
+				require("plugins-config.persisted").config()
 			end,
 		})
 		-- Close buffer/window/vim wisely
