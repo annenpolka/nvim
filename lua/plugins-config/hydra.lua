@@ -13,7 +13,7 @@ function M.git_mode()
    _J_: next hunk   _s_: stage hunk        _d_: show deleted   _b_: blame line
    _K_: prev hunk   _u_: undo stage hunk   _p_: preview hunk   _B_: blame show full 
    _x_: reset hunk  _S_: stage buffer      ^ ^                 _/_: show base file
-   _e_: status  _C_: commit
+   _e_: status  _c_: commit
    ^ ^              _<Enter>_: Neogit              _q_: exit
   ]]
 
@@ -86,8 +86,8 @@ function M.git_mode()
 					gitsigns.blame_line({ full = true })
 				end,
 			},
-			{ "e", "<Cmd>Neotree git_status float toggle<CR>" }, -- show the base of the file
-			{ "C", "<cmd>Neogit<CR><cmd>Neogit commit<CR>", { exit = true } },
+			{ "e", "<Cmd>Neotree git_status float toggle<CR>", { nowait = true } }, -- show the base of the file
+			{ "c", "<cmd>Neogit<CR><cmd>Neogit commit<CR>", { nowait = true, exit = true } },
 			{ "/", gitsigns.show, { exit = true } }, -- show the base of the file
 			{ "<Enter>", "<cmd>Neogit<CR>", { exit = true } },
 			{ "q", nil, { exit = true, nowait = true } },
