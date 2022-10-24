@@ -308,10 +308,15 @@ function M.config()
 			mappings = {
 				["<space>"] = {
 					"toggle_node",
-					nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+					nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
+				},
+				["<Tab>"] = {
+					"toggle_node",
+					nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
 				},
 				["<2-LeftMouse>"] = "open",
 				["<cr>"] = "open",
+				-- ["<cr>"] = "set_root",
 				["l"] = "open",
 				["<esc>"] = "revert_preview",
 				["P"] = { "toggle_preview", config = { use_float = true } },
@@ -346,8 +351,8 @@ function M.config()
 				["?"] = "show_help",
 				["<"] = "prev_source",
 				[">"] = "next_source",
-				["<Tab>"] = "next_source",
-				["<S-tab>"] = "prev_source",
+				-- ["<Tab>"] = "next_source",
+				-- ["<S-tab>"] = "prev_source",
 			},
 		},
 		filesystem = {
@@ -360,6 +365,7 @@ function M.config()
 					["f"] = "filter_on_submit",
 					["<C-x>"] = "clear_filter",
 					["<bs>"] = "navigate_up",
+					["h"] = "navigate_up",
 					["."] = "set_root",
 					["[g"] = "prev_git_modified",
 					["]g"] = "next_git_modified",
@@ -406,7 +412,7 @@ function M.config()
 					--".null-ls_*",
 				},
 			},
-			find_by_full_path_words = false, -- `false` means it only searches the tail of a path.
+			find_by_full_path_words = true, -- `false` means it only searches the tail of a path.
 			-- `true` will change the filter into a full path
 			-- search with space as an implicit ".*", so
 			-- `fi init`
@@ -439,11 +445,11 @@ function M.config()
 			--  end
 			--  return args
 			--end,
-			group_empty_dirs = false, -- when true, empty folders will be grouped together
+			group_empty_dirs = true, -- when true, empty folders will be grouped together
 			search_limit = 50, -- max number of search results when using filters
 			follow_current_file = false, -- This will find and focus the file in the active buffer every time
 			-- the current file is changed while the tree is open.
-			hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+			hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
 			-- in whatever position is specified in window.position
 			-- "open_current",-- netrw disabled, opening a directory opens within the
 			-- window like netrw would, regardless of window.position

@@ -108,7 +108,7 @@ function M.config()
 						mirror = false,
 					},
 				},
-				hijack_netrw = true,
+				hijack_netrw = false,
 				mappings = {
 					i = {
 						["<C-g>"] = false,
