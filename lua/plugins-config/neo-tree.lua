@@ -1,6 +1,28 @@
 local M = {}
 
 function M.config()
+	local function getTelescopeOpts(state, path)
+		return {
+			cwd = path,
+			search_dirs = { path },
+			attach_mappings = function(prompt_bufnr, map)
+				local actions = require("telescope.actions")
+				actions.select_default:replace(function()
+					actions.close(prompt_bufnr)
+					local action_state = require("telescope.actions.state")
+					local selection = action_state.get_selected_entry()
+					local filename = selection.filename
+					if filename == nil then
+						filename = selection[1]
+					end
+					-- any way to open the file without triggering auto-close event of neo-tree?
+					require("neo-tree.sources.filesystem").navigate(state, state.path, filename)
+				end)
+				return true
+			end,
+		}
+	end
+
 	local config = {
 		-- If a user has a sources list it will replace this one.
 		-- Only sources listed here will be loaded.
@@ -369,7 +391,21 @@ function M.config()
 					["."] = "set_root",
 					["[g"] = "prev_git_modified",
 					["]g"] = "next_git_modified",
+					["tf"] = "telescope_find",
+					["tg"] = "telescope_grep",
 				},
+			},
+			commands = {
+				telescope_find = function(state)
+					local node = state.tree:get_node()
+					local path = node:get_id()
+					require("telescope.builtin").find_files(getTelescopeOpts(state, path))
+				end,
+				telescope_grep = function(state)
+					local node = state.tree:get_node()
+					local path = node:get_id()
+					require("telescope.builtin").live_grep(getTelescopeOpts(state, path))
+				end,
 			},
 			async_directory_scan = "auto", -- "auto"   means refreshes are async, but it's synchronous when called from the Neotree commands.
 			-- "always" means directory scans are always async.
@@ -509,6 +545,7 @@ function M.map()
 	vim.g.neo_tree_remove_legacy_commands = 1
 
 	vim.keymap.set("n", "<c-e>", "<cmd>Neotree filesystem left toggle<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<c-z>", "<cmd>Neotree buffers left toggle<CR>", { noremap = true, silent = true })
 end
 
 return M
