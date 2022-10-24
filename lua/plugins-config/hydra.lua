@@ -65,8 +65,8 @@ function M.git_mode()
 				end,
 				{ expr = true },
 			},
-			{ "s", ":Gitsigns stage_hunk<CR>", { silent = true } },
-			{ "u", gitsigns.undo_stage_hunk },
+			{ "s", ":Gitsigns stage_hunk<CR>", { silent = true, nowait = true } },
+			{ "u", gitsigns.undo_stage_hunk, { nowait = true } },
 			{
 				"x",
 				function()
@@ -74,10 +74,10 @@ function M.git_mode()
 					gitsigns.reset_hunk()
 					vim.bo.modifiable = false
 				end,
-				{ silent = true },
+				{ silent = true, nowait = true },
 			},
-			{ "S", gitsigns.stage_buffer },
-			{ "p", gitsigns.preview_hunk },
+			{ "S", gitsigns.stage_buffer, nowait = true },
+			{ "p", gitsigns.preview_hunk, nowait = true },
 			{ "d", gitsigns.toggle_deleted, { nowait = true } },
 			{ "b", gitsigns.blame_line },
 			{
