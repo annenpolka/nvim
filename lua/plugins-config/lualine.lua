@@ -32,6 +32,7 @@ function M.config()
 					"lir",
 					"ddu-ff",
 					"ddu-ff-filter",
+					"neo-tree",
 					"Outline",
 					"spectre_panel",
 					"toggleterm",

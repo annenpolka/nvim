@@ -418,6 +418,22 @@ require("packer").startup({
 			end,
 			cmd = "VFiler",
 		})
+		-- full-set file explorer
+		use({
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v2.x",
+			requires = {
+				"nvim-lua/plenary.nvim",
+				"kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+				"MunifTanjim/nui.nvim",
+			},
+			setup = function()
+				require("plugins-config.neo-tree").map()
+			end,
+			config = function()
+				require("plugins-config.neo-tree").config()
+			end,
+		})
 		-- incremental narrowing filer
 		use({
 			"conweller/findr.vim",
