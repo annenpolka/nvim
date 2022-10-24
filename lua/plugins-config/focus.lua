@@ -12,6 +12,7 @@ function M.config()
 			"TelescopePrompt",
 			"ddu-ff",
 			"ddu-ff-filter",
+			"neo-tree",
 			"OverseerList",
 		},
 		excluded_buftypes = { "acwrite", "prompt", "nofile", "terminal" },
