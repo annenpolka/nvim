@@ -111,78 +111,78 @@ function M.config()
 			highlight_separator_active = "NeoTreeTabSeparatorActive",
 		},
 		--
-		--event_handlers = {
-		--  {
-		--    event = "before_render",
-		--    handler = function (state)
-		--      -- add something to the state that can be used by custom components
-		--    end
-		--  },
-		--  {
-		--    event = "file_opened",
-		--    handler = function(file_path)
-		--      --auto close
-		--      require("neo-tree").close_all()
-		--    end
-		--  },
-		--  {
-		--    event = "file_opened",
-		--    handler = function(file_path)
-		--      --clear search after opening a file
-		--      require("neo-tree.sources.filesystem").reset_search()
-		--    end
-		--  },
-		--  {
-		--    event = "file_renamed",
-		--    handler = function(args)
-		--      -- fix references to file
-		--      print(args.source, " renamed to ", args.destination)
-		--    end
-		--  },
-		--  {
-		--    event = "file_moved",
-		--    handler = function(args)
-		--      -- fix references to file
-		--      print(args.source, " moved to ", args.destination)
-		--    end
-		--  },
-		--  {
-		--    event = "neo_tree_buffer_enter",
-		--    handler = function()
-		--      vim.cmd 'highlight! Cursor blend=100'
-		--    end
-		--  },
-		--  {
-		--    event = "neo_tree_buffer_leave",
-		--    handler = function()
-		--      vim.cmd 'highlight! Cursor guibg=#5f87af blend=0'
-		--    end
-		--  },
-		-- {
-		--   event = "neo_tree_window_before_open",
-		--   handler = function(args)
-		--     print("neo_tree_window_before_open", vim.inspect(args))
-		--   end
-		-- },
-		-- {
-		--   event = "neo_tree_window_after_open",
-		--   handler = function(args)
-		--     vim.cmd("wincmd =")
-		--   end
-		-- },
-		-- {
-		--   event = "neo_tree_window_before_close",
-		--   handler = function(args)
-		--     print("neo_tree_window_before_close", vim.inspect(args))
-		--   end
-		-- },
-		-- {
-		--   event = "neo_tree_window_after_close",
-		--   handler = function(args)
-		--     vim.cmd("wincmd =")
-		--   end
-		-- }
-		--},
+		event_handlers = {
+			-- {
+			-- 	event = "before_render",
+			-- 	handler = function(state)
+			-- 		-- add something to the state that can be used by custom components
+			-- 	end,
+			-- },
+			{
+				event = "file_opened",
+				handler = function(file_path)
+					--auto close
+					require("neo-tree").close_all()
+				end,
+			},
+			-- {
+			-- 	event = "file_opened",
+			-- 	handler = function(file_path)
+			-- 		--clear search after opening a file
+			-- 		require("neo-tree.sources.filesystem").reset_search()
+			-- 	end,
+			-- },
+			-- {
+			-- 	event = "file_renamed",
+			-- 	handler = function(args)
+			-- 		-- fix references to file
+			-- 		print(args.source, " renamed to ", args.destination)
+			-- 	end,
+			-- },
+			-- {
+			-- 	event = "file_moved",
+			-- 	handler = function(args)
+			-- 		-- fix references to file
+			-- 		print(args.source, " moved to ", args.destination)
+			-- 	end,
+			-- },
+			-- {
+			-- 	event = "neo_tree_buffer_enter",
+			-- 	handler = function()
+			-- 		vim.cmd("highlight! Cursor blend=100")
+			-- 	end,
+			-- },
+			-- {
+			-- 	event = "neo_tree_buffer_leave",
+			-- 	handler = function()
+			-- 		vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
+			-- 	end,
+			-- },
+			-- {
+			-- 	event = "neo_tree_window_before_open",
+			-- 	handler = function(args)
+			-- 		print("neo_tree_window_before_open", vim.inspect(args))
+			-- 	end,
+			-- },
+			-- {
+			-- 	event = "neo_tree_window_after_open",
+			-- 	handler = function(args)
+			-- 		vim.cmd("wincmd =")
+			-- 	end,
+			-- },
+			-- {
+			-- 	event = "neo_tree_window_before_close",
+			-- 	handler = function(args)
+			-- 		print("neo_tree_window_before_close", vim.inspect(args))
+			-- 	end,
+			-- },
+			-- {
+			-- 	event = "neo_tree_window_after_close",
+			-- 	handler = function(args)
+			-- 		vim.cmd("wincmd =")
+			-- 	end,
+			-- },
+		},
 		default_component_configs = {
 			container = {
 				enable_character_fade = true,
@@ -332,10 +332,10 @@ function M.config()
 					"toggle_node",
 					nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
 				},
-				["<Tab>"] = {
-					"toggle_node",
-					nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
-				},
+				-- ["<Tab>"] = {
+				-- 	"toggle_node",
+				-- 	nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
+				-- },
 				["<2-LeftMouse>"] = "open",
 				["<cr>"] = "open",
 				-- ["<cr>"] = "set_root",
@@ -386,6 +386,7 @@ function M.config()
 					--["/"] = "filter_as_you_type", -- this was the default until v1.28
 					["f"] = "filter_on_submit",
 					["<C-x>"] = "clear_filter",
+					["<C-g>"] = "clear_filter",
 					["<bs>"] = "navigate_up",
 					["h"] = "navigate_up",
 					["."] = "set_root",
@@ -545,7 +546,9 @@ function M.map()
 	vim.g.neo_tree_remove_legacy_commands = 1
 
 	vim.keymap.set("n", "<c-e>", "<cmd>Neotree filesystem left toggle<CR>", { noremap = true, silent = true })
-	vim.keymap.set("n", "<c-z>", "<cmd>Neotree buffers left toggle<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "<c-z>", "<cmd>Neotree buffers reveal left toggle<CR>", { noremap = true, silent = true })
+
+	imap("<C-g>", "<Esc>", { ft = "neo-tree-popup" }) -- <c-g> to escape in neo-tree's floating prompt
 end
 
 return M
