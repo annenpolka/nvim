@@ -106,7 +106,10 @@ require("packer").startup({
 		use({
 			"folke/noice.nvim",
 			disable = true,
-			event = "VimEnter",
+			-- event = "LspAttach",
+			setup = function()
+				require("plugins-config.noice").map()
+			end,
 			config = function()
 				require("plugins-config.noice").config()
 			end,
@@ -178,7 +181,10 @@ require("packer").startup({
 			end,
 		})
 		-- automatic indent detection
-		use({ "tpope/vim-sleuth" })
+		use({
+			"tpope/vim-sleuth",
+			disable = true, -- conflict with noice.nvim
+		})
 		-- Better Escape
 		use({
 			"max397574/better-escape.nvim",
@@ -263,6 +269,7 @@ require("packer").startup({
 		-- live norm command
 		use({
 			"smjonas/live-command.nvim",
+			disable = true, -- this uses lazyredraw incorrectly
 			config = function()
 				require("live-command").setup({
 					commands = {
@@ -1012,6 +1019,7 @@ require("packer").startup({
 		-- show signature guides on type
 		use({
 			"ray-x/lsp_signature.nvim",
+			-- disable = true, -- replaced by noice.nvim
 			config = function()
 				require("plugins-config.lsp_signature").config()
 			end,
@@ -1019,10 +1027,15 @@ require("packer").startup({
 		-- code outline
 		use({
 			"stevearc/aerial.nvim",
+			disable = true, -- FIXME: disabled due to LspAttach E5108 issue
+			setup = function()
+				require("plugins-config.aerial").map()
+			end,
 			config = function()
 				require("plugins-config.aerial").config()
 			end,
-			module = "aerial",
+			-- module = "aerial",
+			-- event = "LspAttach",
 		})
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
@@ -1039,6 +1052,7 @@ require("packer").startup({
 		-- show lsp progress
 		use({
 			"j-hui/fidget.nvim",
+			-- disable = true, -- replaced by noice.nvim
 			config = function()
 				require("plugins-config.fidget").config()
 			end,

@@ -185,6 +185,7 @@ for _, lsp in ipairs(servers_installed_manually) do
 end
 
 -- clangd config
+-- NOTE: since clangd is installed manually(not by mason.nvim), this shouldn't be moved to mason config
 local clangd_opts = { on_attach = on_attach, capabilities = capabilities }
 clangd_opts.cmd = {
 	-- see clangd --help-hidden

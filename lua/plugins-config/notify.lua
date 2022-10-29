@@ -3,6 +3,7 @@ local M = {}
 function M.config()
 	-- Replace vim.notify with nvim-notify
 	vim.notify = require("notify")
+
 	require("notify").setup({
 		background_colour = "#000000",
 		fps = 60,
