@@ -42,13 +42,6 @@ require("packer").startup({
 				require("plugins-config.matchparen").config()
 			end,
 		})
-		-- fix cursorhold performance problem, set dedicated updatetime
-		use({
-			"antoinemadec/FixCursorHold.nvim",
-			setup = function()
-				vim.g.cursorhold_updatetime = 100
-			end,
-		})
 		-- major startuptime
 		use({ "dstein64/vim-startuptime" })
 		-- ╭──────────────────────────────────────────────────────────╮
