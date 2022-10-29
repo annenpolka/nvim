@@ -46,7 +46,7 @@ local on_attach = function(client, bufnr)
 	-- attach lsp-format.nvim
 	require("lsp-format").on_attach(client)
 	-- attach aerial
-	require("aerial").on_attach(client, bufnr)
+	-- require("aerial").on_attach(client, bufnr)
 	-- attach nvim-navic breadcrumb
 	require("nvim-navic").attach(client, bufnr)
 end
