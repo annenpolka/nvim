@@ -66,6 +66,7 @@ require("packer").startup({
 		-- submode mapping
 		use({
 			"kana/vim-submode",
+			disable = true, -- TODO: replace this with nvim-keymap-amend
 			setup = function()
 				vim.g.submode_keep_leaving_key = true
 			end,
@@ -98,7 +99,6 @@ require("packer").startup({
 		-- commandline/notification frontend
 		use({
 			"folke/noice.nvim",
-			disable = true,
 			-- event = "LspAttach",
 			setup = function()
 				require("plugins-config.noice").map()
@@ -228,10 +228,6 @@ require("packer").startup({
 		-- mkdir on save
 		use({
 			"jghauser/mkdir.nvim",
-			config = function()
-				require("mkdir")
-			end,
-			event = "BufRead",
 		})
 		-- open file in terminal with new tab, not nested window
 		use({
@@ -377,7 +373,7 @@ require("packer").startup({
 				-- zoxide integration
 				{
 					"jvgrootveld/telescope-zoxide",
-					module = "telescope._extensions.zoxide",
+					-- module = "telescope._extensions.zoxide",
 					requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
 					config = function()
 						require("plugins-config.telescope-zoxide").config()
@@ -526,7 +522,7 @@ require("packer").startup({
 			end,
 			config = function()
 				require("plugins-config.yanky").config()
-				require("plugins-config.yanky").cycle_mode()
+				-- require("plugins-config.yanky").cycle_mode()
 			end,
 			after = "registers.nvim",
 		})
@@ -976,7 +972,6 @@ require("packer").startup({
 		-- dim unused variables and functions
 		use({
 			"zbirenbaum/neodim",
-			event = "LspAttach",
 			config = function()
 				require("plugins-config.neodim").config()
 			end,
@@ -1012,7 +1007,7 @@ require("packer").startup({
 		-- show signature guides on type
 		use({
 			"ray-x/lsp_signature.nvim",
-			-- disable = true, -- replaced by noice.nvim
+			disable = true, -- replaced by noice.nvim
 			config = function()
 				require("plugins-config.lsp_signature").config()
 			end,
@@ -1020,7 +1015,6 @@ require("packer").startup({
 		-- code outline
 		use({
 			"stevearc/aerial.nvim",
-			disable = true, -- FIXME: disabled due to LspAttach E5108 issue
 			setup = function()
 				require("plugins-config.aerial").map()
 			end,
@@ -1045,7 +1039,7 @@ require("packer").startup({
 		-- show lsp progress
 		use({
 			"j-hui/fidget.nvim",
-			-- disable = true, -- replaced by noice.nvim
+			disable = true, -- replaced with noice.nvim
 			config = function()
 				require("plugins-config.fidget").config()
 			end,
@@ -1163,6 +1157,7 @@ require("packer").startup({
 		-- block code snippet runner
 		use({
 			"michaelb/sniprun",
+			disable = true,
 			run = "bash ./install.sh",
 			event = "BufRead",
 		})

@@ -297,7 +297,7 @@ local null_ls_sources = {
 }
 
 -- -- setup
-require("null-ls").setup({
+null_ls.setup({
 	debug = false,
 	sources = null_ls_sources,
 	on_attach = function(client)
