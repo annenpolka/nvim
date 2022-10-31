@@ -68,13 +68,6 @@ require("packer").startup({
 		use({ "b0o/mapx.nvim" })
 		-- submode mapping
 		use({
-			"kana/vim-submode",
-			disable = true, -- TODO: replace this with nvim-keymap-amend
-			setup = function()
-				vim.g.submode_keep_leaving_key = true
-			end,
-		})
-		use({
 			"anuvyklack/hydra.nvim",
 			requires = { "anuvyklack/keymap-layer.nvim", module = "keymap-layer" }, -- needed only for pink hydras
 			config = function()
@@ -102,6 +95,7 @@ require("packer").startup({
 		-- commandline/notification frontend
 		use({
 			"folke/noice.nvim",
+			disable = true,
 			-- event = "LspAttach",
 			setup = function()
 				require("plugins-config.noice").map()
@@ -129,6 +123,9 @@ require("packer").startup({
 		-- Session manager
 		use({
 			"olimorris/persisted.nvim",
+			setup = function()
+				require("plugins-config.persisted").map()
+			end,
 			config = function()
 				require("plugins-config.persisted").config()
 			end,
@@ -159,7 +156,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.focus").config()
 			end,
-			event = "BufRead",
+			-- event = "BufRead",
 		})
 		-- automatic indent detection
 		use({
@@ -286,7 +283,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.octo").config()
 			end,
-			event = "CmdlineEnter",
 		})
 		-- gitignore generator
 		use({
@@ -415,21 +411,10 @@ require("packer").startup({
 			end,
 			cmd = { "Findr", "FindrBuffers", "FinderLocList", "FindQFList" },
 		})
-		-- text-based filesystem edit
-		use({
-			"elihunter173/dirbuf.nvim",
-			disable = true,
-			setup = function()
-				require("plugins-config.dirbuf").map()
-			end,
-			config = function()
-				require("plugins-config.dirbuf").config()
-			end,
-			-- cmd = "Dirbuf",
-		})
 		-- anything.el in vim
 		use({
 			"Shougo/ddu.vim",
+			disable = true,
 			setup = function()
 				require("plugins-config.ddu").map()
 			end,
@@ -488,7 +473,7 @@ require("packer").startup({
 			end,
 			config = function()
 				require("plugins-config.yanky").config()
-				-- require("plugins-config.yanky").cycle_mode()
+				-- require("plugins-config.yanky").cycle_mode() -- TODO: replace this with nvim-keymap-amend
 			end,
 			after = "registers.nvim",
 		})
@@ -791,7 +776,7 @@ require("packer").startup({
 			end,
 			config = function()
 				-- greeter
-				require("plugins-config.mini-starter").config()
+				-- require("plugins-config.mini-starter").config()
 				-- animated indent guides
 				require("plugins-config.mini-indentscope").config()
 				-- cursorword highlighting
@@ -802,18 +787,6 @@ require("packer").startup({
 				-- require("plugins-config.mini-jump").config()
 				-- require("plugins-config.mini-surround").config()
 			end,
-		})
-		-- show regex info
-		use({
-			"bennypowers/nvim-regexplainer",
-			config = function()
-				require("plugins-config.regexplainer").config()
-			end,
-			requires = {
-				"nvim-treesitter/nvim-treesitter",
-				"MunifTanjim/nui.nvim",
-			},
-			event = "BufRead",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
@@ -868,6 +841,7 @@ require("packer").startup({
 		-- treesitter-based context viewer
 		use({
 			"lewis6991/nvim-treesitter-context",
+			-- disable = true,
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
 			config = function()
@@ -970,7 +944,7 @@ require("packer").startup({
 		-- show signature guides on type
 		use({
 			"ray-x/lsp_signature.nvim",
-			disable = true, -- replaced by noice.nvim
+			-- disable = true, -- replaced by noice.nvim
 			config = function()
 				require("plugins-config.lsp_signature").config()
 			end,
@@ -1002,7 +976,7 @@ require("packer").startup({
 		-- show lsp progress
 		use({
 			"j-hui/fidget.nvim",
-			disable = true, -- replaced with noice.nvim
+			-- disable = true, -- replaced with noice.nvim
 			config = function()
 				require("plugins-config.fidget").config()
 			end,
@@ -1093,21 +1067,6 @@ require("packer").startup({
 			requires = { "mfussenegger/nvim-dap" },
 			module = "nvim-dap-virtual-text",
 		})
-		-- async task runners
-		use({
-			"skywind3000/asyncrun.vim",
-			event = "BufRead",
-			disable = true,
-		})
-		use({
-			"skywind3000/asynctasks.vim",
-			requires = { "skywind3000/asyncrun.vim" },
-			setup = function()
-				require("plugins-config.asynctasks").config()
-			end,
-			after = "asyncrun.vim",
-			disable = true,
-		})
 		-- task runner and job management
 		-- TODO: migrate from asyncrun/asynctasks
 		use({
@@ -1144,18 +1103,6 @@ require("packer").startup({
 			end,
 			config = function()
 				require("plugins-config.neotest").config()
-			end,
-			event = "BufRead",
-		})
-		-- interactive REPL for various filetypes
-		use({
-			disable = true,
-			"hkupty/iron.nvim",
-			setup = function()
-				require("plugins-config.iron").map()
-			end,
-			config = function()
-				require("plugins-config.iron").config()
 			end,
 			event = "BufRead",
 		})
@@ -1209,6 +1156,7 @@ require("packer").startup({
 		-- Show keybindings
 		use({
 			"folke/which-key.nvim",
+			disable = true,
 			config = function()
 				require("plugins-config.which-key").config()
 			end,
@@ -1328,16 +1276,6 @@ require("packer").startup({
 			"skanehira/denops-docker.vim",
 			requires = "vim-denops/denops.vim",
 			after = "denops.vim",
-		})
-		-- devcontainer emulation
-		use({
-			disable = true, -- wait till the plugin become stable
-			"esensar/nvim-dev-container",
-			requires = { "nvim-treesitter/nvim-treesitter" },
-			config = function()
-				require("plugins-config.nvim-dev-container").config()
-			end,
-			event = "BufRead",
 		})
 		-- launch VSCode with current workspace
 		use({
