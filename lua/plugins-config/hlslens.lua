@@ -6,7 +6,20 @@ end
 
 function M.map()
 	local keymap = vim.keymap
+	local kopts = { noremap = true, silent = true }
 	local hlslens = require("hlslens")
+	keymap.set(
+		"n",
+		"n",
+		[[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+		kopts
+	)
+	keymap.set(
+		"n",
+		"N",
+		[[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+		kopts
+	)
 	keymap.set("n", "*", "", {
 		callback = function()
 			vim.fn.execute("normal! *N")
@@ -19,6 +32,8 @@ function M.map()
 			hlslens.start()
 		end,
 	})
+	keymap.set("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+	keymap.set("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 end
 
 function M.map_with_vim_asterisk()

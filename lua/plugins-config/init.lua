@@ -1192,9 +1192,10 @@ require("packer").startup({
 		-- Show matched information in search
 		use({
 			"kevinhwang91/nvim-hlslens",
-			requires = { "haya14busa/vim-asterisk" }, -- better asterisk
+			-- requires = { "haya14busa/vim-asterisk" }, -- better asterisk
 			setup = function()
-				require("plugins-config.hlslens").map_with_vim_asterisk()
+				require("plugins-config.hlslens").map()
+				-- require("plugins-config.hlslens").map_with_vim_asterisk()
 			end,
 			config = function()
 				require("plugins-config.hlslens").config()
