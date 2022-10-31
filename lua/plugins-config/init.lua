@@ -605,6 +605,9 @@ require("packer").startup({
 				Lazyload_timer("vim-visual-multi")
 				require("plugins-config.vim-visual-multi").map()
 			end,
+			config = function()
+				require("plugins-config.vim-visual-multi").config()
+			end,
 		})
 		-- abbreviation expansion, typo correction
 		use({
