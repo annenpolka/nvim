@@ -9,7 +9,7 @@ function M.config()
 		branch_separator = "_", -- string used to separate session directory name from branch name
 		autosave = true, -- automatically save session files when exiting Neovim
 		should_autosave = nil, -- function to determine if a session should be autosaved
-		autoload = false, -- automatically load the session for the cwd on Neovim startup
+		autoload = true, -- automatically load the session for the cwd on Neovim startup
 		on_autoload_no_session = nil, -- function to run when `autoload = true` but there is no session to load
 		follow_cwd = true, -- change session file name to match current working directory if it changes
 		allowed_dirs = nil, -- table of dirs that the plugin will auto-save and auto-load from
@@ -17,12 +17,22 @@ function M.config()
 		before_save = nil, -- function to run before the session is saved to disk
 		after_save = nil, -- function to run after the session is saved to disk
 		after_source = nil, -- function to run after the session is sourced
-		telescope = { -- options for the telescope extension
-			before_source = nil, -- function to run before the session is sourced via telescope
-			after_source = nil, -- function to run after the session is sourced via telescope
+		telescope = {
+			before_source = function()
+				-- Close all open buffers
+				-- Thanks to https://github.com/avently
+				vim.api.nvim_input("<C-l><ESC>:%bd!<CR>")
+			end,
+			after_source = function(session)
+				print("Loaded session " .. session.name)
+			end,
 		},
 	})
 	require("telescope").load_extension("persisted") -- To load the telescope extension
+end
+
+function M.map()
+	vim.keymap.set("n", "<leader>p", "<cmd>Telescope persisted<cr>", { silent = true, noremap = true })
 end
 
 return M
