@@ -178,17 +178,17 @@ end
 function M.map()
 	--Add leader shortcuts
 	-- vim.keymap.set(
-	-- "n",
-	-- "<leader><space>",
-	-- [[<cmd>lua require('telescope.builtin').buffers()<CR>]],
-	-- { noremap = true, silent = true }
-	-- )
-	-- vim.api.nvim_set_keymap(
 	-- 	"n",
-	-- 	"<Leader><Space>",
-	-- 	[[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
+	-- 	"<leader><space>",
+	-- 	[[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 	-- 	{ noremap = true, silent = true }
 	-- )
+	vim.keymap.set(
+		"n",
+		"<leader><leader>",
+		"<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
+		{ noremap = true, silent = true }
+	)
 	-- vim.api.nvim_set_keymap("n", "<C-e>", ":Telescope file_browser<CR>", { noremap = true })
 	-- vim.api.nvim_set_keymap(
 	-- 	"n",
@@ -259,7 +259,7 @@ function M.map()
 		{ noremap = true }
 	)
 	-- -- project.nvim
-	vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>", { silent = true, noremap = true })
+	-- vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>", { silent = true, noremap = true })
 	vim.keymap.set("n", "<F3>", "<Cmd>ProjectRoot<CR>", { silent = true, noremap = true }) -- set ProjectRoot manually
 end
 
