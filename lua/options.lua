@@ -151,9 +151,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
 })
 
 -- start insert mode automatically when TermOpen
-vim.api.nvim_create_autocmd({ "TermOpen" }, {
-	pattern = "*",
-	callback = function()
-		vim.cmd("startinsert")
-	end,
-})
+-- NOTE: this causes neogit start in instert mode
+-- vim.api.nvim_create_autocmd({ "TermOpen" }, {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.cmd("startinsert")
+-- 	end,
+-- })
