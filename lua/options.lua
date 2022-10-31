@@ -109,12 +109,12 @@ end
 
 ---------------------------------------------------------------------------
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({ timeout = 500 })
-	end,
-})
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.highlight.on_yank({ timeout = 500 })
+-- 	end,
+-- })
 
 -- quickfix autocmd
 vim.cmd([[
@@ -141,6 +141,17 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 			- "2" -- I'm not in gradeschool anymore
 	end,
 })
+-- vim.opt.formatoptions = vim.opt.formatoptions
+-- 	- "a" -- Auto formatting is BAD.
+-- 	- "t" -- Don't auto format my code. I got linters for that.
+-- 	+ "c" -- In general, I like it when comments respect textwidth
+-- 	+ "q" -- Allow formatting comments w/ gq
+-- 	- "o" -- O and o, don't continue comments
+-- 	-- + "r" -- But do continue when pressing enter.
+-- 	- "r"
+-- 	+ "n" -- Indent past the formatlistpat, not underneath it.
+-- 	+ "j" -- Auto-remove comments if possible.
+-- 	- "2"
 
 -- workaround dockerfile's filetype problem (set to `Dockerfile` by default)
 vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
