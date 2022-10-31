@@ -12,7 +12,7 @@ function M.config()
 				a = { "@parameter.outer", "@field.outer" },
 				i = { "@parameter.inner", "@field.inner" },
 			}),
-			x = spec_treesitter({ a = "@swappable", i = "@swappable" }),
+			-- x = spec_treesitter({ a = "@swappable", i = "@swappable" }),
 			c = gen_spec.function_call({ name_pattern = "[%w_]" }),
 			s = { { "%b()", "%b[]", "%b{}", "%b''", '%b""' }, "^.().*().$" },
 		},
