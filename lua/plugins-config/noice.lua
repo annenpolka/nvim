@@ -191,7 +191,7 @@ function M.config()
 		---@type NoiceFormatOptions
 		format = {}, --- @see section on formatting
 	})
-	vim.keymap.set({ "c" }, "<C-g>", "<C-u><Esc>", { noremap = true })
+	vim.keymap.set({ "c" }, "<C-g>", "<C-u><Esc>", { noremap = false })
 end
 
 function M.map()

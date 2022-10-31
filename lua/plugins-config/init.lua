@@ -43,7 +43,10 @@ require("packer").startup({
 			end,
 		})
 		-- major startuptime
-		use({ "dstein64/vim-startuptime" })
+		use({
+			"dstein64/vim-startuptime",
+			disable = true,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                    runtime, dependency                   │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -158,21 +161,6 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		-- auto split width with animation
-		use({
-			"anuvyklack/windows.nvim",
-			disable = true,
-			requires = {
-				"anuvyklack/middleclass",
-				"anuvyklack/animation.nvim",
-			},
-			setup = function()
-				require("plugins-config.windows").map()
-			end,
-			config = function()
-				require("plugins-config.windows").config()
-			end,
-		})
 		-- automatic indent detection
 		use({
 			"tpope/vim-sleuth",
@@ -255,19 +243,6 @@ require("packer").startup({
 				vim.g["readme_viewer#plugin_manager"] = "packer.nvim"
 			end,
 		})
-		-- live norm command
-		use({
-			"smjonas/live-command.nvim",
-			disable = true, -- this uses lazyredraw incorrectly
-			config = function()
-				require("live-command").setup({
-					commands = {
-						Norm = { cmd = "norm" },
-					},
-				})
-			end,
-			event = "BufRead",
-		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        Git related                       │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -312,15 +287,6 @@ require("packer").startup({
 				require("plugins-config.octo").config()
 			end,
 			event = "CmdlineEnter",
-		})
-		-- git permalink getter
-		use({
-			"ruifm/gitlinker.nvim",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("plugins-config.gitlinker").config()
-			end,
-			event = "BufRead",
 		})
 		-- gitignore generator
 		use({
@@ -846,12 +812,6 @@ require("packer").startup({
 			},
 			event = "BufRead",
 		})
-		-- code action modal
-		use({
-			"weilbith/nvim-code-action-menu",
-			disable = true,
-			cmd = "CodeActionMenu",
-		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                        treesitter                        │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -1134,6 +1094,7 @@ require("packer").startup({
 		use({
 			"skywind3000/asyncrun.vim",
 			event = "BufRead",
+			disable = true,
 		})
 		use({
 			"skywind3000/asynctasks.vim",
@@ -1142,6 +1103,7 @@ require("packer").startup({
 				require("plugins-config.asynctasks").config()
 			end,
 			after = "asyncrun.vim",
+			disable = true,
 		})
 		-- task runner and job management
 		-- TODO: migrate from asyncrun/asynctasks
@@ -1218,6 +1180,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.colorizer").config()
 			end,
+			-- TODO: test ccc.nvim
 		})
 		-- Discover available code action like VSCode
 		use({
@@ -1249,7 +1212,6 @@ require("packer").startup({
 			setup = function()
 				Lazyload_timer("which-key.nvim")
 			end,
-			disable = true,
 		})
 		-- Problem view
 		use({

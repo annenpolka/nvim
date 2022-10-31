@@ -550,6 +550,7 @@ function M.map()
 	vim.keymap.set("n", "<c-z>", "<cmd>Neotree buffers reveal left toggle<CR>", { noremap = true, silent = true })
 
 	imap("<C-g>", "<Esc>", { ft = "neo-tree-popup" }) -- <c-g> to escape in neo-tree's floating prompt
+	nmap("<C-g>", "<Esc>", { ft = "neo-tree-popup" }) -- <c-g> to escape in neo-tree's floating prompt
 end
 
 return M
