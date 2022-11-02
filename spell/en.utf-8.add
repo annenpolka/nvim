@@ -343,3 +343,6 @@ resession
 nvim
 config
 noice
+nvim
+neo
+runtime
