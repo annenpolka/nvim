@@ -547,6 +547,7 @@ function M.map()
 	vim.g.neo_tree_remove_legacy_commands = 1
 
 	vim.keymap.set("n", "<c-e>", "<cmd>Neotree filesystem left toggle<CR>", { noremap = true, silent = true })
+	vim.keymap.set("n", "R", "<cmd>Neotree filesystem current toggle<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<c-z>", "<cmd>Neotree buffers reveal left toggle<CR>", { noremap = true, silent = true })
 
 	imap("<C-g>", "<Esc>", { ft = "neo-tree-popup" }) -- <c-g> to escape in neo-tree's floating prompt
