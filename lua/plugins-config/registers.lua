@@ -33,7 +33,7 @@ function M.config()
 		},
 
 		window = {
-			max_width = 100,
+			max_width = 160,
 			highlight_cursorline = true,
 			border = "none",
 			transparency = 10,

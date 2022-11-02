@@ -92,7 +92,7 @@ require("packer").startup({
 			end,
 			event = "BufRead",
 		})
-		-- commandline/notification frontend
+		-- commandline/notification front-end
 		use({
 			"folke/noice.nvim",
 			disable = true,
@@ -365,6 +365,7 @@ require("packer").startup({
 		-- 2-panes file explorer
 		use({
 			"obaland/vfiler.vim",
+			disable = true,
 			requires = {
 				"obaland/vfiler-column-devicons",
 			},
@@ -521,12 +522,14 @@ require("packer").startup({
 		-- join lines with treesitter
 		use({
 			"AckslD/nvim-trevJ.lua",
+			requires = { "nvim-treesitter/nvim-treesitter" },
 			setup = function()
 				require("plugins-config.nvim-trevJ").map()
 			end,
 			config = function()
 				require("plugins-config.nvim-trevJ").config()
 			end,
+			after = { "nvim-treesitter" },
 		})
 		-- non-lsp formatter
 		use({
@@ -585,6 +588,7 @@ require("packer").startup({
 		-- multi cursor
 		use({
 			"mg979/vim-visual-multi",
+			requires = { "kevinhwang91/nvim-hlslens" },
 			opt = true,
 			setup = function()
 				Lazyload_timer("vim-visual-multi")
@@ -592,13 +596,6 @@ require("packer").startup({
 			end,
 			config = function()
 				require("plugins-config.vim-visual-multi").config()
-			end,
-		})
-		-- abbreviation expansion, typo correction
-		use({
-			"Pocco81/AbbrevMan.nvim",
-			config = function()
-				require("plugins-config.abbrevman").config()
 			end,
 		})
 		-- tabout

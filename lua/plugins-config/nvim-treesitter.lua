@@ -112,11 +112,6 @@ function M.config()
 		autotag = {
 			enable = true,
 		},
-		matchup = {
-			enable = false, -- mandatory, false will disable the whole extension
-			-- disable = { "c", "ruby" }, -- optional, list of language that will be disabled
-			-- [options]
-		},
 	})
 end
 
