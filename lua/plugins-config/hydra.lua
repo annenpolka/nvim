@@ -38,7 +38,7 @@ function M.git_mode()
 			end,
 		},
 		mode = { "n", "x" },
-		body = "<leader>g",
+		body = "<leader>v",
 		heads = {
 			{
 				"J",
