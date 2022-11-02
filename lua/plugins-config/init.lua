@@ -50,10 +50,10 @@ require("packer").startup({
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                    runtime, dependency                   │
 		-- ╰──────────────────────────────────────────────────────────╯
-		use({
-			"vim-denops/denops.vim",
-			event = "BufRead",
-		})
+		-- use({
+		-- 	"vim-denops/denops.vim",
+		-- 	event = "BufRead",
+		-- })
 		use({ "kyazdani42/nvim-web-devicons" })
 		use({ "nvim-lua/plenary.nvim" })
 		use({ "MunifTanjim/nui.nvim" })
@@ -216,11 +216,11 @@ require("packer").startup({
 			"jghauser/mkdir.nvim",
 		})
 		-- open file in terminal with new tab, not nested window
-		use({
-			"lambdalisue/guise.vim",
-			requires = "vim-denops/denops.vim",
-			after = "denops.vim",
-		})
+		-- use({
+		-- 	"lambdalisue/guise.vim",
+		-- 	requires = "vim-denops/denops.vim",
+		-- 	after = "denops.vim",
+		-- })
 		-- better sorting
 		use({
 			"sQVe/sort.nvim",
@@ -1267,11 +1267,11 @@ require("packer").startup({
 			ft = "sql",
 		})
 		-- docker manager
-		use({
-			"skanehira/denops-docker.vim",
-			requires = "vim-denops/denops.vim",
-			after = "denops.vim",
-		})
+		-- use({
+		-- 	"skanehira/denops-docker.vim",
+		-- 	requires = "vim-denops/denops.vim",
+		-- 	after = "denops.vim",
+		-- })
 		-- launch VSCode with current workspace
 		use({
 			"elijahmanor/export-to-vscode.nvim",
