@@ -43,10 +43,10 @@ require("packer").startup({
 			end,
 		})
 		-- major startuptime
-		use({
-			"dstein64/vim-startuptime",
-			disable = true,
-		})
+		-- use({
+		-- 	"dstein64/vim-startuptime",
+		-- 	disable = true,
+		-- })
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                    runtime, dependency                   │
 		-- ╰──────────────────────────────────────────────────────────╯
@@ -58,12 +58,13 @@ require("packer").startup({
 		use({ "nvim-lua/plenary.nvim" })
 		use({ "MunifTanjim/nui.nvim" })
 		-- fzf
-		use({
-			"junegunn/fzf",
-			run = function()
-				fn["fzf#install"]()
-			end,
-		})
+		-- use({
+		-- 	"junegunn/fzf",
+		-- 	disable = true,
+		-- 	run = function()
+		-- 		fn["fzf#install"]()
+		-- 	end,
+		-- })
 		-- mapping helper functions
 		use({ "b0o/mapx.nvim" })
 		-- submode mapping
@@ -93,22 +94,22 @@ require("packer").startup({
 			event = "BufRead",
 		})
 		-- commandline/notification front-end
-		use({
-			"folke/noice.nvim",
-			disable = true,
-			-- event = "LspAttach",
-			setup = function()
-				require("plugins-config.noice").map()
-			end,
-			config = function()
-				require("plugins-config.noice").config()
-			end,
-			requires = {
-				-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-				"MunifTanjim/nui.nvim",
-				"rcarriga/nvim-notify",
-			},
-		})
+		-- use({
+		-- 	"folke/noice.nvim",
+		-- 	disable = true,
+		-- 	-- event = "LspAttach",
+		-- 	setup = function()
+		-- 		require("plugins-config.noice").map()
+		-- 	end,
+		-- 	config = function()
+		-- 		require("plugins-config.noice").config()
+		-- 	end,
+		-- 	requires = {
+		-- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+		-- 		"MunifTanjim/nui.nvim",
+		-- 		"rcarriga/nvim-notify",
+		-- 	},
+		-- })
 		-- sudo
 		use({
 			"lambdalisue/suda.vim",
@@ -159,10 +160,10 @@ require("packer").startup({
 			-- event = "BufRead",
 		})
 		-- automatic indent detection
-		use({
-			"tpope/vim-sleuth",
-			disable = true, -- conflict with noice.nvim
-		})
+		-- use({
+		-- 	"tpope/vim-sleuth",
+		-- 	disable = true, -- conflict with noice.nvim
+		-- })
 		-- Better Escape
 		use({
 			"max397574/better-escape.nvim",
@@ -363,20 +364,20 @@ require("packer").startup({
 			requires = { "nvim-telescope/telescope.nvim", opt = 1 },
 		})
 		-- 2-panes file explorer
-		use({
-			"obaland/vfiler.vim",
-			disable = true,
-			requires = {
-				"obaland/vfiler-column-devicons",
-			},
-			setup = function()
-				require("plugins-config.vfiler").map()
-			end,
-			config = function()
-				require("plugins-config.vfiler").config()
-			end,
-			cmd = "VFiler",
-		})
+		-- use({
+		-- 	"obaland/vfiler.vim",
+		-- 	disable = true,
+		-- 	requires = {
+		-- 		"obaland/vfiler-column-devicons",
+		-- 	},
+		-- 	setup = function()
+		-- 		require("plugins-config.vfiler").map()
+		-- 	end,
+		-- 	config = function()
+		-- 		require("plugins-config.vfiler").config()
+		-- 	end,
+		-- 	cmd = "VFiler",
+		-- })
 		-- full-set file explorer
 		use({
 			"nvim-neo-tree/neo-tree.nvim",
@@ -413,36 +414,36 @@ require("packer").startup({
 			cmd = { "Findr", "FindrBuffers", "FinderLocList", "FindQFList" },
 		})
 		-- anything.el in vim
-		use({
-			"Shougo/ddu.vim",
-			disable = true,
-			setup = function()
-				require("plugins-config.ddu").map()
-			end,
-			config = function()
-				require("plugins-config.ddu").config()
-			end,
-			requires = {
-				"vim-denops/denops.vim",
-				{ "Shougo/ddu-commands.vim", after = "ddu.vim" },
-				{ "Shougo/ddu-ui-ff", after = "ddu.vim" },
-				{ "Shougo/ddu-ui-filer", after = "ddu.vim" },
-				{ "Shougo/ddu-source-file_rec", after = "ddu.vim" },
-				{ "Shougo/ddu-source-file_old", after = "ddu.vim" },
-				{ "matsui54/ddu-source-file_external", after = "ddu.vim" },
-				{ "kuuote/ddu-source-mr", requires = "lambdalisue/mr.vim", after = "ddu.vim" },
-				{ "shun/ddu-source-buffer", after = "ddu.vim" },
-				{ "shun/ddu-source-rg", after = "ddu.vim" },
-				{ "Shougo/ddu-source-action", after = "ddu.vim" },
-				{ "yuki-yano/ddu-filter-fzf", after = "ddu.vim" },
-				{ "Shougo/ddu-filter-matcher_substring", after = "ddu.vim" },
-				{ "Shougo/ddu-kind-file", after = "ddu.vim" },
-				{ "Shougo/ddu-kind-word", after = "ddu.vim" },
-				{ "Shougo/ddu-column-filename", after = "ddu.vim" },
-				{ "ryota2357/ddu-column-icon_filename", after = "ddu.vim" },
-			},
-			after = "denops.vim",
-		})
+		-- use({
+		-- 	"Shougo/ddu.vim",
+		-- 	disable = true,
+		-- 	setup = function()
+		-- 		require("plugins-config.ddu").map()
+		-- 	end,
+		-- 	config = function()
+		-- 		require("plugins-config.ddu").config()
+		-- 	end,
+		-- 	requires = {
+		-- 		"vim-denops/denops.vim",
+		-- 		{ "Shougo/ddu-commands.vim", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-ui-ff", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-ui-filer", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-source-file_rec", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-source-file_old", after = "ddu.vim" },
+		-- 		{ "matsui54/ddu-source-file_external", after = "ddu.vim" },
+		-- 		{ "kuuote/ddu-source-mr", requires = "lambdalisue/mr.vim", after = "ddu.vim" },
+		-- 		{ "shun/ddu-source-buffer", after = "ddu.vim" },
+		-- 		{ "shun/ddu-source-rg", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-source-action", after = "ddu.vim" },
+		-- 		{ "yuki-yano/ddu-filter-fzf", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-filter-matcher_substring", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-kind-file", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-kind-word", after = "ddu.vim" },
+		-- 		{ "Shougo/ddu-column-filename", after = "ddu.vim" },
+		-- 		{ "ryota2357/ddu-column-icon_filename", after = "ddu.vim" },
+		-- 	},
+		-- 	after = "denops.vim",
+		-- })
 		-- project file anchor
 		use({
 			"ThePrimeagen/harpoon",
@@ -642,28 +643,28 @@ require("packer").startup({
 				require("plugins-config.github-nvim-theme").config()
 			end,
 		})
-		use({
-			"sam4llis/nvim-tundra",
-			disable = true,
-			config = function()
-				require("plugins-config.nvim-tundra").config()
-				-- vim.cmd("colorscheme tundra")
-			end,
-		})
-		use({
-			"luisiacc/gruvbox-baby",
-			disable = true,
-			config = function()
-				require("plugins-config.gruvbox-baby").config()
-				-- vim.cmd([[colorscheme gruvbox-baby]])
-			end,
-		})
+		-- use({
+		-- 	"sam4llis/nvim-tundra",
+		-- 	disable = true,
+		-- 	config = function()
+		-- 		require("plugins-config.nvim-tundra").config()
+		-- 		-- vim.cmd("colorscheme tundra")
+		-- 	end,
+		-- })
+		-- use({
+		-- 	"luisiacc/gruvbox-baby",
+		-- 	disable = true,
+		-- 	config = function()
+		-- 		require("plugins-config.gruvbox-baby").config()
+		-- 		-- vim.cmd([[colorscheme gruvbox-baby]])
+		-- 	end,
+		-- })
 		-- catppuccin theme
-		use({
-			"catppuccin/nvim",
-			as = "catppuccin",
-			disable = true,
-		})
+		-- use({
+		-- 	"catppuccin/nvim",
+		-- 	as = "catppuccin",
+		-- 	disable = true,
+		-- })
 		-- tokyonight theme
 		use({ "folke/tokyonight.nvim" })
 		-- nightfox theme
@@ -675,44 +676,44 @@ require("packer").startup({
 			end,
 		})
 		-- Everforest theme
-		use({
-			"sainnhe/everforest",
-			disable = true,
-			config = function()
-				require("plugins-config.everforest").config()
-				-- vim.cmd([[colorscheme everforest]])
-			end,
-			-- event = "BufRead",
-		})
+		-- use({
+		-- 	"sainnhe/everforest",
+		-- 	disable = true,
+		-- 	config = function()
+		-- 		require("plugins-config.everforest").config()
+		-- 		-- vim.cmd([[colorscheme everforest]])
+		-- 	end,
+		-- 	-- event = "BufRead",
+		-- })
 		-- gruvbox theme
 		-- use({ "eddyekofo94/gruvbox-flat.nvim" })
 		-- aquarium theme
-		use({
-			"FrenzyExists/aquarium-vim",
-			disable = true,
-			config = function()
-				require("plugins-config.aquarium").config()
-				-- vim.cmd([[colorscheme aquarium]])
-			end,
-		})
+		-- use({
+		-- 	"FrenzyExists/aquarium-vim",
+		-- 	disable = true,
+		-- 	config = function()
+		-- 		require("plugins-config.aquarium").config()
+		-- 		-- vim.cmd([[colorscheme aquarium]])
+		-- 	end,
+		-- })
 		-- low-contrast themes
-		use({
-			"mcchrish/zenbones.nvim",
-			disable = true,
-			requires = "rktjmp/lush.nvim",
-			config = function()
-				require("plugins-config.zenbones").config()
-				-- vim.cmd([[colorscheme forestbones]])
-			end,
-		})
-		use({
-			"rebelot/kanagawa.nvim",
-			disable = true,
-			config = function()
-				require("plugins-config.kanagawa").config()
-				-- vim.cmd([[colorscheme kanagawa]])
-			end,
-		})
+		-- use({
+		-- 	"mcchrish/zenbones.nvim",
+		-- 	disable = true,
+		-- 	requires = "rktjmp/lush.nvim",
+		-- 	config = function()
+		-- 		require("plugins-config.zenbones").config()
+		-- 		-- vim.cmd([[colorscheme forestbones]])
+		-- 	end,
+		-- })
+		-- use({
+		-- 	"rebelot/kanagawa.nvim",
+		-- 	disable = true,
+		-- 	config = function()
+		-- 		require("plugins-config.kanagawa").config()
+		-- 		-- vim.cmd([[colorscheme kanagawa]])
+		-- 	end,
+		-- })
 		use({
 			"lewpoly/sherbet.nvim",
 			config = function()
@@ -838,7 +839,6 @@ require("packer").startup({
 		-- treesitter-based context viewer
 		use({
 			"lewis6991/nvim-treesitter-context",
-			-- disable = true,
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
 			config = function()
@@ -941,7 +941,6 @@ require("packer").startup({
 		-- show signature guides on type
 		use({
 			"ray-x/lsp_signature.nvim",
-			-- disable = true, -- replaced by noice.nvim
 			config = function()
 				require("plugins-config.lsp_signature").config()
 			end,
@@ -973,7 +972,6 @@ require("packer").startup({
 		-- show lsp progress
 		use({
 			"j-hui/fidget.nvim",
-			-- disable = true, -- replaced with noice.nvim
 			config = function()
 				require("plugins-config.fidget").config()
 			end,
@@ -1076,12 +1074,12 @@ require("packer").startup({
 			end,
 		})
 		-- block code snippet runner
-		use({
-			"michaelb/sniprun",
-			disable = true,
-			run = "bash ./install.sh",
-			event = "BufRead",
-		})
+		-- use({
+		-- 	"michaelb/sniprun",
+		-- 	disable = true,
+		-- 	run = "bash ./install.sh",
+		-- 	event = "BufRead",
+		-- })
 		-- test framework runner
 		use({
 			"rcarriga/neotest",
@@ -1151,17 +1149,17 @@ require("packer").startup({
 			module = "hlslens",
 		})
 		-- Show keybindings
-		use({
-			"folke/which-key.nvim",
-			disable = true,
-			config = function()
-				require("plugins-config.which-key").config()
-			end,
-			opt = true,
-			setup = function()
-				Lazyload_timer("which-key.nvim")
-			end,
-		})
+		-- use({
+		-- 	"folke/which-key.nvim",
+		-- 	disable = true,
+		-- 	config = function()
+		-- 		require("plugins-config.which-key").config()
+		-- 	end,
+		-- 	opt = true,
+		-- 	setup = function()
+		-- 		Lazyload_timer("which-key.nvim")
+		-- 	end,
+		-- })
 		-- Problem view
 		use({
 			"folke/trouble.nvim",
