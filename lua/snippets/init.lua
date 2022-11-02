@@ -54,10 +54,14 @@ ls.config.set_config({
 -- │                   snippet definitions                    │
 -- ╰──────────────────────────────────────────────────────────╯
 -- load snippets for each language
-for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/snippets/languages/*.lua", true)) do
-	local ft = vim.fn.fnamemodify(ft_path, ":t:r")
-	require("snippets.languages." .. ft)
-end
+-- NOTE: this has a performance problem
+-- for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/snippets/languages/*.lua", true)) do
+-- 	local ft = vim.fn.fnamemodify(ft_path, ":t:r")
+-- 	require("snippets.languages." .. ft)
+-- end
+
+require("snippets.languages.all")
+require("snippets.languages.cpp")
 
 -- load friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
