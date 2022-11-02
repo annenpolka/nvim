@@ -19,6 +19,8 @@ function M.config()
 		after_source = nil, -- function to run after the session is sourced
 		telescope = {
 			before_source = function()
+				-- save current session
+				require("persisted").save()
 				-- Close all open buffers
 				-- Thanks to https://github.com/avently
 				vim.api.nvim_input("<C-l><ESC>:%bd!<CR>")
