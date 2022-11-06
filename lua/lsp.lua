@@ -75,19 +75,19 @@ local server_list = {
 	"rust_analyzer",
 	"clangd",
 	"gopls",
-	"omnisharp",
+	-- "omnisharp",
 	"pyright",
-	"hls",
+	-- "hls",
 	"html",
 	"tsserver",
-	"volar",
+	-- "volar",
 	"emmet_ls",
-	"prosemd_lsp",
-	"dockerls",
+	-- "prosemd_lsp",
+	-- "dockerls",
 }
 local servers_installed_manually = { "hls", "omnisharp", "clangd" }
 mason_lspconfig.setup({
-	-- ensure_installed = server_list,
+	ensure_installed = server_list,
 	automatic_installation = { exclude = servers_installed_manually },
 })
 
