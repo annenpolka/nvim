@@ -345,7 +345,7 @@ require("packer").startup({
 				-- recent files
 				{
 					"nvim-telescope/telescope-frecency.nvim",
-					requires = { "kkharji/sqlite.lua" },
+					requires = { "kkharji/sqlite.lua" }, -- install libsqlite3-dev on Ubuntu
 					-- module = "telescope._extensions.frecency",
 				},
 			},
