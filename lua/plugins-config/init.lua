@@ -465,7 +465,7 @@ require("packer").startup({
 			setup = function()
 				require("plugins-config.registers").config()
 			end,
-			event = "BufRead",
+			-- event = "BufRead",
 		})
 		-- yank cycle
 		use({
