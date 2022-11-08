@@ -215,12 +215,13 @@ require("packer").startup({
 		use({
 			"jghauser/mkdir.nvim",
 		})
-		-- open file in terminal with new tab, not nested window
-		-- use({
-		-- 	"lambdalisue/guise.vim",
-		-- 	requires = "vim-denops/denops.vim",
-		-- 	after = "denops.vim",
-		-- })
+		-- open file without nesting on terminal
+		use({
+			"samjwill/nvim-unception",
+			config = function()
+				require("plugins-config.nvim-unception").config()
+			end,
+		})
 		-- better sorting
 		use({
 			"sQVe/sort.nvim",
