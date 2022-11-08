@@ -4,7 +4,7 @@ function M.config()
 	-- lua, default settings
 	require("better_escape").setup({
 		mapping = { "jk", "jj" }, -- a table with mappings to use
-		timeout = 300, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+		timeout = 200, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
 		clear_empty_lines = true, -- clear line after escaping if there is only whitespace
 		-- keys = "<Esc>", -- keys used for escaping, if it is a function will use the result every time
 		-- example(recommended)
