@@ -72,7 +72,7 @@ vim.o.completeopt = "menuone,noselect"
 -- spellsuggest  of code
 -- test: spell codeSpell CodeSpall
 vim.opt.spell = true
-vim.opt.spelllang = { "en_us", "programming" }
+vim.opt.spelllang = { "en_us", "programming", "cjk" }
 vim.opt.spelloptions = vim.opt.spelloptions + "camel"
 vim.opt.spellsuggest = { "best", 5 }
 
