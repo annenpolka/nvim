@@ -19,17 +19,50 @@ function M.config()
 	-- vim.opt.listchars:append("eol:↴")
 
 	require("indent_blankline").setup({
-		space_char_blankline = " ",
+		use_treesitter = true,
 		show_current_context = true,
 		show_current_context_start = true,
-		char_highlight_list = {
-			"IndentBlanklineIndent1",
-			"IndentBlanklineIndent2",
-			"IndentBlanklineIndent3",
-			"IndentBlanklineIndent4",
-			"IndentBlanklineIndent5",
-			"IndentBlanklineIndent6",
+		context_highlight_list = { "Blue" },
+		context_patterns = {
+			-- NOTE: indent-blankline's defaults
+			"class",
+			"^func",
+			"method",
+			"^if",
+			"while",
+			"for",
+			"with",
+			"try",
+			"except",
+			"arguments",
+			"argument_list",
+			"object",
+			"dictionary",
+			"element",
+			"table",
+			"tuple",
+
+			-- NOTE: better JavaScript/TypeScript support
+			"return_statement",
+			"statement_block",
 		},
+
+		bufname_exclude = { "" }, -- Disables the plugin in hover() popups and new files
+
+		char_highlight_list = { "VertSplit" },
+
+		-- char_highlight_list = {
+		-- 	"IndentBlanklineIndent1",
+		-- 	"IndentBlanklineIndent2",
+		-- 	"IndentBlanklineIndent3",
+		-- 	"IndentBlanklineIndent4",
+		-- 	"IndentBlanklineIndent5",
+		-- 	"IndentBlanklineIndent6",
+		-- },
+
+		-- NOTE: alternating indentation highlight
+		space_char_highlight_list = { "MsgSeparator", "Normal" },
+		-- space_char_highlight_list = { "TabLine", "Normal" },
 	})
 end
 
