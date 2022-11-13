@@ -20,6 +20,7 @@ function M.config()
 	-- })
 
 	require("scrollbar.handlers.search").setup()
+	require("scrollbar.handlers.gitsigns").setup()
 end
 
 return M
