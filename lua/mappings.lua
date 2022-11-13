@@ -13,7 +13,7 @@ vim.keymap.set("i", "<c-s>", "<esc><cmd>w<CR>", { noremap = true, silent = true 
 -- remap macro q
 vim.keymap.set("n", "<C-q>", "q", { noremap = true, silent = true })
 
--- -- fold/unfold
+-- fold/unfold
 vim.keymap.set("n", "<c-j>", "zo", { noremap = true, silent = true })
 vim.keymap.set("n", "<c-k>", "zc", { noremap = true, silent = true })
 
@@ -60,7 +60,7 @@ vim.keymap.set(
 
 -- tab manipulation
 vim.keymap.set("n", "<C-t>", ":$tabnew<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
+vim.keymap.set("n", "Q", ":tabclose<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>to", ":tabonly<CR>", { noremap = true })
 vim.keymap.set("n", "<c-i>", "<c-i>", { noremap = true }) -- to avoid overridden by <Tab> map
 vim.keymap.set("n", "<Tab>", ":tabn<CR>", { noremap = true })
