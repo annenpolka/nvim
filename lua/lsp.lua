@@ -73,7 +73,7 @@ local server_list = {
 	"sumneko_lua",
 	"vimls",
 	"rust_analyzer",
-	"clangd",
+	-- "clangd",
 	"gopls",
 	-- "omnisharp",
 	"pyright",
