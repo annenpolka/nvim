@@ -10,6 +10,9 @@ vim.keymap.set({ "c" }, "<C-g>", "<C-e><C-u><BS>", { noremap = true })
 vim.keymap.set("n", "<c-s>", "<cmd>w<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", "<c-s>", "<esc><cmd>w<CR>", { noremap = true, silent = true })
 
+-- remap macro q
+vim.keymap.set("n", "<C-q>", "q", { noremap = true, silent = true })
+
 -- -- fold/unfold
 vim.keymap.set("n", "<c-j>", "zo", { noremap = true, silent = true })
 vim.keymap.set("n", "<c-k>", "zc", { noremap = true, silent = true })

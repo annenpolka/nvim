@@ -34,7 +34,7 @@ function M.config()
 end
 
 function M.map()
-	vim.keymap.set("n", "<leader>p", "<cmd>Telescope persisted<cr>", { silent = true, noremap = true })
+	vim.keymap.set("n", "<leader>pp", "<cmd>Telescope persisted<cr>", { silent = true, noremap = true })
 end
 
 return M

@@ -260,7 +260,7 @@ function M.map()
 	)
 	-- -- project.nvim
 	-- vim.keymap.set("n", "<leader>p", "<cmd>Telescope projects<cr>", { silent = true, noremap = true })
-	vim.keymap.set("n", "<F3>", "<Cmd>ProjectRoot<CR>", { silent = true, noremap = true }) -- set ProjectRoot manually
+	vim.keymap.set("n", "<leader>wp", "<Cmd>ProjectRoot<CR>", { silent = true, noremap = true }) -- set ProjectRoot manually
 end
 
 return M
