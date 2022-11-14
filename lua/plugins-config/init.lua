@@ -746,18 +746,18 @@ require("packer").startup({
 		-- scrollbar with search info
 		use({
 			"petertriho/nvim-scrollbar",
-			disable = true,
 			config = function()
 				require("plugins-config.scrollbar").config()
 			end,
 			event = "BufRead",
 		})
-		use({
-			"lewis6991/satellite.nvim",
-			config = function()
-				require("plugins-config.satellite").config()
-			end,
-		})
+		-- use({
+		-- 	"lewis6991/satellite.nvim",
+		-- 	disable = true,
+		-- 	config = function()
+		-- 		require("plugins-config.satellite").config()
+		-- 	end,
+		-- })
 		-- Add indentation guides even on blank lines
 		use({
 			"lukas-reineke/indent-blankline.nvim",
@@ -1151,9 +1151,8 @@ require("packer").startup({
 				-- require("plugins-config.hlslens").map_with_vim_asterisk()
 			end,
 			config = function()
-				require("plugins-config.hlslens").config()
+				-- require("plugins-config.hlslens").config() --loaded by nvim-scrollbar
 			end,
-			event = "BufRead",
 			module = "hlslens",
 		})
 		-- Show keybindings

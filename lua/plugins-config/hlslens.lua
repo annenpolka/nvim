@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-	require("hlslens").setup({})
+	-- require("hlslens").setup({}) -- loaded by nvim-scrollbar
 end
 
 function M.map()
