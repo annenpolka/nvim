@@ -43,10 +43,9 @@ require("packer").startup({
 			end,
 		})
 		-- major startuptime
-		-- use({
-		-- 	"dstein64/vim-startuptime",
-		-- 	disable = true,
-		-- })
+		use({
+			"dstein64/vim-startuptime",
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                    runtime, dependency                   │
 		-- ╰──────────────────────────────────────────────────────────╯

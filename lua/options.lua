@@ -55,7 +55,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 --Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 300
 
 -- folding settings
 vim.wo.foldenable = false -- no auto folding
