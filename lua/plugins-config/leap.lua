@@ -2,7 +2,7 @@ local M = {}
 
 function M.config()
 	local leap = require("leap")
-	leap.setup({
+	leap.opts = {
 		max_aot_targets = nil,
 		highlight_unlabeled = false,
 		max_highlighted_traversal_targets = 10,
@@ -24,8 +24,7 @@ function M.config()
 			multi_accept = "<enter>",
 			multi_revert = "<backspace>",
 		},
-	})
-	-- require("leap").set_default_keymaps()
+	}
 end
 
 function M.multi_normal()
