@@ -540,14 +540,6 @@ require("packer").startup({
 			end,
 			cmd = "Neoformat",
 		})
-		-- Faster f/f
-		use({
-			"ggandor/lightspeed.nvim",
-			setup = function()
-				require("plugins-config.lightspeed").map()
-			end,
-			event = "BufRead",
-		})
 		-- easymotion next-level
 		use({
 			"ggandor/leap.nvim",
@@ -558,6 +550,28 @@ require("packer").startup({
 				require("plugins-config.leap").config()
 			end,
 			event = "BufRead",
+		})
+		-- Faster f/f
+		-- use({
+		-- 	"ggandor/lightspeed.nvim",
+		-- 	setup = function()
+		-- 		require("plugins-config.lightspeed").map()
+		-- 	end,
+		-- 	event = "BufRead",
+		-- })
+		-- cross-window remote textobject operation
+		use({
+			"ggandor/flit.nvim",
+			config = function()
+				require("plugins-config.flit").config()
+			end,
+			after = "leap.nvim",
+		})
+		use({
+			"ggandor/leap-spooky.nvim",
+			config = function()
+				require("plugins-config.leap-spooky").config()
+			end,
 		})
 		-- surrounding plugin
 		use({
@@ -771,6 +785,7 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.vim-illuminate").config()
 			end,
+			disable = true,
 			-- event = "BufRead",
 		})
 		-- small modules package
