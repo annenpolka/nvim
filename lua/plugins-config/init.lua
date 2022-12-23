@@ -559,7 +559,6 @@ require("packer").startup({
 		-- 	end,
 		-- 	event = "BufRead",
 		-- })
-		-- cross-window remote textobject operation
 		use({
 			"ggandor/flit.nvim",
 			config = function()
@@ -567,6 +566,7 @@ require("packer").startup({
 			end,
 			after = "leap.nvim",
 		})
+		-- cross-window remote textobject operation
 		use({
 			"ggandor/leap-spooky.nvim",
 			config = function()
@@ -798,7 +798,7 @@ require("packer").startup({
 				-- greeter
 				-- require("plugins-config.mini-starter").config()
 				-- animated indent guides
-				require("plugins-config.mini-indentscope").config()
+				-- require("plugins-config.mini-indentscope").config()
 				-- cursorword highlighting
 				-- require("plugins-config.mini-cursorword").config()
 				-- targets.vim like textobjects
@@ -872,6 +872,15 @@ require("packer").startup({
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			requires = { "nvim-treesitter/nvim-treesitter" },
 			after = { "nvim-treesitter" },
+		})
+		-- indent textobjects
+		use({
+			"kiyoon/treesitter-indent-object.nvim",
+			config = function()
+				require("plugins-config.treesitter-indent-object").config()
+				require("plugins-config.treesitter-indent-object").map()
+			end,
+			after = { "nvim-treesitter", "indent-blankline" },
 		})
 		-- wisely add `end` of block
 		use({
