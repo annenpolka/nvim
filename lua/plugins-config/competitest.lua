@@ -47,6 +47,7 @@ function M.config()
 				view_output = { "a", "A" },
 				view_stdout = { "o", "O" },
 				view_stderr = { "e", "E" },
+				toggle_diff = { "d", "D" },
 				close = { "q", "Q" },
 			},
 			viewer = {
@@ -103,16 +104,16 @@ function M.config()
 		multiple_testing = -1,
 		maximum_time = 5000,
 		output_compare_method = "squish",
+		view_output_diff = false,
 
 		testcases_directory = ".",
 		testcases_use_single_file = false,
 		testcases_auto_detect_storage = true,
-		input_name = "input",
-		output_name = "output",
-		testcases_files_format = "$(FNOEXT)_$(INOUT)$(TCNUM).txt",
 		testcases_single_file_format = "$(FNOEXT).testcases",
+		testcases_input_file_format = "$(FNOEXT)_input$(TCNUM).txt",
+		testcases_output_file_format = "$(FNOEXT)_output$(TCNUM).txt",
 
-		companion_port = 1327,
+		companion_port = 27121,
 		receive_print_message = true,
 	})
 end
