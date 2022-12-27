@@ -45,15 +45,21 @@ function M.config()
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
-			-- lualine_c = {
-			-- 	{
-			-- 		function()
-			-- 			local key = require("grapple").key()
-			-- 			return " [" .. key .. "]"
-			-- 		end,
-			-- 		cond = require("grapple").exists,
-			-- 	},
-			-- },
+			lualine_c = {
+				-- {
+				-- 	function()
+				-- 		local key = require("grapple").key()
+				-- 		return " [" .. key .. "]"
+				-- 	end,
+				-- 	cond = require("grapple").exists,
+				-- },
+				{
+					require("cool-substitute.status").status_with_icons,
+					color = function()
+						return { fg = require("cool-substitute.status").status_color() }
+					end,
+				},
+			},
 			lualine_x = {
 				encoding,
 				fileformat,
