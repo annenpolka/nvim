@@ -61,7 +61,7 @@ function M.config()
 		-- },
 
 		-- NOTE: alternating indentation highlight
-		space_char_highlight_list = { "MsgSeparator", "Normal" },
+		-- space_char_highlight_list = { "MsgSeparator", "Normal" },
 		-- space_char_highlight_list = { "TabLine", "Normal" },
 	})
 end
