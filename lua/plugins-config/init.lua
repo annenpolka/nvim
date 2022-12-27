@@ -462,10 +462,9 @@ require("packer").startup({
 		-- yank kill-ring
 		use({
 			"tversteeg/registers.nvim",
-			setup = function()
+			config = function()
 				require("plugins-config.registers").config()
 			end,
-			-- event = "BufRead",
 		})
 		-- yank cycle
 		use({
