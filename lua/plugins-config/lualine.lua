@@ -45,7 +45,15 @@ function M.config()
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
-			-- lualine_c = { { navic.get_location, cond = navic.is_available } },
+			-- lualine_c = {
+			-- 	{
+			-- 		function()
+			-- 			local key = require("grapple").key()
+			-- 			return " [" .. key .. "]"
+			-- 		end,
+			-- 		cond = require("grapple").exists,
+			-- 	},
+			-- },
 			lualine_x = {
 				encoding,
 				fileformat,

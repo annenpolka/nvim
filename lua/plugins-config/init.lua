@@ -447,13 +447,23 @@ require("packer").startup({
 		-- project file anchor
 		use({
 			"ThePrimeagen/harpoon",
-			opt = true,
 			setup = function()
 				require("plugins-config.harpoon").map()
 				Lazyload_timer("harpoon", 0)
 			end,
 			config = function()
 				require("plugins-config.harpoon").config()
+			end,
+		})
+		use({
+			"cbochs/grapple.nvim",
+			disable = true,
+			requires = { "nvim-lua/plenary.nvim" },
+			setup = function()
+				require("plugins-config.grapple").map()
+			end,
+			config = function()
+				require("plugins-config.grapple").config()
 			end,
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
