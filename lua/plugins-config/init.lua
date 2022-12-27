@@ -1032,7 +1032,6 @@ require("packer").startup({
 		})
 		-- Inject Format, Diagnostics, Code Actions to Lsp
 		use({ "jose-elias-alvarez/null-ls.nvim" })
-		-- use({ "PlatyPew/format-installer.nvim" })
 		-- breadcrumb
 		use({
 			"SmiteshP/nvim-navic",
@@ -1204,6 +1203,13 @@ require("packer").startup({
 			"kosayoda/nvim-lightbulb",
 			config = function()
 				require("plugins-config.lightbulb").config()
+			end,
+		})
+		-- preview code actions
+		use({
+			"aznhe21/actions-preview.nvim",
+			config = function()
+				require("plugins-config.actions-preview").config()
 			end,
 		})
 		-- Show matched information in search
