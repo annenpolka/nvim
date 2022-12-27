@@ -281,6 +281,7 @@ require("packer").startup({
 		-- Github editor
 		use({
 			"pwntester/octo.nvim",
+			disable = true,
 			config = function()
 				require("plugins-config.octo").config()
 			end,
@@ -1301,6 +1302,7 @@ require("packer").startup({
 		-- open url / search in browser,
 		use({
 			"tyru/open-browser.vim",
+			disable = true,
 			setup = function()
 				require("plugins-config.open-browser").map()
 			end,
@@ -1309,6 +1311,7 @@ require("packer").startup({
 		-- cht.sh cheetsheet
 		use({
 			"Djancyp/cheat-sheet",
+			disable = true,
 			cmd = "CheatSH",
 		})
 		-- haskell syntax highlighting
