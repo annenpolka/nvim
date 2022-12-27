@@ -87,6 +87,7 @@ function M.config()
 			},
 			current_buffer_fuzzy_find = {
 				-- order same score results by line number
+				---@diagnostic disable-next-line: unused-local
 				tiebreak = function(current_entry, existing_entry, prompt)
 					return false
 				end,

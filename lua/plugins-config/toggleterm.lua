@@ -23,11 +23,13 @@ function M.config()
 			vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
 		end,
 		-- function to run on closing the terminal
+		---@diagnostic disable-next-line: unused-local
 		on_close = function(term)
 			-- vim.cmd("Closing terminal")
 		end,
 	})
 
+	---@diagnostic disable-next-line: lowercase-global
 	function _lazygit_toggle()
 		lazygit:toggle()
 	end
