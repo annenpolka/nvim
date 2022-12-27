@@ -666,7 +666,14 @@ require("packer").startup({
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                          themes                          │
 		-- ╰──────────────────────────────────────────────────────────╯
-		-- Theme inspired by Atom
+		-- set colorscheme per filetype
+		use({
+			"folke/styler.nvim",
+			disable = true,
+			config = function()
+				require("plugins-config.styler").config()
+			end,
+		}) -- Theme inspired by Atom
 		-- use({ "joshdick/onedark.vim" })
 		-- github theme
 		use({
