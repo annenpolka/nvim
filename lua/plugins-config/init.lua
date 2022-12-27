@@ -311,7 +311,7 @@ require("packer").startup({
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = {
-				"echasnovski/mini.nvim", -- for fuzzy sorter
+				-- "echasnovski/mini.nvim", -- for fuzzy sorter
 				-- sorter
 				{
 					"nvim-telescope/telescope-fzf-native.nvim",
@@ -533,7 +533,8 @@ require("packer").startup({
 		use({
 			"Wansmer/treesj",
 			requires = {
-				-- fallback
+				"nvim-treesitter/nvim-treesitter",
+				-- split/join fallback
 				{
 					"AndrewRadev/splitjoin.vim",
 					cmd = { "SplitjoinSplit", "SplitjoinJoin" },
@@ -542,7 +543,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.treesj").config()
 			end,
-			after = { "nvim-treesitter" },
 		})
 		-- non-lsp formatter
 		use({
