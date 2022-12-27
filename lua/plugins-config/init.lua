@@ -770,6 +770,13 @@ require("packer").startup({
 				-- vim.cmd([[colorscheme sherbet]])
 			end,
 		})
+		use({
+			"nyoom-engineering/oxocarbon.nvim",
+			config = function()
+				require("plugins-config.oxocarbon").config()
+				-- vim.cmd([[colorscheme sherbet]])
+			end,
+		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                     lines and widgets                    │
 		-- ╰──────────────────────────────────────────────────────────╯
