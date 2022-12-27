@@ -519,15 +519,28 @@ require("packer").startup({
 		-- 		Lazyload_timer("splitjoin.vim")
 		-- 	end,
 		-- })
-		-- join lines with treesitter
+		-- use({
+		-- 	"AckslD/nvim-trevJ.lua",
+		-- 	requires = { "nvim-treesitter/nvim-treesitter" },
+		-- 	setup = function()
+		-- 		require("plugins-config.nvim-trevJ").map()
+		-- 	end,
+		-- 	config = function()
+		-- 		require("plugins-config.nvim-trevJ").config()
+		-- 	end,
+		-- 	after = { "nvim-treesitter" },
+		-- })
 		use({
-			"AckslD/nvim-trevJ.lua",
-			requires = { "nvim-treesitter/nvim-treesitter" },
-			setup = function()
-				require("plugins-config.nvim-trevJ").map()
-			end,
+			"Wansmer/treesj",
+			requires = {
+				-- fallback
+				{
+					"AndrewRadev/splitjoin.vim",
+					cmd = { "SplitjoinSplit", "SplitjoinJoin" },
+				},
+			},
 			config = function()
-				require("plugins-config.nvim-trevJ").config()
+				require("plugins-config.treesj").config()
 			end,
 			after = { "nvim-treesitter" },
 		})
