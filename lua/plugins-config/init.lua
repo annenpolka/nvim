@@ -600,16 +600,22 @@ require("packer").startup({
 			event = "BufRead",
 		})
 		-- multi cursor
+		-- use({
+		-- 	"mg979/vim-visual-multi",
+		-- 	requires = { "kevinhwang91/nvim-hlslens" },
+		-- 	opt = true,
+		-- 	setup = function()
+		-- 		Lazyload_timer("vim-visual-multi")
+		-- 		require("plugins-config.vim-visual-multi").map()
+		-- 	end,
+		-- 	config = function()
+		-- 		require("plugins-config.vim-visual-multi").config()
+		-- 	end,
+		-- })
 		use({
-			"mg979/vim-visual-multi",
-			requires = { "kevinhwang91/nvim-hlslens" },
-			opt = true,
-			setup = function()
-				Lazyload_timer("vim-visual-multi")
-				require("plugins-config.vim-visual-multi").map()
-			end,
+			"otavioschwanck/cool-substitute.nvim",
 			config = function()
-				require("plugins-config.vim-visual-multi").config()
+				require("plugins-config.cool-substitute").config()
 			end,
 		})
 		-- tabout
@@ -779,14 +785,14 @@ require("packer").startup({
 			event = "BufRead",
 		})
 		-- cursorword highlighting
-		use({
-			"RRethy/vim-illuminate",
-			config = function()
-				require("plugins-config.vim-illuminate").config()
-			end,
-			disable = true,
-			-- event = "BufRead",
-		})
+		-- use({
+		-- 	"RRethy/vim-illuminate",
+		-- 	config = function()
+		-- 		require("plugins-config.vim-illuminate").config()
+		-- 	end,
+		-- 	disable = true,
+		-- 	-- event = "BufRead",
+		-- })
 		-- small modules package
 		use({
 			"echasnovski/mini.nvim",
@@ -879,7 +885,7 @@ require("packer").startup({
 				require("plugins-config.treesitter-indent-object").config()
 				require("plugins-config.treesitter-indent-object").map()
 			end,
-			after = { "nvim-treesitter", "indent-blankline" },
+			after = { "nvim-treesitter" },
 		})
 		-- wisely add `end` of block
 		use({
@@ -1129,7 +1135,6 @@ require("packer").startup({
 			config = function()
 				require("plugins-config.neotest").config()
 			end,
-			event = "BufRead",
 		})
 		-- ╭──────────────────────────────────────────────────────────╮
 		-- │                           Misc                           │
