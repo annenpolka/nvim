@@ -5,10 +5,10 @@ function M.config()
 		setup_keybindings = true,
 		mappings = {
 			start = "gm", -- Mark word / region
+			start_word = "g!m", -- Mark word / region. Edit only full word
 			start_and_edit = "gM", -- Mark word / region and also edit
 			start_and_edit_word = "g!M", -- Mark word / region and also edit.  Edit only full word.
-			start_word = "g!m", -- Mark word / region. Edit only full word
-			apply_substitute_and_next = "M", -- Start substitution / Go to next substitution
+			apply_substitute_and_next = "<C-n>", -- Start substitution / Go to next substitution
 			apply_substitute_and_prev = "<C-b>", -- same as M but backwards
 			apply_substitute_all = "ga", -- Substitute all
 			force_terminate_substitute = "g!!", -- Terminate macro (if some bug happens)
