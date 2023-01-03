@@ -27,7 +27,6 @@ end
 -- ╭──────────────────────────────────────────────────────────╮
 -- │                      plugins loading                     │
 -- ╰──────────────────────────────────────────────────────────╯
--- TODO: replace packer keywords to lazy.nvim ones
 require("lazy").setup({
 	{
 		-- disable = true, -- won't work with vim-matchup
