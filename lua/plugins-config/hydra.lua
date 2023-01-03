@@ -73,7 +73,9 @@ function M.git_mode()
 				function()
 					vim.bo.modifiable = true -- set temporarily to use reset_hunk
 					gitsigns.reset_hunk()
-					vim.bo.modifiable = false
+					vim.schedule(function()
+						vim.bo.modifiable = false
+					end)
 				end,
 				{ silent = true, nowait = true },
 			},
